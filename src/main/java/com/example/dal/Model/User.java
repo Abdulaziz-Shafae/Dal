@@ -1,6 +1,7 @@
 package com.example.dal.Model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
@@ -11,6 +12,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
+import java.util.HashSet;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -43,6 +46,34 @@ public class User {
 
     @Column(name = "created_at", nullable = false, updatable = false)
     private LocalDateTime createdAt;
+
+    @OneToMany(mappedBy = "createdBy")
+    @JsonIgnore
+    private Set<Group> createdGroups = new HashSet<>();
+
+    @OneToMany(mappedBy = "user")
+    @JsonIgnore
+    private Set<GroupMember> groupMemberships = new HashSet<>();
+
+    @OneToMany(mappedBy = "user")
+    @JsonIgnore
+    private Set<GroupJoinRequest> joinRequests = new HashSet<>();
+
+    @OneToMany(mappedBy = "reviewedBy")
+    @JsonIgnore
+    private Set<GroupJoinRequest> reviewedJoinRequests = new HashSet<>();
+
+    @OneToMany(mappedBy = "user")
+    @JsonIgnore
+    private Set<UserLocation> locations = new HashSet<>();
+
+    @OneToOne(mappedBy = "user", fetch = FetchType.LAZY)
+    @JsonIgnore
+    private LocationSharingSettings locationSharingSettings;
+
+    @OneToMany(mappedBy = "createdBy")
+    @JsonIgnore
+    private Set<MeetingPoint> createdMeetingPoints = new HashSet<>();
 
     @PrePersist
     public void initializeCreatedAt() {

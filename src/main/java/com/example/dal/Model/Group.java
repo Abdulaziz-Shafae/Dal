@@ -13,6 +13,8 @@ import lombok.Setter;
 import org.hibernate.annotations.Check;
 
 import java.time.LocalDateTime;
+import java.util.HashSet;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -59,6 +61,18 @@ public class Group {
 
     @Column(name = "created_at", nullable = false, updatable = false)
     private LocalDateTime createdAt;
+
+    @OneToMany(mappedBy = "group")
+    @JsonIgnore
+    private Set<GroupMember> members = new HashSet<>();
+
+    @OneToMany(mappedBy = "group")
+    @JsonIgnore
+    private Set<GroupJoinRequest> joinRequests = new HashSet<>();
+
+    @OneToOne(mappedBy = "group", fetch = FetchType.LAZY)
+    @JsonIgnore
+    private MeetingPoint meetingPoint;
 
     @PrePersist
     public void initializeCreatedAt() {
