@@ -12,6 +12,7 @@ import lombok.Setter;
 import org.hibernate.annotations.Check;
 
 import java.time.LocalDateTime;
+import java.time.ZoneOffset;
 
 @Getter
 @Setter
@@ -46,8 +47,15 @@ public class GroupMember {
     @Column(name = "joined_at", nullable = false, updatable = false)
     private LocalDateTime joinedAt;
 
+    @NotNull(message = "Location sharing paused state is required")
+    @Column(name = "location_sharing_paused", nullable = false)
+    private Boolean locationSharingPaused = false;
+
+    @Column(name = "location_sharing_paused_until")
+    private LocalDateTime locationSharingPausedUntil;
+
     @PrePersist
     public void initializeJoinedAt() {
-        joinedAt = LocalDateTime.now();
+        joinedAt = LocalDateTime.now(ZoneOffset.UTC);
     }
 }

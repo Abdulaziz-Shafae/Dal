@@ -4,6 +4,7 @@ import com.example.dal.Model.GroupMember;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+
 import java.util.List;
 
 @Repository
@@ -18,4 +19,6 @@ public interface GroupMemberRepository extends JpaRepository<GroupMember, Intege
     List<GroupMember> findAllByGroup_Id(Integer groupId);
 
     List<GroupMember> findAllByUser_Id(Integer userId);
+
+    long countByGroup_Id(Integer groupId);
 }

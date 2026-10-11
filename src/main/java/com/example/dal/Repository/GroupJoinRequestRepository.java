@@ -4,6 +4,7 @@ import com.example.dal.Model.GroupJoinRequest;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+
 import java.util.List;
 
 @Repository
@@ -14,4 +15,8 @@ public interface GroupJoinRequestRepository extends JpaRepository<GroupJoinReque
     List<GroupJoinRequest> findAllByGroup_IdAndStatus(Integer groupId, String status);
 
     boolean existsByUser_IdAndGroup_IdAndStatus(Integer userId, Integer groupId, String status);
+
+    List<GroupJoinRequest> findAllByUser_IdOrderByRequestedAtDesc(Integer userId);
+
+    List<GroupJoinRequest> findAllByGroup_IdOrderByRequestedAtDesc(Integer groupId);
 }

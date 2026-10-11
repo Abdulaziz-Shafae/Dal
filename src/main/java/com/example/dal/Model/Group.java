@@ -13,6 +13,7 @@ import lombok.Setter;
 import org.hibernate.annotations.Check;
 
 import java.time.LocalDateTime;
+import java.time.ZoneOffset;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -35,6 +36,8 @@ public class Group {
 
     @NotBlank(message = "Join code is required")
     @Size(min = 5, max = 5, message = "Join code must be exactly 5 characters")
+    @Pattern(regexp = "[A-Z0-9]{5}", message = "Join code must contain 5 uppercase letters or numbers")
+    @Check(constraints = "CHAR_LENGTH(join_code) = 5")
     @Column(name = "join_code", nullable = false, unique = true, length = 5)
     private String joinCode;
 
@@ -76,7 +79,7 @@ public class Group {
 
     @PrePersist
     public void initializeCreatedAt() {
-        createdAt = LocalDateTime.now();
+        createdAt = LocalDateTime.now(ZoneOffset.UTC);
     }
 
 }

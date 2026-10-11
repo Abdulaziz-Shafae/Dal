@@ -10,6 +10,7 @@ import lombok.Setter;
 import org.hibernate.annotations.Check;
 
 import java.time.LocalDateTime;
+import java.time.ZoneOffset;
 
 @Getter
 @Setter
@@ -60,6 +61,6 @@ public class LocationSharingSettings {
     @PrePersist
     @PreUpdate
     public void updateModificationTime() {
-        updatedAt = LocalDateTime.now();
+        updatedAt = LocalDateTime.now(ZoneOffset.UTC);
     }
 }

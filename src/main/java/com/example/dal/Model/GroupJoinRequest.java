@@ -10,6 +10,7 @@ import lombok.Setter;
 import org.hibernate.annotations.Check;
 
 import java.time.LocalDateTime;
+import java.time.ZoneOffset;
 
 @Getter
 @Setter
@@ -54,6 +55,6 @@ public class GroupJoinRequest {
 
     @PrePersist
     public void initializeRequestedAt() {
-        requestedAt = LocalDateTime.now();
+        requestedAt = LocalDateTime.now(ZoneOffset.UTC);
     }
 }
