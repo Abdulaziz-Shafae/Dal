@@ -2,6 +2,7 @@ package com.example.dal.Controller;
 
 import com.example.dal.Api.ApiResponse;
 import com.example.dal.DtoIn.*;
+import com.example.dal.DtoOut.SessionIdentityDtoOut;
 import com.example.dal.Service.UserService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
@@ -24,10 +25,12 @@ public class UserController {
 
     @PostMapping("/login")
     public ResponseEntity<?> loginUser(@RequestBody @Valid LoginDtoIn input, HttpServletRequest request) {
-        Integer userId = userService.loginUser(input);
+        SessionIdentityDtoOut identity = userService.authenticateSessionLogin(input);
+        Integer userId = identity.getUserId();
         HttpSession session = request.getSession(true);
         request.changeSessionId();
         session.setAttribute("userId", userId);
+        session.setAttribute("credentialFingerprint", identity.getCredentialFingerprint());
         return ResponseEntity.status(200).body(userService.getUserProfile(userId));
     }
 

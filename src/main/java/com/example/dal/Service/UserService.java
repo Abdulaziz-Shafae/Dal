@@ -3,6 +3,11 @@ package com.example.dal.Service;
 import com.example.dal.Api.ApiException;
 import com.example.dal.DtoIn.*;
 import com.example.dal.DtoOut.UserDtoOut;
+import com.example.dal.DtoOut.SessionIdentityDtoOut;
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.util.HexFormat;
 import com.example.dal.Model.*;
 import com.example.dal.Repository.*;
 import lombok.RequiredArgsConstructor;
@@ -44,12 +49,35 @@ public class UserService {
 
     @Transactional(readOnly = true)
     public Integer loginUser(LoginDtoIn input) {
+        return authenticateSessionLogin(input).getUserId();
+    }
+
+    // Internal session identity; never return this object from an HTTP endpoint.
+    @Transactional(readOnly = true)
+    public SessionIdentityDtoOut authenticateSessionLogin(LoginDtoIn input) {
         validationService.validateInput(input);
         User user = userRepository.findUserByEmailIgnoreCase(normalizeEmail(input.getEmail()));
         if (user == null || !passwordEncoder.matches(input.getPassword(), user.getPassword())) {
             throw new ApiException("Invalid email or password");
         }
-        return user.getId();
+        return new SessionIdentityDtoOut(user.getId(), createCredentialFingerprint(user.getPassword()));
+    }
+
+    @Transactional(readOnly = true)
+    public boolean isSessionCredentialCurrent(Integer userId, String fingerprint) {
+        if (userId == null || fingerprint == null) {
+            return false;
+        }
+        User user = userRepository.findUserById(userId);
+        return user != null && MessageDigest.isEqual(createCredentialFingerprint(user.getPassword()).getBytes(StandardCharsets.UTF_8), fingerprint.getBytes(StandardCharsets.UTF_8));
+    }
+
+    private String createCredentialFingerprint(String encodedPassword) {
+        try {
+            return HexFormat.of().formatHex(MessageDigest.getInstance("SHA-256").digest(encodedPassword.getBytes(StandardCharsets.UTF_8)));
+        } catch (NoSuchAlgorithmException e) {
+            throw new IllegalStateException("SHA-256 is unavailable", e);
+        }
     }
 
     // The Controller invalidates HttpSession after this check; services never receive HttpSession.

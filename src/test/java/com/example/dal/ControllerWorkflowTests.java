@@ -21,6 +21,9 @@ import java.util.Arrays;
 import java.util.UUID;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
+import static org.springframework.security.test.web.servlet.setup.SecurityMockMvcConfigurers.springSecurity;
+import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.csrf;
+import com.example.dal.DtoIn.LoginDtoIn;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
@@ -36,7 +39,7 @@ class ControllerWorkflowTests {
 
     @BeforeEach
     void configureHttpRequests() {
-        mvc = MockMvcBuilders.webAppContextSetup(context).build();
+        mvc = MockMvcBuilders.webAppContextSetup(context).apply(springSecurity()).build();
     }
 
     private UserDtoOut registerTestUser() {
@@ -46,21 +49,22 @@ class ControllerWorkflowTests {
     private MockHttpSession createLoggedInSession(UserDtoOut user) {
         MockHttpSession session = new MockHttpSession();
         session.setAttribute("userId", user.getId());
+        session.setAttribute("credentialFingerprint", users.authenticateSessionLogin(new LoginDtoIn(user.getEmail(), "ValidPass1!")).getCredentialFingerprint());
         return session;
     }
 
     @Test
-    void all47RoutesAreMappedAndOnlyFourArePublic() {
+    void all48RoutesAreMappedAndOnlyFiveArePublic() {
         var endpoints = mappings.getHandlerMethods().entrySet().stream().filter(e -> e.getValue().getBeanType().getPackageName().equals("com.example.dal.Controller")).toList();
-        assertEquals(47, endpoints.size());
+        assertEquals(48, endpoints.size());
         long protectedCount = endpoints.stream().filter(e -> Arrays.stream(e.getValue().getMethod().getParameterTypes()).anyMatch(t -> t.equals(HttpSession.class))).count();
         assertEquals(43, protectedCount);
     }
 
     @Test
     void registrationReturnsSafeDtoAndDetailedPasswordError() throws Exception {
-        mvc.perform(post("/api/v1/user/register").contentType(MediaType.APPLICATION_JSON).content("{\"name\":\"HTTP user\",\"email\":\"http-register@example.com\",\"password\":\"ValidPass1!\"}")).andExpect(status().isCreated()).andExpect(jsonPath("$.id").isNumber()).andExpect(jsonPath("$.password").doesNotExist());
-        mvc.perform(post("/api/v1/user/register").contentType(MediaType.APPLICATION_JSON).content("{\"name\":\"HTTP user\",\"email\":\"http-invalid@example.com\",\"password\":\"ValidPass!\"}")).andExpect(status().isBadRequest()).andExpect(jsonPath("$.message").value("Password is missing a number"));
+        mvc.perform(post("/api/v1/user/register").with(csrf()).contentType(MediaType.APPLICATION_JSON).content("{\"name\":\"HTTP user\",\"email\":\"http-register@example.com\",\"password\":\"ValidPass1!\"}")).andExpect(status().isCreated()).andExpect(jsonPath("$.id").isNumber()).andExpect(jsonPath("$.password").doesNotExist());
+        mvc.perform(post("/api/v1/user/register").with(csrf()).contentType(MediaType.APPLICATION_JSON).content("{\"name\":\"HTTP user\",\"email\":\"http-invalid@example.com\",\"password\":\"ValidPass!\"}")).andExpect(status().isBadRequest()).andExpect(jsonPath("$.message").value("Password is missing a number"));
     }
 
     @Test
@@ -68,11 +72,11 @@ class ControllerWorkflowTests {
         UserDtoOut user = registerTestUser();
         MockHttpSession existing = new MockHttpSession();
         String oldId = existing.getId();
-        mvc.perform(post("/api/v1/user/login").session(existing).contentType(MediaType.APPLICATION_JSON).content("{\"email\":\"" + user.getEmail() + "\",\"password\":\"ValidPass1!\"}")).andExpect(status().isOk()).andExpect(jsonPath("$.password").doesNotExist());
+        mvc.perform(post("/api/v1/user/login").with(csrf()).session(existing).contentType(MediaType.APPLICATION_JSON).content("{\"email\":\"" + user.getEmail() + "\",\"password\":\"ValidPass1!\"}")).andExpect(status().isOk()).andExpect(jsonPath("$.password").doesNotExist());
         assertNotEquals(oldId, existing.getId());
         assertEquals(user.getId(), existing.getAttribute("userId"));
         mvc.perform(get("/api/v1/user/profile").session(existing)).andExpect(status().isOk()).andExpect(jsonPath("$.id").value(user.getId()));
-        mvc.perform(post("/api/v1/user/logout").session(existing)).andExpect(status().isOk());
+        mvc.perform(post("/api/v1/user/logout").with(csrf()).session(existing)).andExpect(status().isOk());
         assertTrue(existing.isInvalid());
         mvc.perform(get("/api/v1/user/profile")).andExpect(status().isBadRequest()).andExpect(jsonPath("$.message").value("Please log in first"));
     }
@@ -81,7 +85,7 @@ class ControllerWorkflowTests {
     void failedLoginDoesNotAuthenticateSession() throws Exception {
         UserDtoOut user = registerTestUser();
         MockHttpSession session = new MockHttpSession();
-        mvc.perform(post("/api/v1/user/login").session(session).contentType(MediaType.APPLICATION_JSON).content("{\"email\":\"" + user.getEmail() + "\",\"password\":\"WrongPass1!\"}")).andExpect(status().isBadRequest());
+        mvc.perform(post("/api/v1/user/login").with(csrf()).session(session).contentType(MediaType.APPLICATION_JSON).content("{\"email\":\"" + user.getEmail() + "\",\"password\":\"WrongPass1!\"}")).andExpect(status().isBadRequest());
         assertNull(session.getAttribute("userId"));
     }
 
@@ -90,16 +94,16 @@ class ControllerWorkflowTests {
         UserDtoOut owner = registerTestUser();
         UserDtoOut outsider = registerTestUser();
         MockHttpSession ownerSession = createLoggedInSession(owner);
-        mvc.perform(post("/api/v1/group/create").session(ownerSession).contentType(MediaType.APPLICATION_JSON).content("{\"name\":\"HTTP group\",\"joinMode\":\"DIRECT\",\"userId\":" + outsider.getId() + "}")).andExpect(status().isCreated()).andExpect(jsonPath("$.createdById").value(owner.getId())).andExpect(jsonPath("$.myRole").value("OWNER"));
+        mvc.perform(post("/api/v1/group/create").with(csrf()).session(ownerSession).contentType(MediaType.APPLICATION_JSON).content("{\"name\":\"HTTP group\",\"joinMode\":\"DIRECT\",\"userId\":" + outsider.getId() + "}")).andExpect(status().isCreated()).andExpect(jsonPath("$.createdById").value(owner.getId())).andExpect(jsonPath("$.myRole").value("OWNER"));
         mvc.perform(get("/api/v1/group/my").session(createLoggedInSession(outsider))).andExpect(status().isOk()).andExpect(jsonPath("$.length()").value(0));
-        mvc.perform(post("/api/v1/group/create").contentType(MediaType.APPLICATION_JSON).content("{\"name\":\"Anonymous group\",\"joinMode\":\"DIRECT\"}")).andExpect(status().isBadRequest()).andExpect(jsonPath("$.message").value("Please log in first"));
+        mvc.perform(post("/api/v1/group/create").with(csrf()).contentType(MediaType.APPLICATION_JSON).content("{\"name\":\"Anonymous group\",\"joinMode\":\"DIRECT\"}")).andExpect(status().isBadRequest()).andExpect(jsonPath("$.message").value("Please log in first"));
     }
 
     @Test
     void validationAndUnreadableBodiesReachStandardAdvice() throws Exception {
         MockHttpSession session = createLoggedInSession(registerTestUser());
-        mvc.perform(post("/api/v1/group/create").session(session).contentType(MediaType.APPLICATION_JSON).content("{\"name\":\"Group\",\"joinMode\":\"INVALID\"}")).andExpect(status().isBadRequest()).andExpect(jsonPath("$.message").value("Join mode must be DIRECT or APPROVAL"));
-        mvc.perform(post("/api/v1/group/create").session(session).contentType(MediaType.APPLICATION_JSON).content("{")).andExpect(status().isBadRequest()).andExpect(jsonPath("$.message").value("Invalid or missing JSON request body. Check the JSON syntax, field types, and date formats"));
+        mvc.perform(post("/api/v1/group/create").with(csrf()).session(session).contentType(MediaType.APPLICATION_JSON).content("{\"name\":\"Group\",\"joinMode\":\"INVALID\"}")).andExpect(status().isBadRequest()).andExpect(jsonPath("$.message").value("Join mode must be DIRECT or APPROVAL"));
+        mvc.perform(post("/api/v1/group/create").with(csrf()).session(session).contentType(MediaType.APPLICATION_JSON).content("{")).andExpect(status().isBadRequest()).andExpect(jsonPath("$.message").value("Invalid or missing JSON request body. Check the JSON syntax, field types, and date formats"));
         mvc.perform(get("/api/v1/group/not-a-number").session(session)).andExpect(status().isBadRequest()).andExpect(jsonPath("$.message").value("Invalid value for groupId"));
     }
 
@@ -107,14 +111,14 @@ class ControllerWorkflowTests {
     void paginationAndPauseBodyAreValidatedOverHttp() throws Exception {
         MockHttpSession session = createLoggedInSession(registerTestUser());
         mvc.perform(get("/api/v1/notification/my").session(session).param("size", "101")).andExpect(status().isBadRequest());
-        mvc.perform(put("/api/v1/sharing/pause").session(session).contentType(MediaType.APPLICATION_JSON).content("{}")).andExpect(status().isOk()).andExpect(jsonPath("$.isPaused").value(true));
-        mvc.perform(put("/api/v1/sharing/resume").session(session)).andExpect(status().isOk()).andExpect(jsonPath("$.isPaused").value(false));
+        mvc.perform(put("/api/v1/sharing/pause").with(csrf()).session(session).contentType(MediaType.APPLICATION_JSON).content("{}")).andExpect(status().isOk()).andExpect(jsonPath("$.isPaused").value(true));
+        mvc.perform(put("/api/v1/sharing/resume").with(csrf()).session(session)).andExpect(status().isOk()).andExpect(jsonPath("$.isPaused").value(false));
     }
 
     @Test
     void passwordResetRoutesArePublicAndNeverReturnTokens() throws Exception {
-        mvc.perform(post("/api/v1/password-reset/request").contentType(MediaType.APPLICATION_JSON).content("{\"email\":\"unknown-http@example.com\"}")).andExpect(status().isOk()).andExpect(jsonPath("$.token").doesNotExist());
+        mvc.perform(post("/api/v1/password-reset/request").with(csrf()).contentType(MediaType.APPLICATION_JSON).content("{\"email\":\"unknown-http@example.com\"}")).andExpect(status().isOk()).andExpect(jsonPath("$.token").doesNotExist());
         verifyNoInteractions(emailService);
-        mvc.perform(post("/api/v1/password-reset/confirm").contentType(MediaType.APPLICATION_JSON).content("{\"token\":\"invalid\",\"newPassword\":\"ValidPass1!\"}")).andExpect(status().isBadRequest());
+        mvc.perform(post("/api/v1/password-reset/confirm").with(csrf()).contentType(MediaType.APPLICATION_JSON).content("{\"token\":\"invalid\",\"newPassword\":\"ValidPass1!\"}")).andExpect(status().isBadRequest());
     }
 }

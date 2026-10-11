@@ -1,0 +1,6 @@
+target
+.git
+.env
+.env.*
+*.zip
+review-test-results
