@@ -1,10 +1,12 @@
 # تشغيل Dal على Railway
 
-المستودع يحتوي Dockerfile لبناء Maven على Java 17 وتشغيل ملف JAR، وإعداد server.port=${PORT:8080}. لا تحتاج كتابة Build أو Start command إضافي عند استخدام Dockerfile الافتراضي. لم يتم نشر الخدمة فعليًا ضمن هذه المهمة.
+أنشئ مشروعًا يحتوي MySQL وخدمتين من مستودع `Abdulaziz-Shafae/Dal` وفرع `main`.
 
-1. أنشئ مشروع Railway وأضف MySQL.
-2. أضف خدمة من GitHub repo Abdulaziz-Shafae/Dal، branch main، وRoot directory جذر المستودع.
-3. أضف المتغيرات التالية في Variables لخدمة الباك إند. مثال اسم خدمة قاعدة البيانات MySQL؛ بدله بالاسم الفعلي إن كان مختلفًا:
+## 1. Backend
+
+من Settings → Source اضبط Root Directory على `/backend`. استخدم Dockerfile داخل هذا المجلد، واترك Build وStart commands فارغة.
+
+أضف Variables التالية، مع تعديل اسم MySQL إن اختلف:
 
 ```env
 DB_URL=jdbc:mysql://${{MySQL.MYSQLHOST}}:${{MySQL.MYSQLPORT}}/${{MySQL.MYSQLDATABASE}}
@@ -12,17 +14,45 @@ DB_USERNAME=${{MySQL.MYSQLUSER}}
 DB_PASSWORD=${{MySQL.MYSQLPASSWORD}}
 SESSION_COOKIE_SECURE=true
 SESSION_COOKIE_SAME_SITE=lax
-FRONTEND_ORIGINS=https://your-frontend-domain.example
+FRONTEND_ORIGINS=https://YOUR-FRONTEND.up.railway.app
 ```
 
-DB_URL يجب أن يبدأ بـ jdbc:mysql://، وليس mysql://. FRONTEND_ORIGINS هو رابط الواجهة الفعلي بدون / في النهاية؛ يمكن فصل أكثر من رابط بفاصلة. لا تترك رابط المثال عند ربط الواجهة. إذا كانت الواجهة والباك إند cross-site استخدم SameSite=none مع Secure=true؛ راجع أثر third-party cookies، والأفضل وضعهما على نفس الموقع.
+انشر الخدمة وأنشئ Public Domain من Settings → Networking. يستخدم التطبيق PORT تلقائيًا؛ Target Port يجب أن يطابقه. لا تستخدم قاعدة بيانات مشروع آخر.
 
-4. انشر الخدمة. من Settings/Networking أنشئ دومينًا عامًا. إعداد PORT يستخدم قيمة Railway تلقائيًا. إن ضبطت Target Port يدويًا، اجعله يطابق PORT الذي تعمل عليه الخدمة.
-5. جرّب GET https://your-backend-domain.example/api/v1/security/csrf. الرد المتوقع JSON فيه token وheaderName. هذا مسار لتجربة الاتصال وليس healthcheck دوريًا.
-6. أثناء انتظار Brevo يمكن ترك BREVO_API_KEY وPASSWORD_RESET_URL غير محددين؛ يبدأ التطبيق لكن لا يمكن إكمال استعادة الباسوورد عبر بريد حقيقي. أضف إعدادات البريد لاحقًا بعد تفعيل الحساب وصفحة الواجهة.
+## 2. Frontend
 
-الواجهة تحتاج API base URL الخاص بالباك إند وcredentials: include، وتجلب CSRF قبل طلبات POST/PUT/DELETE. جاهزية نشر الباك إند لا تعني أن الواجهة مربوطة بالفعل. البوصلة والخريطة مؤجلتان حسب طلب المستخدم.
+أضف خدمة أخرى من المستودع نفسه، واضبط Root Directory على `/frontend`. تستخدم Dockerfile الخاص بها؛ لا تحتاج Build أو Start commands إضافية.
 
-قاعدة البيانات تستخدم ddl-auto=update حاليًا لمسار التطوير؛ لا تستخدم قاعدة بيانات مشروع آخر. الجلسات في ذاكرة نسخة السيرفر الحالية: كل redeploy يبطلها، واستخدم نسخة backend واحدة حتى تضيف shared session store.
+أضف المتغير التالي بعد نشر الباك إند:
 
-المراجع: https://docs.railway.com/builds/dockerfiles ، https://docs.railway.com/databases/mysql
+```env
+BACKEND_URL=https://YOUR-BACKEND.up.railway.app
+```
+
+اترك VITE_API_BASE_URL غير محدد. الواجهة تطلب `/api/v1` من نفس رابطها، وNode يحول الطلبات إلى الباك إند مع كوكي الجلسة وCSRF. BACKEND_URL متغير تشغيل للواجهة، دون `/api/v1` في نهايته. لا تضع مفاتيح Brevo في خدمة الواجهة.
+
+انشر الواجهة وأنشئ Public Domain ثم حدّث FRONTEND_ORIGINS في خدمة Backend إلى رابط الواجهة الحقيقي، دون `/` في النهاية. لا تضبط Domain لكوكي الجلسة؛ تستخدم الواجهة proxy من نفس الأصل، لذلك SameSite=lax مناسب لهذا المسار.
+
+## 3. Brevo لاحقًا
+
+في Backend فقط، بعد تفعيل Brevo:
+
+```env
+BREVO_API_KEY=YOUR_KEY
+BREVO_SENDER_EMAIL=dal.support.sa@gmail.com
+BREVO_SENDER_NAME=Dal
+PASSWORD_RESET_URL=https://YOUR-FRONTEND.up.railway.app/reset-password
+```
+
+يمكن تشغيل الخدمات قبل تفعيل البريد؛ استعادة الباسوورد عبر البريد تنتظر التفعيل. الخريطة والبوصلة مؤجلتان.
+
+## التحقق
+
+افتح رابط الواجهة وسجل حسابًا ثم سجل الدخول. جرّب GET `/api/v1/security/csrf` على رابط الواجهة؛ يجب أن يرجع token وheaderName من الباك إند. هذا ليس healthcheck دوريًا.
+
+الجلسات حاليًا في ذاكرة نسخة Backend واحدة؛ إعادة النشر تُبطلها. قاعدة البيانات تستخدم ddl-auto=update لمرحلة التطوير.
+
+## التشغيل المحلي
+
+Backend: داخل backend شغّل `bash mvnw spring-boot:run` مع متغيرات MySQL.
+Frontend: داخل frontend شغّل `npm ci` ثم `npm run dev`؛ Vite يحوّل /api إلى localhost:8080. يمكن تغيير API_PROXY_TARGET محليًا.
