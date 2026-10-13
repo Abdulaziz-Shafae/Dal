@@ -6,10 +6,20 @@ import org.springframework.http.MediaType;
 import org.springframework.http.client.SimpleClientHttpRequestFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestClient;
+import org.springframework.web.client.RestClientResponseException;
+import org.springframework.web.client.ResourceAccessException;
+import org.springframework.web.client.RestClientException;
+import org.springframework.web.client.UnknownContentTypeException;
+import org.springframework.http.converter.HttpMessageNotReadableException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import java.net.SocketTimeoutException;
+import java.net.http.HttpTimeoutException;
 import java.util.*;
 
 @Service
 public class WalkingRoutingService {
+    private static final Logger LOGGER = LoggerFactory.getLogger(WalkingRoutingService.class);
     private final String apiKey;
     private final RestClient client;
     private record Cached(long time, Route route) {}
@@ -51,18 +61,55 @@ public class WalkingRoutingService {
         inFlight.add(key);
         }
         Route result;
+        long started = System.nanoTime();
         try {
             Map<?,?> response = client.post().uri("/v2/directions/foot-walking/geojson").header("Authorization", apiKey)
+                .accept(MediaType.parseMediaType("application/geo+json"), MediaType.APPLICATION_JSON)
                 .contentType(MediaType.APPLICATION_JSON).body(Map.of("coordinates", List.of(List.of(longitude, latitude), List.of(targetLongitude, targetLatitude)), "instructions", false))
                 .retrieve().body(Map.class);
-            result = parse(response);
-        } catch (RuntimeException e) { result = Route.unavailable("تعذر حساب طريق المشي. تحقق من الاتصال أو أعد المحاولة لاحقًا."); }
+            try { result = parse(response); }
+            catch (RuntimeException e) { result = failure("GEOJSON_PARSING", null, started); }
+        } catch (RestClientResponseException e) {
+            int status = e.getStatusCode().value();
+            String category = switch (status) {
+                case 401, 403 -> "AUTHORIZATION";
+                case 404, 405 -> "ENDPOINT_METHOD";
+                case 429 -> "RATE_LIMIT";
+                default -> status >= 500 && status < 600 ? "PROVIDER_5XX" : "HTTP_OTHER";
+            };
+            result = failure(category, status, started);
+        } catch (ResourceAccessException e) {
+            result = failure(timedOut(e) ? "TIMEOUT" : "NETWORK", null, started);
+        } catch (RestClientException e) {
+            String category = timedOut(e) ? "TIMEOUT"
+                : (e instanceof UnknownContentTypeException || causedBy(e, HttpMessageNotReadableException.class)) ? "GEOJSON_PARSING" : "CLIENT_ERROR";
+            result = failure(category, null, started);
+        } catch (RuntimeException e) { result = failure("CLIENT_ERROR", null, started); }
         synchronized (this) {
             inFlight.remove(key);
             if (cache.size() >= 128) cache.remove(cache.keySet().iterator().next());
             cache.put(key, new Cached(System.currentTimeMillis(), result));
         }
         return result;
+    }
+    private static boolean causedBy(Throwable error, Class<? extends Throwable> type) {
+        for (int depth=0; error!=null && depth<16; depth++, error=error.getCause()) if (type.isInstance(error)) return true;
+        return false;
+    }
+    private static boolean timedOut(Throwable error) {
+        return causedBy(error, SocketTimeoutException.class) || causedBy(error, HttpTimeoutException.class);
+    }
+    private static Route failure(String category, Integer status, long started) {
+        // Deliberately omit exception messages/stack traces, headers, URLs, bodies, identities and coordinates.
+        LOGGER.warn("ORS walking failure category={} http_status={} elapsed_ms={} request_id={}",
+            category, status == null ? "unavailable" : status, (System.nanoTime()-started)/1_000_000, UUID.randomUUID());
+        String message = switch (category) {
+            case "TIMEOUT" -> "استغرق حساب طريق المشي وقتًا أطول من المتاح. حاول لاحقًا.";
+            case "NETWORK" -> "تعذر الاتصال بخدمة طريق المشي. حاول لاحقًا.";
+            case "RATE_LIMIT", "PROVIDER_5XX" -> "خدمة طريق المشي مشغولة أو غير متاحة مؤقتًا. حاول لاحقًا.";
+            default -> "تعذر حساب طريق المشي حاليًا. يمكنك استخدام الاتجاه المباشر أو المحاولة لاحقًا.";
+        };
+        return Route.unavailable(message);
     }
     static Route parse(Map<?,?> response) {
         Map<?,?> feature = (Map<?,?>)((List<?>)response.get("features")).get(0);
