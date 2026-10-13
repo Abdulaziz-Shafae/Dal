@@ -36,7 +36,7 @@ public class WalkingRoutingService {
     WalkingRoutingService(String apiKey, String baseUrl) {
         this.apiKey = apiKey;
         SimpleClientHttpRequestFactory factory = new SimpleClientHttpRequestFactory();
-        factory.setConnectTimeout(1500); factory.setReadTimeout(4500);
+        factory.setConnectTimeout(3000); factory.setReadTimeout(9000);
         client = RestClient.builder().baseUrl(baseUrl).requestFactory(factory).build();
     }
     public synchronized Optional<Route> cachedRoute(double latitude,double longitude,double targetLatitude,double targetLongitude) {

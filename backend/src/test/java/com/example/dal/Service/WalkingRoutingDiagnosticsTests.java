@@ -63,9 +63,22 @@ class WalkingRoutingDiagnosticsTests {
     }
     @Test void actualReadTimeoutIsClassifiedAndRetainsTheBoundedTimeout() throws Exception {
         var server=HttpServer.create(new InetSocketAddress("127.0.0.1",0),0);var executor=Executors.newCachedThreadPool();server.setExecutor(executor);
-        server.createContext("/",exchange->{try{Thread.sleep(7000);}catch(InterruptedException e){Thread.currentThread().interrupt();}finally{exchange.close();}});server.start();
+        server.createContext("/",exchange->{try{Thread.sleep(14000);}catch(InterruptedException e){Thread.currentThread().interrupt();}finally{exchange.close();}});server.start();
         long started=System.nanoTime();
-        try(var logs=new Logs()){logs.verify(route(base(server)),"TIMEOUT",null);assertTrue((System.nanoTime()-started)/1_000_000<6500);}
+        try(var logs=new Logs()){logs.verify(route(base(server)),"TIMEOUT",null);long elapsed=(System.nanoTime()-started)/1_000_000;assertTrue(elapsed>=8500&&elapsed<13000);}
         finally{server.stop(0);executor.shutdownNow();}
+    }
+    @Test void validGeoJsonArrivingAfterTheOldReadDeadlineNowSucceeds() throws Exception {
+        var server=HttpServer.create(new InetSocketAddress("127.0.0.1",0),0);var executor=Executors.newCachedThreadPool();server.setExecutor(executor);
+        server.createContext("/openrouteservice/v2/directions/foot-walking/geojson",exchange->{
+            try {
+                exchange.getRequestBody().readAllBytes();Thread.sleep(6000);
+                byte[] body="{\"type\":\"FeatureCollection\",\"features\":[{\"type\":\"Feature\",\"geometry\":{\"type\":\"LineString\",\"coordinates\":[[46,24],[46.001,24.001]]},\"properties\":{\"summary\":{\"distance\":150,\"duration\":120}}}]}".getBytes(StandardCharsets.UTF_8);
+                exchange.getResponseHeaders().set("Content-Type","application/geo+json");exchange.sendResponseHeaders(200,body.length);exchange.getResponseBody().write(body);
+            } catch(InterruptedException e){Thread.currentThread().interrupt();}finally{exchange.close();}
+        });server.start();
+        try(var logs=new Logs()) {
+            Route result=route(base(server));assertEquals("READY",result.status());assertEquals(2,result.coordinates().size());assertEquals(150,result.distanceMeters());assertEquals(120,result.durationSeconds());assertTrue(logs.appender.list.isEmpty());
+        } finally{server.stop(0);executor.shutdownNow();}
     }
 }

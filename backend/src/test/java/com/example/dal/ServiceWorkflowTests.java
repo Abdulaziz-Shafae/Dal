@@ -57,7 +57,10 @@ class ServiceWorkflowTests {
     }
 
     private void updateLocation(UserDtoOut user) {
-        locations.updateUserLocation(user.getId(), new LocationDtoIn(24.7136, 46.6753, 5.0, OffsetDateTime.now(ZoneOffset.UTC)));
+        var storedUser = userRepository.findUserById(user.getId());
+        entityManager.refresh(storedUser);
+        OffsetDateTime recordedAt = storedUser.getCreatedAt().plusSeconds(1).atOffset(ZoneOffset.UTC);
+        locations.updateUserLocation(user.getId(), new LocationDtoIn(24.7136, 46.6753, 5.0, recordedAt));
     }
 
     @Test
@@ -163,10 +166,16 @@ class ServiceWorkflowTests {
     @Test
     void olderLocationsCannotReplaceLatestAndDatesAreUtc() {
         UserDtoOut owner = registerUser();
-        OffsetDateTime first = OffsetDateTime.now(ZoneOffset.ofHours(3));
+        var testUser = userRepository.findUserById(owner.getId());
+        entityManager.refresh(testUser);
+        // Keep both samples after the persisted creation time, independent of DB time precision.
+        OffsetDateTime older = testUser.getCreatedAt().plusSeconds(1).atOffset(ZoneOffset.UTC)
+                .withOffsetSameInstant(ZoneOffset.ofHours(3));
+        OffsetDateTime first = older.plusSeconds(1);
         UserLocationDtoOut result = locations.updateUserLocation(owner.getId(), new LocationDtoIn(24.0, 46.0, 5.0, first));
-        UserLocationDtoOut second = locations.updateUserLocation(owner.getId(), new LocationDtoIn(25.0, 47.0, 5.0, first));
+        UserLocationDtoOut second = locations.updateUserLocation(owner.getId(), new LocationDtoIn(25.0, 47.0, 5.0, older));
         assertEquals(24.0, second.getLatitude());
+        assertEquals(result.getRecordedAt(), second.getRecordedAt());
         assertEquals(ZoneOffset.UTC, result.getRecordedAt().getOffset());
         assertThrows(ApiException.class, () -> locations.updateUserLocation(owner.getId(), new LocationDtoIn(24.0, 46.0, 5.0, first.plusDays(1))));
     }

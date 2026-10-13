@@ -12,8 +12,8 @@ class ExternalNavigationTests {
     @Test void stalledProvidersTimeOutAndReturnFallbacks() throws Exception {
         HttpServer server=HttpServer.create(new InetSocketAddress("127.0.0.1",0),0);
         var executor=java.util.concurrent.Executors.newCachedThreadPool();server.setExecutor(executor);
-        server.createContext("/",exchange->{try {Thread.sleep(7000);}catch(InterruptedException e){Thread.currentThread().interrupt();}finally{exchange.close();}});server.start();
-        try {String base="http://127.0.0.1:"+server.getAddress().getPort();long start=System.currentTimeMillis();assertEquals("UNAVAILABLE",new WalkingRoutingService("test",base).route(24,46,24.1,46.1).status());assertTrue(System.currentTimeMillis()-start<6500);start=System.currentTimeMillis();assertTrue(new AiExplanationService("test","gpt-4.1-mini",base).explain(Map.of()).isEmpty());assertTrue(System.currentTimeMillis()-start<6500);}
+        server.createContext("/",exchange->{try {Thread.sleep(14000);}catch(InterruptedException e){Thread.currentThread().interrupt();}finally{exchange.close();}});server.start();
+        try {String base="http://127.0.0.1:"+server.getAddress().getPort();long start=System.currentTimeMillis();assertEquals("UNAVAILABLE",new WalkingRoutingService("test",base).route(24,46,24.1,46.1).status());long walkingElapsed=System.currentTimeMillis()-start;assertTrue(walkingElapsed>=8500&&walkingElapsed<13000);start=System.currentTimeMillis();assertTrue(new AiExplanationService("test","gpt-4.1-mini",base).explain(Map.of()).isEmpty());assertTrue(System.currentTimeMillis()-start<6500);}
         finally {server.stop(0);executor.shutdownNow();}
     }
     @Test void walkingUsesFootProfileLongitudeFirstCachesAndNeverInventsFailureMetrics() throws Exception {
