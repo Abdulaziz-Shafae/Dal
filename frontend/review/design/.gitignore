@@ -1,0 +1,14 @@
+*
+!.gitignore
+!FINAL_DESIGN_REVIEW_AR.md
+!comparison/
+comparison/*
+!comparison/chat.jpg
+!comparison/compass.jpg
+!comparison/create.jpg
+!comparison/group.jpg
+!comparison/join.jpg
+!comparison/landing-ar.jpg
+!comparison/map-selected.jpg
+!comparison/map.jpg
+!comparison/menu.jpg

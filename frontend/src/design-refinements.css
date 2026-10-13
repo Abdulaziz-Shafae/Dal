@@ -1,0 +1,183 @@
+/* Measured against DAL.pdf: landing 41/42, menu 1, forms 53/58, QR 54-57,
+   map 2/3, compass 4-7 and chat 76. Functional controls remain available. */
+.menu-panel{border-radius:28px;padding:20px;box-shadow:0 16px 36px #001b1940}
+.menu-panel .menu-top{padding-block:0;top:-20px;margin-bottom:12px}
+.menu-panel .menu-top h2{font-size:16px}
+.menu-panel>button:not(.filled){font-size:16px;min-height:48px;padding:10px 8px}
+.menu-panel>.filled{min-height:52px;margin-top:12px;border-radius:12px}
+.menu-panel>.languages{margin-top:12px}
+.menu-panel>button>svg{width:16px;height:16px}
+.faq-item:has(button[aria-expanded=true]){border-color:#2bba95}
+.faq-item button[aria-expanded=true]>svg{transform:rotate(180deg)}
+.hero-phone{mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 820 1360'%3E%3Crect x='80' y='0' width='648' height='1336' rx='96' fill='white'/%3E%3Crect x='428' y='198' width='380' height='124' rx='50' fill='white'/%3E%3Crect x='20' y='1060' width='400' height='96' rx='45' fill='white'/%3E%3C/svg%3E");mask-size:100% 100%;mask-repeat:no-repeat}
+.map-card>img{object-position:center 83%}
+.meeting-illustration{object-fit:cover;object-position:center}
+.workspace:has(.group-form) .workspace-nav{position:absolute;top:0;inset-inline:0;width:100%;background:transparent;border:0}
+.workspace:has(.group-form) .workspace-nav .round{background:white}
+.workspace:has(.group-form) .workspace-nav .brand img{filter:brightness(0) invert(1)}
+.group-form .form-cover{height:220px;background:url('/assets/design-group-cover.png') center/cover}
+.group-form .form-sheet{margin-top:-32px;padding:20px 20px 40px}
+.group-form .segmented{margin-bottom:18px}
+.group-form .form-sheet h1{font-size:32px;line-height:1.3;margin-bottom:6px}
+.group-form .form-sheet>p{font-size:14px}
+.group-form form{margin-top:20px}
+.group-form label{font-size:14px;gap:8px;margin-bottom:16px}
+.group-form input,.group-form select{min-height:52px;padding:12px 16px;border-radius:14px}
+.group-form input[readonly]{background:white}
+.group-form input[name=name],.group-form .code-input{border-color:#1b9151}
+.group-form .filled{min-height:56px;margin-top:16px;border-radius:14px}
+.group-form:has(.code-input) .filled{background:white;color:#004432;border-color:#004432}
+.group-form .consent{font-size:13px;margin:18px 0}
+.group-form-options{margin:4px 0 16px;border:1px solid #cde7dd;border-radius:14px;padding:10px 14px;font-size:14px}
+.group-form-options summary{cursor:pointer;min-height:24px;font-weight:500}
+.group-form-options label{margin:12px 0 0}
+.group-detail>.eyebrow{padding:5px 12px;background:#e3f4ee;border-radius:24px;font-size:12px}
+.group-detail .qr-card{position:relative;padding:20px;border-radius:28px;isolation:isolate}
+.group-detail .qr-card:before{content:'';position:absolute;inset:0;border-radius:inherit;background:radial-gradient(ellipse at -20% 100%,#0a5945 0 40%,transparent 40%);z-index:-1}
+.group-detail .qr-card-heading{margin-bottom:8px;flex-direction:row}
+.group-detail .qr-card-heading img{width:40px;height:40px;filter:brightness(0) saturate(100%) invert(56%) sepia(84%) saturate(412%) hue-rotate(111deg) brightness(91%)}
+.group-detail .qr-card-heading span{color:#b6d7ca;font-weight:400;font-size:12px}
+.group-detail .qr-card>img{width:196px;padding:12px;border-radius:20px}
+.group-detail .qr-card p{font-size:14px;font-weight:500;line-height:1.6}
+.group-detail .share-code{display:flex;align-items:center;gap:12px;padding:12px 16px;border-radius:16px}
+.group-detail .share-code>.code{margin:0;flex:1;min-width:0;text-align:start;font-size:24px;letter-spacing:3px}
+.group-detail .share-code>.pair{flex:0 1 auto;gap:6px}
+.group-detail .share-code .pair button{min-width:80px;min-height:44px;font-size:12px;padding:8px 10px;gap:6px;white-space:nowrap;overflow-wrap:normal;background:#e3f4ee;border:0}
+.dal-navigation{padding:16px;background:#f2faf7}
+.dal-navigation .page-heading{margin-bottom:10px;align-items:center}
+.dal-navigation .page-heading h1{font-size:18px}
+.dal-navigation .page-heading>span{font-size:12px;color:#3f6e60;white-space:nowrap}
+.dal-navigation .nav-connection{font-size:12px;line-height:1.6;padding:8px 12px;margin:8px 0;border:1px solid #dcece5;border-radius:12px}
+.nav-gps-controls{padding:0;border:1px solid #cde7dd;border-radius:14px;margin:10px 0;background:#fff}
+.nav-gps-controls summary{cursor:pointer;padding:10px 12px;font-size:13px;font-weight:500;min-height:44px}
+.nav-gps-controls[open]{padding:0 12px 10px}
+.nav-gps-controls[open] summary{margin-inline:-12px}
+.nav-gps-controls>.filled{width:100%;min-height:48px;font-size:14px}
+.nav-gps-controls>.field-help{font-size:12px;margin-top:8px}
+.nav-gps-controls>.text-link{padding:6px 0;font-size:13px}
+.dal-navigation .segmented{margin:12px 0;padding:4px;border-radius:30px}
+.dal-navigation .segmented button{font-size:14px;min-height:44px;padding:9px 4px}
+.dal-navigation .nav-map-toolbar{gap:8px;margin:8px 0}
+.dal-navigation .nav-map-toolbar button{font-size:12px;min-height:44px;padding:9px 12px;background:#fff;border-radius:12px}
+.dal-navigation--map.has-location-consent{display:flex;flex-direction:column;position:relative}
+.dal-navigation--map.has-location-consent>.page-heading{position:absolute;inset-inline:24px;top:24px;z-index:4;background:white;border:1px solid #dcece5;border-radius:18px;padding:12px;margin:0;box-shadow:0 8px 20px #00443218}
+.dal-navigation--map.has-location-consent>.dal-live-map{order:0;position:relative}
+.dal-navigation--map.has-location-consent .nav-map-toolbar{position:absolute;top:78px;inset-inline-end:auto;inset-inline-start:12px;z-index:3;display:flex;flex-direction:column}
+.dal-navigation--map.has-location-consent .leaflet-top.leaflet-left{top:78px}
+.dal-navigation--map.has-location-consent>.nav-target{order:1}
+.dal-navigation--map.has-location-consent>.member-picker{order:2}
+.dal-navigation--map.has-location-consent>.nav-connection{order:3}
+.dal-navigation--map.has-location-consent>.nav-gps-controls{order:4}
+.dal-navigation--map.has-location-consent>.segmented{order:5}
+.dal-map-canvas{border-radius:20px}
+.dal-map-canvas .leaflet-tooltip{min-width:36px;max-width:none;white-space:nowrap;padding:5px 10px;border-radius:20px;color:#004432;border:1px solid #2bba95;font-size:14px;font-weight:700;box-shadow:0 3px 8px #00443215}
+.dal-navigation .member-picker{margin-top:12px;padding:16px;border-radius:24px 24px 16px 16px}
+.dal-navigation .member-picker h2{font-size:20px;margin-bottom:12px}
+.dal-navigation .member-row{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.dal-navigation .member-row button{padding:10px 6px;gap:5px;border-radius:16px;font-size:13px;align-self:stretch}
+.dal-navigation .member-row .avatar{width:40px;height:40px;font-size:20px}
+.dal-navigation .member-row b{font-size:13px;line-height:1.4}
+.dal-navigation .member-row small{font-size:10px;line-height:1.7}
+.dal-navigation .member-picker>.outline{width:100%;margin-top:12px;font-size:13px;min-height:44px}
+.nav-target{padding:12px 16px;border-radius:16px;border:1px solid #cde7dd;margin-top:10px}
+.nav-target>b{font-size:16px}.nav-target p{font-size:12px;color:#3f6e60}
+.nav-target>.filled{min-height:44px;font-size:14px;margin-top:8px}
+.nav-meeting-form{border:1px solid #cde7dd;border-radius:20px;padding:16px}
+.nav-meeting-form>p{font-size:14px;margin-bottom:14px}
+.nav-meeting-form label{font-size:14px}
+.nav-meeting-form .pair button{min-height:48px;font-size:13px;padding:10px}
+.dal-navigation--compass{background:#004432;color:white;position:relative;isolation:isolate}
+.dal-navigation--compass.has-location-consent{display:flex;flex-direction:column}
+.dal-navigation--compass.has-location-consent>.page-heading{display:none}
+.dal-navigation--compass.has-location-consent>.segmented{order:0;margin-top:0}
+.dal-navigation--compass.has-location-consent>.dal-live-compass{order:1}
+.dal-navigation--compass.has-location-consent>.nav-connection{order:2}
+.dal-navigation--compass.has-location-consent>.nav-gps-controls{order:3}
+.dal-navigation--compass.has-location-consent>.member-picker{order:4}
+.dal-live-compass.has-heading .compass-permission{display:none}
+.dal-navigation--compass:before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 105% 18%,#075b46 0 13%,transparent 13%),radial-gradient(ellipse at -15% 64%,#075b46 0 11%,transparent 11%);z-index:-1;pointer-events:none}
+.workspace:has(.dal-navigation--compass),.workspace:has(.dal-navigation--compass) .workspace-nav{background:#004432;color:white;border-color:#ffffff20}
+.workspace:has(.dal-navigation--compass) .workspace-nav .brand img{filter:brightness(0) invert(1)}
+.workspace:has(.dal-navigation--compass) .workspace-nav .round{background:#ffffff15;color:white}
+.workspace:has(.dal-navigation--compass) .bottom-nav{background:#004432f5;border-color:#ffffff25}
+.workspace:has(.dal-navigation--compass) .bottom-nav button{color:#c2dfd3}
+.dal-navigation--compass .page-heading>span{color:#b6d7ca}
+.dal-navigation--compass .nav-connection.connected{background:#ffffff0c;color:#b6d7ca;border-color:#ffffff25}
+.dal-navigation--compass .nav-gps-controls{background:#ffffff0c;color:#e3f4ee;border-color:#ffffff35}
+.dal-navigation--compass .nav-gps-controls .field-help,.dal-navigation--compass .text-link{color:#b6d7ca}
+.dal-navigation--compass .segmented{background:#ffffff18}
+.dal-navigation--compass .segmented button{color:#b6d7ca}
+.dal-navigation--compass .segmented button.active{background:white;color:#004432}
+.dal-live-compass{padding:0 0 8px;display:flex;flex-direction:column;align-items:center}
+.dal-live-compass>p:first-child{font-size:13px;color:#b6d7ca}
+.dal-live-compass h2{font-size:26px;line-height:1.4;margin:6px 0 0}
+.dal-live-compass .compass-permission{font-size:12px;min-height:40px;padding:8px 14px;color:#e3f4ee;border-color:#ffffff50;border-radius:12px}
+.dal-live-compass .compass-sensor-status{font-size:12px;color:#b6d7ca;max-width:340px;margin-top:8px}
+.dal-compass-dial{width:min(300px,100%);border:2px solid #80c9b366;background:#0b5945;position:relative;margin:24px auto;color:#a5cabc}
+.dal-compass-dial:before{content:'';position:absolute;width:56%;aspect-ratio:1;border-radius:50%;background:#004432}
+.dal-compass-graduations{position:absolute;inset:0;width:100%;height:100%;stroke:#b6d7ca;stroke-width:1.5;opacity:.65}
+.dal-cardinals{inset:30px;font-size:14px}
+.dal-cardinals .north{color:#2bba95;font-weight:700}
+.dal-direction-arrow{position:relative;width:112px;height:150px;font-size:inherit;line-height:normal;color:white;display:grid;place-items:center}
+.dal-direction-arrow>svg{width:100%;height:100%}
+.dal-no-direction{position:relative;color:#b6d7ca}
+.dal-live-compass .distance-placeholder{font-size:64px;font-weight:700;line-height:1.1;margin:2px 0 16px;color:white}
+.dal-live-compass .distance-placeholder small{font-size:42px;font-weight:500}
+.dal-live-compass>p:not(:first-child){font-size:13px;color:#b6d7ca}
+.dal-live-compass .field-help{order:2;margin-top:12px;max-width:340px;font-size:12px!important}
+.dal-live-compass>.pair{order:1;width:100%;margin-top:12px}
+.dal-live-compass>.pair .outline{color:white;border-color:#9ccab766;border-radius:14px}
+.dal-live-compass>.pair button{font-size:14px;min-height:52px;padding:12px}
+.dal-navigation--compass .member-picker{color:#004432;background:#f2faf7}
+.chat-heading .avatar{background:#004432;color:white}
+.chat-page .messages{background:#f2faf7}
+.chat-page .message{border-radius:22px 22px 6px 22px;padding:10px 16px;max-width:85%;font-size:15px}
+.chat-page .message.mine{border-radius:22px 22px 22px 6px}
+.chat-page .message small{font-size:11px}
+.chat-page .quick-replies{gap:8px;padding:12px 14px 8px}
+.chat-page .quick-replies button{min-height:36px;font-size:12px;padding:8px 12px;background:#fff}
+.chat-page .chat-input{padding:0 14px 12px;gap:10px}
+.chat-page .chat-input input{min-height:48px;border-radius:24px}
+.chat-page .chat-input button{width:48px;height:48px}
+.chat-page .arrived-button{min-height:44px}
+@media(max-width:760px){
+ .landing-hero{background-image:url('/assets/design-hero-mobile.png');background-position:center;background-size:cover;min-height:724px;border-radius:0}
+ .site-nav{top:50px;border-radius:24px}
+ .hero-copy h1{font-size:44px;letter-spacing:-.6px}
+ .tools-section{padding-bottom:40px}
+ .tool-card:not(.map-card){min-height:108px;padding:20px;border-radius:24px}
+ .map-card{min-height:238px;border-radius:24px}
+ .map-card>img{height:152px;object-position:center 83%}
+ .map-card>div{padding:16px 20px}
+ .map-card .card-icon{top:17px}
+ .map-card h3{margin-bottom:4px}
+ .map-card p{font-size:12px;line-height:1.6}
+ .compass-section{min-height:580px;padding:42px 0}
+ .compass-illustration{width:275px;height:275px}
+ .meeting-illustration{height:260px;object-position:center;border-radius:24px}
+ .meeting-section{padding:48px 0 32px}
+ .cta-section{height:430px}
+ .faq-item>button{min-height:56px;padding:16px 20px}
+ .faq-item{border-radius:16px}
+ .group-form .form-sheet h1{font-size:32px}
+ .workspace:has(.group-detail) .workspace-nav{background:#f2faf7;border:0}
+ .group-detail{padding-top:16px}
+ .group-detail>.eyebrow{display:none}
+ .group-detail>p{font-size:14px;line-height:1.4}
+ .group-detail .qr-card{margin:10px auto 16px;min-height:310px}
+ .group-detail .share-code{max-width:350px;padding:10px 12px}
+ .group-detail h1{font-size:30px;line-height:1.2;margin-bottom:0}
+ .dal-navigation{padding:12px}
+ .dal-map-canvas{height:clamp(300px,calc(100svh - 390px),440px)}
+ .dal-navigation .member-row{grid-template-columns:repeat(3,minmax(0,1fr))}
+ .dal-navigation .distance-placeholder{font-size:64px}
+ .dal-navigation--compass .segmented{max-width:330px;margin-inline:auto}
+ .chat-page .messages{padding:20px 16px}
+}
+@media(max-width:370px){
+ .dal-navigation .member-row{gap:5px}
+ .dal-compass-dial{width:280px}
+ .group-detail .share-code>.code{font-size:21px}
+ .group-detail .share-code .pair button{padding:8px}
+}
+@media(prefers-reduced-motion:reduce){.faq-item button>svg{transition:none}}
