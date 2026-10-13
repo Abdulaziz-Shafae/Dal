@@ -20,3 +20,15 @@ test('messages preserve the intended recipient and the retry identity', async ()
 test('a static hosting HTML response is not mistaken for authenticated data', async () => {
  globalThis.fetch = async () => new Response('<html>'); const { api } = await loadAdapter(); await assert.rejects(api.profile(), /رابط الباك إند/);
 });
+
+test('session expiry returned as 400 by the backend requests a new login', async () => {
+ globalThis.fetch = async () => new Response(JSON.stringify({ message: 'Your session has expired. Please log in again' }), { status: 400 });
+ const { api } = await loadAdapter(); await assert.rejects(api.profile(), error => error.status === 401 && /الجلسة/.test(error.message));
+});
+
+test('CORS rejection and CSRF network failure have useful messages', async () => {
+ globalThis.fetch = async () => new Response('Invalid CORS request', { status: 403 });
+ const { api } = await loadAdapter(); await assert.rejects(api.profile(), /غير مسموح/);
+ globalThis.fetch = async () => { throw new TypeError('Failed to fetch'); };
+ await assert.rejects(api.login({}), error => error.status === 0 && /تعذر الاتصال/.test(error.message));
+});

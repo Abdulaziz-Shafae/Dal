@@ -1,0 +1,52 @@
+[
+  {
+    "method": "GET",
+    "path": "/security/csrf",
+    "status": 200
+  },
+  {
+    "method": "POST",
+    "path": "/user/register",
+    "status": 201
+  },
+  {
+    "method": "POST",
+    "path": "/user/login",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "path": "/security/csrf",
+    "status": 200
+  },
+  {
+    "method": "POST",
+    "path": "/group/join",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "path": "/group-member/group/2",
+    "status": 200
+  },
+  {
+    "method": "POST",
+    "path": "/message/group/2/to/2",
+    "status": 200
+  },
+  {
+    "method": "POST",
+    "path": "/notification/group/2/nudge/2",
+    "status": 200
+  },
+  {
+    "method": "POST",
+    "path": "/reunion/group/2/arrived/2",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "path": "/message/group/2/with/2?page=0&size=20",
+    "status": 200
+  }
+]

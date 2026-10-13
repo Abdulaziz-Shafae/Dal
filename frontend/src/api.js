@@ -4,14 +4,16 @@ let csrfPending = null;
 export class ApiError extends Error { constructor(message, status) { super(message); this.status = status; } }
 async function parseResponse(response) {
   const text = await response.text();
-  let result; try { result = text ? JSON.parse(text) : null; } catch { throw new ApiError('تعذر الاتصال بالخدمة. تحقق من إعداد رابط الباك إند.', response.status); }
-  if (!response.ok) throw new ApiError(result?.message || 'تعذر إكمال الطلب', response.status);
+  let result; try { result = text ? JSON.parse(text) : null; } catch { throw new ApiError(response.status === 403 && text.trim() === 'Invalid CORS request' ? 'عنوان الواجهة غير مسموح له بالاتصال بالخدمة. يرجى مراجعة إعدادات الاتصال.' : 'تعذر الاتصال بالخدمة. تحقق من إعداد رابط الباك إند.', response.status); }
+  if (!response.ok && ['Please log in first', 'Your session has expired. Please log in again'].includes(result?.message)) { csrf = null; throw new ApiError('انتهت الجلسة. سجّل دخولك من جديد.', 401); }
+  const translatedErrors = { 'Invalid email or password': 'الإيميل أو الباسوورد غير صحيح.', 'Email is already registered': 'هذا الإيميل مسجل بالفعل. جرّب تسجيل الدخول.', 'Invalid group join code': 'كود المجموعة غير صحيح. تحقق منه وحاول مجددًا.', 'This join code is no longer valid': 'كود المجموعة لم يعد صالحًا. اطلب الكود الجديد من المالك.', 'You are already a member of this group': 'أنت عضو في هذه المجموعة بالفعل.', 'You already have a pending request for this group': 'طلب انضمامك لهذه المجموعة بانتظار الموافقة.', 'Invalid or expired password reset link': 'رابط تغيير الباسوورد غير صالح أو انتهت صلاحيته. اطلب رابطًا جديدًا.', 'Password reset page URL is not configured': 'خدمة استعادة الباسوورد غير مهيأة حاليًا. حاول لاحقًا.' };
+  if (!response.ok) throw new ApiError(translatedErrors[result?.message] || result?.message || 'تعذر إكمال الطلب', response.status);
   return result;
 }
 export async function getCsrfToken(force = false) {
   if (force) csrf = null;
   if (csrf) return csrf;
-  if (!csrfPending) csrfPending = fetch(`${base}/api/v1/security/csrf`, { credentials: 'include', cache: 'no-store' }).then(parseResponse).then(value => { csrf = value; return value; }).finally(() => { csrfPending = null; });
+  if (!csrfPending) csrfPending = fetch(`${base}/api/v1/security/csrf`, { credentials: 'include', cache: 'no-store' }).then(parseResponse).then(value => { csrf = value; return value; }).catch(error => { if (error instanceof ApiError) throw error; throw new ApiError('تعذر الاتصال. تحقق من اتصال الإنترنت وحاول مجددًا.', 0); }).finally(() => { csrfPending = null; });
   return csrfPending;
 }
 export async function requestApi(path, method = 'GET', body) {
