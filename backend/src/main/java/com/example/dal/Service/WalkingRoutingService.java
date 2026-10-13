@@ -21,7 +21,7 @@ public class WalkingRoutingService {
 
     @org.springframework.beans.factory.annotation.Autowired
     public WalkingRoutingService(@Value("${OPENROUTESERVICE_API_KEY:}") String apiKey) {
-        this(apiKey, "https://api.openrouteservice.org");
+        this(apiKey, "https://api.heigit.org/openrouteservice");
     }
     WalkingRoutingService(String apiKey, String baseUrl) {
         this.apiKey = apiKey;
