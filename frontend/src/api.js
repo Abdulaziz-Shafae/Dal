@@ -2,6 +2,13 @@ const base = (import.meta.env.VITE_API_BASE_URL || '').replace(/\/$/, '');
 let csrf = null;
 let csrfPending = null;
 export class ApiError extends Error { constructor(message, status) { super(message); this.status = status; } }
+async function fetchParsed(url, options) {
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), 15000);
+  try { return await parseResponse(await fetch(url, { ...options, signal: controller.signal })); }
+  catch (error) { if (error instanceof ApiError) throw error; throw new ApiError('تعذر الاتصال. تحقق من اتصال الإنترنت وحاول مجددًا.', 0); }
+  finally { clearTimeout(timeout); }
+}
 async function parseResponse(response) {
   const text = await response.text();
   let result; try { result = text ? JSON.parse(text) : null; } catch { throw new ApiError(response.status === 403 && text.trim() === 'Invalid CORS request' ? 'عنوان الواجهة غير مسموح له بالاتصال بالخدمة. يرجى مراجعة إعدادات الاتصال.' : 'تعذر الاتصال بالخدمة. تحقق من إعداد رابط الباك إند.', response.status); }
@@ -13,18 +20,15 @@ async function parseResponse(response) {
 export async function getCsrfToken(force = false) {
   if (force) csrf = null;
   if (csrf) return csrf;
-  if (!csrfPending) csrfPending = fetch(`${base}/api/v1/security/csrf`, { credentials: 'include', cache: 'no-store' }).then(parseResponse).then(value => { csrf = value; return value; }).catch(error => { if (error instanceof ApiError) throw error; throw new ApiError('تعذر الاتصال. تحقق من اتصال الإنترنت وحاول مجددًا.', 0); }).finally(() => { csrfPending = null; });
+  if (!csrfPending) csrfPending = fetchParsed(`${base}/api/v1/security/csrf`, { credentials: 'include', cache: 'no-store' }).then(value => { csrf = value; return value; }).finally(() => { csrfPending = null; });
   return csrfPending;
 }
 export async function requestApi(path, method = 'GET', body) {
   const headers = { Accept: 'application/json' };
   if (body !== undefined) headers['Content-Type'] = 'application/json';
   if (!['GET', 'HEAD'].includes(method)) { const token = await getCsrfToken(); headers[token.headerName] = token.token; }
-  let response;
-  try { response = await fetch(`${base}/api/v1${path}`, { method, headers, credentials: 'include', cache: 'no-store', ...(body === undefined ? {} : { body: JSON.stringify(body) }) }); }
-  catch { throw new ApiError('تعذر الاتصال. تحقق من اتصال الإنترنت وحاول مجددًا.', 0); }
   let result;
-  try { result = await parseResponse(response); } catch (error) { if (error.status === 403 && /CSRF/.test(error.message)) csrf = null; throw error; }
+  try { result = await fetchParsed(`${base}/api/v1${path}`, { method, headers, credentials: 'include', cache: 'no-store', ...(body === undefined ? {} : { body: JSON.stringify(body) }) }); } catch (error) { if (error.status === 403 && /CSRF/.test(error.message)) csrf = null; throw error; }
   if (['/user/login', '/user/logout', '/password-reset/confirm'].includes(path)) csrf = null;
   return result;
 }

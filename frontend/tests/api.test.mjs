@@ -4,6 +4,18 @@ import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 const source = (await readFile(new URL('../src/api.js', import.meta.url), 'utf8')).replace('import.meta.env.VITE_API_BASE_URL', "''");
 const loadAdapter = () => import('data:text/javascript;base64,' + Buffer.from(source + '\n// ' + Math.random()).toString('base64'));
+test('stalled requests abort and surface a connection error instead of blocking navigation', async () => {
+ const realTimer = globalThis.setTimeout, realClear = globalThis.clearTimeout;
+ let signal;
+ try {
+  globalThis.setTimeout = callback => { queueMicrotask(callback); return 123; };
+  globalThis.clearTimeout = () => {};
+  globalThis.fetch = async (url, options) => { signal = options.signal; return new Promise((resolve, reject) => signal.addEventListener('abort', () => reject(new Error('timeout')), { once: true })); };
+  const { api } = await loadAdapter();
+  await assert.rejects(api.locations(1), error => error.status === 0 && /الاتصال/.test(error.message));
+  assert.equal(signal.aborted, true);
+ } finally { globalThis.setTimeout = realTimer; globalThis.clearTimeout = realClear; }
+});
 test('login and mutation include session credentials and the server-provided CSRF header', async () => {
  const calls = []; globalThis.fetch = async (url, options) => { calls.push({ url, options }); return new Response(JSON.stringify(url.endsWith('/csrf') ? { token: 'token-1', headerName: 'X-CSRF-TOKEN' } : { id: 7, name: 'Test' }), { status: 200 }); };
  const { api } = await loadAdapter(); await api.login({ email: 'test@example.com', password: 'Valid123!' }); await api.pauseAll();

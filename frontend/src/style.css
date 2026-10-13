@@ -106,3 +106,27 @@ input,select,textarea{scroll-margin-block:100px}
  .chat-page:has(.chat-input input:focus) .chat-input{padding-bottom:6px}
  .chat-page:has(.chat-input input:focus) .arrived-button{margin-bottom:6px;min-height:44px}
 }
+.dal-navigation{padding:20px;overflow:hidden;background:#e3f4ee;max-width:100%;isolation:isolate}
+.dal-navigation .page-heading h1{font-size:24px;margin:0}
+.nav-connection{padding:12px 16px;border-radius:14px;background:#fff;color:#004432;margin:12px 0;font-size:14px;overflow-wrap:anywhere}
+.nav-connection.offline,.nav-connection.error{background:#fff4d9;color:#574013}
+.nav-gps-controls{padding:12px 0}.nav-gps-controls button{max-width:100%;white-space:normal}
+.nav-map-toolbar{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
+.dal-map-canvas{height:440px;width:100%;border-radius:20px;z-index:0;direction:ltr;font-family:inherit}
+.dal-map-canvas .leaflet-control-attribution{font-size:11px;background:#fff;color:#004432}
+.dal-map-canvas .leaflet-control-attribution a{color:#004432;text-decoration:underline}
+.dal-map-canvas .leaflet-tooltip,.dal-map-canvas .leaflet-popup-content{font-family:inherit;direction:rtl;max-width:210px;overflow-wrap:anywhere;white-space:normal}
+.dal-map-canvas .leaflet-tooltip{min-width:90px;max-width:160px;text-align:center}
+.dal-map-canvas .leaflet-control-zoom a{color:#004432;min-height:36px}
+.nav-offline-list,.nav-target,.nav-meeting-form{background:#fff;border-radius:20px;padding:16px;margin-top:14px}
+.dal-live-compass{text-align:center;padding:20px 0}.dal-live-compass h2{margin-top:0}
+.dal-compass-dial{width:min(280px,100%);aspect-ratio:1;border:14px solid #004432;border-radius:50%;margin:24px auto;background:#fff;position:relative;display:grid;place-items:center;color:#004432}
+.dal-cardinals{position:absolute;inset:10px}.dal-cardinals span{position:absolute;font-weight:bold}.dal-cardinals .north{top:0;left:50%;translate:-50% 0}.dal-cardinals .south{bottom:0;left:50%;translate:-50% 0}.dal-cardinals .east{right:0;top:50%;translate:0 -50%}.dal-cardinals .west{left:0;top:50%;translate:0 -50%}
+.dal-direction-arrow{font-size:100px;line-height:1;color:#1b9151;transform-origin:center}.dal-no-direction{font-size:60px}
+.dal-navigation .member-picker{position:static;margin-top:16px;padding:16px;background:#fff;border-radius:20px}
+.dal-navigation .member-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr));gap:10px}
+.dal-navigation .member-row button{min-width:0;white-space:normal;overflow-wrap:anywhere;display:flex;flex-direction:column;align-items:center;padding:12px;gap:6px;border:1px solid #e3f4ee;border-radius:14px}
+.dal-navigation .member-row button[aria-pressed=true]{border-color:#1b9151;background:#e3f4ee}
+.dal-navigation .member-row small{display:block;color:#004432}.dal-navigation .segmented{display:flex;flex-wrap:wrap;gap:4px;margin:12px 0}
+.dal-navigation .segmented button{flex:1;min-width:80px;padding:10px 4px}
+@media(max-width:760px){.dal-navigation{padding:12px}.dal-map-canvas{height:380px}.dal-navigation .pair{flex-wrap:wrap}.nav-meeting-form .pair>label{min-width:0;flex:1 1 110px}.dal-navigation .distance-placeholder{font-size:42px}.dal-navigation .page-heading h1{font-size:21px}}
