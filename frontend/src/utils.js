@@ -15,7 +15,7 @@ export function mergeConversationPage(previous, rows, append = false, retainHist
 }
 
 export function notificationText(content) {
-  return ({ 'Where are you?': 'وينك؟', 'I am on my way': 'أنا في الطريق', 'I have arrived': 'وصلت!', 'You have a new message': 'وصلتك رسالة جديدة' })[content] || content;
+  return ({ 'Where are you?': 'وينك؟', 'I am on my way': 'أنا في الطريق', 'I have arrived': 'وصلت!', 'You have a new message': 'وصلتك رسالة جديدة', 'You have a new group message': 'وصلتك رسالة جديدة في المجموعة' })[content] || content;
 }
 
 export function datetimeLocalValue(value) {

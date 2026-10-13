@@ -20,6 +20,12 @@ public class NotificationService {
     private final GroupAccessService accessService;
     private final InputValidationService validationService;
 
+    @Transactional(readOnly = true)
+    public long unreadCount(Integer userId) {
+        accessService.requireUser(userId);
+        return notificationRepository.countByReceiver_IdAndReadAtIsNull(userId);
+    }
+
     @Transactional
     public NotificationDtoOut nudgeGroupMember(Integer userId, Integer groupId, Integer receiverId, NudgeDtoIn input) {
         validationService.validateInput(input);

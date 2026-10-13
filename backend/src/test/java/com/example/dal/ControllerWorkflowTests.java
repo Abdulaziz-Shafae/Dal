@@ -8,7 +8,6 @@ import jakarta.servlet.http.HttpSession;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
 import org.springframework.mock.web.MockHttpSession;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
@@ -27,12 +26,13 @@ import com.example.dal.DtoIn.LoginDtoIn;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
-@SpringBootTest
+@IsolatedDalContext
 @Transactional
 class ControllerWorkflowTests {
 
     @Autowired WebApplicationContext context;
     @Autowired UserService users;
+    @Autowired com.example.dal.Service.GroupService groups;
     @Autowired RequestMappingHandlerMapping mappings;
     @MockitoBean BrevoEmailService emailService;
     private MockMvc mvc;
@@ -54,11 +54,33 @@ class ControllerWorkflowTests {
     }
 
     @Test
-    void all48RoutesAreMappedAndOnlyFiveArePublic() {
+    void allRoutesAreMappedAndOnlyFiveArePublic() {
         var endpoints = mappings.getHandlerMethods().entrySet().stream().filter(e -> e.getValue().getBeanType().getPackageName().equals("com.example.dal.Controller")).toList();
-        assertEquals(48, endpoints.size());
+        assertEquals(56, endpoints.size());
         long protectedCount = endpoints.stream().filter(e -> Arrays.stream(e.getValue().getMethod().getParameterTypes()).anyMatch(t -> t.equals(HttpSession.class))).count();
-        assertEquals(43, protectedCount);
+        assertEquals(51, protectedCount);
+    }
+
+    @Test
+    void newEndpointsRequireSessionAndCsrf() throws Exception {
+        mvc.perform(get("/api/v1/notification/unread-count")).andExpect(status().isBadRequest());
+        mvc.perform(get("/api/v1/group-message/group/1")).andExpect(status().isBadRequest());
+        mvc.perform(post("/api/v1/navigation/group/1/walking").contentType(MediaType.APPLICATION_JSON).content("{\"memberId\":2,\"meetingPoint\":false}")).andExpect(status().isForbidden());
+        mvc.perform(post("/api/v1/navigation/group/1/reunion-assistance").with(csrf()).contentType(MediaType.APPLICATION_JSON).content("{\"memberId\":2,\"meetingPoint\":false}")).andExpect(status().isBadRequest());
+        mvc.perform(post("/api/v1/navigation/group/1/meeting-suggestions").with(csrf()).contentType(MediaType.APPLICATION_JSON).content("{\"candidates\":[]}")).andExpect(status().isBadRequest());
+        mvc.perform(post("/api/v1/group-message/group/1").contentType(MediaType.APPLICATION_JSON).content("{}")).andExpect(status().isForbidden());
+    }
+
+    @Test
+    void groupConversationHttpWorkflowReachesThreeSessionsWithSenderNameAndRejectsOutsiders() throws Exception {
+        UserDtoOut sender=registerTestUser(),second=registerTestUser(),third=registerTestUser(),outsider=registerTestUser();
+        var group=groups.createGroup(sender.getId(),new com.example.dal.DtoIn.GroupDtoIn("HTTP group","DIRECT"));
+        groups.joinGroup(second.getId(),new com.example.dal.DtoIn.JoinGroupDtoIn(group.getJoinCode()));groups.joinGroup(third.getId(),new com.example.dal.DtoIn.JoinGroupDtoIn(group.getJoinCode()));
+        String path="/api/v1/group-message/group/"+group.getId();
+        mvc.perform(post(path).with(csrf()).session(createLoggedInSession(sender)).contentType(MediaType.APPLICATION_JSON).content("{\"content\":\"Group HTTP hello\",\"clientMessageId\":\"http-group-test\"}")).andExpect(status().isOk()).andExpect(jsonPath("$.senderName").value(sender.getName()));
+        for(UserDtoOut user:java.util.List.of(sender,second,third)) mvc.perform(get(path).session(createLoggedInSession(user))).andExpect(status().isOk()).andExpect(jsonPath("$.content[0].content").value("Group HTTP hello")).andExpect(jsonPath("$.content[0].senderName").value(sender.getName()));
+        mvc.perform(get(path).session(createLoggedInSession(outsider))).andExpect(status().isBadRequest());
+        mvc.perform(get("/api/v1/notification/unread-count").session(createLoggedInSession(second))).andExpect(status().isOk()).andExpect(jsonPath("$.count").value(1));
     }
 
     @Test

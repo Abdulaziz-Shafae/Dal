@@ -1,9 +1,8 @@
 package com.example.dal;
 
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest
+@IsolatedDalContext
 class DalApplicationTests {
 
 	@Test

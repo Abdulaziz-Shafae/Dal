@@ -33,6 +33,14 @@ export async function requestApi(path, method = 'GET', body) {
   return result;
 }
 export const api = {
+  walkingRoute: (id, input) => requestApi(`/navigation/group/${id}/walking`, 'POST', input),
+  reunionAssistance: (id, input) => requestApi(`/navigation/group/${id}/reunion-assistance`, 'POST', input),
+  meetingSuggestions: (id, input) => requestApi(`/navigation/group/${id}/meeting-suggestions`, 'POST', input),
+  unreadNotifications: () => requestApi('/notification/unread-count'),
+  groupConversation: (id, page = 0) => requestApi(`/group-message/group/${id}?page=${page}&size=20`),
+  sendGroupMessage: (id, input) => requestApi(`/group-message/group/${id}`, 'POST', input),
+  readGroupMessages: (id, message) => requestApi(`/group-message/group/${id}/read/${message}`, 'PUT'),
+  groupUnread: id => requestApi(`/group-message/group/${id}/unread-count`),
   register: input => requestApi('/user/register', 'POST', input), login: input => requestApi('/user/login', 'POST', input), logout: () => requestApi('/user/logout', 'POST'), profile: () => requestApi('/user/profile'), updateProfile: input => requestApi('/user/profile', 'PUT', input),
   resetRequest: email => requestApi('/password-reset/request', 'POST', { email }), resetConfirm: input => requestApi('/password-reset/confirm', 'POST', input),
   groups: () => requestApi('/group/my'), group: id => requestApi(`/group/${id}`), createGroup: input => requestApi('/group/create', 'POST', input), updateGroup: (id, input) => requestApi(`/group/${id}`, 'PUT', input), join: joinCode => requestApi('/group/join', 'POST', { joinCode }), pauseGroup: id => requestApi(`/group/${id}/pause`, 'PUT', {}), resumeGroup: id => requestApi(`/group/${id}/resume`, 'PUT'), closeGroup: id => requestApi(`/group/${id}/close`, 'PUT'), regenerateCode: id => requestApi(`/group/${id}/join-code`, 'PUT'), transferOwner: (id, member) => requestApi(`/group/${id}/owner/${member}`, 'PUT'),

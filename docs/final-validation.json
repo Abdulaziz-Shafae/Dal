@@ -1,0 +1,186 @@
+{
+  "date": "2026-10-13",
+  "baseline": "d593f02139eaf959075aa21abf9ed68e3f095625",
+  "frontendTests": {
+    "fail": 0,
+    "pass": 35
+  },
+  "backendTests": {
+    "fail": 0,
+    "pass": 46,
+    "errors": 0,
+    "skipped": 0
+  },
+  "frontendBuild": {
+    "modules": 1689,
+    "successful": true
+  },
+  "backendBuild": {
+    "successful": true,
+    "sha256": "57F52EEF58051178F0384829834F156C034C63D53A86DD06CEAFA96DA97CD610",
+    "jar": "backend/target/Dal-0.0.1-SNAPSHOT.jar"
+  },
+  "featureBrowser": {
+    "synthetic": true,
+    "checks": [
+      "Login defaults to groups",
+      "Restored session defaults to groups",
+      "Badges 0,1,3,99+",
+      "Explicit notification read decrements count",
+      "Member marker computes walking polyline and actual summary",
+      "Stop removes route and start resumes",
+      "Compass and map reuse activation without new prompt",
+      "Destination change clears old route and computes new member",
+      "Meeting marker computes route",
+      "Significant user movement recalculates with throttling",
+      "Routing outage shows labelled direct fallback without invented distance/time",
+      "Old member warning and honest AI fallback",
+      "Sharing revocation removes target route",
+      "Explicit candidate comparison and manager approval only",
+      "Group chat composer remains above navigation at five widths",
+      "Group send includes sender name; private conversation remains",
+      "Signed-in home returns to groups",
+      "Logout returns to guest landing",
+      "Invite and password reset links retain their destination"
+    ],
+    "viewports": [
+      {
+        "width": 360,
+        "overflow": false
+      },
+      {
+        "width": 390,
+        "overflow": false
+      },
+      {
+        "width": 430,
+        "overflow": false
+      },
+      {
+        "width": 768,
+        "overflow": false
+      },
+      {
+        "width": 1440,
+        "overflow": false
+      }
+    ],
+    "errors": [],
+    "realPhones": "Not Tested"
+  },
+  "navigationBrowser": {
+    "syntheticData": true,
+    "viewports": [
+      {
+        "width": 360,
+        "view": "الخريطة",
+        "documentWidth": 360
+      },
+      {
+        "width": 360,
+        "view": "البوصلة",
+        "documentWidth": 360
+      },
+      {
+        "width": 360,
+        "view": "نقطة اللقاء",
+        "documentWidth": 360
+      },
+      {
+        "width": 390,
+        "view": "الخريطة",
+        "documentWidth": 390
+      },
+      {
+        "width": 390,
+        "view": "البوصلة",
+        "documentWidth": 390
+      },
+      {
+        "width": 390,
+        "view": "نقطة اللقاء",
+        "documentWidth": 390
+      },
+      {
+        "width": 430,
+        "view": "الخريطة",
+        "documentWidth": 430
+      },
+      {
+        "width": 430,
+        "view": "البوصلة",
+        "documentWidth": 430
+      },
+      {
+        "width": 430,
+        "view": "نقطة اللقاء",
+        "documentWidth": 430
+      },
+      {
+        "width": 768,
+        "view": "الخريطة",
+        "documentWidth": 768
+      },
+      {
+        "width": 768,
+        "view": "البوصلة",
+        "documentWidth": 768
+      },
+      {
+        "width": 768,
+        "view": "نقطة اللقاء",
+        "documentWidth": 768
+      },
+      {
+        "width": 1440,
+        "view": "الخريطة",
+        "documentWidth": 1440
+      },
+      {
+        "width": 1440,
+        "view": "البوصلة",
+        "documentWidth": 1440
+      },
+      {
+        "width": 1440,
+        "view": "نقطة اللقاء",
+        "documentWidth": 1440
+      }
+    ],
+    "checks": [
+      "No GPS publishing before explicit consent",
+      "Geolocation and CSRF upload",
+      "Map click and meeting save",
+      "Absolute orientation arrow",
+      "Actual request failure triggers offline cache",
+      "Reconnect refresh",
+      "Sharing revocation removes target and arrow",
+      "Session expiry returns to authentication"
+    ],
+    "errors": [],
+    "realPhones": "Not Tested"
+  },
+  "externalApiLive": "Not Tested",
+  "realPhones": "Not Tested",
+  "database": "45 isolated H2/local-server tests plus 1 integration test on isolated Oracle MySQL 8.4.11",
+  "productionDataModified": false,
+  "railwayAccessed": false,
+  "pushed": false,
+  "deployed": false,
+  "mysqlMigration": {
+    "version": "8.4.11",
+    "productionAccessed": false,
+    "manualThenUpdate": "PASS",
+    "updateOnly": "PASS",
+    "restartPreservesData": "PASS",
+    "validate": "PASS",
+    "jpaArabicAndMemberReads": "PASS",
+    "uniqueAndForeignKeys": "PASS",
+    "schemaDuplicates": 0,
+    "ephemeralInstanceCleaned": true
+  },
+  "autoDeployDisabledConfirmedByOwner": true,
+  "snapshot": "Final checks before approved commit and push; pushed=false describes this snapshot",
+  "reviewedFiles": 56,
+  "secretScan": "No API keys, real user data or unnecessary temporary files found in reviewed upload set"
+}

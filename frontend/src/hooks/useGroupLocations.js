@@ -9,13 +9,15 @@ export default function useGroupLocations({ user, group, active, sharing, groupS
   const [consent, setConsent] = useState(null), [visible, setVisible] = useState(!document.hidden);
   const [data, setData] = useState({ scope: '', rows: [], meeting: null, state: 'loading', permissions: null, checkedAt: 0 });
   const [now, setNow] = useState(Date.now()), [uploadError, setUploadError] = useState('');
+  const [attempt, setAttempt] = useState(0);
   const current = useRef({});
   const publisher = useRef(null);
   if (!publisher.current) publisher.current = createLocationPublisher(api.saveLocation);
   const scoped = data.scope === scope ? data : { rows: [], meeting: null, state: 'loading', permissions: null, checkedAt: 0 };
   const enabled = Boolean(active && visible && consent === scope && globalSharingAllowed(sharing, now) && groupSharing?.sharingEnabled === true && scoped.permissions?.global && scoped.permissions?.group && now - scoped.checkedAt < 30000);
   current.current = { scope, enabled, onSessionExpired, onSnapshot };
-  const gps = useGeolocation(enabled);
+  const gps = useGeolocation(enabled, attempt);
+  useEffect(() => { if (gps.status === 'denied') setConsent(null); }, [gps.status]);
   useEffect(() => {
     const timer = setInterval(() => setNow(Date.now()), 1000);
     const change = () => setVisible(!document.hidden);
@@ -80,7 +82,7 @@ export default function useGroupLocations({ user, group, active, sharing, groupS
   const freshCache = now - scoped.checkedAt < CACHE_TTL;
   const rows = freshCache ? scoped.rows.filter(row => locationAge(row, now) < CACHE_TTL) : [];
   return { rows, meeting: freshCache ? scoped.meeting : null, state: scoped.state, now, gps, uploadError, enabled, consent: consent === scope,
-    start: () => setConsent(scope), stop: () => { setConsent(null); setData(old => ({ ...old, rows: old.rows.filter(row => row.userId !== user?.id) })); },
+    start: () => { setConsent(scope); setAttempt(value => value + 1); }, stop: () => { setConsent(null); setData(old => ({ ...old, rows: old.rows.filter(row => row.userId !== user?.id) })); },
     setMeeting: meeting => setData(old => ({ ...old, meeting })),
     clear: () => { setConsent(null); setData(old => ({ ...old, rows: [], meeting: null, permissions: null })); }
   };

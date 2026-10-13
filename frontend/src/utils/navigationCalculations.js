@@ -33,7 +33,8 @@ export function locationAge(point, now = Date.now()) {
   const time = Date.parse(point?.recordedAt || point?.updatedAt);
   return Number.isFinite(time) ? Math.max(0, now - time) : Infinity;
 }
-export function locationLabel(point) {
+export function locationLabel(point, now = Date.now()) {
   const time = point?.recordedAt || point?.updatedAt;
-  return time ? `آخر تحديث: ${new Date(time).toLocaleTimeString('ar-SA')}` : 'وقت التحديث غير متاح';
+  const age = locationAge(point, now);
+  return time && Number.isFinite(age) ? age < 60000 ? 'آخر تحديث قبل أقل من دقيقة' : `آخر تحديث قبل ${Math.floor(age / 60000)} ${Math.floor(age / 60000) === 1 ? 'دقيقة' : 'دقائق'}` : 'وقت التحديث غير متاح';
 }

@@ -4,3 +4,7 @@
 **/.env
 **/.env.*
 !**/.env.example
+
+# Local screenshots and measurements from final feature QA
+frontend/review/final-features/
+frontend/review/navigation/screenshots/

@@ -46,7 +46,7 @@ try {
   await page.getByRole('button', { name: 'الخريطة', exact: true }).first().click();
   await page.getByText('متصل بالخدمة', { exact: false }).waitFor();
   assert.equal(saves, 0); report.checks.push('No GPS publishing before explicit consent');
-  await page.getByRole('button', { name: /أوافق على تحديد موقعي/ }).click();
+  await page.getByRole('button', { name: /تفعيل الملاحة/ }).click();
   await page.waitForFunction(() => document.querySelector('.nav-gps-controls')?.textContent.includes('إيقاف GPS'));
   await page.waitForTimeout(600); assert.ok(saves >= 1); report.checks.push('Geolocation and CSRF upload');
   await mkdir('review/navigation/screenshots', { recursive: true });
@@ -67,7 +67,7 @@ try {
   await page.locator('.nav-meeting-form').getByRole('button', { name: 'حفظ نقطة اللقاء', exact: true }).click();
   await page.getByText('تم حفظ نقطة اللقاء', { exact: true }).waitFor(); assert.equal(meeting.name, 'لقاء اختبار محفوظ'); report.checks.push('Map click and meeting save');
   await page.locator('.dal-navigation .segmented').getByRole('button', { name: 'البوصلة', exact: true }).click();
-  await page.getByRole('button', { name: /السماح بحساس/ }).click();
+  await page.getByRole('button', { name: /إعادة تفعيل حساس/ }).click();
   await page.evaluate(() => { const event = new Event('deviceorientationabsolute'); Object.defineProperties(event, { absolute: { value: true }, alpha: { value: 90 } }); window.dispatchEvent(event); });
   assert.ok(await page.locator('.dal-direction-arrow').count()); report.checks.push('Absolute orientation arrow');
   offline = true; await page.evaluate(() => window.dispatchEvent(new Event('online')));

@@ -11,6 +11,7 @@ import java.util.List;
 
 @Repository
 public interface NotificationRepository extends JpaRepository<Notification, Integer> {
+    long countByReceiver_IdAndReadAtIsNull(Integer receiverId);
 
     Notification findNotificationById(Integer id);
 

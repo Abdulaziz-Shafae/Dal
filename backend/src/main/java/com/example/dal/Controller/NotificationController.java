@@ -16,6 +16,11 @@ public class NotificationController {
 
     private final NotificationService notificationService;
 
+    @GetMapping("/unread-count")
+    public ResponseEntity<?> unreadCount(HttpSession session) {
+        return ResponseEntity.ok(java.util.Map.of("count", notificationService.unreadCount((Integer) session.getAttribute("userId"))));
+    }
+
     @PostMapping("/group/{groupId}/nudge/{receiverId}")
     public ResponseEntity<?> nudgeGroupMember(@PathVariable Integer groupId, @PathVariable Integer receiverId, @RequestBody @Valid NudgeDtoIn input, HttpSession session) {
         return ResponseEntity.status(200).body(notificationService.nudgeGroupMember((Integer) session.getAttribute("userId"), groupId, receiverId, input));
