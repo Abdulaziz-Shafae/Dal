@@ -1935,6 +1935,30 @@ export const messages = {
   "تم اختيار {0}. المسافة المباشرة الحالية نحو {1} م، وليست مسافة طريق مشي.": {
     "en": "Selected {0}. The current straight-line distance is approximately {1} m, not a walking-route distance.",
     "fr": "{0} a été sélectionné. La distance actuelle à vol d’oiseau est d’environ {1} m ; ce n’est pas la distance d’un itinéraire piéton."
+  },
+  "وجّهني إلى نقطة الالتقاء": {
+    "en": "Guide me to the meeting point",
+    "fr": "Guidez-moi vers le point de rendez-vous"
+  },
+  "لم تحدد المجموعة نقطة لقاء بعد.": {
+    "en": "The group has not selected a meeting point yet.",
+    "fr": "Le groupe n’a pas encore choisi de point de rendez-vous."
+  },
+  "إحداثيات نقطة اللقاء غير صالحة. لم تتغير وجهتك.": {
+    "en": "The meeting point coordinates are invalid. Your destination has not changed.",
+    "fr": "Les coordonnées du point de rendez-vous sont invalides. Votre destination reste inchangée."
+  },
+  "فعّل موقعك من نافذة الصلاحيات لتوجيه البوصلة إلى نقطة اللقاء. لم تتغير وجهتك.": {
+    "en": "Enable your location in the permissions dialog to use Compass guidance to the meeting point. Your destination has not changed.",
+    "fr": "Activez votre localisation dans la fenêtre des autorisations pour être guidé par la boussole vers le point de rendez-vous. Votre destination reste inchangée."
+  },
+  "نقطة اللقاء لم تعد متاحة. اختر وجهة أخرى.": {
+    "en": "The meeting point is no longer available. Choose another destination.",
+    "fr": "Le point de rendez-vous n’est plus disponible. Choisissez une autre destination."
+  },
+  "نقطة لقاء ثابتة": {
+    "en": "Fixed meeting point",
+    "fr": "Point de rendez-vous fixe"
   }
 };
 

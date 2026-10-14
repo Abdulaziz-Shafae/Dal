@@ -107,3 +107,51 @@ test('revoked target location removes confirmation without exposing inaccessible
   assert.equal(selected.userId, 3); assert.equal(compass().findAllByProps({ className: 'nearest-member-feedback' }).length, 0);
   assert.equal(compass().findAllByProps({ className: 'dal-direction-arrow' }).length, 0);
 });
+test('meeting guidance selects a fixed destination without a member timestamp and updates existing bearing/distance', async () => {
+  mount(); const manual = tree.root.findAllByType('button').find(node => node.props['aria-pressed'] === true);
+  act(() => manual.props.onClick()); act(() => nearestButton().props.onClick());
+  update({ navigation: { ...props.navigation, meeting: { name: 'Fixed gate', latitude: 0, longitude: .001 } } });
+  act(() => button('Guide me to the meeting point').props.onClick());
+  assert.equal(text(compass().findByType('h2')), 'Fixed gate');
+  assert.equal(compass().findByProps({ className: 'dal-direction-arrow' }).props.style.transform, 'rotate(90deg)');
+  assert.match(text(compass().findByProps({ className: 'distance-placeholder' })), /111/);
+  assert.equal(compass().findAllByProps({ className: 'nearest-member-feedback' }).length, 0);
+  assert.match(text(compass()), /Fixed meeting point/); assert.ok(!text(compass()).includes('may have moved'));
+  await act(async () => new Promise(done => setTimeout(done, 950)));
+  assert.deepEqual(apiCalls, []); assert.equal(nativeCalls, 0);
+  update({ navigation: { ...props.navigation, now: Date.now(), gps: { status: 'ready', point: { ...point, recordedAt: new Date(Date.now() - 31000).toISOString() } } } });
+  assert.match(text(compass()), /fresh GPS/); assert.equal(text(compass().findByType('h2')), 'Fixed gate');
+});
+test('absent and invalid meeting points show guidance and preserve the existing destination', () => {
+  mount();
+  for (const [meeting, message] of [[null, /has not selected/], [{ name: 'Invalid gate', latitude: 91, longitude: 0 }, /coordinates are invalid/]]) {
+    update({ navigation: { ...props.navigation, meeting } }); act(() => button('Guide me to the meeting point').props.onClick());
+    assert.equal(text(compass().findByType('h2')), 'Far member'); assert.equal(selected.userId, 2); assert.match(text(compass()), message);
+  }
+});
+test('meeting guidance with inactive GPS opens the existing permission flow without changing selection or activating features', () => {
+  mount(); update({ navigation: { ...props.navigation, consent: false, enabled: false, gps: { status: 'idle', point: null } } });
+  act(() => button('Guide me to the meeting point').props.onClick());
+  assert.equal(tree.root.findAllByProps({ role: 'dialog' }).length, 1); assert.match(text(compass()), /Enable your location/);
+  assert.equal(selectedCalls, 0); assert.equal(nativeCalls, 0); assert.equal(selected.userId, 2);
+});
+test('removed or invalidated selected meeting point clears the destination instead of restoring a previous member', () => {
+  for (const meeting of [null, { name: 'Invalid', latitude: null, longitude: 0 }]) {
+    if (tree) act(() => tree.unmount()); mount(); act(() => button('Guide me to the meeting point').props.onClick());
+    update({ navigation: { ...props.navigation, meeting } });
+    assert.equal(selected, null); assert.equal(compass().findAllByProps({ className: 'dal-direction-arrow' }).length, 0);
+    assert.match(text(compass()), /no longer available/);
+  }
+});
+test('meeting guidance keeps sensor fallback and approximate GPS warnings and permits manual or nearest selection afterward', () => {
+  mount(); update({ sensor: { ...props.sensor, heading: null, status: 'unavailable', enabled: false }, navigation: { ...props.navigation, gps: { ...props.navigation.gps, point: { ...props.navigation.gps.point, accuracy: 80 } }, meeting: { name: 'Fixed gate', latitude: 0, longitude: .001 } } });
+  act(() => button('Guide me to the meeting point').props.onClick()); assert.match(text(tree.toJSON()), /relative to north/); assert.match(text(tree.toJSON()), /Low location accuracy/);
+  act(() => nearestButton().props.onClick()); assert.equal(selected.userId, 3); assert.equal(nativeCalls, 0);
+  act(() => tree.root.findAllByType('button').find(node => node.props['aria-pressed'] === false && text(node).includes('Far member')).props.onClick()); assert.equal(selected.userId, 2);
+});
+test('meeting control and no-point guidance translate immediately in AR, EN and FR', () => {
+  mount(); update({ navigation: { ...props.navigation, meeting: null } }); act(() => button('Guide me to the meeting point').props.onClick());
+  for (const lang of ['fr', 'ar', 'en']) {
+    update({ lang }); assert.ok(button(translate('وجّهني إلى نقطة الالتقاء', lang))); assert.ok(text(compass()).includes(translate('لم تحدد المجموعة نقطة لقاء بعد.', lang)));
+  }
+});

@@ -100,7 +100,7 @@
 .workspace:has(.dal-navigation--compass) .workspace-nav .brand img{filter:brightness(0) invert(1)}
 .workspace:has(.dal-navigation--compass) .workspace-nav .round{background:#ffffff15;color:white}
 .app:has(.dal-navigation--compass) .bottom-nav{background:#004432f5;border-color:#ffffff25}
-.app:has(.dal-navigation--compass) .bottom-nav button{color:#c2dfd3}
+.app:has(.dal-navigation--compass) .bottom-nav button:not(.active){color:#c2dfd3}
 .dal-navigation--compass .page-heading>span{color:#b6d7ca}
 .dal-navigation--compass .nav-connection.connected{background:#ffffff0c;color:#b6d7ca;border-color:#ffffff25}
 .dal-navigation--compass .nav-gps-controls{background:#ffffff0c;color:#e3f4ee;border-color:#ffffff35}
@@ -113,6 +113,7 @@
 .dal-live-compass h2{font-size:26px;line-height:1.4;margin:6px 0 0}
 .dal-live-compass .compass-permission{font-size:12px;min-height:40px;padding:8px 14px;color:#e3f4ee;border-color:#ffffff50;border-radius:12px}
 .dal-live-compass .nearest-member{max-width:100%;min-height:44px;padding:10px 16px;margin:12px 0 0;font-size:14px;white-space:normal;border-radius:12px}
+.dal-live-compass .nearest-member.outline{color:#e3f4ee;border-color:#ffffff50}
 .dal-live-compass .nearest-member-feedback{max-width:340px;margin:10px 0 0;line-height:1.6;overflow-wrap:anywhere}
 .dal-live-compass .compass-sensor-status{font-size:12px;color:#b6d7ca;max-width:340px;margin-top:8px}
 .dal-compass-dial{width:min(300px,100%);border:2px solid #80c9b366;background:#0b5945;position:relative;margin:24px auto;color:#a5cabc}
@@ -205,7 +206,7 @@
 .signed-in>footer{padding-bottom:var(--bottom-nav-height)}
 .signed-in .workspace-main{padding-bottom:calc(var(--bottom-nav-height) + 24px)}
 .signed-in .bottom-nav{height:var(--bottom-nav-height);gap:clamp(4px,4vw,48px);padding:8px 8px calc(8px + env(safe-area-inset-bottom))}
-.signed-in .bottom-nav button{min-width:0;min-height:44px;padding:6px 8px}
+.signed-in .bottom-nav button{min-width:0;min-height:44px;padding:6px 8px;color:var(--green)}
 .signed-in .home-sharing{bottom:calc(var(--bottom-nav-height) + 12px)}
 .group-grid{grid-template-columns:repeat(3,minmax(0,1fr));align-items:start;gap:14px}
 .group-card{height:auto;min-height:0;display:grid;grid-template-columns:44px minmax(0,1fr) 18px;gap:8px 12px;padding:16px;align-items:center}
