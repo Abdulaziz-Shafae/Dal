@@ -277,3 +277,14 @@
 .permission-panel .languages{justify-content:center;margin-top:12px}
 .permission-panel .languages button.active{background:var(--pale)}
 .workspace-main:has(.permission-panel){position:relative;z-index:100}
+
+/* Responsive layout audit: keep shared center lines and intrinsic controls. */
+.workspace-nav{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr)}
+.workspace-nav>.round{justify-self:start}
+.workspace-nav>.brand{justify-self:center}
+.workspace-nav>.workspace-actions{justify-self:end}
+.footer-grid .languages{flex-wrap:wrap}
+.chat-page .chat-input button:not(:has(svg)){width:auto;min-width:48px;padding-inline:16px;border-radius:24px}
+@media(min-width:761px){
+ .workspace .dal-navigation--map,.workspace .dal-navigation--meeting{width:min(1040px,calc(100% - 48px))}
+}

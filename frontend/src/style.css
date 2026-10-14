@@ -69,7 +69,7 @@ input,select,textarea{scroll-margin-block:100px}
  .map-card h3{margin-inline-start:0;padding-top:56px}
  .cta-box{flex-wrap:wrap}.cta-box .hero-actions{flex:1}
  .two-column{gap:36px}.compass-illustration{width:100%;height:auto}
- .panel{margin-inline:24px}.panel.narrow{margin-inline:auto}
+ .panel{width:calc(100% - 48px);margin-inline:auto}
 }
 @media(max-width:760px){
  .site-nav{direction:ltr}.site-nav .languages{direction:ltr;margin-inline-start:auto}
