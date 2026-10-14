@@ -135,4 +135,4 @@ Base: `fix/bottom-navigation-meeting-guidance` at `0360ea4669c3da31cf163bcd62c03
 
 Branch: [fix/location-sharing-lifecycle](https://github.com/Abdulaziz-Shafae/Dal/tree/fix/location-sharing-lifecycle).
 
-Implementation commit SHA will be recorded in the follow-up report commit after the implementation commit is created.
+Implementation commit (source, tests, migration plan and screenshots): [`ade365b0e73f123e86d9f7632eb38d547d1b3e4e`](https://github.com/Abdulaziz-Shafae/Dal/commit/ade365b0e73f123e86d9f7632eb38d547d1b3e4e). This follow-up documentation commit records that immutable implementation SHA.
