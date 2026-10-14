@@ -7,8 +7,9 @@ import LiveMap from './LiveMap.jsx';
 import LiveCompass from './LiveCompass.jsx';
 import MeetingPointPicker from './MeetingPointPicker.jsx';
 import ConnectionStatus from './ConnectionStatus.jsx';
+import NavigationPermissionDialog from './NavigationPermissionDialog.jsx';
 import { distanceBetween, locationAge, locationLabel } from '../../utils/navigationCalculations.js';
-export default function GroupNavigation({ view, user, group, members, navigation: nav, selected, onSelect, navigate, busy, saveMeeting, removeMeeting, nudge, arrived, sensor, onError }) {
+export default function GroupNavigation({ view, user, group, members, navigation: nav, selected, onSelect, navigate, busy, saveMeeting, removeMeeting, nudge, arrived, sensor, onError, languageControls }) {
   const { tr, lang, direction } = useLanguage();
   const [draft, setDraft] = useState(null), [meetingSelected, setMeetingSelected] = useState(false);
   const own = nav.consent && nav.gps.status !== 'denied' ? nav.gps.point || nav.rows.find(row => row.userId === user.id) : null;
@@ -19,6 +20,7 @@ export default function GroupNavigation({ view, user, group, members, navigation
   const select = point => { if (point.userId) { setMeetingSelected(false); onSelect(point); } else setMeetingSelected(true); walking.select(); };
   const online = nav.state === 'connected';
   return <section className={`navigation-page dal-navigation dal-navigation--${view}${nav.consent ? ' has-location-consent' : ''}`} dir={direction}>
+    {['map', 'compass'].includes(view) && <NavigationPermissionDialog key={view} view={view} navigation={nav} sensor={sensor} navigate={navigate} languageControls={languageControls}/>}
     <div className="segmented"><button className={view === 'map' ? 'active' : ''} onClick={() => navigate('map')}>{tr("الخريطة")}</button><button className={view === 'compass' ? 'active' : ''} onClick={() => navigate('compass')}>{tr("البوصلة")}</button><button className={view === 'meeting' ? 'active' : ''} onClick={() => navigate('meeting')}>{tr("نقطة اللقاء")}</button></div>
     <div className="page-heading"><h1>{view === 'compass' ? tr("دال يوجّهك") : view === 'meeting' ? tr("نقطة لقاء مجموعتك") : group.name}</h1><span>{members.length} {tr("أعضاء")}</span></div>
     <ConnectionStatus state={nav.state}/>

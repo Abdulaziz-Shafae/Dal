@@ -1855,6 +1855,66 @@ export const messages = {
   "تصغير الخريطة": {
     "en": "Zoom out",
     "fr": "Réduire la carte"
+  },
+  "الموقع": {
+    "en": "Location",
+    "fr": "Position"
+  },
+  "حساس البوصلة": {
+    "en": "Compass sensor",
+    "fr": "Capteur de la boussole"
+  },
+  "تفعيل الموقع": {
+    "en": "Enable location",
+    "fr": "Activer la localisation"
+  },
+  "تفعيل حساس البوصلة": {
+    "en": "Enable compass sensor",
+    "fr": "Activer le capteur de la boussole"
+  },
+  "ليس الآن": {
+    "en": "Not now",
+    "fr": "Pas maintenant"
+  },
+  "إعدادات الحساب": {
+    "en": "Account settings",
+    "fr": "Paramètres du compte"
+  },
+  "يستخدم دال موقعك لحساب المسافات والاتجاهات ومشاركته مع أعضاء مجموعتك المسموح لهم وفق إعداداتك الحالية أثناء فتح الصفحة. التفعيل يحتاج موافقتك.": {
+    "en": "DAL uses your location for distances and directions and shares it with authorized group members under your current settings while this page is open. Activation requires your consent.",
+    "fr": "DAL utilise votre position pour les distances et les directions et la partage avec les membres autorisés selon vos paramètres actuels lorsque cette page est ouverte. Votre consentement est nécessaire."
+  },
+  "مشاركة الموقع متوقفة أو خارج وقت الجدولة. راجع إعدادات حسابك ومجموعتك قبل التفعيل؛ لن نغيّرها تلقائيًا.": {
+    "en": "Location sharing is stopped or outside its schedule. Review your account and group settings before activation; we will not change them automatically.",
+    "fr": "Le partage de position est arrêté ou en dehors de sa plage horaire. Vérifiez les paramètres de votre compte et du groupe avant l’activation ; nous ne les modifierons pas automatiquement."
+  },
+  "جارٍ التحقق من إعدادات المشاركة…": {
+    "en": "Checking sharing settings…",
+    "fr": "Vérification des paramètres de partage…"
+  },
+  "تعذر التحقق من صلاحيات المشاركة. تحقق من الاتصال وأعد فتح الصفحة.": {
+    "en": "Unable to verify sharing permissions. Check your connection and re-enter this page.",
+    "fr": "Impossible de vérifier les autorisations de partage. Vérifiez la connexion et rouvrez cette page."
+  },
+  "بعد السماح من الإعدادات، أعد دخول الصفحة أو استخدم أزرار التفعيل اليدوية.": {
+    "en": "After allowing access in settings, re-enter this page or use the manual activation controls.",
+    "fr": "Après avoir autorisé l’accès dans les paramètres, rouvrez cette page ou utilisez les commandes d’activation manuelle."
+  },
+  "يستخدم دال حساس الاتجاه لتحديث سهم البوصلة عند تدوير الجوال. تفعيل الحساس وحده لا يفعّل مشاركة الموقع.": {
+    "en": "DAL uses device orientation to update the compass arrow when you rotate your phone. Enabling the sensor alone does not activate location sharing.",
+    "fr": "DAL utilise l’orientation de l’appareil pour actualiser la flèche lorsque vous tournez le téléphone. Activer uniquement le capteur n’active pas le partage de position."
+  },
+  "بانتظار قرار إذن الحساس…": {
+    "en": "Waiting for sensor permission…",
+    "fr": "En attente de l’autorisation du capteur…"
+  },
+  "إذن الحساس مرفوض. اسمح بالحركة والاتجاه من إعدادات المتصفح أو الجهاز، ثم أعد دخول الصفحة أو استخدم التفعيل اليدوي.": {
+    "en": "Sensor permission denied. Allow motion and orientation in your browser or device settings, then re-enter this page or use manual activation.",
+    "fr": "Autorisation du capteur refusée. Autorisez les mouvements et l’orientation dans les paramètres du navigateur ou de l’appareil, puis rouvrez cette page ou utilisez l’activation manuelle."
+  },
+  "حساس البوصلة غير متاح أو لا يرسل قراءة صالحة. يمكنك استخدام الخريطة أو الاتجاه بالنسبة للشمال.": {
+    "en": "The compass sensor is unavailable or has no usable reading. You can use the map or the direction relative to north.",
+    "fr": "Le capteur de la boussole est indisponible ou ne fournit pas de relevé exploitable. Vous pouvez utiliser la carte ou la direction relative au nord."
   }
 };
 

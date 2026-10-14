@@ -82,6 +82,8 @@ export default function useGroupLocations({ user, group, active, sharing, groupS
   const freshCache = now - scoped.checkedAt < CACHE_TTL;
   const rows = freshCache ? scoped.rows.filter(row => locationAge(row, now) < CACHE_TTL) : [];
   return { rows, meeting: freshCache ? scoped.meeting : null, state: scoped.state, now, gps, uploadError, enabled, consent: consent === scope,
+    settingsReady: sharing != null && groupSharing != null,
+    sharingAllowed: globalSharingAllowed(sharing, now) && groupSharing?.sharingEnabled === true,
     start: () => { setConsent(scope); setAttempt(value => value + 1); }, stop: () => { setConsent(null); setData(old => ({ ...old, rows: old.rows.filter(row => row.userId !== user?.id) })); },
     setMeeting: meeting => setData(old => ({ ...old, meeting })),
     clear: () => { setConsent(null); setData(old => ({ ...old, rows: [], meeting: null, permissions: null })); }

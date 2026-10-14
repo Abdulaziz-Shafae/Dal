@@ -3,16 +3,21 @@ import { headingFromEvent } from '../utils/navigationCalculations.js';
 export default function useDeviceOrientation(active = true) {
   const [enabled, setEnabled] = useState(false), [heading, setHeading] = useState(null), [status, setStatus] = useState('idle');
   const granted = useRef(false);
+  const requesting = useRef(false);
   async function enable() {
+    if (requesting.current) return;
     const sensor = window.DeviceOrientationEvent;
     if (!window.isSecureContext || !sensor) { setStatus('unavailable'); return; }
+    requesting.current = true;
     try {
-      if (typeof sensor.requestPermission === 'function' && (!granted.current || status === 'denied' || status === 'unavailable')) {
+      if (typeof sensor.requestPermission === 'function' && !granted.current) {
+        setStatus('requesting');
         granted.current = await sensor.requestPermission(true) === 'granted';
         if (!granted.current) { setHeading(null); setEnabled(false); setStatus('denied'); return; }
       }
       setStatus('waiting'); setEnabled(true);
     } catch { granted.current = false; setHeading(null); setEnabled(false); setStatus('denied'); }
+    finally { requesting.current = false; }
   }
   useEffect(() => {
     if (!enabled || !active) { setHeading(null); return; }

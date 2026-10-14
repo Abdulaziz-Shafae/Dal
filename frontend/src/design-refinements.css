@@ -258,3 +258,14 @@
 .bottom-nav small{overflow-wrap:anywhere;text-align:center}
 .dal-compass-dial{overflow:clip}
 .chat-input button:not(:has(svg)){width:auto;min-width:50px;padding-inline:10px;border-radius:25px}
+
+.permission-panel{width:min(100%,460px);max-height:calc(100dvh - 48px - env(safe-area-inset-top) - env(safe-area-inset-bottom));overflow:auto;padding:24px;background:white;color:var(--green);border-radius:28px;box-shadow:0 24px 80px #001b1930;text-align:start;overscroll-behavior:contain}
+.permission-panel h2{font-size:24px;margin-bottom:16px}
+.permission-panel .permission-requirement{padding-block:12px;border-top:1px solid var(--line)}
+.permission-panel h3{display:flex;align-items:center;gap:8px;font-size:18px;margin-bottom:8px}
+.permission-panel p{font-size:14px;line-height:1.7;margin-block:8px;overflow-wrap:anywhere}
+.permission-panel .filled,.permission-panel .outline{width:100%;min-height:44px;font-size:14px;padding:10px 14px}
+.permission-panel .permission-settings{display:flex;flex-wrap:wrap;gap:8px 16px}
+.permission-panel .languages{justify-content:center;margin-top:12px}
+.permission-panel .languages button.active{background:var(--pale)}
+.workspace-main:has(.permission-panel){position:relative;z-index:100}
