@@ -49,7 +49,9 @@ export default function useGroupLocations({ user, group, active, sharing, groupS
     if (!active || !user || !group) return;
     let live = true, pending = false, timer;
     const refresh = async () => {
-      if (!live || pending || document.hidden) return;
+      if (!live || document.hidden) return;
+      if (!navigator.onLine) setData(old => old.scope === scope ? { ...old, state: 'offline', permissions: null } : old);
+      if (pending) return;
       clearTimeout(timer); pending = true;
       const revision = authorization.current.revision;
       if (navigator.onLine) setData(old => old.scope === scope && old.state === 'offline' ? { ...old, rows: [], state: 'loading', permissions: null } : old);
@@ -59,6 +61,7 @@ export default function useGroupLocations({ user, group, active, sharing, groupS
         const [settings, membership] = await Promise.all([api.sharing(), api.groupSharing(group.id)]);
         const [rows, meeting, members, freshGroup] = await Promise.all([api.locations(group.id), optionalMeeting(group.id), api.members(group.id), api.group(group.id)]);
         if (!live || current.current.scope !== scope || authorization.current.revision !== revision) return;
+        if (!navigator.onLine) throw { status: 0 };
         // Only the group-authorized response can supply cached group coordinates.
         const permittedRows = visibleLocations(rows);
         setData({ scope, rows: permittedRows, meeting, state: 'connected', checkedAt: Date.now(), expired: false, period: JSON.stringify([settings.sharingMode, settings.startTime, settings.endTime]), permissions: { global: globalSharingAllowed(settings), group: membership.sharingEnabled, interval: settings.updateIntervalSeconds } });
@@ -100,6 +103,8 @@ export default function useGroupLocations({ user, group, active, sharing, groupS
   }, [now, scoped.rows, scope]);
   const rows = visibleLocations(scoped.rows, now);
   return { rows, meeting: scoped.meeting, expired: scoped.expired, state: scoped.state, now, gps, uploadError, enabled, consent: consent === scope,
+    routeAuthorizationKey: `${scope}:${authorization.current.revision}`,
+    routeAuthorized: Boolean(user && group && active && globalSharingAllowed(sharing, now) && groupSharing?.sharingEnabled === true && !['PAUSED', 'CLOSED'].includes(group.status) && scoped.state !== 'error'),
     settingsReady: sharing != null && groupSharing != null,
     sharingAllowed: globalSharingAllowed(sharing, now) && groupSharing?.sharingEnabled === true,
     start: () => { setConsent(scope); setAttempt(value => value + 1); }, stop: () => { setConsent(null); setData(old => ({ ...old, rows: old.rows.filter(row => row.userId !== user?.id) })); },

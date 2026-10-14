@@ -84,6 +84,17 @@ test('nearest cancels existing walking preview and never calls ORS or activates 
   await act(async () => new Promise(done => setTimeout(done, 950)));
   assert.equal(selected.userId, 3); assert.deepEqual(apiCalls, []); assert.equal(nativeCalls, 0);
 });
+test('walking waits for live GPS after revalidation even when cached account coordinates are fresh', async ({ mock }) => {
+  mock.timers.enable({ apis: ['setTimeout', 'Date'], now: Date.now() });
+  mount(); update({ navigation: { ...props.navigation, gps: { status: 'loading', point: null } } });
+  assert.equal(button('Start navigation').props.disabled, true);
+  act(() => tree.root.findAllByType('button').find(node => node.props['aria-pressed'] === true).props.onClick());
+  await act(async () => { mock.timers.tick(2000); for(let i=0;i<30;i++)await Promise.resolve(); });
+  assert.deepEqual(apiCalls, []);
+  update({ navigation: { ...props.navigation, gps: { status: 'ready', point: { ...point, recordedAt: new Date().toISOString() } }, now: Date.now() } });
+  await act(async () => { mock.timers.tick(800); for(let i=0;i<30;i++)await Promise.resolve(); });
+  assert.ok(apiCalls.some(url=>url.endsWith('/walking')));
+});
 test('missing GPS uses the existing permission dialog without using cached own coordinates or changing target', () => {
   mount(); update({ navigation: { ...props.navigation, consent: false, enabled: false, gps: { status: 'idle', point: null } } });
   act(() => nearestButton().props.onClick()); assert.equal(selected.userId, 2); assert.equal(selectedCalls, 0); assert.equal(nativeCalls, 0);

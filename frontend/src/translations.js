@@ -1,5 +1,13 @@
 // Arabic message keys preserve the existing copy; all supported locales are explicit.
 export const messages = {
+  "جارٍ تحديث المسار...": {"en":"Updating route...","fr":"Mise à jour de l’itinéraire..."},
+  "المسار محدّث": {"en":"Route updated","fr":"Itinéraire à jour"},
+  "آخر مسار محسوب": {"en":"Last calculated route","fr":"Dernier itinéraire calculé"},
+  "الاتصال منقطع. هذا آخر مسار محسوب وقد لا يعكس موقعك الحالي.": {"en":"Connection lost. This is the last calculated route and may not reflect your current position.","fr":"Connexion perdue. Il s'agit du dernier itinéraire calculé, qui peut ne plus correspondre à votre position actuelle."},
+  "تعذر تحديث المسار. يمكنك إعادة المحاولة.": {"en":"Unable to update the route. You can try again.","fr":"Impossible de mettre à jour l’itinéraire. Vous pouvez réessayer."},
+  "انتهت صلاحية الموقع، توقف التوجيه.": {"en":"Location is no longer valid. Navigation stopped.","fr":"La position n’est plus valide. Navigation arrêtée."},
+  "آخر حساب للمسار: {0}": {"en":"Route last calculated: {0}","fr":"Dernier calcul de l’itinéraire : {0}"},
+  "المسافة والمدة تخصان آخر حساب، وليستا تقدير وصول مباشرًا.": {"en":"Distance and duration belong to the last calculation, not a live arrival estimate.","fr":"La distance et la durée correspondent au dernier calcul, pas à une estimation d’arrivée en direct."},
   "تعذر الاتصال. تحقق من اتصال الإنترنت وحاول مجددًا.": {
     "en": "Unable to connect. Check your internet connection and try again.",
     "fr": "Connexion impossible. Vérifiez votre connexion Internet et réessayez."

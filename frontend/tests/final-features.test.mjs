@@ -29,12 +29,12 @@ test('walking recalculation uses 25 metre movement, destination changes and shor
   assert.equal(hooks.routeNeedsUpdate(prior, own, target, '1:3', 2000), true);
   assert.equal(hooks.routeNeedsUpdate(prior, own, target, '1:2', 31000), true);
 });
-test('walking previews only after selection and clears immediately on stop, offline or revoked sharing', async () => {
+test('walking previews only after selection, retains authorized offline reference and clears on stop or revocation', async () => {
   const props = { groupId: 1, own: { latitude: 24, longitude: 46, recordedAt: new Date().toISOString() }, target: { userId: 2, latitude: 24.001, longitude: 46, sharingEnabled: true, recordedAt: new Date().toISOString(), visibilityMode: 'ALWAYS', visibleUntil: null }, online: true, consent: true, now: Date.now() };
   const update = mount(hooks.walking, props); await wait(850); assert.equal(calls.length, 0);
   act(() => value.select()); await wait(850); assert.equal(value.result.status, 'READY'); assert.equal(calls[0].memberId, 2); assert.equal(calls[0].meetingPoint, false); assert.equal(calls.length, 1);
   act(() => value.start()); assert.equal(value.guiding, true);
-  update({ ...props, online: false }); assert.equal(value.result, null);
+  update({ ...props, online: false }); assert.equal(value.result.status, 'READY'); assert.equal(value.result.outdated, true); assert.equal(value.result.offline, true); assert.equal(value.guiding, false);
   update({ ...props, target: { ...props.target, sharingEnabled: false } }); assert.equal(value.available, false); assert.equal(value.result, null);
   act(() => value.stop()); assert.equal(value.preview, false); assert.equal(value.guiding, false);
 });

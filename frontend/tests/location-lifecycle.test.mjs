@@ -14,6 +14,17 @@ const base = Date.parse('2026-11-01T13:00:00Z');
 const point = patch => ({ userId: 2, name: 'Synthetic member', latitude: 24, longitude: 46, accuracy: 5, sharingEnabled: true, recordedAt: new Date(base).toISOString(), visibilityMode: 'ALWAYS', visibleUntil: null, ...patch });
 const originals = new Map(['window', 'document', 'navigator', 'fetch', 'setInterval', 'clearInterval'].map(key => [key, Object.getOwnPropertyDescriptor(globalThis, key)]));
 const originalNow = Date.now;
+test('disconnect marks an in-flight snapshot offline and its result cannot reconnect it', async () => {
+  mount(hooks.group, props()); await flush(); const originalFetch = globalThis.fetch; let release;
+  globalThis.fetch = async (url, options) => {
+    if (url.includes('/location/group/')) { await new Promise(resolve => { release = resolve; }); return new Response(JSON.stringify([point()])); }
+    return originalFetch(url, options);
+  };
+  act(() => window.dispatchEvent(new Event('online'))); await flush(); assert.equal(typeof release, 'function');
+  navigator.onLine = false; act(() => window.dispatchEvent(new Event('offline'))); assert.equal(value.state, 'offline');
+  await act(async () => { release(); for (let i = 0; i < 40; i++) await Promise.resolve(); });
+  assert.equal(value.state, 'offline'); assert.equal(value.enabled, false);
+});
 const flush = () => act(async () => { for (let i = 0; i < 30; i++) await Promise.resolve(); });
 function mount(hook, props) { function Probe(input) { value = hook(input); return null; } act(() => { tree = Renderer.create(React.createElement(Probe, props)); }); return next => act(() => tree.update(React.createElement(Probe, next))); }
 function clock(time) { now = typeof time === 'string' ? Date.parse(time) : time; act(() => { for (const callback of [...intervals.values()]) callback(); }); }

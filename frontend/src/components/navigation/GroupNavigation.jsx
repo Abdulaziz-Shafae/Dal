@@ -17,10 +17,10 @@ export default function GroupNavigation({ view, user, group, members, navigation
   const [nearestFeedback, setNearestFeedback] = useState(null), [permissionVisit, setPermissionVisit] = useState(0);
   const [meetingFeedback, setMeetingFeedback] = useState('');
   const own = nav.consent && nav.gps.status !== 'denied' ? nav.gps.point || nav.rows.find(row => row.userId === user.id) : null;
-  const target = meetingSelected ? (validCoordinates(nav.meeting) ? nav.meeting : null) : nav.rows.find(row => row.userId === selected?.userId);
+  const target = meetingSelected ? (validCoordinates(nav.meeting) ? nav.meeting : null) : members.some(member => member.userId === selected?.userId) ? nav.rows.find(row => row.userId === selected?.userId) : null;
   const manager = ['OWNER', 'ADMIN'].includes(group.myRole) && group.status !== 'CLOSED';
   const [candidates, setCandidates] = useState([]), [suggestion, setSuggestion] = useState(null);
-  const walking = useWalkingRoute({ groupId: group.id, own, target, online: nav.state === 'connected', consent: nav.consent && nav.enabled, now: nav.now });
+  const walking = useWalkingRoute({ groupId: group.id, own: nav.gps.status === 'ready' ? nav.gps.point : null, target, destinationId: meetingSelected ? 'meeting' : selected?.userId || '', authorizationKey: nav.routeAuthorizationKey, authorized: nav.routeAuthorized, online: nav.state === 'connected', consent: nav.consent, requestEnabled: nav.enabled && nav.gps.status === 'ready', revalidating: nav.state === 'loading', waitingForGps: nav.enabled && ['idle', 'loading'].includes(nav.gps.status), now: nav.now });
   const select = point => { setMeetingFeedback(''); setNearestFeedback(null); if (point.userId) { setMeetingSelected(false); onSelect(point); } else setMeetingSelected(true); walking.select(); };
   const selectNearest = () => {
     setMeetingFeedback('');
@@ -76,6 +76,8 @@ export default function GroupNavigation({ view, user, group, members, navigation
     <div className="segmented"><button className={view === 'map' ? 'active' : ''} onClick={() => navigate('map')}>{tr("الخريطة")}</button><button className={view === 'compass' ? 'active' : ''} onClick={() => navigate('compass')}>{tr("البوصلة")}</button><button className={view === 'meeting' ? 'active' : ''} onClick={() => navigate('meeting')}>{tr("نقطة اللقاء")}</button></div>
     <div className="page-heading"><h1>{view === 'compass' ? tr("دال يوجّهك") : view === 'meeting' ? tr("نقطة لقاء مجموعتك") : group.name}</h1><span>{members.length} {tr("أعضاء")}</span></div>
     <ConnectionStatus state={nav.state}/>
+    {walking.blocked && !target && <p className="field-help" role="alert">{tr('انتهت صلاحية الموقع، توقف التوجيه.')}</p>}
+    {meetingFeedback && view === 'map' && <p className="field-help" role="status">{meetingFeedback}</p>}
     {nav.expired && <p className="field-help" role="status">{tr("انتهت مدة مشاركة الموقع.")}</p>}
     <details className="nav-gps-controls" open={!nav.consent || nav.gps.status === 'loading' || (nav.consent && !nav.enabled) || !!nav.gps.error || !!nav.uploadError || own?.accuracy > 50}><summary>{tr("الموقع والصلاحيات")}</summary><button className="filled" disabled={!online && !nav.consent} onClick={nav.consent && nav.gps.status !== 'denied' ? () => { nav.stop(); walking.stop(); } : () => { sensor.enable(); nav.start(); }}>{nav.consent && nav.gps.status !== 'denied' ? tr("إيقاف GPS على هذا الجهاز") : tr("تفعيل الملاحة")}</button><p className="field-help">{tr("الموافقة تفعّل تحديد الموقع وفق إعدادات المشاركة. اختيار وجهة يرسل إحداثيات الطريق إلى OpenRouteService عبر Backend؛ لا تُرسل أسماء الأعضاء. قد يطلب المتصفح الأذونات مجددًا.")}</p><p className="field-help">{tr("المشاركة تخضع لإعداداتك في جميع مجموعاتك. الإيقاف الدائم وإخفاء الموقع من إعدادات المشاركة. التحديث يعمل أثناء فتح الصفحة فقط.")}</p><button className="text-link" onClick={() => navigate('group')}>{tr("إعدادات مشاركة المجموعة")}</button>{nav.consent && !nav.enabled && <p>{tr("المشاركة متوقفة بإعداداتك أو بانتظار التحقق من الصلاحيات.")}</p>}{nav.gps.status === 'loading' && <p role="status">{tr("جارٍ تحديد موقعك…")}</p>}{nav.gps.error && <p role="alert">{tr(nav.gps.error)}</p>}{own?.accuracy > 50 && <p role="status">{tr("دقة GPS منخفضة: ±")}{Math.round(own.accuracy)} {tr("م.")}</p>}{nav.uploadError && <p role="alert">{tr(nav.uploadError)}</p>}</details>
     {view === 'compass' ? <LiveCompass sensor={sensor} own={own} target={target} online={online} now={nav.now} busy={busy} onMeeting={selectMeeting} meetingFeedback={meetingFeedback} onNearest={selectNearest} nearestFeedback={nearestFeedback?.message ? nearestFeedback : !meetingSelected && nearestFeedback?.userId === target?.userId ? nearestFeedback : null} onNudge={() => nudge(target)} onArrived={() => arrived(target)}/> : <LiveMap expired={nav.expired} now={nav.now} online={online} rows={nav.rows} own={own} userId={user.id} meeting={nav.meeting} selected={target} onSelect={select} picking={view === 'meeting' && manager} onPick={setDraft} draft={draft} route={walking.result} candidates={view === 'meeting' ? candidates : []} suggestion={view === 'meeting' ? suggestion?.ranking?.[0] : null}/>}
@@ -83,8 +85,15 @@ export default function GroupNavigation({ view, user, group, members, navigation
     {target && view !== 'meeting' && <div className="walking-card"><h2>{tr("التوجيه بالمشي إلى")} {target.name}</h2>
       {walking.result?.status === 'LOADING' && <p role="status">{tr("جارٍ حساب طريق المشي…")}</p>}
       {walking.result?.status === 'READY' && <p>{Math.round(walking.result.distanceMeters)} {tr("م عبر الطريق · نحو")} {Math.max(1, Math.ceil(walking.result.durationSeconds / 60))} {tr("دقيقة مشيًا")}</p>}
-      {walking.result?.status === 'UNAVAILABLE' && <p role="alert">{tr(walking.result.message)} {tr("اتجاه مباشر، وليس طريق مشي. مسافة الطريق وزمن الوصول غير متاحين.")}</p>}
-      {walking.result?.status === 'LOCATION_UNAVAILABLE' && <p role="alert">{tr(walking.result.message)} {tr("لا يمكن عرض طريق أو اتجاه إلى موقع غير مسموح.")}</p>}
+      {walking.result?.status === 'READY' && <div className={`walking-route-status${walking.outdated ? ' outdated' : ''}`} role="status">
+        <p>{tr(walking.updating ? 'جارٍ تحديث المسار...' : walking.outdated ? 'آخر مسار محسوب' : 'المسار محدّث')}</p>
+        {walking.result.offline && <p>{tr('الاتصال منقطع. هذا آخر مسار محسوب وقد لا يعكس موقعك الحالي.')}</p>}
+        {walking.result.failed && <p>{tr('تعذر تحديث المسار. يمكنك إعادة المحاولة.')}</p>}
+        <small>{tr('آخر حساب للمسار: {0}', new Intl.DateTimeFormat(lang, { dateStyle: 'medium', timeStyle: 'medium', timeZone: 'Asia/Riyadh' }).format(new Date(walking.result.calculatedAt)))}</small>
+        {walking.outdated && <p>{tr('المسافة والمدة تخصان آخر حساب، وليستا تقدير وصول مباشرًا.')}</p>}
+      </div>}
+      {walking.result?.status === 'UNAVAILABLE' && <p role="alert">{tr('تعذر تحديث المسار. يمكنك إعادة المحاولة.')} {tr("اتجاه مباشر، وليس طريق مشي. مسافة الطريق وزمن الوصول غير متاحين.")}</p>}
+      {walking.blocked && <p role="alert">{tr('انتهت صلاحية الموقع، توقف التوجيه.')} {tr("لا يمكن عرض طريق أو اتجاه إلى موقع غير مسموح.")}</p>}
       {target.userId && locationAge(target, nav.now) > 30000 && <p role="status">{tr("المسار يقود إلى آخر موقع معروف فقط؛ قد يكون العضو تحرك.")}</p>}
       {!walking.available && <p>{tr("فعّل الملاحة وانتظر موقعك الحالي ووجهة مسموحة.")}</p>}
       <div className="pair"><button className="filled" disabled={!walking.available || !online} onClick={walking.start}>{tr("ابدأ التوجيه")}</button><button className="outline" disabled={!walking.preview} onClick={walking.stop}>{tr("إيقاف التوجيه")}</button></div>

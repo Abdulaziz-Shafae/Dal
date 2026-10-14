@@ -187,6 +187,11 @@
 @media(prefers-reduced-motion:reduce){.faq-item button>svg{transition:none}}
 
 /* Scoped additions for walking, AI explanations and group conversation. */
+.walking-route-status{padding:8px 12px;border-inline-start:3px solid var(--green);background:#edf8f3;border-radius:8px}
+.walking-route-status.outdated{background:#fff8e8;border-inline-start-color:#a56700}
+.walking-route-status small{font-size:11px;line-height:1.7}
+.dal-navigation--map.has-location-consent>.dal-live-map.has-map-fallback{padding-block-start:70px}
+.dal-navigation--map.has-location-consent .has-map-fallback .nav-map-toolbar{position:static}
 .workspace-actions .round{position:relative}
 .notification-badge{position:absolute;top:-4px;inset-inline-end:-5px;min-width:20px;height:20px;padding:2px 4px;border-radius:20px;background:#a6372e;color:white;font-size:10px;line-height:16px;font-weight:700}
 .walking-card,.nav-assistant{order:2;margin:12px 0;padding:16px;border:1px solid #cde7dd;border-radius:20px;background:#fff;color:#004432;overflow-wrap:anywhere}
