@@ -55,6 +55,10 @@ public class LocationSharingSettings {
     @Column(name = "update_interval_seconds", nullable = false)
     private Integer updateIntervalSeconds = 5;
 
+    // Server-side active-use lease, never a claim of background GPS.
+    @Column(name = "last_active_at")
+    private LocalDateTime lastActiveAt;
+
     @Column(name = "updated_at", nullable = false)
     private LocalDateTime updatedAt;
 

@@ -43,7 +43,7 @@ public class UserLocationService {
         }
         UserLocation latest = locationRepository.findFirstByUser_IdOrderByRecordedAtDescIdDesc(userId);
         if (latest != null && !recordedAt.isAfter(latest.getRecordedAt())) {
-            return createLocationResponse(user, latest, true);
+            return createLocationResponse(user, latest, true, sharingService.getLocationVisibilityEnd(settings));
         }
         UserLocation location = new UserLocation();
         location.setUser(user);
@@ -52,15 +52,17 @@ public class UserLocationService {
         location.setAccuracy(input.getAccuracy());
         location.setRecordedAt(recordedAt);
         locationRepository.save(location);
-        return createLocationResponse(user, location, true);
+        if ("WHILE_USING".equals(settings.getSharingMode())) { settings.setLastActiveAt(validationService.getCurrentTime()); settingsRepository.saveAndFlush(settings); }
+        return createLocationResponse(user, location, true, sharingService.getLocationVisibilityEnd(settings));
     }
 
     @Transactional(readOnly = true)
     public UserLocationDtoOut getMyLatestLocation(Integer userId) {
         User user = accessService.requireUser(userId);
-        boolean enabled = sharingService.isGlobalSharingEnabled(settingsRepository.findByUser_Id(userId));
-        UserLocation location = enabled ? locationRepository.findFirstByUser_IdOrderByRecordedAtDescIdDesc(userId) : null;
-        return createLocationResponse(user, location, enabled);
+        LocationSharingSettings settings = settingsRepository.findByUser_Id(userId);
+        UserLocation latest = sharingService.isGlobalSharingEnabled(settings) ? locationRepository.findFirstByUser_IdOrderByRecordedAtDescIdDesc(userId) : null;
+        boolean enabled = sharingService.isStoredLocationVisible(settings, latest);
+        return createLocationResponse(user, enabled ? latest : null, enabled, enabled ? sharingService.getLocationVisibilityEnd(settings) : null);
     }
 
     @Transactional(readOnly = true)
@@ -69,11 +71,18 @@ public class UserLocationService {
         List<UserLocationDtoOut> result = new ArrayList<>();
         for (GroupMember member : memberRepository.findAllByGroup_Id(groupId)) {
             User user = member.getUser();
-            boolean enabled = sharingService.isSharingEnabledForMember(member, settingsRepository.findByUser_Id(user.getId()));
-            UserLocation location = enabled ? locationRepository.findFirstByUser_IdOrderByRecordedAtDescIdDesc(user.getId()) : null;
-            result.add(createLocationResponse(user, location, enabled));
+            LocationSharingSettings settings = settingsRepository.findByUser_Id(user.getId());
+            boolean permitted = sharingService.isSharingEnabledForMember(member, settings);
+            UserLocation latest = permitted ? locationRepository.findFirstByUser_IdOrderByRecordedAtDescIdDesc(user.getId()) : null;
+            boolean enabled = permitted && sharingService.isStoredLocationVisible(settings, latest);
+            result.add(createLocationResponse(user, enabled ? latest : null, enabled, enabled ? sharingService.getLocationVisibilityEnd(settings) : null));
         }
         return result;
+    }
+
+    @Transactional
+    public void recordWhileUsingActivity(Integer userId, Integer groupId) {
+        sharingService.recordWhileUsingActivity(userId, groupId);
     }
 
     @Transactional
@@ -82,7 +91,9 @@ public class UserLocationService {
         locationRepository.deleteByUser_Id(userId);
     }
 
-    private UserLocationDtoOut createLocationResponse(User user, UserLocation location, boolean enabled) {
-        return new UserLocationDtoOut(user.getId(), user.getName(), location == null ? null : location.getLatitude(), location == null ? null : location.getLongitude(), location == null ? null : location.getAccuracy(), validationService.convertForResponse(location == null ? null : location.getRecordedAt()), enabled);
+    private UserLocationDtoOut createLocationResponse(User user, UserLocation location, boolean enabled, LocalDateTime visibleUntil) {
+        UserLocationDtoOut response = new UserLocationDtoOut(user.getId(), user.getName(), location == null ? null : location.getLatitude(), location == null ? null : location.getLongitude(), location == null ? null : location.getAccuracy(), validationService.convertForResponse(location == null ? null : location.getRecordedAt()), enabled);
+        response.setVisibleUntil(validationService.convertForResponse(visibleUntil));
+        return response;
     }
 }

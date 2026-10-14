@@ -35,6 +35,7 @@ public class LocationSharingSettingsService {
         if ("SCHEDULED".equals(input.getSharingMode()) && (start == null || end == null || !start.isBefore(end))) {
             throw new ApiException("Scheduled sharing requires a start time before the end time");
         }
+        settings.setLastActiveAt(null);
         settings.setSharingMode(input.getSharingMode());
         settings.setStartTime("SCHEDULED".equals(input.getSharingMode()) ? start : null);
         settings.setEndTime("SCHEDULED".equals(input.getSharingMode()) ? end : null);
@@ -50,6 +51,7 @@ public class LocationSharingSettingsService {
         LocationSharingSettings settings = requireSettings(userId);
         settings.setPausedUntil(validationService.validatePauseUntil(input.getPausedUntil()));
         settings.setIsPaused(true);
+        settings.setLastActiveAt(null);
         settingsRepository.saveAndFlush(settings);
         return createSettingsResponse(settings);
     }
@@ -113,6 +115,30 @@ public class LocationSharingSettingsService {
             return false;
         }
         return isGlobalSharingEnabled(settings) && !isPauseActive(member.getLocationSharingPaused(), member.getLocationSharingPausedUntil(), now);
+    }
+
+    public LocalDateTime getLocationVisibilityEnd(LocationSharingSettings settings) {
+        if (settings == null) return null;
+        if ("SCHEDULED".equals(settings.getSharingMode())) return settings.getEndTime();
+        if ("WHILE_USING".equals(settings.getSharingMode()) && settings.getLastActiveAt() != null) return settings.getLastActiveAt().plusSeconds(90);
+        return null;
+    }
+
+    public boolean isStoredLocationVisible(LocationSharingSettings settings, UserLocation location) {
+        if (settings == null || location == null || !isGlobalSharingEnabled(settings)) return false;
+        LocalDateTime now = validationService.getCurrentTime();
+        if ("SCHEDULED".equals(settings.getSharingMode())) return settings.getStartTime() != null && settings.getEndTime() != null && !location.getRecordedAt().isBefore(settings.getStartTime()) && now.isBefore(settings.getEndTime());
+        if ("WHILE_USING".equals(settings.getSharingMode())) return settings.getLastActiveAt() != null && now.isBefore(settings.getLastActiveAt().plusSeconds(90));
+        return "ALWAYS".equals(settings.getSharingMode());
+    }
+
+    @Transactional
+    public void recordWhileUsingActivity(Integer userId, Integer groupId) {
+        GroupMember member = accessService.requireMember(userId, groupId);
+        LocationSharingSettings settings = requireSettings(userId);
+        if (!"WHILE_USING".equals(settings.getSharingMode()) || !isSharingEnabledForMember(member, settings)) throw new ApiException("Location sharing is currently disabled");
+        settings.setLastActiveAt(validationService.getCurrentTime());
+        settingsRepository.saveAndFlush(settings);
     }
 
     private boolean isPauseActive(Boolean paused, LocalDateTime until, LocalDateTime now) {

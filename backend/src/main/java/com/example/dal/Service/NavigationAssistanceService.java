@@ -36,7 +36,7 @@ public class NavigationAssistanceService {
     }
     private Route route(Snapshot s) {
         if (!allowed(s.own())||age(s.own())>60) return Route.blocked("فعّل الملاحة وانتظر موقع GPS حديثًا ومسموحًا قبل حساب الطريق.");
-        if (s.meeting()==null&&(!allowed(s.member())||age(s.member())>=300)) return Route.blocked("موقع العضو غير متاح أو مشاركته متوقفة أو قديم جدًا.");
+        if (s.meeting()==null&&(!allowed(s.member())||age(s.member())>30)) return Route.blocked("موقع العضو غير متاح أو مشاركته متوقفة أو قديم جدًا.");
         double lat=s.meeting()!=null?s.meeting().getLatitude():s.member().getLatitude(), lon=s.meeting()!=null?s.meeting().getLongitude():s.member().getLongitude();
         Route r=routing.route(s.own().getLatitude(),s.own().getLongitude(),lat,lon);
         return new Route(r.status(),r.coordinates(),r.distanceMeters(),r.durationSeconds(),r.message(),s.member()!=null&&age(s.member())>30);
@@ -46,7 +46,7 @@ public class NavigationAssistanceService {
         Route result=route(before);
         // Recheck access/sharing after the external call, including cache hits.
         Snapshot after=snapshot(userId,groupId,destination);
-        if (!allowed(after.own())||age(after.own())>60||(after.member()!=null&&(!allowed(after.member())||age(after.member())>=300))) return Route.blocked("توقفت مشاركة الموقع أو أصبحت قديمة؛ أُلغي المسار.");
+        if (!allowed(after.own())||age(after.own())>60||(after.member()!=null&&(!allowed(after.member())||age(after.member())>30))) return Route.blocked("توقفت مشاركة الموقع أو أصبحت قديمة؛ أُلغي المسار.");
         if (after.member()!=null&&!Objects.equals(before.member().getRecordedAt(),after.member().getRecordedAt())) return Route.unavailable("تغيّر موقع الوجهة أثناء الحساب. أعد المحاولة.");
         if (after.meeting()!=null&&!Objects.equals(before.meeting().getUpdatedAt(),after.meeting().getUpdatedAt())) return Route.unavailable("تغيّرت نقطة اللقاء أثناء الحساب. أعد المحاولة.");
         return result;
@@ -63,7 +63,7 @@ public class NavigationAssistanceService {
         Double direct=allowed(s.own())&&available?distance(s.own().getLatitude(),s.own().getLongitude(),s.meeting()!=null?s.meeting().getLatitude():s.member().getLatitude(),s.meeting()!=null?s.meeting().getLongitude():s.member().getLongitude()):null;
         // AI consumes a recently computed walking route; asking AI never silently sends coordinates to ORS.
         Route route=Route.unavailable("لا يوجد طريق مشي محسوب حديثًا.");
-        if(available&&allowed(s.own())&&age(s.own())<=60&&(s.member()==null||age(s.member())<300)) route=routing.cachedRoute(s.own().getLatitude(),s.own().getLongitude(),s.meeting()!=null?s.meeting().getLatitude():s.member().getLatitude(),s.meeting()!=null?s.meeting().getLongitude():s.member().getLongitude()).orElse(route);
+        if(available&&allowed(s.own())&&age(s.own())<=60&&(s.member()==null||age(s.member())<=30)) route=routing.cachedRoute(s.own().getLatitude(),s.own().getLongitude(),s.meeting()!=null?s.meeting().getLatitude():s.member().getLatitude(),s.meeting()!=null?s.meeting().getLongitude():s.member().getLongitude()).orElse(route);
         Map<String,Object> facts=new LinkedHashMap<>();
         facts.put("locationStatus",status); facts.put("ageSeconds",seconds==Long.MAX_VALUE?null:seconds); facts.put("lowAccuracy",low); facts.put("directDistanceMeters",direct); facts.put("walkingDistanceMeters",route.distanceMeters()); facts.put("recommendation",recommendation); facts.put("action",action);
         facts.put("ownAccuracyMeters",s.own()==null?null:s.own().getAccuracy()); facts.put("targetAccuracyMeters",s.member()==null?null:s.member().getAccuracy());

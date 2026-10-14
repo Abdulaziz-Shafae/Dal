@@ -21,6 +21,12 @@ public class UserLocationController {
         return ResponseEntity.status(200).body(userLocationService.updateUserLocation((Integer) session.getAttribute("userId"), input));
     }
 
+    @PostMapping("/group/{groupId}/active")
+    public ResponseEntity<?> recordWhileUsingActivity(@PathVariable Integer groupId, HttpSession session) {
+        userLocationService.recordWhileUsingActivity((Integer) session.getAttribute("userId"), groupId);
+        return ResponseEntity.status(200).body(new ApiResponse("Location activity recorded"));
+    }
+
     @GetMapping("/my")
     public ResponseEntity<?> getMyLatestLocation(HttpSession session) {
         return ResponseEntity.status(200).body(userLocationService.getMyLatestLocation((Integer) session.getAttribute("userId")));
