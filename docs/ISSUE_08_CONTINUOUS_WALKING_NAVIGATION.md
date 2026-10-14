@@ -4,7 +4,7 @@ Date: 2026-10-14. Local implementation and synthetic browser verification only.
 
 Base: `fix/location-sharing-lifecycle`, commit `618f4b0cdeabe9cd56a49f70499253e461b9bda6`.
 Branch: [fix/continuous-walking-navigation](https://github.com/Abdulaziz-Shafae/Dal/tree/fix/continuous-walking-navigation).
-Implementation commit: recorded after creating the implementation commit.
+Implementation commit: [07be044cef1dca83b5949a45108e503c1158faf0](https://github.com/Abdulaziz-Shafae/Dal/commit/07be044cef1dca83b5949a45108e503c1158faf0).
 
 ## Root cause
 
