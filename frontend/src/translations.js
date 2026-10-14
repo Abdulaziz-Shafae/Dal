@@ -1915,6 +1915,26 @@ export const messages = {
   "حساس البوصلة غير متاح أو لا يرسل قراءة صالحة. يمكنك استخدام الخريطة أو الاتجاه بالنسبة للشمال.": {
     "en": "The compass sensor is unavailable or has no usable reading. You can use the map or the direction relative to north.",
     "fr": "Le capteur de la boussole est indisponible ou ne fournit pas de relevé exploitable. Vous pouvez utiliser la carte ou la direction relative au nord."
+  },
+  "وجّهني لأقرب عضو": {
+    "en": "Guide me to the nearest member",
+    "fr": "Guidez-moi vers le membre le plus proche"
+  },
+  "فعّل موقعك من نافذة الصلاحيات، ثم أعد اختيار أقرب عضو. لم تتغير وجهتك.": {
+    "en": "Enable your location in the permissions dialog, then try selecting the nearest member again. Your destination has not changed.",
+    "fr": "Activez votre localisation dans la fenêtre des autorisations, puis réessayez de choisir le membre le plus proche. Votre destination reste inchangée."
+  },
+  "انتظر قراءة GPS حديثة، ثم حاول مجددًا. لم تتغير وجهتك.": {
+    "en": "Wait for a fresh GPS reading, then try again. Your destination has not changed.",
+    "fr": "Attendez une position GPS récente, puis réessayez. Votre destination reste inchangée."
+  },
+  "لا يوجد عضو آخر يشارك موقعًا حديثًا في هذه المجموعة. لم تتغير وجهتك.": {
+    "en": "No other member in this group is sharing a recent location. Your destination has not changed.",
+    "fr": "Aucun autre membre de ce groupe ne partage une position récente. Votre destination reste inchangée."
+  },
+  "تم اختيار {0}. المسافة المباشرة الحالية نحو {1} م، وليست مسافة طريق مشي.": {
+    "en": "Selected {0}. The current straight-line distance is approximately {1} m, not a walking-route distance.",
+    "fr": "{0} a été sélectionné. La distance actuelle à vol d’oiseau est d’environ {1} m ; ce n’est pas la distance d’un itinéraire piéton."
   }
 };
 

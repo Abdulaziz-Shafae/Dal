@@ -9,23 +9,48 @@ import MeetingPointPicker from './MeetingPointPicker.jsx';
 import ConnectionStatus from './ConnectionStatus.jsx';
 import NavigationPermissionDialog from './NavigationPermissionDialog.jsx';
 import { distanceBetween, locationAge, locationLabel } from '../../utils/navigationCalculations.js';
+import { nearestGroupMember } from '../../utils/nearestGroupMember.js';
+import { navigationRequirements } from '../../utils/navigationPermissions.js';
 export default function GroupNavigation({ view, user, group, members, navigation: nav, selected, onSelect, navigate, busy, saveMeeting, removeMeeting, nudge, arrived, sensor, onError, languageControls }) {
   const { tr, lang, direction } = useLanguage();
   const [draft, setDraft] = useState(null), [meetingSelected, setMeetingSelected] = useState(false);
+  const [nearestFeedback, setNearestFeedback] = useState(null), [permissionVisit, setPermissionVisit] = useState(0);
   const own = nav.consent && nav.gps.status !== 'denied' ? nav.gps.point || nav.rows.find(row => row.userId === user.id) : null;
   const target = meetingSelected ? nav.meeting : nav.rows.find(row => row.userId === selected?.userId);
   const manager = ['OWNER', 'ADMIN'].includes(group.myRole) && group.status !== 'CLOSED';
   const [candidates, setCandidates] = useState([]), [suggestion, setSuggestion] = useState(null);
   const walking = useWalkingRoute({ groupId: group.id, own, target, online: nav.state === 'connected', consent: nav.consent && nav.enabled, now: nav.now });
-  const select = point => { if (point.userId) { setMeetingSelected(false); onSelect(point); } else setMeetingSelected(true); walking.select(); };
+  const select = point => { setNearestFeedback(null); if (point.userId) { setMeetingSelected(false); onSelect(point); } else setMeetingSelected(true); walking.select(); };
+  const selectNearest = () => {
+    if (navigationRequirements('compass', nav, sensor).location) {
+      setNearestFeedback({ message: tr("فعّل موقعك من نافذة الصلاحيات، ثم أعد اختيار أقرب عضو. لم تتغير وجهتك.") });
+      setPermissionVisit(visit => visit + 1);
+      return;
+    }
+    // Never substitute a cached account location for the live GPS reading.
+    const now = Date.now();
+    if (locationAge(nav.gps.point, now) > 30000) {
+      setNearestFeedback({ message: tr("انتظر قراءة GPS حديثة، ثم حاول مجددًا. لم تتغير وجهتك.") });
+      return;
+    }
+    const nearest = nearestGroupMember({ own: nav.gps.point, rows: nav.rows, members, userId: user.id, groupId: group.id, now });
+    if (!nearest) {
+      setNearestFeedback({ message: tr("لا يوجد عضو آخر يشارك موقعًا حديثًا في هذه المجموعة. لم تتغير وجهتك.") });
+      return;
+    }
+    walking.stop();
+    setMeetingSelected(false);
+    onSelect(nearest.member);
+    setNearestFeedback({ userId: nearest.member.userId });
+  };
   const online = nav.state === 'connected';
   return <section className={`navigation-page dal-navigation dal-navigation--${view}${nav.consent ? ' has-location-consent' : ''}`} dir={direction}>
-    {['map', 'compass'].includes(view) && <NavigationPermissionDialog key={view} view={view} navigation={nav} sensor={sensor} navigate={navigate} languageControls={languageControls}/>}
+    {['map', 'compass'].includes(view) && <NavigationPermissionDialog key={`${view}:${permissionVisit}`} view={view} navigation={nav} sensor={sensor} navigate={navigate} languageControls={languageControls}/>}
     <div className="segmented"><button className={view === 'map' ? 'active' : ''} onClick={() => navigate('map')}>{tr("الخريطة")}</button><button className={view === 'compass' ? 'active' : ''} onClick={() => navigate('compass')}>{tr("البوصلة")}</button><button className={view === 'meeting' ? 'active' : ''} onClick={() => navigate('meeting')}>{tr("نقطة اللقاء")}</button></div>
     <div className="page-heading"><h1>{view === 'compass' ? tr("دال يوجّهك") : view === 'meeting' ? tr("نقطة لقاء مجموعتك") : group.name}</h1><span>{members.length} {tr("أعضاء")}</span></div>
     <ConnectionStatus state={nav.state}/>
     <details className="nav-gps-controls" open={!nav.consent || nav.gps.status === 'loading' || (nav.consent && !nav.enabled) || !!nav.gps.error || !!nav.uploadError || own?.accuracy > 50}><summary>{tr("الموقع والصلاحيات")}</summary><button className="filled" disabled={!online && !nav.consent} onClick={nav.consent && nav.gps.status !== 'denied' ? () => { nav.stop(); walking.stop(); } : () => { sensor.enable(); nav.start(); }}>{nav.consent && nav.gps.status !== 'denied' ? tr("إيقاف GPS على هذا الجهاز") : tr("تفعيل الملاحة")}</button><p className="field-help">{tr("الموافقة تفعّل تحديد الموقع وفق إعدادات المشاركة. اختيار وجهة يرسل إحداثيات الطريق إلى OpenRouteService عبر Backend؛ لا تُرسل أسماء الأعضاء. قد يطلب المتصفح الأذونات مجددًا.")}</p><p className="field-help">{tr("المشاركة تخضع لإعداداتك في جميع مجموعاتك. الإيقاف الدائم وإخفاء الموقع من إعدادات المشاركة. التحديث يعمل أثناء فتح الصفحة فقط.")}</p><button className="text-link" onClick={() => navigate('group')}>{tr("إعدادات مشاركة المجموعة")}</button>{nav.consent && !nav.enabled && <p>{tr("المشاركة متوقفة بإعداداتك أو بانتظار التحقق من الصلاحيات.")}</p>}{nav.gps.status === 'loading' && <p role="status">{tr("جارٍ تحديد موقعك…")}</p>}{nav.gps.error && <p role="alert">{tr(nav.gps.error)}</p>}{own?.accuracy > 50 && <p role="status">{tr("دقة GPS منخفضة: ±")}{Math.round(own.accuracy)} {tr("م.")}</p>}{nav.uploadError && <p role="alert">{tr(nav.uploadError)}</p>}</details>
-    {view === 'compass' ? <LiveCompass sensor={sensor} own={own} target={target} online={online} now={nav.now} busy={busy} onNudge={() => nudge(target)} onArrived={() => arrived(target)}/> : <LiveMap rows={nav.rows} own={own} userId={user.id} meeting={nav.meeting} selected={target} onSelect={select} picking={view === 'meeting' && manager} onPick={setDraft} draft={draft} route={walking.result} candidates={view === 'meeting' ? candidates : []} suggestion={view === 'meeting' ? suggestion?.ranking?.[0] : null}/>}
+    {view === 'compass' ? <LiveCompass sensor={sensor} own={own} target={target} online={online} now={nav.now} busy={busy} onNearest={selectNearest} nearestFeedback={nearestFeedback?.message ? nearestFeedback : !meetingSelected && nearestFeedback?.userId === target?.userId ? nearestFeedback : null} onNudge={() => nudge(target)} onArrived={() => arrived(target)}/> : <LiveMap rows={nav.rows} own={own} userId={user.id} meeting={nav.meeting} selected={target} onSelect={select} picking={view === 'meeting' && manager} onPick={setDraft} draft={draft} route={walking.result} candidates={view === 'meeting' ? candidates : []} suggestion={view === 'meeting' ? suggestion?.ranking?.[0] : null}/>}
     {target && view !== 'compass' && <div className="nav-target"><b>{target.name}</b><p>{distanceBetween(own, target) === null ? tr("المسافة غير متاحة") : tr("{0} م مباشرة", Math.round(distanceBetween(own, target)))} · {locationLabel(target, Date.now(), lang)}{Number.isFinite(target.accuracy) ? tr(" · دقة ±{0} م", Math.round(target.accuracy)) : ''}</p><button className="filled" disabled={!walking.available} onClick={() => { walking.start(); navigate('map'); }}>{tr("وجّهني")}</button><button className="outline" onClick={() => navigate('compass')}>{tr("فتح البوصلة")}</button></div>}
     {target && view !== 'meeting' && <div className="walking-card"><h2>{tr("التوجيه بالمشي إلى")} {target.name}</h2>
       {walking.result?.status === 'LOADING' && <p role="status">{tr("جارٍ حساب طريق المشي…")}</p>}
@@ -44,7 +69,7 @@ export default function GroupNavigation({ view, user, group, members, navigation
     {view === 'meeting' && <MeetingPointPicker meeting={nav.meeting} draft={draft} onDraft={setDraft} canManage={manager} online={online} busy={busy} save={async point => { if (await saveMeeting(point)) setDraft(null); }} remove={removeMeeting}/>}
     <div className="member-picker"><h2>{tr("وين مجموعتك؟")}</h2><div className="member-row">{members.filter(m => m.userId !== user.id).map(member => {
       const point = nav.rows.find(row => row.userId === member.userId), distance = distanceBetween(own, point);
-      return <button key={member.userId} onClick={() => { setMeetingSelected(false); onSelect(member); walking.select(); }} aria-pressed={!meetingSelected && selected?.userId === member.userId}><span className="avatar">{member.name?.[0]}</span><b>{member.name}</b><small>{point ? tr("{0} م مباشرة · {1}{2}", distance === null ? '—' : Math.round(distance), locationLabel(point, Date.now(), lang), !online || locationAge(point, nav.now) > 30000 ? tr(" · قديم") : '') : tr("الموقع غير متاح أو المشاركة متوقفة")}</small></button>;
+      return <button key={member.userId} onClick={() => { setNearestFeedback(null); setMeetingSelected(false); onSelect(member); walking.select(); }} aria-pressed={!meetingSelected && selected?.userId === member.userId}><span className="avatar">{member.name?.[0]}</span><b>{member.name}</b><small>{point ? tr("{0} م مباشرة · {1}{2}", distance === null ? '—' : Math.round(distance), locationLabel(point, Date.now(), lang), !online || locationAge(point, nav.now) > 30000 ? tr(" · قديم") : '') : tr("الموقع غير متاح أو المشاركة متوقفة")}</small></button>;
     })}</div>{members.length <= 1 && <p>{tr("لا يوجد أعضاء آخرون. شارك كود المجموعة.")}</p>}{nav.meeting && <button className="outline" onClick={() => { setMeetingSelected(true); walking.select(); navigate('map'); }}>{tr("وجّهني إلى")} {nav.meeting.name}</button>}</div>
   </section>;
 }

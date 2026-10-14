@@ -1,7 +1,7 @@
 import { useLanguage } from '../../LanguageContext.jsx';
 import React from 'react';
 import { bearingBetween, distanceBetween, locationAge, locationLabel, normalizeAngle } from '../../utils/navigationCalculations.js';
-export default function LiveCompass({ own, target, online, now, onNudge, onArrived, busy, sensor }) {
+export default function LiveCompass({ own, target, online, now, onNudge, onArrived, busy, sensor, onNearest, nearestFeedback }) {
   const { tr, lang, direction } = useLanguage();
   const distance = distanceBetween(own, target), bearing = bearingBetween(own, target);
   const angle = bearing === null ? null : normalizeAngle(bearing - (sensor.heading ?? 0));
@@ -9,6 +9,8 @@ export default function LiveCompass({ own, target, online, now, onNudge, onArriv
   const lowAccuracy = (own?.accuracy || 0) > 50 || (target?.accuracy || 0) > 50;
   return <div className={`dal-live-compass${sensor.heading !== null ? ' has-heading' : ''}`}>
     <p>{tr("متجه إلى")}</p><h2>{target?.name || tr("اختر عضوًا أو نقطة اللقاء")}</h2>
+    {onNearest && <button className="filled nearest-member" onClick={onNearest}>{tr("وجّهني لأقرب عضو")}</button>}
+    {nearestFeedback && <p className="nearest-member-feedback" role="status">{nearestFeedback.message ? tr(nearestFeedback.message) : tr("تم اختيار {0}. المسافة المباشرة الحالية نحو {1} م، وليست مسافة طريق مشي.", target?.name, distance === null ? '—' : Math.round(distance))}{!nearestFeedback.message && lowAccuracy ? ` ${tr("دقة الموقع منخفضة؛ المسافة والاتجاه تقريبيان.")}` : ''}</p>}
     {(!sensor.enabled || ['denied', 'unavailable'].includes(sensor.status)) && <button className="outline compass-permission" disabled={sensor.status === 'requesting'} onClick={sensor.enable}>{tr("إعادة تفعيل حساس البوصلة")}</button>}
     {sensor.heading === null && <p className="compass-sensor-status" role="status">{sensor.status === 'denied' ? tr("إذن الحساس مرفوض. ") : sensor.status === 'waiting' ? tr("بانتظار قراءة الحساس. ") : ''}{tr("الاتجاه المعروض بالنسبة للشمال؛ السهم لا يتبع دوران جوالك.")}</p>}
     <div className="dal-compass-dial" aria-label={angle === null ? tr("الاتجاه غير متاح") : tr("الاتجاه {0} درجة من الشمال", Math.round(bearing))}>
