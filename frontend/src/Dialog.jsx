@@ -1,6 +1,8 @@
+import { useLanguage } from './LanguageContext.jsx';
 import React, { useEffect, useRef } from 'react';
 
 export default function Dialog({ children, className, labelledBy, onClose, busy = false }) {
+  const { direction } = useLanguage();
   const panel = useRef(null);
   const close = useRef(onClose);
   close.current = onClose;
@@ -30,5 +32,5 @@ export default function Dialog({ children, className, labelledBy, onClose, busy 
     };
   }, []);
 
-  return <div className="modal-backdrop" dir="rtl" onClick={() => !busy && onClose?.()}><section ref={panel} className={className} role="dialog" aria-modal="true" aria-labelledby={labelledBy} tabIndex={-1} onClick={event => event.stopPropagation()}>{children}</section></div>;
+  return <div className="modal-backdrop" dir={direction} onClick={() => !busy && onClose?.()}><section ref={panel} className={className} role="dialog" aria-modal="true" aria-labelledby={labelledBy} tabIndex={-1} onClick={event => event.stopPropagation()}>{children}</section></div>;
 }

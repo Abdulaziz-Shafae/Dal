@@ -249,3 +249,12 @@
  .walking-card,.nav-assistant{padding:12px}
  .walking-attribution{column-gap:10px}
 }
+
+/* Keep translated navigation and map labels aligned with the active language. */
+:root[dir="ltr"] .languages,:root[dir="ltr"] .footer-bottom{direction:ltr}
+:root[dir="ltr"] .leaflet-tooltip,:root[dir="ltr"] .leaflet-popup-content{direction:ltr}
+:root[dir="ltr"] .lucide-chevron-left,:root[dir="ltr"] .workspace-nav .lucide-arrow-right{transform:scaleX(-1)}
+.signed-in .home-sharing{max-width:calc(100% - 40px);text-align:start}
+.bottom-nav small{overflow-wrap:anywhere;text-align:center}
+.dal-compass-dial{overflow:clip}
+.chat-input button:not(:has(svg)){width:auto;min-width:50px;padding-inline:10px;border-radius:25px}

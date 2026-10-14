@@ -1,3 +1,4 @@
+import { translate } from '../i18n.js';
 export const CACHE_TTL = 5 * 60 * 1000;
 export const normalizeAngle = angle => ((angle % 360) + 360) % 360;
 export function validCoordinates(p) {
@@ -33,8 +34,9 @@ export function locationAge(point, now = Date.now()) {
   const time = Date.parse(point?.recordedAt || point?.updatedAt);
   return Number.isFinite(time) ? Math.max(0, now - time) : Infinity;
 }
-export function locationLabel(point, now = Date.now()) {
+export function locationLabel(point, now = Date.now(), lang = 'ar') {
+  const tr = (key, ...values) => translate(key, lang, ...values);
   const time = point?.recordedAt || point?.updatedAt;
   const age = locationAge(point, now);
-  return time && Number.isFinite(age) ? age < 60000 ? 'آخر تحديث قبل أقل من دقيقة' : `آخر تحديث قبل ${Math.floor(age / 60000)} ${Math.floor(age / 60000) === 1 ? 'دقيقة' : 'دقائق'}` : 'وقت التحديث غير متاح';
+  return time && Number.isFinite(age) ? age < 60000 ? tr('آخر تحديث قبل أقل من دقيقة') : tr('آخر تحديث قبل {0} {1}', Math.floor(age / 60000), tr(Math.floor(age / 60000) === 1 ? 'دقيقة' : 'دقائق')) : tr('وقت التحديث غير متاح');
 }
