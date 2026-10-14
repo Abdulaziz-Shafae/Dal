@@ -43,7 +43,7 @@
 .group-detail .share-code>.code{margin:0;flex:1;min-width:0;text-align:start;font-size:24px;letter-spacing:3px}
 .group-detail .share-code>.pair{flex:0 1 auto;gap:6px}
 .group-detail .share-code .pair button{min-width:80px;min-height:44px;font-size:12px;padding:8px 10px;gap:6px;white-space:nowrap;overflow-wrap:normal;background:#e3f4ee;border:0}
-.dal-navigation{padding:16px;background:#f2faf7}
+.dal-navigation{padding:16px;background:#f2faf7;overflow:visible}
 .dal-navigation .page-heading{margin-bottom:10px;align-items:center}
 .dal-navigation .page-heading h1{font-size:18px}
 .dal-navigation .page-heading>span{font-size:12px;color:#3f6e60;white-space:nowrap}
@@ -55,12 +55,12 @@
 .nav-gps-controls>.filled{width:100%;min-height:48px;font-size:14px}
 .nav-gps-controls>.field-help{font-size:12px;margin-top:8px}
 .nav-gps-controls>.text-link{padding:6px 0;font-size:13px}
-.dal-navigation .segmented{margin:12px 0;padding:4px;border-radius:30px}
+.dal-navigation .segmented{margin:12px 0;padding:4px;border-radius:30px;position:sticky;top:78px;z-index:5}
 .dal-navigation .segmented button{font-size:14px;min-height:44px;padding:9px 4px}
 .dal-navigation .nav-map-toolbar{gap:8px;margin:8px 0}
 .dal-navigation .nav-map-toolbar button{font-size:12px;min-height:44px;padding:9px 12px;background:#fff;border-radius:12px}
 .dal-navigation--map.has-location-consent{display:flex;flex-direction:column;position:relative}
-.dal-navigation--map.has-location-consent>.page-heading{position:absolute;inset-inline:24px;top:24px;z-index:4;background:white;border:1px solid #dcece5;border-radius:18px;padding:12px;margin:0;box-shadow:0 8px 20px #00443218}
+.dal-navigation--map.has-location-consent>.page-heading{position:absolute;inset-inline:24px;top:100px;z-index:4;background:white;border:1px solid #dcece5;border-radius:18px;padding:12px;margin:0;box-shadow:0 8px 20px #00443218}
 .dal-navigation--map.has-location-consent>.dal-live-map{order:0;position:relative}
 .dal-navigation--map.has-location-consent .nav-map-toolbar{position:absolute;top:78px;inset-inline-end:auto;inset-inline-start:12px;z-index:3;display:flex;flex-direction:column}
 .dal-navigation--map.has-location-consent .leaflet-top.leaflet-left{top:78px}
@@ -68,7 +68,7 @@
 .dal-navigation--map.has-location-consent>.member-picker{order:2}
 .dal-navigation--map.has-location-consent>.nav-connection{order:3}
 .dal-navigation--map.has-location-consent>.nav-gps-controls{order:4}
-.dal-navigation--map.has-location-consent>.segmented{order:5}
+.dal-navigation--map.has-location-consent>.segmented{order:-1}
 .dal-map-canvas{border-radius:20px}
 .dal-map-canvas .leaflet-tooltip{min-width:36px;max-width:none;white-space:nowrap;padding:5px 10px;border-radius:20px;color:#004432;border:1px solid #2bba95;font-size:14px;font-weight:700;box-shadow:0 3px 8px #00443215}
 .dal-navigation .member-picker{margin-top:12px;padding:16px;border-radius:24px 24px 16px 16px}
@@ -105,7 +105,7 @@
 .dal-navigation--compass .nav-connection.connected{background:#ffffff0c;color:#b6d7ca;border-color:#ffffff25}
 .dal-navigation--compass .nav-gps-controls{background:#ffffff0c;color:#e3f4ee;border-color:#ffffff35}
 .dal-navigation--compass .nav-gps-controls .field-help,.dal-navigation--compass .text-link{color:#b6d7ca}
-.dal-navigation--compass .segmented{background:#ffffff18}
+.dal-navigation--compass .segmented{background:#185645}
 .dal-navigation--compass .segmented button{color:#b6d7ca}
 .dal-navigation--compass .segmented button.active{background:white;color:#004432}
 .dal-live-compass{padding:0 0 8px;display:flex;flex-direction:column;align-items:center}
@@ -168,6 +168,7 @@
  .group-detail .share-code{max-width:350px;padding:10px 12px}
  .group-detail h1{font-size:30px;line-height:1.2;margin-bottom:0}
  .dal-navigation{padding:12px}
+ .dal-navigation .segmented{top:64px}
  .dal-map-canvas{height:clamp(300px,calc(100svh - 390px),440px)}
  .dal-navigation .member-row{grid-template-columns:repeat(3,minmax(0,1fr))}
  .dal-navigation .distance-placeholder{font-size:64px}
