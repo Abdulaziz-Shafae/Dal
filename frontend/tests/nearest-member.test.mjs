@@ -11,7 +11,7 @@ import { translate } from '../src/i18n.js';
 
 const now = Date.now(), point = { latitude: 0, longitude: 0, accuracy: 5, recordedAt: new Date(now).toISOString() };
 const members = [{ userId: 1, name: 'Self' }, { userId: 2, name: 'Far member' }, { userId: 3, name: 'Near member' }];
-const rows = members.map((member, i) => ({ ...member, ...point, longitude: i === 1 ? .002 : i === 2 ? .001 : 0, sharingEnabled: true }));
+const rows = members.map((member, i) => ({ ...member, ...point, longitude: i === 1 ? .002 : i === 2 ? .001 : 0, sharingEnabled: true, visibilityMode: 'ALWAYS', visibleUntil: null }));
 const options = { own: point, rows, members, userId: 1, groupId: 10, now };
 test('nearest uses the existing direct distance, excludes self and ignores unrelated rows/meeting points', () => {
   const result = nearestGroupMember({ ...options, members: [...members, { name: 'Meeting point' }], rows: [...rows, { ...point, userId: 99, sharingEnabled: true }, { ...point, name: 'Meeting point', sharingEnabled: true }] });
@@ -19,7 +19,7 @@ test('nearest uses the existing direct distance, excludes self and ignores unrel
   assert.equal(bearingBetween(point, rows[2]), 90);
 });
 test('unshared, missing, invalid, stale and foreign-group positions cannot win', () => {
-  for (const patch of [{ sharingEnabled: false }, { sharingEnabled: undefined }, { latitude: null }, { latitude: 91 }, { longitude: '0' }, { recordedAt: new Date(now - 30001).toISOString() }, { recordedAt: 'invalid' }, { groupId: 11 }]) {
+  for (const patch of [{ sharingEnabled: false }, { sharingEnabled: undefined }, { visibleUntil: undefined }, { visibleUntil: new Date(now - 1).toISOString() }, { latitude: null }, { latitude: 91 }, { longitude: '0' }, { recordedAt: new Date(now - 30001).toISOString() }, { recordedAt: 'invalid' }, { groupId: 11 }]) {
     assert.equal(nearestGroupMember({ ...options, rows: [rows[0], rows[1], { ...rows[2], ...patch }] }).member.userId, 2);
   }
   assert.equal(nearestGroupMember({ ...options, rows: rows.slice(0, 2) }).member.userId, 2);

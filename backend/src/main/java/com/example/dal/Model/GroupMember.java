@@ -54,6 +54,9 @@ public class GroupMember {
     @Column(name = "location_sharing_paused_until")
     private LocalDateTime locationSharingPausedUntil;
 
+    @Column(name = "locations_valid_from")
+    private LocalDateTime locationsValidFrom;
+
     @PrePersist
     public void initializeJoinedAt() {
         joinedAt = LocalDateTime.now(ZoneOffset.UTC);

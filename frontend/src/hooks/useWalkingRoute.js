@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { api } from '../api.js';
-import { distanceBetween, validCoordinates, locationAge } from '../utils/navigationCalculations.js';
+import { distanceBetween, validCoordinates, locationAge, locationVisible } from '../utils/navigationCalculations.js';
 
 export function routeNeedsUpdate(previous, own, target, key, now) {
   return !previous || previous.key !== key || now - previous.time >= 30000 || distanceBetween(previous.own, own) >= 25 || distanceBetween(previous.target, target) >= 25;
@@ -9,12 +9,12 @@ export default function useWalkingRoute({ groupId, own, target, online, consent,
   const [preview, setPreview] = useState(false), [guiding, setGuiding] = useState(false), [result, setResult] = useState(null);
   const last = useRef(null), pending = useRef(false), generation = useRef(0), requestedAt = useRef(0);
   const key = `${groupId}:${target?.userId || (target ? 'meeting' : '')}`;
-  const available = consent && validCoordinates(own) && validCoordinates(target) && (!target.userId || target.sharingEnabled === true) && locationAge(own, now) < 60000;
+  const available = consent && validCoordinates(own) && validCoordinates(target) && (!target.userId || (locationVisible(target, now) && locationAge(target, now) <= 30000)) && locationAge(own, now) <= 30000;
   const scope = useRef(key);
   if (scope.current !== key) { scope.current = key; generation.current++; }
   useEffect(() => { last.current = null; setResult(null); }, [key]);
   useEffect(() => {
-    if (!available || !preview || !online) { generation.current++; setResult(null); return; }
+    if (!available || !preview || !online) { generation.current++; last.current = null; setResult(null); return; }
     if (pending.current || !routeNeedsUpdate(last.current, own, target, key, now)) return;
     const version = generation.current;
     const timer = setTimeout(async () => {

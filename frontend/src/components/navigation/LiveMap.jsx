@@ -2,7 +2,7 @@ import { useLanguage } from '../../LanguageContext.jsx';
 import React, { useEffect, useState } from 'react';
 import { MapContainer, TileLayer, CircleMarker, Popup, Tooltip, Polyline, useMap, useMapEvents } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
-import { distanceBetween, locationLabel, validCoordinates } from '../../utils/navigationCalculations.js';
+import { distanceBetween, locationLabel, locationStatus, validCoordinates } from '../../utils/navigationCalculations.js';
 function Controls({ focus, onPick, picking }) {
   const { tr } = useLanguage();
   const map = useMap();
@@ -17,15 +17,15 @@ function Controls({ focus, onPick, picking }) {
   useMapEvents({ click: event => { if (picking) onPick({ latitude: event.latlng.lat, longitude: event.latlng.lng }); } });
   return null;
 }
-function Point({ point, own, meeting, onSelect, origin }) {
+function Point({ point, own, meeting, onSelect, origin, now, online }) {
   const { tr, lang, direction } = useLanguage();
   const distance = distanceBetween(origin, point);
   return <CircleMarker center={[point.latitude, point.longitude]} radius={meeting ? 13 : own ? 11 : 9} pathOptions={{ color: own ? '#004432' : meeting ? '#004432' : '#1b9151', fillColor: meeting ? '#e3f4ee' : own ? '#2bba95' : '#1b9151', fillOpacity: 1, weight: meeting ? 4 : 2 }} eventHandlers={{ click: () => onSelect?.(point) }}>
-    <Tooltip permanent direction="top">{own ? tr("أنت") : meeting ? tr("نقطة اللقاء") : point.name?.[0] || tr("عضو")}</Tooltip>
+    <Tooltip permanent direction="top">{own ? tr("أنت") : meeting ? tr("نقطة اللقاء") : point.name?.[0] || tr("عضو")}{!own && !meeting && <small> · {locationStatus(point, now, online, lang)}</small>}</Tooltip>
     <Popup><b>{own ? tr("أنت") : point.name}</b><p>{distance === null ? tr("المسافة المباشرة غير متاحة") : tr("المسافة المباشرة: {0} م", Math.round(distance))}</p><p>{locationLabel(point, Date.now(), lang)}</p>{Number.isFinite(point.accuracy) && <p>{tr("الدقة ±")}{Math.round(point.accuracy)} {tr("م")}</p>}</Popup>
   </CircleMarker>;
 }
-export default function LiveMap({ rows, own, userId, meeting, selected, onSelect, picking = false, onPick, draft, route, candidates = [], suggestion }) {
+export default function LiveMap({ rows, own, userId, meeting, selected, onSelect, picking = false, onPick, draft, route, candidates = [], suggestion, now = Date.now(), online = navigator.onLine, expired = false }) {
  const { tr, lang, direction } = useLanguage();
   const [focus, setFocus] = useState(null), [tileError, setTileError] = useState(false);
   useEffect(() => { if (validCoordinates(selected)) setFocus({ point: selected }); }, [selected?.userId]);
@@ -43,10 +43,10 @@ export default function LiveMap({ rows, own, userId, meeting, selected, onSelect
       {candidates.filter(validCoordinates).map((point, i) => <CircleMarker key={`candidate-${i}`} center={[point.latitude, point.longitude]} radius={10} pathOptions={{ color: '#8064a2', dashArray: '4 4' }}><Tooltip>{point.name} {tr("· مرشح")}</Tooltip></CircleMarker>)}
       {validCoordinates(suggestion) && <CircleMarker center={[suggestion.latitude, suggestion.longitude]} radius={15} pathOptions={{ color: '#a56700', fillColor: '#ffd77a', fillOpacity: .8 }}><Tooltip permanent>{suggestion.name} {tr("· مقترحة ولم تحفظ")}</Tooltip></CircleMarker>}
       {own && <Point point={own} own origin={own}/>}
-      {rows.filter(row => row.userId !== userId).map(row => <Point key={row.userId} point={row} origin={own} onSelect={onSelect}/>)}
+      {rows.filter(row => row.userId !== userId).map(row => <Point key={row.userId} point={row} origin={own} onSelect={onSelect} now={now} online={online}/>)}
       {validCoordinates(meeting) && <Point point={meeting} meeting origin={own} onSelect={onSelect}/>}
       {validCoordinates(draft) && <CircleMarker center={[draft.latitude, draft.longitude]} radius={14} pathOptions={{ color: '#004432', dashArray: '5 5' }}><Tooltip permanent>{tr("النقطة المختارة · لم تحفظ بعد")}</Tooltip></CircleMarker>}
     </MapContainer>}
-    {fallback && <div className="nav-offline-list">{[...(meeting ? [{ ...meeting, name: tr("نقطة اللقاء: {0}", meeting.name) }] : []), ...rows].map((p, i) => <p key={i}><b>{p.name}</b><br/><span dir="ltr">{p.latitude.toFixed(6)}, {p.longitude.toFixed(6)}</span><br/>{locationLabel(p, Date.now(), lang)}</p>)}{!meeting && !rows.length && <p>{tr("لا توجد معلومات محفوظة متاحة.")}</p>}</div>}
+    {fallback && <div className="nav-offline-list">{expired && <p role="status">{tr("انتهت مدة مشاركة الموقع.")}</p>}{[...(validCoordinates(meeting) ? [{ ...meeting, name: tr("نقطة اللقاء: {0}", meeting.name) }] : []), ...rows].map((p, i) => <p key={i}><b>{p.name}</b><br/><span dir="ltr">{p.latitude.toFixed(6)}, {p.longitude.toFixed(6)}</span><br/>{p.userId ? `${locationStatus(p, now, online, lang)} · ${locationLabel(p, now, lang)}` : tr("نقطة لقاء ثابتة")}</p>)}{!meeting && !rows.length && <p>{tr("لا توجد معلومات محفوظة متاحة.")}</p>}</div>}
   </div>;
 }

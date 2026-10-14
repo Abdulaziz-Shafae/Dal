@@ -55,6 +55,6 @@ test('location age and RTL/LTR are localized; unsupported languages fall back sa
   assert.equal(languageDirection('ar'), 'rtl'); assert.equal(languageDirection('en'), 'ltr'); assert.equal(languageDirection('fr'), 'ltr');
   assert.equal(normalizeLanguage('invalid'), 'ar');
   const now = Date.parse('2026-10-14T10:00:00Z');
-  assert.equal(locationLabel({ recordedAt: '2026-10-14T09:58:00Z' }, now, 'fr'), 'Mise à jour il y a 2 minutes');
-  assert.equal(locationLabel({ recordedAt: '2026-10-14T09:59:30Z' }, now, 'en'), 'Updated less than a minute ago');
+  assert.match(locationLabel({ recordedAt: '2026-10-14T09:58:00Z' }, now, 'fr'), /Dernière mise à jour.*14.*2026.*12:58/);
+  assert.match(locationLabel({ recordedAt: '2026-10-14T09:59:30Z' }, now, 'en'), /Last updated:.*Oct 14, 2026.*12:59.*PM/);
 });

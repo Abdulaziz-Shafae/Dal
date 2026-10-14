@@ -46,7 +46,7 @@ test('orientation denial and unsupported sensors retain north-only fallback', as
 });
 test('group lifecycle requires consent, handles sharing revocation, offline, recovery and expiry', async () => {
   let mode = 'ok', reads = 0;
-  const point = { userId: 2, name: 'Test member', latitude: 24.7, longitude: 46.6, accuracy: 8, recordedAt: new Date().toISOString(), sharingEnabled: true };
+  const point = { userId: 2, name: 'Test member', latitude: 24.7, longitude: 46.6, accuracy: 8, recordedAt: new Date().toISOString(), sharingEnabled: true, visibilityMode: 'ALWAYS', visibleUntil: null };
   const settings = { sharingMode: 'WHILE_USING', sharingEnabled: true, updateIntervalSeconds: 15 };
   globalThis.fetch = async (url, options = {}) => {
     reads++;

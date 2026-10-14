@@ -113,6 +113,7 @@ public class GroupService {
         accessService.requireOpenGroup(group);
         group.setPausedUntil(validationService.validatePauseUntil(input.getPausedUntil()));
         group.setStatus("PAUSED");
+        invalidateLocations(group, group.getPausedUntil() == null ? validationService.getCurrentTime() : group.getPausedUntil());
         groupRepository.save(group);
         return createGroupResponse(group, manager.getRole());
     }
@@ -122,6 +123,7 @@ public class GroupService {
         Group group = accessService.requireGroupForUpdate(groupId);
         GroupMember manager = accessService.requireManager(userId, groupId);
         accessService.requireOpenGroup(group);
+        if ("PAUSED".equals(group.getStatus())) invalidateLocations(group, validationService.getCurrentTime());
         group.setStatus("ACTIVE");
         group.setPausedUntil(null);
         groupRepository.save(group);
@@ -170,6 +172,13 @@ public class GroupService {
         memberRepository.save(owner);
         memberRepository.save(target);
         // createdBy stays the original creator; current ownership is stored in GroupMember.role.
+    }
+
+    private void invalidateLocations(Group group, java.time.LocalDateTime boundary) {
+        for (GroupMember member : memberRepository.findAllByGroup_Id(group.getId())) {
+            member.setLocationsValidFrom(boundary);
+            memberRepository.save(member);
+        }
     }
 
     private String generateUniqueJoinCode() {

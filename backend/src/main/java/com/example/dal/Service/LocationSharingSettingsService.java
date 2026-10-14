@@ -9,6 +9,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import java.time.LocalDateTime;
+import java.util.Objects;
 
 @Service
 @RequiredArgsConstructor
@@ -35,6 +36,9 @@ public class LocationSharingSettingsService {
         if ("SCHEDULED".equals(input.getSharingMode()) && (start == null || end == null || !start.isBefore(end))) {
             throw new ApiException("Scheduled sharing requires a start time before the end time");
         }
+        if (!Objects.equals(settings.getSharingMode(), input.getSharingMode()) || !Objects.equals(settings.getStartTime(), "SCHEDULED".equals(input.getSharingMode()) ? start : null) || !Objects.equals(settings.getEndTime(), "SCHEDULED".equals(input.getSharingMode()) ? end : null)) {
+            settings.setLocationsValidFrom(validationService.getCurrentTime());
+        }
         settings.setSharingMode(input.getSharingMode());
         settings.setStartTime("SCHEDULED".equals(input.getSharingMode()) ? start : null);
         settings.setEndTime("SCHEDULED".equals(input.getSharingMode()) ? end : null);
@@ -49,6 +53,7 @@ public class LocationSharingSettingsService {
         accessService.requireUserForUpdate(userId);
         LocationSharingSettings settings = requireSettings(userId);
         settings.setPausedUntil(validationService.validatePauseUntil(input.getPausedUntil()));
+        settings.setLocationsValidFrom(settings.getPausedUntil() == null ? validationService.getCurrentTime() : settings.getPausedUntil());
         settings.setIsPaused(true);
         settingsRepository.saveAndFlush(settings);
         return createSettingsResponse(settings);
@@ -58,6 +63,7 @@ public class LocationSharingSettingsService {
     public SharingSettingsDtoOut resumeAllLocationSharing(Integer userId) {
         accessService.requireUserForUpdate(userId);
         LocationSharingSettings settings = requireSettings(userId);
+        if (Boolean.TRUE.equals(settings.getIsPaused())) settings.setLocationsValidFrom(validationService.getCurrentTime());
         settings.setIsPaused(false);
         settings.setPausedUntil(null);
         settingsRepository.saveAndFlush(settings);
@@ -71,6 +77,7 @@ public class LocationSharingSettingsService {
         accessService.requireGroupForUpdate(groupId);
         GroupMember member = accessService.requireMember(userId, groupId);
         member.setLocationSharingPausedUntil(validationService.validatePauseUntil(input.getPausedUntil()));
+        member.setLocationsValidFrom(member.getLocationSharingPausedUntil() == null ? validationService.getCurrentTime() : member.getLocationSharingPausedUntil());
         member.setLocationSharingPaused(true);
         memberRepository.save(member);
         return createMemberSharingResponse(member);
@@ -80,6 +87,7 @@ public class LocationSharingSettingsService {
     public MemberSharingDtoOut resumeSharingForGroup(Integer userId, Integer groupId) {
         accessService.requireGroupForUpdate(groupId);
         GroupMember member = accessService.requireMember(userId, groupId);
+        if (Boolean.TRUE.equals(member.getLocationSharingPaused())) member.setLocationsValidFrom(validationService.getCurrentTime());
         member.setLocationSharingPaused(false);
         member.setLocationSharingPausedUntil(null);
         memberRepository.save(member);
@@ -102,7 +110,7 @@ public class LocationSharingSettingsService {
         if ("SCHEDULED".equals(settings.getSharingMode())) {
             return settings.getStartTime() != null && settings.getEndTime() != null && !now.isBefore(settings.getStartTime()) && now.isBefore(settings.getEndTime());
         }
-        // WHILE_USING is enforced by the frontend only while the page is in use.
+        // Authorization to publish; visibility additionally requires the server activity lease.
         return "WHILE_USING".equals(settings.getSharingMode()) || "ALWAYS".equals(settings.getSharingMode());
     }
 

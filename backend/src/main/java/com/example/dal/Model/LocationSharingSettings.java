@@ -58,6 +58,9 @@ public class LocationSharingSettings {
     @Column(name = "updated_at", nullable = false)
     private LocalDateTime updatedAt;
 
+    @Column(name = "locations_valid_from")
+    private LocalDateTime locationsValidFrom;
+
     @PrePersist
     @PreUpdate
     public void updateModificationTime() {

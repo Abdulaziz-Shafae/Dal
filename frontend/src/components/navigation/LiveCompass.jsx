@@ -1,6 +1,6 @@
 import { useLanguage } from '../../LanguageContext.jsx';
 import React from 'react';
-import { bearingBetween, distanceBetween, locationAge, locationLabel, normalizeAngle } from '../../utils/navigationCalculations.js';
+import { bearingBetween, distanceBetween, locationAge, locationLabel, locationStatus, normalizeAngle } from '../../utils/navigationCalculations.js';
 export default function LiveCompass({ own, target, online, now, onNudge, onArrived, busy, sensor, onNearest, nearestFeedback, onMeeting, meetingFeedback }) {
   const { tr, lang, direction } = useLanguage();
   const distance = distanceBetween(own, target), bearing = bearingBetween(own, target);
@@ -23,7 +23,7 @@ export default function LiveCompass({ own, target, online, now, onNudge, onArriv
     <div className="distance-placeholder">{distance === null ? '—' : Math.round(distance)} <small>{tr("م")}</small></div>
     <p>{distance === null ? tr("الموقع غير متاح. فعّل موقعك واختر وجهة لها موقع مسموح.") : lowAccuracy ? tr("دقة الموقع منخفضة؛ المسافة والاتجاه تقريبيان.") : distance < 10 ? tr("وصلت؟ اضغط لتأكيد اللقاء") : distance < 30 ? tr("قريب منك") : tr("اتجه نحو العضو أو نقطة اللقاء")}</p>
     {bearing !== null && <p>{Math.round(bearing)}{tr("° من الشمال · اتجاه مباشر، وليس مسار مشي")}</p>}
-    {target && <p>{target.userId ? locationLabel(target, Date.now(), lang) : tr("نقطة لقاء ثابتة")}{target.userId && stale ? tr(" · آخر موقع معروف، قد تكون الوجهة تحركت") : ''}</p>}
+    {target && <p>{target.userId ? `${locationStatus(target, now, online, lang)} · ${locationLabel(target, now, lang)}` : tr("نقطة لقاء ثابتة")}{target.userId && stale ? tr(" · آخر موقع معروف، قد تكون الوجهة تحركت") : ''}</p>}
     {target && !target.userId && stale && <p role="status">{tr("انتظر قراءة GPS حديثة، ثم حاول مجددًا. لم تتغير وجهتك.")}</p>}
     <p className="field-help">{tr("امسك الجوال مستويًا وبعيدًا عن المعادن. تأكيد اللقاء يدويًا بسبب حدود دقة GPS.")}</p>
     {target?.userId && <div className="pair"><button className="filled" disabled={busy || !online} onClick={onNudge}>{tr("نبّه")} {target.name}</button><button className="outline" disabled={busy || !online || distance === null} onClick={onArrived}>{tr("وصلت")}</button></div>}

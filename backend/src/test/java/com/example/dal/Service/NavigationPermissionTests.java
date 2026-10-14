@@ -13,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class NavigationPermissionTests {
     @Test void meetingExplanationIncludesDerivedCurrentMeetingContextButRanksOnlyExplicitCandidates() {
         var access=mock(GroupAccessService.class);var locations=mock(UserLocationService.class);var meetings=mock(MeetingPointService.class);var routing=mock(WalkingRoutingService.class);var ai=mock(AiExplanationService.class);var repository=mock(MeetingPointRepository.class);
-        var service=new NavigationAssistanceService(access,locations,meetings,routing,ai,repository);
+        var service=new NavigationAssistanceService(access,locations,meetings,routing,ai,repository,Clock.systemUTC());
         var own=new UserLocationDtoOut(1,"Private name",24.0,46.0,8.0,OffsetDateTime.now(ZoneOffset.UTC),true);
         var target=new UserLocationDtoOut(2,"Private target",24.001,46.001,8.0,OffsetDateTime.now(ZoneOffset.UTC),true);
         when(locations.getGroupLocations(1,10)).thenReturn(List.of(own,target));
@@ -24,7 +24,7 @@ class NavigationPermissionTests {
     }
     @Test void routeUsesAuthorizedStoredCoordinatesAndDiscardsResultWhenSharingIsRevokedMidRequest() {
         var access=mock(GroupAccessService.class);var locations=mock(UserLocationService.class);var meetings=mock(MeetingPointService.class);var routing=mock(WalkingRoutingService.class);var ai=mock(AiExplanationService.class);var meetingRepository=mock(MeetingPointRepository.class);
-        var service=new NavigationAssistanceService(access,locations,meetings,routing,ai,meetingRepository);
+        var service=new NavigationAssistanceService(access,locations,meetings,routing,ai,meetingRepository,Clock.systemUTC());
         var own=new UserLocationDtoOut(1,"Private name",24.0,46.0,8.0,OffsetDateTime.now(ZoneOffset.UTC),true);
         var target=new UserLocationDtoOut(2,"Private target",24.001,46.001,8.0,OffsetDateTime.now(ZoneOffset.UTC),true);
         var hidden=new UserLocationDtoOut(2,"Private target",null,null,null,null,false);
@@ -36,7 +36,7 @@ class NavigationPermissionTests {
     }
     @Test void reunionUsesWalkingDistanceWhenAvailableWithoutSendingIdentitiesOrCoordinatesToAi() {
         var access=mock(GroupAccessService.class);var locations=mock(UserLocationService.class);var meetings=mock(MeetingPointService.class);var routing=mock(WalkingRoutingService.class);var ai=mock(AiExplanationService.class);var meetingRepository=mock(MeetingPointRepository.class);
-        var service=new NavigationAssistanceService(access,locations,meetings,routing,ai,meetingRepository);
+        var service=new NavigationAssistanceService(access,locations,meetings,routing,ai,meetingRepository,Clock.systemUTC());
         var own=new UserLocationDtoOut(1,"Private name",24.0,46.0,8.0,OffsetDateTime.now(ZoneOffset.UTC),true);
         var target=new UserLocationDtoOut(2,"Private target",24.001,46.001,8.0,OffsetDateTime.now(ZoneOffset.UTC),true);
         when(locations.getGroupLocations(1,10)).thenReturn(List.of(own,target));

@@ -1959,6 +1959,34 @@ export const messages = {
   "نقطة لقاء ثابتة": {
     "en": "Fixed meeting point",
     "fr": "Point de rendez-vous fixe"
+  },
+  "آخر تحديث: {0}": {
+    "en": "Last updated: {0}",
+    "fr": "Dernière mise à jour : {0}"
+  },
+  "آخر موقع معروف": {
+    "en": "Last known location",
+    "fr": "Dernière position connue"
+  },
+  "موقع حديث": {
+    "en": "Recent location",
+    "fr": "Position récente"
+  },
+  "آخر موقع معروف · بيانات محفوظة أثناء انقطاع الاتصال": {
+    "en": "Last known location · cached while offline",
+    "fr": "Dernière position connue · données en cache hors ligne"
+  },
+  "انتهت مدة مشاركة الموقع.": {
+    "en": "Location sharing has expired.",
+    "fr": "Le partage de position a expiré."
+  },
+  " · الموقع قديم وقد يكون العضو تحرك.": {
+    "en": " · The location is old and the member may have moved.",
+    "fr": " · La position est ancienne et le membre a pu se déplacer."
+  },
+  "أعد تفعيل الملاحة للتحقق من إذن الموقع بعد استعادة الاتصال.": {
+    "en": "Enable navigation again to check location permission after reconnecting.",
+    "fr": "Réactivez la navigation pour vérifier l’autorisation de localisation après la reconnexion."
   }
 };
 
