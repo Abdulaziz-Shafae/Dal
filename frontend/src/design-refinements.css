@@ -203,7 +203,10 @@
 .chat-tabs{max-width:700px;margin:12px auto}
 .chat-page .message>b{font-size:12px;display:block;margin-bottom:4px}
 .hero-phone{height:auto;aspect-ratio:820/1360;object-fit:contain;filter:drop-shadow(0 24px 24px #001b1940)}
-.hero-phone-wrap{width:min(410px,100%);justify-self:center;filter:drop-shadow(0 16px 22px #001b1938)} .hero-phone-wrap .hero-phone{display:block;width:100%;height:auto;filter:none;transform:rotate(-1deg);transform-origin:50% 55%} @media(max-width:760px){.hero-phone-wrap{display:none}}
+.hero-phone-wrap{position:relative;width:min(410px,100%);justify-self:center;filter:drop-shadow(0 16px 22px #001b1938)} .hero-phone-wrap .hero-phone{display:block;width:100%;height:auto;filter:none;transform:rotate(-1deg);transform-origin:50% 55%} @media(max-width:760px){.hero-phone-wrap{display:none}}
+/* Restore the raster's cropped top bezel, matching the mask's 96px outer
+   radius and the existing 20px side bezel in the 820 × 1360 artwork. */
+.hero-phone-wrap::after{content:"";position:absolute;inset:0;pointer-events:none;transform:rotate(-1deg);transform-origin:50% 55%;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 820 1360'%3E%3Cpath fill='%230f1513' d='M80 112V96a96 96 0 0 1 96-96h456a96 96 0 0 1 96 96v16h-20V96a76 76 0 0 0-76-76H176a76 76 0 0 0-76 76v16Z'/%3E%3C/svg%3E") center/100% 100% no-repeat}
 .chat-tabs{width:100%;flex-shrink:0}
 
 /* Compact content and keep navigation/composers within the visible viewport. */
