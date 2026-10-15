@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { MapPin, Compass } from 'lucide-react';
 import Dialog from '../../Dialog.jsx';
 import { useLanguage } from '../../LanguageContext.jsx';
-import { navigationRequirements } from '../../utils/navigationPermissions.js';
+import { navigationRequirements, orientationFeedback, orientationSupported } from '../../utils/navigationPermissions.js';
 
 // GroupNavigation keys this component by page so dismissal lasts for one visit.
 export default function NavigationPermissionDialog({ view, navigation: nav, sensor, navigate, languageControls }) {
@@ -15,7 +15,8 @@ export default function NavigationPermissionDialog({ view, navigation: nav, sens
   const [locationRequested, setLocationRequested] = useState(false), [sensorRequested, setSensorRequested] = useState(false);
   const locationAttempt = useRef(false), sensorAttempt = useRef(false);
   const locationSupported = !!(window.isSecureContext && navigator.geolocation);
-  const sensorSupported = !!(window.isSecureContext && window.DeviceOrientationEvent);
+  const sensorSupported = sensor.supported ?? orientationSupported();
+  const sensorFeedback = orientationFeedback(sensor);
   const blocked = nav.settingsReady && !nav.sharingAllowed;
   const locationLoading = nav.consent && (nav.gps.status === 'loading' || (locationRequested && nav.gps.status === 'idle'));
   useEffect(() => { if (!missing.location && !missing.sensor) setOpen(false); }, [missing.location, missing.sensor]);
@@ -48,11 +49,9 @@ export default function NavigationPermissionDialog({ view, navigation: nav, sens
     {missing.sensor && <section className="permission-requirement" aria-labelledby="sensor-permission-title">
       <h3 id="sensor-permission-title"><Compass size={20}/>{tr('حساس البوصلة')}</h3>
       <p>{tr('يستخدم دال حساس الاتجاه لتحديث سهم البوصلة عند تدوير الجوال. تفعيل الحساس وحده لا يفعّل مشاركة الموقع.')}</p>
-      {sensor.status === 'requesting' && <p role="status">{tr('بانتظار قرار إذن الحساس…')}</p>}
-      {sensor.status === 'waiting' && <p role="status">{tr('بانتظار قراءة الحساس. ')}</p>}
-      {sensor.status === 'denied' && <p role="alert">{tr('إذن الحساس مرفوض. اسمح بالحركة والاتجاه من إعدادات المتصفح أو الجهاز، ثم أعد دخول الصفحة أو استخدم التفعيل اليدوي.')}</p>}
-      {(!sensorSupported || sensor.status === 'unavailable') && <p role="alert">{tr('حساس البوصلة غير متاح أو لا يرسل قراءة صالحة. يمكنك استخدام الخريطة أو الاتجاه بالنسبة للشمال.')}</p>}
-      <button className="filled" disabled={!sensorSupported || sensorRequested || ['requesting', 'waiting'].includes(sensor.status)} onClick={enableSensor}>{tr('تفعيل حساس البوصلة')}</button>
+      <p role={sensor.status === 'denied' && sensorSupported ? 'alert' : 'status'}>{tr(sensorFeedback.message)}</p>
+      <p>{tr('الاتجاه المعروض بالنسبة للشمال؛ السهم لا يتبع دوران جوالك.')}</p>
+      {sensorSupported && <button className="filled" disabled={sensorRequested || !sensorFeedback.canActivate} onClick={enableSensor}>{tr('تفعيل حساس البوصلة')}</button>}
     </section>}
     <button className="outline full" onClick={() => setOpen(false)}>{tr('ليس الآن')}</button>
     {languageControls}

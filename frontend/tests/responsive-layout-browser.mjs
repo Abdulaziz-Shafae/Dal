@@ -12,7 +12,7 @@ const phase=process.argv[2]||'after',engine=process.argv[3]||'chromium',base=pro
 assert.ok(['localhost','127.0.0.1'].includes(new URL(base).hostname));
 const output=process.env.DAL_QA_OUTPUT||join(tmpdir(),'dal-issue-09'),shots=fileURLToPath(new URL('../../docs/screenshots/',import.meta.url));
 await mkdir(output,{recursive:true});await mkdir(shots,{recursive:true});
-const sizes=process.argv.includes('--quick')?[[820,1180],[1024,768]]:[[390,844],[768,1024],[820,1180],[834,1194],[1024,768],[1180,820],[1194,834],[1280,720],[1440,900]];
+const sizes=process.env.DAL_QA_VIEWPORTS?JSON.parse(process.env.DAL_QA_VIEWPORTS):process.argv.includes('--quick')?[[820,1180],[1024,768]]:[[390,844],[768,1024],[820,1180],[834,1194],[1024,768],[1180,820],[1194,834],[1280,720],[1440,900]];
 const browser=await(engine==='webkit'?webkit.launch({headless:true}):chromium.launch({channel:'chrome',headless:true}));
 const matrix=[];let fatal,contextIndex=0;
 try {for(const [width,height]of sizes)for(const lang of(process.env.DAL_QA_LANGUAGES?.split(',')||(process.argv.includes('--quick')?['en']:['ar','en','fr']))){
@@ -84,6 +84,7 @@ try {for(const [width,height]of sizes)for(const lang of(process.env.DAL_QA_LANGU
     else {await page.getByRole('button',{name:tr('القائمة'),exact:true}).click();await menu.getByRole('button',{name:labels[view],exact:true}).click();}
   }
   async function audit(state,selector,{center=true,shot=false}={}){
+    if(process.env.DAL_QA_SCREENSHOTS==='false')shot=false;
     const node=page.locator(selector).first();await node.waitFor();await page.evaluate(()=>scrollTo(0,0));
     const metrics=await node.evaluate((el,{center})=>{
       const r=el.getBoundingClientRect(),nav=document.querySelector('.bottom-nav'),nr=nav?.getBoundingClientRect(),shown=nav&&getComputedStyle(nav).display!=='none';
@@ -117,7 +118,7 @@ try {for(const [width,height]of sizes)for(const lang of(process.env.DAL_QA_LANGU
   for(const [state,selector]of [['tools','.tools-section>.container'],['landing-compass','.compass-section>.container'],['landing-meeting','.meeting-section>.container'],['cta','.cta-box'],['faq','.faq-section>.container'],['footer','.footer-grid']])await audit(state,selector,{shot:state==='footer'});
   await page.locator('.faq-item button').first().click();await audit('faq-expanded','.faq-section>.container');
   await page.evaluate(()=>scrollTo(0,document.documentElement.scrollHeight));
-  const navBefore=await page.locator('.bottom-nav').boundingBox();assert.ok(Math.abs(navBefore.y+navBefore.height-height)<1);if(engine==='chromium'&&lang==='en'&&width===820)await page.screenshot({path:join(shots,`issue-09-${phase}-bottom-navigation-scroll.png`)});
+  const navBefore=await page.locator('.bottom-nav').boundingBox();assert.ok(Math.abs(navBefore.y+navBefore.height-height)<1);if(process.env.DAL_QA_SCREENSHOTS!=='false'&&engine==='chromium'&&lang==='en'&&width===820)await page.screenshot({path:join(shots,`issue-09-${phase}-bottom-navigation-scroll.png`)});
   await go('groups');await page.locator('.group-card').first().waitFor();await audit('groups','.panel',{shot:true});
   await page.getByRole('button',{name:tr('مجموعة جديدة'),exact:true}).click();await audit('create','.form-page',{shot:true});await page.locator('.group-form-options summary').click();await audit('create-options','.form-page');
   await page.locator('.segmented').getByRole('button',{name:tr('انضم لمجموعة'),exact:true}).click();await audit('join','.form-page');

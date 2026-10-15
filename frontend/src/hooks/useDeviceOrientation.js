@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { headingFromEvent } from '../utils/navigationCalculations.js';
+import { orientationSupported } from '../utils/navigationPermissions.js';
 export default function useDeviceOrientation(active = true) {
   const [enabled, setEnabled] = useState(false), [heading, setHeading] = useState(null), [status, setStatus] = useState('idle');
   const granted = useRef(false);
@@ -36,5 +37,5 @@ export default function useDeviceOrientation(active = true) {
     document.addEventListener('visibilitychange', hidden);
     return () => { clearTimeout(expiry); window.removeEventListener('deviceorientationabsolute', update); window.removeEventListener('deviceorientation', update); document.removeEventListener('visibilitychange', hidden); };
   }, [enabled, active]);
-  return { heading, status, enable, enabled };
+  return { heading, status, enable, enabled, supported: orientationSupported() };
 }

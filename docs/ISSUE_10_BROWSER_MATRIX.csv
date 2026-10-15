@@ -1,0 +1,1405 @@
+"suite","engine","language","viewport","state","role","direction","overflow","clipped","centerOffset","navAnchored","lastControlClear","message"
+"layout-final","chromium","ar","390x844","home",,,"False",,"0","True",,
+"layout-final","chromium","ar","390x844","tools",,,"False",,"0","True",,
+"layout-final","chromium","ar","390x844","landing-compass",,,"False",,"0","True",,
+"layout-final","chromium","ar","390x844","landing-meeting",,,"False",,"0","True",,
+"layout-final","chromium","ar","390x844","cta",,,"False",,"0","True",,
+"layout-final","chromium","ar","390x844","faq",,,"False",,"0","True",,
+"layout-final","chromium","ar","390x844","footer",,,"False",,"0","True",,
+"layout-final","chromium","ar","390x844","faq-expanded",,,"False",,"0","True",,
+"layout-final","chromium","ar","390x844","groups",,,"False",,"0","True","True",
+"layout-final","chromium","ar","390x844","create",,,"False",,"0","True","True",
+"layout-final","chromium","ar","390x844","create-options",,,"False",,"0","True","True",
+"layout-final","chromium","ar","390x844","join",,,"False",,"0","True","True",
+"layout-final","chromium","ar","390x844","menu",,,"False",,"0","True",,
+"layout-final","chromium","ar","390x844","group-owner",,,"False",,"0","True","True",
+"layout-final","chromium","ar","390x844","group-long-content",,,"False",,"0","True","True",
+"layout-final","chromium","ar","390x844","confirmation",,,"False",,"0","True",,
+"layout-final","chromium","ar","390x844","map-permission",,,"False",,"0","True",,
+"layout-final","chromium","ar","390x844","map",,,"False",,"0","True","True",
+"layout-final","chromium","ar","390x844","map-gps",,,"False",,"0","True","True",
+"layout-final","chromium","ar","390x844","walking-route",,,"False",,"0","True","True",
+"layout-final","chromium","ar","390x844","ai-reunion",,,"False",,"0","True","True",
+"layout-final","chromium","ar","390x844","ai-reunion-details",,,"False",,"0","True","True",
+"layout-final","chromium","ar","390x844","compass-permission",,,"False",,"0","True",,
+"layout-final","chromium","ar","390x844","compass",,,"False",,"0","True","True",
+"layout-final","chromium","ar","390x844","compass-nearest",,,"False",,"0","True","True",
+"layout-final","chromium","ar","390x844","compass-meeting",,,"False",,"0","True","True",
+"layout-final","chromium","ar","390x844","meeting",,,"False",,"0","True","True",
+"layout-final","chromium","ar","390x844","meeting-draft",,,"False",,"0","True","True",
+"layout-final","chromium","ar","390x844","ai-meeting",,,"False",,"0","True","True",
+"layout-final","chromium","ar","390x844","ai-meeting-details",,,"False",,"0","True","True",
+"layout-final","chromium","ar","390x844","meeting-delete-confirmation",,,"False",,"0","True",,
+"layout-final","chromium","ar","390x844","chat-group",,,"False",,"0","True","True",
+"layout-final","chromium","ar","390x844","chat-composer",,,,,,,,
+"layout-final","chromium","ar","390x844","chat-focused",,,"False",,"0","True","True",
+"layout-final","chromium","ar","390x844","chat-keyboard-resized",,,"False",,"0","True","True",
+"layout-final","chromium","ar","390x844","chat-private",,,"False",,"0","True","True",
+"layout-final","chromium","ar","390x844","chat-no-member",,,"False",,"0","True","True",
+"layout-final","chromium","ar","390x844","chat-empty",,,"False",,"0","True","True",
+"layout-final","chromium","ar","390x844","chat-error",,,"False",,"0","True","True",
+"layout-final","chromium","ar","390x844","chat-loading",,,"False",,"0","True","True",
+"layout-final","chromium","ar","390x844","settings",,,"False",,"0","True","True",
+"layout-final","chromium","ar","390x844","sharing-confirmation",,,"False",,"0","True",,
+"layout-final","chromium","ar","390x844","notifications",,,"False",,"0","True","True",
+"layout-final","chromium","ar","390x844","notifications-empty",,,"False",,"0","True","True",
+"layout-final","chromium","ar","390x844","notifications-error",,,"False",,"0","True","True",
+"layout-final","chromium","ar","390x844","notifications-loading",,,"False",,"0","True","True",
+"layout-final","chromium","ar","390x844","groups-empty",,,"False",,"0","True","True",
+"layout-final","chromium","ar","390x844","groups-error",,,"False",,"0","True","True",
+"layout-final","chromium","ar","390x844","groups-loading",,,"False",,"0","True","True",
+"layout-final","chromium","ar","390x844","group-admin",,,"False",,"0","True","True",
+"layout-final","chromium","ar","390x844","group-member",,,"False",,"0","True","True",
+"layout-final","chromium","ar","390x844","home-guest",,,"False",,"0","True",,
+"layout-final","chromium","ar","390x844","login",,,"False",,"0","True","True",
+"layout-final","chromium","ar","390x844","register",,,"False",,"0","True","True",
+"layout-final","chromium","ar","390x844","forgot",,,"False",,"0","True","True",
+"layout-final","chromium","ar","390x844","reset-missing-token",,,"False",,"0","True","True",
+"layout-final","chromium","ar","390x844","reset",,,"False",,"0","True","True",
+"layout-final","chromium","en","390x844","home",,,"False",,"0","True",,
+"layout-final","chromium","en","390x844","tools",,,"False",,"0","True",,
+"layout-final","chromium","en","390x844","landing-compass",,,"False",,"0","True",,
+"layout-final","chromium","en","390x844","landing-meeting",,,"False",,"0","True",,
+"layout-final","chromium","en","390x844","cta",,,"False",,"0","True",,
+"layout-final","chromium","en","390x844","faq",,,"False",,"0","True",,
+"layout-final","chromium","en","390x844","footer",,,"False",,"0","True",,
+"layout-final","chromium","en","390x844","faq-expanded",,,"False",,"0","True",,
+"layout-final","chromium","en","390x844","groups",,,"False",,"0","True","True",
+"layout-final","chromium","en","390x844","create",,,"False",,"0","True","True",
+"layout-final","chromium","en","390x844","create-options",,,"False",,"0","True","True",
+"layout-final","chromium","en","390x844","join",,,"False",,"0","True","True",
+"layout-final","chromium","en","390x844","menu",,,"False",,"0","True",,
+"layout-final","chromium","en","390x844","group-owner",,,"False",,"0","True","True",
+"layout-final","chromium","en","390x844","group-long-content",,,"False",,"0","True","True",
+"layout-final","chromium","en","390x844","confirmation",,,"False",,"0","True",,
+"layout-final","chromium","en","390x844","map-permission",,,"False",,"0","True",,
+"layout-final","chromium","en","390x844","map",,,"False",,"0","True","True",
+"layout-final","chromium","en","390x844","map-gps",,,"False",,"0","True","True",
+"layout-final","chromium","en","390x844","walking-route",,,"False",,"0","True","True",
+"layout-final","chromium","en","390x844","ai-reunion",,,"False",,"0","True","True",
+"layout-final","chromium","en","390x844","ai-reunion-details",,,"False",,"0","True","True",
+"layout-final","chromium","en","390x844","compass-permission",,,"False",,"0","True",,
+"layout-final","chromium","en","390x844","compass",,,"False",,"0","True","True",
+"layout-final","chromium","en","390x844","compass-nearest",,,"False",,"0","True","True",
+"layout-final","chromium","en","390x844","compass-meeting",,,"False",,"0","True","True",
+"layout-final","chromium","en","390x844","meeting",,,"False",,"0","True","True",
+"layout-final","chromium","en","390x844","meeting-draft",,,"False",,"0","True","True",
+"layout-final","chromium","en","390x844","ai-meeting",,,"False",,"0","True","True",
+"layout-final","chromium","en","390x844","ai-meeting-details",,,"False",,"0","True","True",
+"layout-final","chromium","en","390x844","meeting-delete-confirmation",,,"False",,"0","True",,
+"layout-final","chromium","en","390x844","chat-group",,,"False",,"0","True","True",
+"layout-final","chromium","en","390x844","chat-composer",,,,,,,,
+"layout-final","chromium","en","390x844","chat-focused",,,"False",,"0","True","True",
+"layout-final","chromium","en","390x844","chat-keyboard-resized",,,"False",,"0","True","True",
+"layout-final","chromium","en","390x844","chat-private",,,"False",,"0","True","True",
+"layout-final","chromium","en","390x844","chat-no-member",,,"False",,"0","True","True",
+"layout-final","chromium","en","390x844","chat-empty",,,"False",,"0","True","True",
+"layout-final","chromium","en","390x844","chat-error",,,"False",,"0","True","True",
+"layout-final","chromium","en","390x844","chat-loading",,,"False",,"0","True","True",
+"layout-final","chromium","en","390x844","settings",,,"False",,"0","True","True",
+"layout-final","chromium","en","390x844","sharing-confirmation",,,"False",,"0","True",,
+"layout-final","chromium","en","390x844","notifications",,,"False",,"0","True","True",
+"layout-final","chromium","en","390x844","notifications-empty",,,"False",,"0","True","True",
+"layout-final","chromium","en","390x844","notifications-error",,,"False",,"0","True","True",
+"layout-final","chromium","en","390x844","notifications-loading",,,"False",,"0","True","True",
+"layout-final","chromium","en","390x844","groups-empty",,,"False",,"0","True","True",
+"layout-final","chromium","en","390x844","groups-error",,,"False",,"0","True","True",
+"layout-final","chromium","en","390x844","groups-loading",,,"False",,"0","True","True",
+"layout-final","chromium","en","390x844","group-admin",,,"False",,"0","True","True",
+"layout-final","chromium","en","390x844","group-member",,,"False",,"0","True","True",
+"layout-final","chromium","en","390x844","home-guest",,,"False",,"0","True",,
+"layout-final","chromium","en","390x844","login",,,"False",,"0","True","True",
+"layout-final","chromium","en","390x844","register",,,"False",,"0","True","True",
+"layout-final","chromium","en","390x844","forgot",,,"False",,"0","True","True",
+"layout-final","chromium","en","390x844","reset-missing-token",,,"False",,"0","True","True",
+"layout-final","chromium","en","390x844","reset",,,"False",,"0","True","True",
+"layout-final","chromium","fr","390x844","home",,,"False",,"0","True",,
+"layout-final","chromium","fr","390x844","tools",,,"False",,"0","True",,
+"layout-final","chromium","fr","390x844","landing-compass",,,"False",,"0","True",,
+"layout-final","chromium","fr","390x844","landing-meeting",,,"False",,"0","True",,
+"layout-final","chromium","fr","390x844","cta",,,"False",,"0","True",,
+"layout-final","chromium","fr","390x844","faq",,,"False",,"0","True",,
+"layout-final","chromium","fr","390x844","footer",,,"False",,"0","True",,
+"layout-final","chromium","fr","390x844","faq-expanded",,,"False",,"0","True",,
+"layout-final","chromium","fr","390x844","groups",,,"False",,"0","True","True",
+"layout-final","chromium","fr","390x844","create",,,"False",,"0","True","True",
+"layout-final","chromium","fr","390x844","create-options",,,"False",,"0","True","True",
+"layout-final","chromium","fr","390x844","join",,,"False",,"0","True","True",
+"layout-final","chromium","fr","390x844","menu",,,"False",,"0","True",,
+"layout-final","chromium","fr","390x844","group-owner",,,"False",,"0","True","True",
+"layout-final","chromium","fr","390x844","group-long-content",,,"False",,"0","True","True",
+"layout-final","chromium","fr","390x844","confirmation",,,"False",,"0","True",,
+"layout-final","chromium","fr","390x844","map-permission",,,"False",,"0","True",,
+"layout-final","chromium","fr","390x844","map",,,"False",,"0","True","True",
+"layout-final","chromium","fr","390x844","map-gps",,,"False",,"0","True","True",
+"layout-final","chromium","fr","390x844","walking-route",,,"False",,"0","True","True",
+"layout-final","chromium","fr","390x844","ai-reunion",,,"False",,"0","True","True",
+"layout-final","chromium","fr","390x844","ai-reunion-details",,,"False",,"0","True","True",
+"layout-final","chromium","fr","390x844","compass-permission",,,"False",,"0","True",,
+"layout-final","chromium","fr","390x844","compass",,,"False",,"0","True","True",
+"layout-final","chromium","fr","390x844","compass-nearest",,,"False",,"0","True","True",
+"layout-final","chromium","fr","390x844","compass-meeting",,,"False",,"0","True","True",
+"layout-final","chromium","fr","390x844","meeting",,,"False",,"0","True","True",
+"layout-final","chromium","fr","390x844","meeting-draft",,,"False",,"0","True","True",
+"layout-final","chromium","fr","390x844","ai-meeting",,,"False",,"0","True","True",
+"layout-final","chromium","fr","390x844","ai-meeting-details",,,"False",,"0","True","True",
+"layout-final","chromium","fr","390x844","meeting-delete-confirmation",,,"False",,"0","True",,
+"layout-final","chromium","fr","390x844","chat-group",,,"False",,"0","True","True",
+"layout-final","chromium","fr","390x844","chat-composer",,,,,,,,
+"layout-final","chromium","fr","390x844","chat-focused",,,"False",,"0","True","True",
+"layout-final","chromium","fr","390x844","chat-keyboard-resized",,,"False",,"0","True","True",
+"layout-final","chromium","fr","390x844","chat-private",,,"False",,"0","True","True",
+"layout-final","chromium","fr","390x844","chat-no-member",,,"False",,"0","True","True",
+"layout-final","chromium","fr","390x844","chat-empty",,,"False",,"0","True","True",
+"layout-final","chromium","fr","390x844","chat-error",,,"False",,"0","True","True",
+"layout-final","chromium","fr","390x844","chat-loading",,,"False",,"0","True","True",
+"layout-final","chromium","fr","390x844","settings",,,"False",,"0","True","True",
+"layout-final","chromium","fr","390x844","sharing-confirmation",,,"False",,"0","True",,
+"layout-final","chromium","fr","390x844","notifications",,,"False",,"0","True","True",
+"layout-final","chromium","fr","390x844","notifications-empty",,,"False",,"0","True","True",
+"layout-final","chromium","fr","390x844","notifications-error",,,"False",,"0","True","True",
+"layout-final","chromium","fr","390x844","notifications-loading",,,"False",,"0","True","True",
+"layout-final","chromium","fr","390x844","groups-empty",,,"False",,"0","True","True",
+"layout-final","chromium","fr","390x844","groups-error",,,"False",,"0","True","True",
+"layout-final","chromium","fr","390x844","groups-loading",,,"False",,"0","True","True",
+"layout-final","chromium","fr","390x844","group-admin",,,"False",,"0","True","True",
+"layout-final","chromium","fr","390x844","group-member",,,"False",,"0","True","True",
+"layout-final","chromium","fr","390x844","home-guest",,,"False",,"0","True",,
+"layout-final","chromium","fr","390x844","login",,,"False",,"0","True","True",
+"layout-final","chromium","fr","390x844","register",,,"False",,"0","True","True",
+"layout-final","chromium","fr","390x844","forgot",,,"False",,"0","True","True",
+"layout-final","chromium","fr","390x844","reset-missing-token",,,"False",,"0","True","True",
+"layout-final","chromium","fr","390x844","reset",,,"False",,"0","True","True",
+"layout-final","chromium","ar","820x1180","home",,,"False",,"0","True",,
+"layout-final","chromium","ar","820x1180","tools",,,"False",,"0","True",,
+"layout-final","chromium","ar","820x1180","landing-compass",,,"False",,"0","True",,
+"layout-final","chromium","ar","820x1180","landing-meeting",,,"False",,"0","True",,
+"layout-final","chromium","ar","820x1180","cta",,,"False",,"0","True",,
+"layout-final","chromium","ar","820x1180","faq",,,"False",,"0","True",,
+"layout-final","chromium","ar","820x1180","footer",,,"False",,"0","True",,
+"layout-final","chromium","ar","820x1180","faq-expanded",,,"False",,"0","True",,
+"layout-final","chromium","ar","820x1180","groups",,,"False",,"0","True","True",
+"layout-final","chromium","ar","820x1180","create",,,"False",,"0","True","True",
+"layout-final","chromium","ar","820x1180","create-options",,,"False",,"0","True","True",
+"layout-final","chromium","ar","820x1180","join",,,"False",,"0","True","True",
+"layout-final","chromium","ar","820x1180","menu",,,"False",,"0","True",,
+"layout-final","chromium","ar","820x1180","group-owner",,,"False",,"0","True","True",
+"layout-final","chromium","ar","820x1180","group-long-content",,,"False",,"0","True","True",
+"layout-final","chromium","ar","820x1180","confirmation",,,"False",,"0","True",,
+"layout-final","chromium","ar","820x1180","map-permission",,,"False",,"0","True",,
+"layout-final","chromium","ar","820x1180","map",,,"False",,"0","True","True",
+"layout-final","chromium","ar","820x1180","map-gps",,,"False",,"0","True","True",
+"layout-final","chromium","ar","820x1180","walking-route",,,"False",,"0","True","True",
+"layout-final","chromium","ar","820x1180","ai-reunion",,,"False",,"0","True","True",
+"layout-final","chromium","ar","820x1180","ai-reunion-details",,,"False",,"0","True","True",
+"layout-final","chromium","ar","820x1180","compass-permission",,,"False",,"0","True",,
+"layout-final","chromium","ar","820x1180","compass",,,"False",,"0","True","True",
+"layout-final","chromium","ar","820x1180","compass-nearest",,,"False",,"0","True","True",
+"layout-final","chromium","ar","820x1180","compass-meeting",,,"False",,"0","True","True",
+"layout-final","chromium","ar","820x1180","meeting",,,"False",,"0","True","True",
+"layout-final","chromium","ar","820x1180","meeting-draft",,,"False",,"0","True","True",
+"layout-final","chromium","ar","820x1180","ai-meeting",,,"False",,"0","True","True",
+"layout-final","chromium","ar","820x1180","ai-meeting-details",,,"False",,"0","True","True",
+"layout-final","chromium","ar","820x1180","meeting-delete-confirmation",,,"False",,"0","True",,
+"layout-final","chromium","ar","820x1180","chat-group",,,"False",,"0","True","True",
+"layout-final","chromium","ar","820x1180","chat-composer",,,,,,,,
+"layout-final","chromium","ar","820x1180","chat-focused",,,"False",,"0","True","True",
+"layout-final","chromium","ar","820x1180","chat-keyboard-resized",,,"False",,"0","True","True",
+"layout-final","chromium","ar","820x1180","chat-private",,,"False",,"0","True","True",
+"layout-final","chromium","ar","820x1180","chat-no-member",,,"False",,"0","True","True",
+"layout-final","chromium","ar","820x1180","chat-empty",,,"False",,"0","True","True",
+"layout-final","chromium","ar","820x1180","chat-error",,,"False",,"0","True","True",
+"layout-final","chromium","ar","820x1180","chat-loading",,,"False",,"0","True","True",
+"layout-final","chromium","ar","820x1180","settings",,,"False",,"0","True","True",
+"layout-final","chromium","ar","820x1180","sharing-confirmation",,,"False",,"0","True",,
+"layout-final","chromium","ar","820x1180","notifications",,,"False",,"0","True","True",
+"layout-final","chromium","ar","820x1180","notifications-empty",,,"False",,"0","True","True",
+"layout-final","chromium","ar","820x1180","notifications-error",,,"False",,"0","True","True",
+"layout-final","chromium","ar","820x1180","notifications-loading",,,"False",,"0","True","True",
+"layout-final","chromium","ar","820x1180","groups-empty",,,"False",,"0","True","True",
+"layout-final","chromium","ar","820x1180","groups-error",,,"False",,"0","True","True",
+"layout-final","chromium","ar","820x1180","groups-loading",,,"False",,"0","True","True",
+"layout-final","chromium","ar","820x1180","group-admin",,,"False",,"0","True","True",
+"layout-final","chromium","ar","820x1180","group-member",,,"False",,"0","True","True",
+"layout-final","chromium","ar","820x1180","home-guest",,,"False",,"0","True",,
+"layout-final","chromium","ar","820x1180","login",,,"False",,"0","True","True",
+"layout-final","chromium","ar","820x1180","register",,,"False",,"0","True","True",
+"layout-final","chromium","ar","820x1180","forgot",,,"False",,"0","True","True",
+"layout-final","chromium","ar","820x1180","reset-missing-token",,,"False",,"0","True","True",
+"layout-final","chromium","ar","820x1180","reset",,,"False",,"0","True","True",
+"layout-final","chromium","en","820x1180","home",,,"False",,"0","True",,
+"layout-final","chromium","en","820x1180","tools",,,"False",,"0","True",,
+"layout-final","chromium","en","820x1180","landing-compass",,,"False",,"0","True",,
+"layout-final","chromium","en","820x1180","landing-meeting",,,"False",,"0","True",,
+"layout-final","chromium","en","820x1180","cta",,,"False",,"0","True",,
+"layout-final","chromium","en","820x1180","faq",,,"False",,"0","True",,
+"layout-final","chromium","en","820x1180","footer",,,"False",,"0","True",,
+"layout-final","chromium","en","820x1180","faq-expanded",,,"False",,"0","True",,
+"layout-final","chromium","en","820x1180","groups",,,"False",,"0","True","True",
+"layout-final","chromium","en","820x1180","create",,,"False",,"0","True","True",
+"layout-final","chromium","en","820x1180","create-options",,,"False",,"0","True","True",
+"layout-final","chromium","en","820x1180","join",,,"False",,"0","True","True",
+"layout-final","chromium","en","820x1180","menu",,,"False",,"0","True",,
+"layout-final","chromium","en","820x1180","group-owner",,,"False",,"0","True","True",
+"layout-final","chromium","en","820x1180","group-long-content",,,"False",,"0","True","True",
+"layout-final","chromium","en","820x1180","confirmation",,,"False",,"0","True",,
+"layout-final","chromium","en","820x1180","map-permission",,,"False",,"0","True",,
+"layout-final","chromium","en","820x1180","map",,,"False",,"0","True","True",
+"layout-final","chromium","en","820x1180","map-gps",,,"False",,"0","True","True",
+"layout-final","chromium","en","820x1180","walking-route",,,"False",,"0","True","True",
+"layout-final","chromium","en","820x1180","ai-reunion",,,"False",,"0","True","True",
+"layout-final","chromium","en","820x1180","ai-reunion-details",,,"False",,"0","True","True",
+"layout-final","chromium","en","820x1180","compass-permission",,,"False",,"0","True",,
+"layout-final","chromium","en","820x1180","compass",,,"False",,"0","True","True",
+"layout-final","chromium","en","820x1180","compass-nearest",,,"False",,"0","True","True",
+"layout-final","chromium","en","820x1180","compass-meeting",,,"False",,"0","True","True",
+"layout-final","chromium","en","820x1180","meeting",,,"False",,"0","True","True",
+"layout-final","chromium","en","820x1180","meeting-draft",,,"False",,"0","True","True",
+"layout-final","chromium","en","820x1180","ai-meeting",,,"False",,"0","True","True",
+"layout-final","chromium","en","820x1180","ai-meeting-details",,,"False",,"0","True","True",
+"layout-final","chromium","en","820x1180","meeting-delete-confirmation",,,"False",,"0","True",,
+"layout-final","chromium","en","820x1180","chat-group",,,"False",,"0","True","True",
+"layout-final","chromium","en","820x1180","chat-composer",,,,,,,,
+"layout-final","chromium","en","820x1180","chat-focused",,,"False",,"0","True","True",
+"layout-final","chromium","en","820x1180","chat-keyboard-resized",,,"False",,"0","True","True",
+"layout-final","chromium","en","820x1180","chat-private",,,"False",,"0","True","True",
+"layout-final","chromium","en","820x1180","chat-no-member",,,"False",,"0","True","True",
+"layout-final","chromium","en","820x1180","chat-empty",,,"False",,"0","True","True",
+"layout-final","chromium","en","820x1180","chat-error",,,"False",,"0","True","True",
+"layout-final","chromium","en","820x1180","chat-loading",,,"False",,"0","True","True",
+"layout-final","chromium","en","820x1180","settings",,,"False",,"0","True","True",
+"layout-final","chromium","en","820x1180","sharing-confirmation",,,"False",,"0","True",,
+"layout-final","chromium","en","820x1180","notifications",,,"False",,"0","True","True",
+"layout-final","chromium","en","820x1180","notifications-empty",,,"False",,"0","True","True",
+"layout-final","chromium","en","820x1180","notifications-error",,,"False",,"0","True","True",
+"layout-final","chromium","en","820x1180","notifications-loading",,,"False",,"0","True","True",
+"layout-final","chromium","en","820x1180","groups-empty",,,"False",,"0","True","True",
+"layout-final","chromium","en","820x1180","groups-error",,,"False",,"0","True","True",
+"layout-final","chromium","en","820x1180","groups-loading",,,"False",,"0","True","True",
+"layout-final","chromium","en","820x1180","group-admin",,,"False",,"0","True","True",
+"layout-final","chromium","en","820x1180","group-member",,,"False",,"0","True","True",
+"layout-final","chromium","en","820x1180","home-guest",,,"False",,"0","True",,
+"layout-final","chromium","en","820x1180","login",,,"False",,"0","True","True",
+"layout-final","chromium","en","820x1180","register",,,"False",,"0","True","True",
+"layout-final","chromium","en","820x1180","forgot",,,"False",,"0","True","True",
+"layout-final","chromium","en","820x1180","reset-missing-token",,,"False",,"0","True","True",
+"layout-final","chromium","en","820x1180","reset",,,"False",,"0","True","True",
+"layout-final","chromium","fr","820x1180","home",,,"False",,"0","True",,
+"layout-final","chromium","fr","820x1180","tools",,,"False",,"0","True",,
+"layout-final","chromium","fr","820x1180","landing-compass",,,"False",,"0","True",,
+"layout-final","chromium","fr","820x1180","landing-meeting",,,"False",,"0","True",,
+"layout-final","chromium","fr","820x1180","cta",,,"False",,"0","True",,
+"layout-final","chromium","fr","820x1180","faq",,,"False",,"0","True",,
+"layout-final","chromium","fr","820x1180","footer",,,"False",,"0","True",,
+"layout-final","chromium","fr","820x1180","faq-expanded",,,"False",,"0","True",,
+"layout-final","chromium","fr","820x1180","groups",,,"False",,"0","True","True",
+"layout-final","chromium","fr","820x1180","create",,,"False",,"0","True","True",
+"layout-final","chromium","fr","820x1180","create-options",,,"False",,"0","True","True",
+"layout-final","chromium","fr","820x1180","join",,,"False",,"0","True","True",
+"layout-final","chromium","fr","820x1180","menu",,,"False",,"0","True",,
+"layout-final","chromium","fr","820x1180","group-owner",,,"False",,"0","True","True",
+"layout-final","chromium","fr","820x1180","group-long-content",,,"False",,"0","True","True",
+"layout-final","chromium","fr","820x1180","confirmation",,,"False",,"0","True",,
+"layout-final","chromium","fr","820x1180","map-permission",,,"False",,"0","True",,
+"layout-final","chromium","fr","820x1180","map",,,"False",,"0","True","True",
+"layout-final","chromium","fr","820x1180","map-gps",,,"False",,"0","True","True",
+"layout-final","chromium","fr","820x1180","walking-route",,,"False",,"0","True","True",
+"layout-final","chromium","fr","820x1180","ai-reunion",,,"False",,"0","True","True",
+"layout-final","chromium","fr","820x1180","ai-reunion-details",,,"False",,"0","True","True",
+"layout-final","chromium","fr","820x1180","compass-permission",,,"False",,"0","True",,
+"layout-final","chromium","fr","820x1180","compass",,,"False",,"0","True","True",
+"layout-final","chromium","fr","820x1180","compass-nearest",,,"False",,"0","True","True",
+"layout-final","chromium","fr","820x1180","compass-meeting",,,"False",,"0","True","True",
+"layout-final","chromium","fr","820x1180","meeting",,,"False",,"0","True","True",
+"layout-final","chromium","fr","820x1180","meeting-draft",,,"False",,"0","True","True",
+"layout-final","chromium","fr","820x1180","ai-meeting",,,"False",,"0","True","True",
+"layout-final","chromium","fr","820x1180","ai-meeting-details",,,"False",,"0","True","True",
+"layout-final","chromium","fr","820x1180","meeting-delete-confirmation",,,"False",,"0","True",,
+"layout-final","chromium","fr","820x1180","chat-group",,,"False",,"0","True","True",
+"layout-final","chromium","fr","820x1180","chat-composer",,,,,,,,
+"layout-final","chromium","fr","820x1180","chat-focused",,,"False",,"0","True","True",
+"layout-final","chromium","fr","820x1180","chat-keyboard-resized",,,"False",,"0","True","True",
+"layout-final","chromium","fr","820x1180","chat-private",,,"False",,"0","True","True",
+"layout-final","chromium","fr","820x1180","chat-no-member",,,"False",,"0","True","True",
+"layout-final","chromium","fr","820x1180","chat-empty",,,"False",,"0","True","True",
+"layout-final","chromium","fr","820x1180","chat-error",,,"False",,"0","True","True",
+"layout-final","chromium","fr","820x1180","chat-loading",,,"False",,"0","True","True",
+"layout-final","chromium","fr","820x1180","settings",,,"False",,"0","True","True",
+"layout-final","chromium","fr","820x1180","sharing-confirmation",,,"False",,"0","True",,
+"layout-final","chromium","fr","820x1180","notifications",,,"False",,"0","True","True",
+"layout-final","chromium","fr","820x1180","notifications-empty",,,"False",,"0","True","True",
+"layout-final","chromium","fr","820x1180","notifications-error",,,"False",,"0","True","True",
+"layout-final","chromium","fr","820x1180","notifications-loading",,,"False",,"0","True","True",
+"layout-final","chromium","fr","820x1180","groups-empty",,,"False",,"0","True","True",
+"layout-final","chromium","fr","820x1180","groups-error",,,"False",,"0","True","True",
+"layout-final","chromium","fr","820x1180","groups-loading",,,"False",,"0","True","True",
+"layout-final","chromium","fr","820x1180","group-admin",,,"False",,"0","True","True",
+"layout-final","chromium","fr","820x1180","group-member",,,"False",,"0","True","True",
+"layout-final","chromium","fr","820x1180","home-guest",,,"False",,"0","True",,
+"layout-final","chromium","fr","820x1180","login",,,"False",,"0","True","True",
+"layout-final","chromium","fr","820x1180","register",,,"False",,"0","True","True",
+"layout-final","chromium","fr","820x1180","forgot",,,"False",,"0","True","True",
+"layout-final","chromium","fr","820x1180","reset-missing-token",,,"False",,"0","True","True",
+"layout-final","chromium","fr","820x1180","reset",,,"False",,"0","True","True",
+"layout-final","chromium","ar","1280x720","home",,,"False",,"0","True",,
+"layout-final","chromium","ar","1280x720","tools",,,"False",,"0","True",,
+"layout-final","chromium","ar","1280x720","landing-compass",,,"False",,"0","True",,
+"layout-final","chromium","ar","1280x720","landing-meeting",,,"False",,"0","True",,
+"layout-final","chromium","ar","1280x720","cta",,,"False",,"0","True",,
+"layout-final","chromium","ar","1280x720","faq",,,"False",,"0","True",,
+"layout-final","chromium","ar","1280x720","footer",,,"False",,"0","True",,
+"layout-final","chromium","ar","1280x720","faq-expanded",,,"False",,"0","True",,
+"layout-final","chromium","ar","1280x720","groups",,,"False",,"0","True","True",
+"layout-final","chromium","ar","1280x720","create",,,"False",,"0","True","True",
+"layout-final","chromium","ar","1280x720","create-options",,,"False",,"0","True","True",
+"layout-final","chromium","ar","1280x720","join",,,"False",,"0","True","True",
+"layout-final","chromium","ar","1280x720","menu",,,"False",,"0","True",,
+"layout-final","chromium","ar","1280x720","group-owner",,,"False",,"0","True","True",
+"layout-final","chromium","ar","1280x720","group-long-content",,,"False",,"0","True","True",
+"layout-final","chromium","ar","1280x720","confirmation",,,"False",,"0","True",,
+"layout-final","chromium","ar","1280x720","map-permission",,,"False",,"0","True",,
+"layout-final","chromium","ar","1280x720","map",,,"False",,"0","True","True",
+"layout-final","chromium","ar","1280x720","map-gps",,,"False",,"0","True","True",
+"layout-final","chromium","ar","1280x720","walking-route",,,"False",,"0","True","True",
+"layout-final","chromium","ar","1280x720","ai-reunion",,,"False",,"0","True","True",
+"layout-final","chromium","ar","1280x720","ai-reunion-details",,,"False",,"0","True","True",
+"layout-final","chromium","ar","1280x720","compass-permission",,,"False",,"0","True",,
+"layout-final","chromium","ar","1280x720","compass",,,"False",,"0","True","True",
+"layout-final","chromium","ar","1280x720","compass-nearest",,,"False",,"0","True","True",
+"layout-final","chromium","ar","1280x720","compass-meeting",,,"False",,"0","True","True",
+"layout-final","chromium","ar","1280x720","meeting",,,"False",,"0","True","True",
+"layout-final","chromium","ar","1280x720","meeting-draft",,,"False",,"0","True","True",
+"layout-final","chromium","ar","1280x720","ai-meeting",,,"False",,"0","True","True",
+"layout-final","chromium","ar","1280x720","ai-meeting-details",,,"False",,"0","True","True",
+"layout-final","chromium","ar","1280x720","meeting-delete-confirmation",,,"False",,"0","True",,
+"layout-final","chromium","ar","1280x720","chat-group",,,"False",,"0","True","True",
+"layout-final","chromium","ar","1280x720","chat-composer",,,,,,,,
+"layout-final","chromium","ar","1280x720","chat-focused",,,"False",,"0","True","True",
+"layout-final","chromium","ar","1280x720","chat-keyboard-resized",,,"False",,"0","True","True",
+"layout-final","chromium","ar","1280x720","chat-private",,,"False",,"0","True","True",
+"layout-final","chromium","ar","1280x720","chat-no-member",,,"False",,"0","True","True",
+"layout-final","chromium","ar","1280x720","chat-empty",,,"False",,"0","True","True",
+"layout-final","chromium","ar","1280x720","chat-error",,,"False",,"0","True","True",
+"layout-final","chromium","ar","1280x720","chat-loading",,,"False",,"0","True","True",
+"layout-final","chromium","ar","1280x720","settings",,,"False",,"0","True","True",
+"layout-final","chromium","ar","1280x720","sharing-confirmation",,,"False",,"0","True",,
+"layout-final","chromium","ar","1280x720","notifications",,,"False",,"0","True","True",
+"layout-final","chromium","ar","1280x720","notifications-empty",,,"False",,"0","True","True",
+"layout-final","chromium","ar","1280x720","notifications-error",,,"False",,"0","True","True",
+"layout-final","chromium","ar","1280x720","notifications-loading",,,"False",,"0","True","True",
+"layout-final","chromium","ar","1280x720","groups-empty",,,"False",,"0","True","True",
+"layout-final","chromium","ar","1280x720","groups-error",,,"False",,"0","True","True",
+"layout-final","chromium","ar","1280x720","groups-loading",,,"False",,"0","True","True",
+"layout-final","chromium","ar","1280x720","group-admin",,,"False",,"0","True","True",
+"layout-final","chromium","ar","1280x720","group-member",,,"False",,"0","True","True",
+"layout-final","chromium","ar","1280x720","home-guest",,,"False",,"0","True",,
+"layout-final","chromium","ar","1280x720","login",,,"False",,"0","True","True",
+"layout-final","chromium","ar","1280x720","register",,,"False",,"0","True","True",
+"layout-final","chromium","ar","1280x720","forgot",,,"False",,"0","True","True",
+"layout-final","chromium","ar","1280x720","reset-missing-token",,,"False",,"0","True","True",
+"layout-final","chromium","ar","1280x720","reset",,,"False",,"0","True","True",
+"layout-final","chromium","en","1280x720","home",,,"False",,"0","True",,
+"layout-final","chromium","en","1280x720","tools",,,"False",,"0","True",,
+"layout-final","chromium","en","1280x720","landing-compass",,,"False",,"0","True",,
+"layout-final","chromium","en","1280x720","landing-meeting",,,"False",,"0","True",,
+"layout-final","chromium","en","1280x720","cta",,,"False",,"0","True",,
+"layout-final","chromium","en","1280x720","faq",,,"False",,"0","True",,
+"layout-final","chromium","en","1280x720","footer",,,"False",,"0","True",,
+"layout-final","chromium","en","1280x720","faq-expanded",,,"False",,"0","True",,
+"layout-final","chromium","en","1280x720","groups",,,"False",,"0","True","True",
+"layout-final","chromium","en","1280x720","create",,,"False",,"0","True","True",
+"layout-final","chromium","en","1280x720","create-options",,,"False",,"0","True","True",
+"layout-final","chromium","en","1280x720","join",,,"False",,"0","True","True",
+"layout-final","chromium","en","1280x720","menu",,,"False",,"0","True",,
+"layout-final","chromium","en","1280x720","group-owner",,,"False",,"0","True","True",
+"layout-final","chromium","en","1280x720","group-long-content",,,"False",,"0","True","True",
+"layout-final","chromium","en","1280x720","confirmation",,,"False",,"0","True",,
+"layout-final","chromium","en","1280x720","map-permission",,,"False",,"0","True",,
+"layout-final","chromium","en","1280x720","map",,,"False",,"0","True","True",
+"layout-final","chromium","en","1280x720","map-gps",,,"False",,"0","True","True",
+"layout-final","chromium","en","1280x720","walking-route",,,"False",,"0","True","True",
+"layout-final","chromium","en","1280x720","ai-reunion",,,"False",,"0","True","True",
+"layout-final","chromium","en","1280x720","ai-reunion-details",,,"False",,"0","True","True",
+"layout-final","chromium","en","1280x720","compass-permission",,,"False",,"0","True",,
+"layout-final","chromium","en","1280x720","compass",,,"False",,"0","True","True",
+"layout-final","chromium","en","1280x720","compass-nearest",,,"False",,"0","True","True",
+"layout-final","chromium","en","1280x720","compass-meeting",,,"False",,"0","True","True",
+"layout-final","chromium","en","1280x720","meeting",,,"False",,"0","True","True",
+"layout-final","chromium","en","1280x720","meeting-draft",,,"False",,"0","True","True",
+"layout-final","chromium","en","1280x720","ai-meeting",,,"False",,"0","True","True",
+"layout-final","chromium","en","1280x720","ai-meeting-details",,,"False",,"0","True","True",
+"layout-final","chromium","en","1280x720","meeting-delete-confirmation",,,"False",,"0","True",,
+"layout-final","chromium","en","1280x720","chat-group",,,"False",,"0","True","True",
+"layout-final","chromium","en","1280x720","chat-composer",,,,,,,,
+"layout-final","chromium","en","1280x720","chat-focused",,,"False",,"0","True","True",
+"layout-final","chromium","en","1280x720","chat-keyboard-resized",,,"False",,"0","True","True",
+"layout-final","chromium","en","1280x720","chat-private",,,"False",,"0","True","True",
+"layout-final","chromium","en","1280x720","chat-no-member",,,"False",,"0","True","True",
+"layout-final","chromium","en","1280x720","chat-empty",,,"False",,"0","True","True",
+"layout-final","chromium","en","1280x720","chat-error",,,"False",,"0","True","True",
+"layout-final","chromium","en","1280x720","chat-loading",,,"False",,"0","True","True",
+"layout-final","chromium","en","1280x720","settings",,,"False",,"0","True","True",
+"layout-final","chromium","en","1280x720","sharing-confirmation",,,"False",,"0","True",,
+"layout-final","chromium","en","1280x720","notifications",,,"False",,"0","True","True",
+"layout-final","chromium","en","1280x720","notifications-empty",,,"False",,"0","True","True",
+"layout-final","chromium","en","1280x720","notifications-error",,,"False",,"0","True","True",
+"layout-final","chromium","en","1280x720","notifications-loading",,,"False",,"0","True","True",
+"layout-final","chromium","en","1280x720","groups-empty",,,"False",,"0","True","True",
+"layout-final","chromium","en","1280x720","groups-error",,,"False",,"0","True","True",
+"layout-final","chromium","en","1280x720","groups-loading",,,"False",,"0","True","True",
+"layout-final","chromium","en","1280x720","group-admin",,,"False",,"0","True","True",
+"layout-final","chromium","en","1280x720","group-member",,,"False",,"0","True","True",
+"layout-final","chromium","en","1280x720","home-guest",,,"False",,"0","True",,
+"layout-final","chromium","en","1280x720","login",,,"False",,"0","True","True",
+"layout-final","chromium","en","1280x720","register",,,"False",,"0","True","True",
+"layout-final","chromium","en","1280x720","forgot",,,"False",,"0","True","True",
+"layout-final","chromium","en","1280x720","reset-missing-token",,,"False",,"0","True","True",
+"layout-final","chromium","en","1280x720","reset",,,"False",,"0","True","True",
+"layout-final","chromium","fr","1280x720","home",,,"False",,"0","True",,
+"layout-final","chromium","fr","1280x720","tools",,,"False",,"0","True",,
+"layout-final","chromium","fr","1280x720","landing-compass",,,"False",,"0","True",,
+"layout-final","chromium","fr","1280x720","landing-meeting",,,"False",,"0","True",,
+"layout-final","chromium","fr","1280x720","cta",,,"False",,"0","True",,
+"layout-final","chromium","fr","1280x720","faq",,,"False",,"0","True",,
+"layout-final","chromium","fr","1280x720","footer",,,"False",,"0","True",,
+"layout-final","chromium","fr","1280x720","faq-expanded",,,"False",,"0","True",,
+"layout-final","chromium","fr","1280x720","groups",,,"False",,"0","True","True",
+"layout-final","chromium","fr","1280x720","create",,,"False",,"0","True","True",
+"layout-final","chromium","fr","1280x720","create-options",,,"False",,"0","True","True",
+"layout-final","chromium","fr","1280x720","join",,,"False",,"0","True","True",
+"layout-final","chromium","fr","1280x720","menu",,,"False",,"0","True",,
+"layout-final","chromium","fr","1280x720","group-owner",,,"False",,"0","True","True",
+"layout-final","chromium","fr","1280x720","group-long-content",,,"False",,"0","True","True",
+"layout-final","chromium","fr","1280x720","confirmation",,,"False",,"0","True",,
+"layout-final","chromium","fr","1280x720","map-permission",,,"False",,"0","True",,
+"layout-final","chromium","fr","1280x720","map",,,"False",,"0","True","True",
+"layout-final","chromium","fr","1280x720","map-gps",,,"False",,"0","True","True",
+"layout-final","chromium","fr","1280x720","walking-route",,,"False",,"0","True","True",
+"layout-final","chromium","fr","1280x720","ai-reunion",,,"False",,"0","True","True",
+"layout-final","chromium","fr","1280x720","ai-reunion-details",,,"False",,"0","True","True",
+"layout-final","chromium","fr","1280x720","compass-permission",,,"False",,"0","True",,
+"layout-final","chromium","fr","1280x720","compass",,,"False",,"0","True","True",
+"layout-final","chromium","fr","1280x720","compass-nearest",,,"False",,"0","True","True",
+"layout-final","chromium","fr","1280x720","compass-meeting",,,"False",,"0","True","True",
+"layout-final","chromium","fr","1280x720","meeting",,,"False",,"0","True","True",
+"layout-final","chromium","fr","1280x720","meeting-draft",,,"False",,"0","True","True",
+"layout-final","chromium","fr","1280x720","ai-meeting",,,"False",,"0","True","True",
+"layout-final","chromium","fr","1280x720","ai-meeting-details",,,"False",,"0","True","True",
+"layout-final","chromium","fr","1280x720","meeting-delete-confirmation",,,"False",,"0","True",,
+"layout-final","chromium","fr","1280x720","chat-group",,,"False",,"0","True","True",
+"layout-final","chromium","fr","1280x720","chat-composer",,,,,,,,
+"layout-final","chromium","fr","1280x720","chat-focused",,,"False",,"0","True","True",
+"layout-final","chromium","fr","1280x720","chat-keyboard-resized",,,"False",,"0","True","True",
+"layout-final","chromium","fr","1280x720","chat-private",,,"False",,"0","True","True",
+"layout-final","chromium","fr","1280x720","chat-no-member",,,"False",,"0","True","True",
+"layout-final","chromium","fr","1280x720","chat-empty",,,"False",,"0","True","True",
+"layout-final","chromium","fr","1280x720","chat-error",,,"False",,"0","True","True",
+"layout-final","chromium","fr","1280x720","chat-loading",,,"False",,"0","True","True",
+"layout-final","chromium","fr","1280x720","settings",,,"False",,"0","True","True",
+"layout-final","chromium","fr","1280x720","sharing-confirmation",,,"False",,"0","True",,
+"layout-final","chromium","fr","1280x720","notifications",,,"False",,"0","True","True",
+"layout-final","chromium","fr","1280x720","notifications-empty",,,"False",,"0","True","True",
+"layout-final","chromium","fr","1280x720","notifications-error",,,"False",,"0","True","True",
+"layout-final","chromium","fr","1280x720","notifications-loading",,,"False",,"0","True","True",
+"layout-final","chromium","fr","1280x720","groups-empty",,,"False",,"0","True","True",
+"layout-final","chromium","fr","1280x720","groups-error",,,"False",,"0","True","True",
+"layout-final","chromium","fr","1280x720","groups-loading",,,"False",,"0","True","True",
+"layout-final","chromium","fr","1280x720","group-admin",,,"False",,"0","True","True",
+"layout-final","chromium","fr","1280x720","group-member",,,"False",,"0","True","True",
+"layout-final","chromium","fr","1280x720","home-guest",,,"False",,"0","True",,
+"layout-final","chromium","fr","1280x720","login",,,"False",,"0","True","True",
+"layout-final","chromium","fr","1280x720","register",,,"False",,"0","True","True",
+"layout-final","chromium","fr","1280x720","forgot",,,"False",,"0","True","True",
+"layout-final","chromium","fr","1280x720","reset-missing-token",,,"False",,"0","True","True",
+"layout-final","chromium","fr","1280x720","reset",,,"False",,"0","True","True",
+"layout-final","webkit","ar","390x844","home",,,"False",,"0","True",,
+"layout-final","webkit","ar","390x844","tools",,,"False",,"0","True",,
+"layout-final","webkit","ar","390x844","landing-compass",,,"False",,"0","True",,
+"layout-final","webkit","ar","390x844","landing-meeting",,,"False",,"0","True",,
+"layout-final","webkit","ar","390x844","cta",,,"False",,"0","True",,
+"layout-final","webkit","ar","390x844","faq",,,"False",,"0","True",,
+"layout-final","webkit","ar","390x844","footer",,,"False",,"0","True",,
+"layout-final","webkit","ar","390x844","faq-expanded",,,"False",,"0","True",,
+"layout-final","webkit","ar","390x844","groups",,,"False",,"0","True","True",
+"layout-final","webkit","ar","390x844","create",,,"False",,"0","True","True",
+"layout-final","webkit","ar","390x844","create-options",,,"False",,"0","True","True",
+"layout-final","webkit","ar","390x844","join",,,"False",,"0","True","True",
+"layout-final","webkit","ar","390x844","menu",,,"False",,"0","True",,
+"layout-final","webkit","ar","390x844","group-owner",,,"False",,"0","True","True",
+"layout-final","webkit","ar","390x844","group-long-content",,,"False",,"0","True","True",
+"layout-final","webkit","ar","390x844","confirmation",,,"False",,"0","True",,
+"layout-final","webkit","ar","390x844","map-permission",,,"False",,"0","True",,
+"layout-final","webkit","ar","390x844","map",,,"False",,"0","True","True",
+"layout-final","webkit","ar","390x844","map-gps",,,"False",,"0","True","True",
+"layout-final","webkit","ar","390x844","walking-route",,,"False",,"0","True","True",
+"layout-final","webkit","ar","390x844","ai-reunion",,,"False",,"0","True","True",
+"layout-final","webkit","ar","390x844","ai-reunion-details",,,"False",,"0","True","True",
+"layout-final","webkit","ar","390x844","compass-permission",,,"False",,"0","True",,
+"layout-final","webkit","ar","390x844","compass",,,"False",,"0","True","True",
+"layout-final","webkit","ar","390x844","compass-nearest",,,"False",,"0","True","True",
+"layout-final","webkit","ar","390x844","compass-meeting",,,"False",,"0","True","True",
+"layout-final","webkit","ar","390x844","meeting",,,"False",,"0","True","True",
+"layout-final","webkit","ar","390x844","meeting-draft",,,"False",,"0","True","True",
+"layout-final","webkit","ar","390x844","ai-meeting",,,"False",,"0","True","True",
+"layout-final","webkit","ar","390x844","ai-meeting-details",,,"False",,"0","True","True",
+"layout-final","webkit","ar","390x844","meeting-delete-confirmation",,,"False",,"0","True",,
+"layout-final","webkit","ar","390x844","chat-group",,,"False",,"0","True","True",
+"layout-final","webkit","ar","390x844","chat-composer",,,,,,,,
+"layout-final","webkit","ar","390x844","chat-focused",,,"False",,"0","True","True",
+"layout-final","webkit","ar","390x844","chat-keyboard-resized",,,"False",,"0","True","True",
+"layout-final","webkit","ar","390x844","chat-private",,,"False",,"0","True","True",
+"layout-final","webkit","ar","390x844","chat-no-member",,,"False",,"0","True","True",
+"layout-final","webkit","ar","390x844","chat-empty",,,"False",,"0","True","True",
+"layout-final","webkit","ar","390x844","chat-error",,,"False",,"0","True","True",
+"layout-final","webkit","ar","390x844","chat-loading",,,"False",,"0","True","True",
+"layout-final","webkit","ar","390x844","settings",,,"False",,"0","True","True",
+"layout-final","webkit","ar","390x844","sharing-confirmation",,,"False",,"0","True",,
+"layout-final","webkit","ar","390x844","notifications",,,"False",,"0","True","True",
+"layout-final","webkit","ar","390x844","notifications-empty",,,"False",,"0","True","True",
+"layout-final","webkit","ar","390x844","notifications-error",,,"False",,"0","True","True",
+"layout-final","webkit","ar","390x844","notifications-loading",,,"False",,"0","True","True",
+"layout-final","webkit","ar","390x844","groups-empty",,,"False",,"0","True","True",
+"layout-final","webkit","ar","390x844","groups-error",,,"False",,"0","True","True",
+"layout-final","webkit","ar","390x844","groups-loading",,,"False",,"0","True","True",
+"layout-final","webkit","ar","390x844","group-admin",,,"False",,"0","True","True",
+"layout-final","webkit","ar","390x844","group-member",,,"False",,"0","True","True",
+"layout-final","webkit","ar","390x844","home-guest",,,"False",,"0","True",,
+"layout-final","webkit","ar","390x844","login",,,"False",,"0","True","True",
+"layout-final","webkit","ar","390x844","register",,,"False",,"0","True","True",
+"layout-final","webkit","ar","390x844","forgot",,,"False",,"0","True","True",
+"layout-final","webkit","ar","390x844","reset-missing-token",,,"False",,"0","True","True",
+"layout-final","webkit","ar","390x844","reset",,,"False",,"0","True","True",
+"layout-final","webkit","en","390x844","home",,,"False",,"0","True",,
+"layout-final","webkit","en","390x844","tools",,,"False",,"0","True",,
+"layout-final","webkit","en","390x844","landing-compass",,,"False",,"0","True",,
+"layout-final","webkit","en","390x844","landing-meeting",,,"False",,"0","True",,
+"layout-final","webkit","en","390x844","cta",,,"False",,"0","True",,
+"layout-final","webkit","en","390x844","faq",,,"False",,"0","True",,
+"layout-final","webkit","en","390x844","footer",,,"False",,"0","True",,
+"layout-final","webkit","en","390x844","faq-expanded",,,"False",,"0","True",,
+"layout-final","webkit","en","390x844","groups",,,"False",,"0","True","True",
+"layout-final","webkit","en","390x844","create",,,"False",,"0","True","True",
+"layout-final","webkit","en","390x844","create-options",,,"False",,"0","True","True",
+"layout-final","webkit","en","390x844","join",,,"False",,"0","True","True",
+"layout-final","webkit","en","390x844","menu",,,"False",,"0","True",,
+"layout-final","webkit","en","390x844","group-owner",,,"False",,"0","True","True",
+"layout-final","webkit","en","390x844","group-long-content",,,"False",,"0","True","True",
+"layout-final","webkit","en","390x844","confirmation",,,"False",,"0","True",,
+"layout-final","webkit","en","390x844","map-permission",,,"False",,"0","True",,
+"layout-final","webkit","en","390x844","map",,,"False",,"0","True","True",
+"layout-final","webkit","en","390x844","map-gps",,,"False",,"0","True","True",
+"layout-final","webkit","en","390x844","walking-route",,,"False",,"0","True","True",
+"layout-final","webkit","en","390x844","ai-reunion",,,"False",,"0","True","True",
+"layout-final","webkit","en","390x844","ai-reunion-details",,,"False",,"0","True","True",
+"layout-final","webkit","en","390x844","compass-permission",,,"False",,"0","True",,
+"layout-final","webkit","en","390x844","compass",,,"False",,"0","True","True",
+"layout-final","webkit","en","390x844","compass-nearest",,,"False",,"0","True","True",
+"layout-final","webkit","en","390x844","compass-meeting",,,"False",,"0","True","True",
+"layout-final","webkit","en","390x844","meeting",,,"False",,"0","True","True",
+"layout-final","webkit","en","390x844","meeting-draft",,,"False",,"0","True","True",
+"layout-final","webkit","en","390x844","ai-meeting",,,"False",,"0","True","True",
+"layout-final","webkit","en","390x844","ai-meeting-details",,,"False",,"0","True","True",
+"layout-final","webkit","en","390x844","meeting-delete-confirmation",,,"False",,"0","True",,
+"layout-final","webkit","en","390x844","chat-group",,,"False",,"0","True","True",
+"layout-final","webkit","en","390x844","chat-composer",,,,,,,,
+"layout-final","webkit","en","390x844","chat-focused",,,"False",,"0","True","True",
+"layout-final","webkit","en","390x844","chat-keyboard-resized",,,"False",,"0","True","True",
+"layout-final","webkit","en","390x844","chat-private",,,"False",,"0","True","True",
+"layout-final","webkit","en","390x844","chat-no-member",,,"False",,"0","True","True",
+"layout-final","webkit","en","390x844","chat-empty",,,"False",,"0","True","True",
+"layout-final","webkit","en","390x844","chat-error",,,"False",,"0","True","True",
+"layout-final","webkit","en","390x844","chat-loading",,,"False",,"0","True","True",
+"layout-final","webkit","en","390x844","settings",,,"False",,"0","True","True",
+"layout-final","webkit","en","390x844","sharing-confirmation",,,"False",,"0","True",,
+"layout-final","webkit","en","390x844","notifications",,,"False",,"0","True","True",
+"layout-final","webkit","en","390x844","notifications-empty",,,"False",,"0","True","True",
+"layout-final","webkit","en","390x844","notifications-error",,,"False",,"0","True","True",
+"layout-final","webkit","en","390x844","notifications-loading",,,"False",,"0","True","True",
+"layout-final","webkit","en","390x844","groups-empty",,,"False",,"0","True","True",
+"layout-final","webkit","en","390x844","groups-error",,,"False",,"0","True","True",
+"layout-final","webkit","en","390x844","groups-loading",,,"False",,"0","True","True",
+"layout-final","webkit","en","390x844","group-admin",,,"False",,"0","True","True",
+"layout-final","webkit","en","390x844","group-member",,,"False",,"0","True","True",
+"layout-final","webkit","en","390x844","home-guest",,,"False",,"0","True",,
+"layout-final","webkit","en","390x844","login",,,"False",,"0","True","True",
+"layout-final","webkit","en","390x844","register",,,"False",,"0","True","True",
+"layout-final","webkit","en","390x844","forgot",,,"False",,"0","True","True",
+"layout-final","webkit","en","390x844","reset-missing-token",,,"False",,"0","True","True",
+"layout-final","webkit","en","390x844","reset",,,"False",,"0","True","True",
+"layout-final","webkit","fr","390x844","home",,,"False",,"0","True",,
+"layout-final","webkit","fr","390x844","tools",,,"False",,"0","True",,
+"layout-final","webkit","fr","390x844","landing-compass",,,"False",,"0","True",,
+"layout-final","webkit","fr","390x844","landing-meeting",,,"False",,"0","True",,
+"layout-final","webkit","fr","390x844","cta",,,"False",,"0","True",,
+"layout-final","webkit","fr","390x844","faq",,,"False",,"0","True",,
+"layout-final","webkit","fr","390x844","footer",,,"False",,"0","True",,
+"layout-final","webkit","fr","390x844","faq-expanded",,,"False",,"0","True",,
+"layout-final","webkit","fr","390x844","groups",,,"False",,"0","True","True",
+"layout-final","webkit","fr","390x844","create",,,"False",,"0","True","True",
+"layout-final","webkit","fr","390x844","create-options",,,"False",,"0","True","True",
+"layout-final","webkit","fr","390x844","join",,,"False",,"0","True","True",
+"layout-final","webkit","fr","390x844","menu",,,"False",,"0","True",,
+"layout-final","webkit","fr","390x844","group-owner",,,"False",,"0","True","True",
+"layout-final","webkit","fr","390x844","group-long-content",,,"False",,"0","True","True",
+"layout-final","webkit","fr","390x844","confirmation",,,"False",,"0","True",,
+"layout-final","webkit","fr","390x844","map-permission",,,"False",,"0","True",,
+"layout-final","webkit","fr","390x844","map",,,"False",,"0","True","True",
+"layout-final","webkit","fr","390x844","map-gps",,,"False",,"0","True","True",
+"layout-final","webkit","fr","390x844","walking-route",,,"False",,"0","True","True",
+"layout-final","webkit","fr","390x844","ai-reunion",,,"False",,"0","True","True",
+"layout-final","webkit","fr","390x844","ai-reunion-details",,,"False",,"0","True","True",
+"layout-final","webkit","fr","390x844","compass-permission",,,"False",,"0","True",,
+"layout-final","webkit","fr","390x844","compass",,,"False",,"0","True","True",
+"layout-final","webkit","fr","390x844","compass-nearest",,,"False",,"0","True","True",
+"layout-final","webkit","fr","390x844","compass-meeting",,,"False",,"0","True","True",
+"layout-final","webkit","fr","390x844","meeting",,,"False",,"0","True","True",
+"layout-final","webkit","fr","390x844","meeting-draft",,,"False",,"0","True","True",
+"layout-final","webkit","fr","390x844","ai-meeting",,,"False",,"0","True","True",
+"layout-final","webkit","fr","390x844","ai-meeting-details",,,"False",,"0","True","True",
+"layout-final","webkit","fr","390x844","meeting-delete-confirmation",,,"False",,"0","True",,
+"layout-final","webkit","fr","390x844","chat-group",,,"False",,"0","True","True",
+"layout-final","webkit","fr","390x844","chat-composer",,,,,,,,
+"layout-final","webkit","fr","390x844","chat-focused",,,"False",,"0","True","True",
+"layout-final","webkit","fr","390x844","chat-keyboard-resized",,,"False",,"0","True","True",
+"layout-final","webkit","fr","390x844","chat-private",,,"False",,"0","True","True",
+"layout-final","webkit","fr","390x844","chat-no-member",,,"False",,"0","True","True",
+"layout-final","webkit","fr","390x844","chat-empty",,,"False",,"0","True","True",
+"layout-final","webkit","fr","390x844","chat-error",,,"False",,"0","True","True",
+"layout-final","webkit","fr","390x844","chat-loading",,,"False",,"0","True","True",
+"layout-final","webkit","fr","390x844","settings",,,"False",,"0","True","True",
+"layout-final","webkit","fr","390x844","sharing-confirmation",,,"False",,"0","True",,
+"layout-final","webkit","fr","390x844","notifications",,,"False",,"0","True","True",
+"layout-final","webkit","fr","390x844","notifications-empty",,,"False",,"0","True","True",
+"layout-final","webkit","fr","390x844","notifications-error",,,"False",,"0","True","True",
+"layout-final","webkit","fr","390x844","notifications-loading",,,"False",,"0","True","True",
+"layout-final","webkit","fr","390x844","groups-empty",,,"False",,"0","True","True",
+"layout-final","webkit","fr","390x844","groups-error",,,"False",,"0","True","True",
+"layout-final","webkit","fr","390x844","groups-loading",,,"False",,"0","True","True",
+"layout-final","webkit","fr","390x844","group-admin",,,"False",,"0","True","True",
+"layout-final","webkit","fr","390x844","group-member",,,"False",,"0","True","True",
+"layout-final","webkit","fr","390x844","home-guest",,,"False",,"0","True",,
+"layout-final","webkit","fr","390x844","login",,,"False",,"0","True","True",
+"layout-final","webkit","fr","390x844","register",,,"False",,"0","True","True",
+"layout-final","webkit","fr","390x844","forgot",,,"False",,"0","True","True",
+"layout-final","webkit","fr","390x844","reset-missing-token",,,"False",,"0","True","True",
+"layout-final","webkit","fr","390x844","reset",,,"False",,"0","True","True",
+"layout-final","webkit","ar","820x1180","home",,,"False",,"0","True",,
+"layout-final","webkit","ar","820x1180","tools",,,"False",,"0","True",,
+"layout-final","webkit","ar","820x1180","landing-compass",,,"False",,"0","True",,
+"layout-final","webkit","ar","820x1180","landing-meeting",,,"False",,"0","True",,
+"layout-final","webkit","ar","820x1180","cta",,,"False",,"0","True",,
+"layout-final","webkit","ar","820x1180","faq",,,"False",,"0","True",,
+"layout-final","webkit","ar","820x1180","footer",,,"False",,"0","True",,
+"layout-final","webkit","ar","820x1180","faq-expanded",,,"False",,"0","True",,
+"layout-final","webkit","ar","820x1180","groups",,,"False",,"0","True","True",
+"layout-final","webkit","ar","820x1180","create",,,"False",,"0","True","True",
+"layout-final","webkit","ar","820x1180","create-options",,,"False",,"0","True","True",
+"layout-final","webkit","ar","820x1180","join",,,"False",,"0","True","True",
+"layout-final","webkit","ar","820x1180","menu",,,"False",,"0","True",,
+"layout-final","webkit","ar","820x1180","group-owner",,,"False",,"0","True","True",
+"layout-final","webkit","ar","820x1180","group-long-content",,,"False",,"0","True","True",
+"layout-final","webkit","ar","820x1180","confirmation",,,"False",,"0","True",,
+"layout-final","webkit","ar","820x1180","map-permission",,,"False",,"0","True",,
+"layout-final","webkit","ar","820x1180","map",,,"False",,"0","True","True",
+"layout-final","webkit","ar","820x1180","map-gps",,,"False",,"0","True","True",
+"layout-final","webkit","ar","820x1180","walking-route",,,"False",,"0","True","True",
+"layout-final","webkit","ar","820x1180","ai-reunion",,,"False",,"0","True","True",
+"layout-final","webkit","ar","820x1180","ai-reunion-details",,,"False",,"0","True","True",
+"layout-final","webkit","ar","820x1180","compass-permission",,,"False",,"0","True",,
+"layout-final","webkit","ar","820x1180","compass",,,"False",,"0","True","True",
+"layout-final","webkit","ar","820x1180","compass-nearest",,,"False",,"0","True","True",
+"layout-final","webkit","ar","820x1180","compass-meeting",,,"False",,"0","True","True",
+"layout-final","webkit","ar","820x1180","meeting",,,"False",,"0","True","True",
+"layout-final","webkit","ar","820x1180","meeting-draft",,,"False",,"0","True","True",
+"layout-final","webkit","ar","820x1180","ai-meeting",,,"False",,"0","True","True",
+"layout-final","webkit","ar","820x1180","ai-meeting-details",,,"False",,"0","True","True",
+"layout-final","webkit","ar","820x1180","meeting-delete-confirmation",,,"False",,"0","True",,
+"layout-final","webkit","ar","820x1180","chat-group",,,"False",,"0","True","True",
+"layout-final","webkit","ar","820x1180","chat-composer",,,,,,,,
+"layout-final","webkit","ar","820x1180","chat-focused",,,"False",,"0","True","True",
+"layout-final","webkit","ar","820x1180","chat-keyboard-resized",,,"False",,"0","True","True",
+"layout-final","webkit","ar","820x1180","chat-private",,,"False",,"0","True","True",
+"layout-final","webkit","ar","820x1180","chat-no-member",,,"False",,"0","True","True",
+"layout-final","webkit","ar","820x1180","chat-empty",,,"False",,"0","True","True",
+"layout-final","webkit","ar","820x1180","chat-error",,,"False",,"0","True","True",
+"layout-final","webkit","ar","820x1180","chat-loading",,,"False",,"0","True","True",
+"layout-final","webkit","ar","820x1180","settings",,,"False",,"0","True","True",
+"layout-final","webkit","ar","820x1180","sharing-confirmation",,,"False",,"0","True",,
+"layout-final","webkit","ar","820x1180","notifications",,,"False",,"0","True","True",
+"layout-final","webkit","ar","820x1180","notifications-empty",,,"False",,"0","True","True",
+"layout-final","webkit","ar","820x1180","notifications-error",,,"False",,"0","True","True",
+"layout-final","webkit","ar","820x1180","notifications-loading",,,"False",,"0","True","True",
+"layout-final","webkit","ar","820x1180","groups-empty",,,"False",,"0","True","True",
+"layout-final","webkit","ar","820x1180","groups-error",,,"False",,"0","True","True",
+"layout-final","webkit","ar","820x1180","groups-loading",,,"False",,"0","True","True",
+"layout-final","webkit","ar","820x1180","group-admin",,,"False",,"0","True","True",
+"layout-final","webkit","ar","820x1180","group-member",,,"False",,"0","True","True",
+"layout-final","webkit","ar","820x1180","home-guest",,,"False",,"0","True",,
+"layout-final","webkit","ar","820x1180","login",,,"False",,"0","True","True",
+"layout-final","webkit","ar","820x1180","register",,,"False",,"0","True","True",
+"layout-final","webkit","ar","820x1180","forgot",,,"False",,"0","True","True",
+"layout-final","webkit","ar","820x1180","reset-missing-token",,,"False",,"0","True","True",
+"layout-final","webkit","ar","820x1180","reset",,,"False",,"0","True","True",
+"layout-final","webkit","en","820x1180","home",,,"False",,"0","True",,
+"layout-final","webkit","en","820x1180","tools",,,"False",,"0","True",,
+"layout-final","webkit","en","820x1180","landing-compass",,,"False",,"0","True",,
+"layout-final","webkit","en","820x1180","landing-meeting",,,"False",,"0","True",,
+"layout-final","webkit","en","820x1180","cta",,,"False",,"0","True",,
+"layout-final","webkit","en","820x1180","faq",,,"False",,"0","True",,
+"layout-final","webkit","en","820x1180","footer",,,"False",,"0","True",,
+"layout-final","webkit","en","820x1180","faq-expanded",,,"False",,"0","True",,
+"layout-final","webkit","en","820x1180","groups",,,"False",,"0","True","True",
+"layout-final","webkit","en","820x1180","create",,,"False",,"0","True","True",
+"layout-final","webkit","en","820x1180","create-options",,,"False",,"0","True","True",
+"layout-final","webkit","en","820x1180","join",,,"False",,"0","True","True",
+"layout-final","webkit","en","820x1180","menu",,,"False",,"0","True",,
+"layout-final","webkit","en","820x1180","group-owner",,,"False",,"0","True","True",
+"layout-final","webkit","en","820x1180","group-long-content",,,"False",,"0","True","True",
+"layout-final","webkit","en","820x1180","confirmation",,,"False",,"0","True",,
+"layout-final","webkit","en","820x1180","map-permission",,,"False",,"0","True",,
+"layout-final","webkit","en","820x1180","map",,,"False",,"0","True","True",
+"layout-final","webkit","en","820x1180","map-gps",,,"False",,"0","True","True",
+"layout-final","webkit","en","820x1180","walking-route",,,"False",,"0","True","True",
+"layout-final","webkit","en","820x1180","ai-reunion",,,"False",,"0","True","True",
+"layout-final","webkit","en","820x1180","ai-reunion-details",,,"False",,"0","True","True",
+"layout-final","webkit","en","820x1180","compass-permission",,,"False",,"0","True",,
+"layout-final","webkit","en","820x1180","compass",,,"False",,"0","True","True",
+"layout-final","webkit","en","820x1180","compass-nearest",,,"False",,"0","True","True",
+"layout-final","webkit","en","820x1180","compass-meeting",,,"False",,"0","True","True",
+"layout-final","webkit","en","820x1180","meeting",,,"False",,"0","True","True",
+"layout-final","webkit","en","820x1180","meeting-draft",,,"False",,"0","True","True",
+"layout-final","webkit","en","820x1180","ai-meeting",,,"False",,"0","True","True",
+"layout-final","webkit","en","820x1180","ai-meeting-details",,,"False",,"0","True","True",
+"layout-final","webkit","en","820x1180","meeting-delete-confirmation",,,"False",,"0","True",,
+"layout-final","webkit","en","820x1180","chat-group",,,"False",,"0","True","True",
+"layout-final","webkit","en","820x1180","chat-composer",,,,,,,,
+"layout-final","webkit","en","820x1180","chat-focused",,,"False",,"0","True","True",
+"layout-final","webkit","en","820x1180","chat-keyboard-resized",,,"False",,"0","True","True",
+"layout-final","webkit","en","820x1180","chat-private",,,"False",,"0","True","True",
+"layout-final","webkit","en","820x1180","chat-no-member",,,"False",,"0","True","True",
+"layout-final","webkit","en","820x1180","chat-empty",,,"False",,"0","True","True",
+"layout-final","webkit","en","820x1180","chat-error",,,"False",,"0","True","True",
+"layout-final","webkit","en","820x1180","chat-loading",,,"False",,"0","True","True",
+"layout-final","webkit","en","820x1180","settings",,,"False",,"0","True","True",
+"layout-final","webkit","en","820x1180","sharing-confirmation",,,"False",,"0","True",,
+"layout-final","webkit","en","820x1180","notifications",,,"False",,"0","True","True",
+"layout-final","webkit","en","820x1180","notifications-empty",,,"False",,"0","True","True",
+"layout-final","webkit","en","820x1180","notifications-error",,,"False",,"0","True","True",
+"layout-final","webkit","en","820x1180","notifications-loading",,,"False",,"0","True","True",
+"layout-final","webkit","en","820x1180","groups-empty",,,"False",,"0","True","True",
+"layout-final","webkit","en","820x1180","groups-error",,,"False",,"0","True","True",
+"layout-final","webkit","en","820x1180","groups-loading",,,"False",,"0","True","True",
+"layout-final","webkit","en","820x1180","group-admin",,,"False",,"0","True","True",
+"layout-final","webkit","en","820x1180","group-member",,,"False",,"0","True","True",
+"layout-final","webkit","en","820x1180","home-guest",,,"False",,"0","True",,
+"layout-final","webkit","en","820x1180","login",,,"False",,"0","True","True",
+"layout-final","webkit","en","820x1180","register",,,"False",,"0","True","True",
+"layout-final","webkit","en","820x1180","forgot",,,"False",,"0","True","True",
+"layout-final","webkit","en","820x1180","reset-missing-token",,,"False",,"0","True","True",
+"layout-final","webkit","en","820x1180","reset",,,"False",,"0","True","True",
+"layout-final","webkit","fr","820x1180","home",,,"False",,"0","True",,
+"layout-final","webkit","fr","820x1180","tools",,,"False",,"0","True",,
+"layout-final","webkit","fr","820x1180","landing-compass",,,"False",,"0","True",,
+"layout-final","webkit","fr","820x1180","landing-meeting",,,"False",,"0","True",,
+"layout-final","webkit","fr","820x1180","cta",,,"False",,"0","True",,
+"layout-final","webkit","fr","820x1180","faq",,,"False",,"0","True",,
+"layout-final","webkit","fr","820x1180","footer",,,"False",,"0","True",,
+"layout-final","webkit","fr","820x1180","faq-expanded",,,"False",,"0","True",,
+"layout-final","webkit","fr","820x1180","groups",,,"False",,"0","True","True",
+"layout-final","webkit","fr","820x1180","create",,,"False",,"0","True","True",
+"layout-final","webkit","fr","820x1180","create-options",,,"False",,"0","True","True",
+"layout-final","webkit","fr","820x1180","join",,,"False",,"0","True","True",
+"layout-final","webkit","fr","820x1180","menu",,,"False",,"0","True",,
+"layout-final","webkit","fr","820x1180","group-owner",,,"False",,"0","True","True",
+"layout-final","webkit","fr","820x1180","group-long-content",,,"False",,"0","True","True",
+"layout-final","webkit","fr","820x1180","confirmation",,,"False",,"0","True",,
+"layout-final","webkit","fr","820x1180","map-permission",,,"False",,"0","True",,
+"layout-final","webkit","fr","820x1180","map",,,"False",,"0","True","True",
+"layout-final","webkit","fr","820x1180","map-gps",,,"False",,"0","True","True",
+"layout-final","webkit","fr","820x1180","walking-route",,,"False",,"0","True","True",
+"layout-final","webkit","fr","820x1180","ai-reunion",,,"False",,"0","True","True",
+"layout-final","webkit","fr","820x1180","ai-reunion-details",,,"False",,"0","True","True",
+"layout-final","webkit","fr","820x1180","compass-permission",,,"False",,"0","True",,
+"layout-final","webkit","fr","820x1180","compass",,,"False",,"0","True","True",
+"layout-final","webkit","fr","820x1180","compass-nearest",,,"False",,"0","True","True",
+"layout-final","webkit","fr","820x1180","compass-meeting",,,"False",,"0","True","True",
+"layout-final","webkit","fr","820x1180","meeting",,,"False",,"0","True","True",
+"layout-final","webkit","fr","820x1180","meeting-draft",,,"False",,"0","True","True",
+"layout-final","webkit","fr","820x1180","ai-meeting",,,"False",,"0","True","True",
+"layout-final","webkit","fr","820x1180","ai-meeting-details",,,"False",,"0","True","True",
+"layout-final","webkit","fr","820x1180","meeting-delete-confirmation",,,"False",,"0","True",,
+"layout-final","webkit","fr","820x1180","chat-group",,,"False",,"0","True","True",
+"layout-final","webkit","fr","820x1180","chat-composer",,,,,,,,
+"layout-final","webkit","fr","820x1180","chat-focused",,,"False",,"0","True","True",
+"layout-final","webkit","fr","820x1180","chat-keyboard-resized",,,"False",,"0","True","True",
+"layout-final","webkit","fr","820x1180","chat-private",,,"False",,"0","True","True",
+"layout-final","webkit","fr","820x1180","chat-no-member",,,"False",,"0","True","True",
+"layout-final","webkit","fr","820x1180","chat-empty",,,"False",,"0","True","True",
+"layout-final","webkit","fr","820x1180","chat-error",,,"False",,"0","True","True",
+"layout-final","webkit","fr","820x1180","chat-loading",,,"False",,"0","True","True",
+"layout-final","webkit","fr","820x1180","settings",,,"False",,"0","True","True",
+"layout-final","webkit","fr","820x1180","sharing-confirmation",,,"False",,"0","True",,
+"layout-final","webkit","fr","820x1180","notifications",,,"False",,"0","True","True",
+"layout-final","webkit","fr","820x1180","notifications-empty",,,"False",,"0","True","True",
+"layout-final","webkit","fr","820x1180","notifications-error",,,"False",,"0","True","True",
+"layout-final","webkit","fr","820x1180","notifications-loading",,,"False",,"0","True","True",
+"layout-final","webkit","fr","820x1180","groups-empty",,,"False",,"0","True","True",
+"layout-final","webkit","fr","820x1180","groups-error",,,"False",,"0","True","True",
+"layout-final","webkit","fr","820x1180","groups-loading",,,"False",,"0","True","True",
+"layout-final","webkit","fr","820x1180","group-admin",,,"False",,"0","True","True",
+"layout-final","webkit","fr","820x1180","group-member",,,"False",,"0","True","True",
+"layout-final","webkit","fr","820x1180","home-guest",,,"False",,"0","True",,
+"layout-final","webkit","fr","820x1180","login",,,"False",,"0","True","True",
+"layout-final","webkit","fr","820x1180","register",,,"False",,"0","True","True",
+"layout-final","webkit","fr","820x1180","forgot",,,"False",,"0","True","True",
+"layout-final","webkit","fr","820x1180","reset-missing-token",,,"False",,"0","True","True",
+"layout-final","webkit","fr","820x1180","reset",,,"False",,"0","True","True",
+"layout-final","webkit","ar","1280x720","home",,,"False",,"0","True",,
+"layout-final","webkit","ar","1280x720","tools",,,"False",,"0","True",,
+"layout-final","webkit","ar","1280x720","landing-compass",,,"False",,"0","True",,
+"layout-final","webkit","ar","1280x720","landing-meeting",,,"False",,"0","True",,
+"layout-final","webkit","ar","1280x720","cta",,,"False",,"0","True",,
+"layout-final","webkit","ar","1280x720","faq",,,"False",,"0","True",,
+"layout-final","webkit","ar","1280x720","footer",,,"False",,"0","True",,
+"layout-final","webkit","ar","1280x720","faq-expanded",,,"False",,"0","True",,
+"layout-final","webkit","ar","1280x720","groups",,,"False",,"0","True","True",
+"layout-final","webkit","ar","1280x720","create",,,"False",,"0","True","True",
+"layout-final","webkit","ar","1280x720","create-options",,,"False",,"0","True","True",
+"layout-final","webkit","ar","1280x720","join",,,"False",,"0","True","True",
+"layout-final","webkit","ar","1280x720","menu",,,"False",,"0","True",,
+"layout-final","webkit","ar","1280x720","group-owner",,,"False",,"0","True","True",
+"layout-final","webkit","ar","1280x720","group-long-content",,,"False",,"0","True","True",
+"layout-final","webkit","ar","1280x720","confirmation",,,"False",,"0","True",,
+"layout-final","webkit","ar","1280x720","map-permission",,,"False",,"0","True",,
+"layout-final","webkit","ar","1280x720","map",,,"False",,"0","True","True",
+"layout-final","webkit","ar","1280x720","map-gps",,,"False",,"0","True","True",
+"layout-final","webkit","ar","1280x720","walking-route",,,"False",,"0","True","True",
+"layout-final","webkit","ar","1280x720","ai-reunion",,,"False",,"0","True","True",
+"layout-final","webkit","ar","1280x720","ai-reunion-details",,,"False",,"0","True","True",
+"layout-final","webkit","ar","1280x720","compass-permission",,,"False",,"0","True",,
+"layout-final","webkit","ar","1280x720","compass",,,"False",,"0","True","True",
+"layout-final","webkit","ar","1280x720","compass-nearest",,,"False",,"0","True","True",
+"layout-final","webkit","ar","1280x720","compass-meeting",,,"False",,"0","True","True",
+"layout-final","webkit","ar","1280x720","meeting",,,"False",,"0","True","True",
+"layout-final","webkit","ar","1280x720","meeting-draft",,,"False",,"0","True","True",
+"layout-final","webkit","ar","1280x720","ai-meeting",,,"False",,"0","True","True",
+"layout-final","webkit","ar","1280x720","ai-meeting-details",,,"False",,"0","True","True",
+"layout-final","webkit","ar","1280x720","meeting-delete-confirmation",,,"False",,"0","True",,
+"layout-final","webkit","ar","1280x720","chat-group",,,"False",,"0","True","True",
+"layout-final","webkit","ar","1280x720","chat-composer",,,,,,,,
+"layout-final","webkit","ar","1280x720","chat-focused",,,"False",,"0","True","True",
+"layout-final","webkit","ar","1280x720","chat-keyboard-resized",,,"False",,"0","True","True",
+"layout-final","webkit","ar","1280x720","chat-private",,,"False",,"0","True","True",
+"layout-final","webkit","ar","1280x720","chat-no-member",,,"False",,"0","True","True",
+"layout-final","webkit","ar","1280x720","chat-empty",,,"False",,"0","True","True",
+"layout-final","webkit","ar","1280x720","chat-error",,,"False",,"0","True","True",
+"layout-final","webkit","ar","1280x720","chat-loading",,,"False",,"0","True","True",
+"layout-final","webkit","ar","1280x720","settings",,,"False",,"0","True","True",
+"layout-final","webkit","ar","1280x720","sharing-confirmation",,,"False",,"0","True",,
+"layout-final","webkit","ar","1280x720","notifications",,,"False",,"0","True","True",
+"layout-final","webkit","ar","1280x720","notifications-empty",,,"False",,"0","True","True",
+"layout-final","webkit","ar","1280x720","notifications-error",,,"False",,"0","True","True",
+"layout-final","webkit","ar","1280x720","notifications-loading",,,"False",,"0","True","True",
+"layout-final","webkit","ar","1280x720","groups-empty",,,"False",,"0","True","True",
+"layout-final","webkit","ar","1280x720","groups-error",,,"False",,"0","True","True",
+"layout-final","webkit","ar","1280x720","groups-loading",,,"False",,"0","True","True",
+"layout-final","webkit","ar","1280x720","group-admin",,,"False",,"0","True","True",
+"layout-final","webkit","ar","1280x720","group-member",,,"False",,"0","True","True",
+"layout-final","webkit","ar","1280x720","home-guest",,,"False",,"0","True",,
+"layout-final","webkit","ar","1280x720","login",,,"False",,"0","True","True",
+"layout-final","webkit","ar","1280x720","register",,,"False",,"0","True","True",
+"layout-final","webkit","ar","1280x720","forgot",,,"False",,"0","True","True",
+"layout-final","webkit","ar","1280x720","reset-missing-token",,,"False",,"0","True","True",
+"layout-final","webkit","ar","1280x720","reset",,,"False",,"0","True","True",
+"layout-final","webkit","en","1280x720","home",,,"False",,"0","True",,
+"layout-final","webkit","en","1280x720","tools",,,"False",,"0","True",,
+"layout-final","webkit","en","1280x720","landing-compass",,,"False",,"0","True",,
+"layout-final","webkit","en","1280x720","landing-meeting",,,"False",,"0","True",,
+"layout-final","webkit","en","1280x720","cta",,,"False",,"0","True",,
+"layout-final","webkit","en","1280x720","faq",,,"False",,"0","True",,
+"layout-final","webkit","en","1280x720","footer",,,"False",,"0","True",,
+"layout-final","webkit","en","1280x720","faq-expanded",,,"False",,"0","True",,
+"layout-final","webkit","en","1280x720","groups",,,"False",,"0","True","True",
+"layout-final","webkit","en","1280x720","create",,,"False",,"0","True","True",
+"layout-final","webkit","en","1280x720","create-options",,,"False",,"0","True","True",
+"layout-final","webkit","en","1280x720","join",,,"False",,"0","True","True",
+"layout-final","webkit","en","1280x720","menu",,,"False",,"0","True",,
+"layout-final","webkit","en","1280x720","group-owner",,,"False",,"0","True","True",
+"layout-final","webkit","en","1280x720","group-long-content",,,"False",,"0","True","True",
+"layout-final","webkit","en","1280x720","confirmation",,,"False",,"0","True",,
+"layout-final","webkit","en","1280x720","map-permission",,,"False",,"0","True",,
+"layout-final","webkit","en","1280x720","map",,,"False",,"0","True","True",
+"layout-final","webkit","en","1280x720","map-gps",,,"False",,"0","True","True",
+"layout-final","webkit","en","1280x720","walking-route",,,"False",,"0","True","True",
+"layout-final","webkit","en","1280x720","ai-reunion",,,"False",,"0","True","True",
+"layout-final","webkit","en","1280x720","ai-reunion-details",,,"False",,"0","True","True",
+"layout-final","webkit","en","1280x720","compass-permission",,,"False",,"0","True",,
+"layout-final","webkit","en","1280x720","compass",,,"False",,"0","True","True",
+"layout-final","webkit","en","1280x720","compass-nearest",,,"False",,"0","True","True",
+"layout-final","webkit","en","1280x720","compass-meeting",,,"False",,"0","True","True",
+"layout-final","webkit","en","1280x720","meeting",,,"False",,"0","True","True",
+"layout-final","webkit","en","1280x720","meeting-draft",,,"False",,"0","True","True",
+"layout-final","webkit","en","1280x720","ai-meeting",,,"False",,"0","True","True",
+"layout-final","webkit","en","1280x720","ai-meeting-details",,,"False",,"0","True","True",
+"layout-final","webkit","en","1280x720","meeting-delete-confirmation",,,"False",,"0","True",,
+"layout-final","webkit","en","1280x720","chat-group",,,"False",,"0","True","True",
+"layout-final","webkit","en","1280x720","chat-composer",,,,,,,,
+"layout-final","webkit","en","1280x720","chat-focused",,,"False",,"0","True","True",
+"layout-final","webkit","en","1280x720","chat-keyboard-resized",,,"False",,"0","True","True",
+"layout-final","webkit","en","1280x720","chat-private",,,"False",,"0","True","True",
+"layout-final","webkit","en","1280x720","chat-no-member",,,"False",,"0","True","True",
+"layout-final","webkit","en","1280x720","chat-empty",,,"False",,"0","True","True",
+"layout-final","webkit","en","1280x720","chat-error",,,"False",,"0","True","True",
+"layout-final","webkit","en","1280x720","chat-loading",,,"False",,"0","True","True",
+"layout-final","webkit","en","1280x720","settings",,,"False",,"0","True","True",
+"layout-final","webkit","en","1280x720","sharing-confirmation",,,"False",,"0","True",,
+"layout-final","webkit","en","1280x720","notifications",,,"False",,"0","True","True",
+"layout-final","webkit","en","1280x720","notifications-empty",,,"False",,"0","True","True",
+"layout-final","webkit","en","1280x720","notifications-error",,,"False",,"0","True","True",
+"layout-final","webkit","en","1280x720","notifications-loading",,,"False",,"0","True","True",
+"layout-final","webkit","en","1280x720","groups-empty",,,"False",,"0","True","True",
+"layout-final","webkit","en","1280x720","groups-error",,,"False",,"0","True","True",
+"layout-final","webkit","en","1280x720","groups-loading",,,"False",,"0","True","True",
+"layout-final","webkit","en","1280x720","group-admin",,,"False",,"0","True","True",
+"layout-final","webkit","en","1280x720","group-member",,,"False",,"0","True","True",
+"layout-final","webkit","en","1280x720","home-guest",,,"False",,"0","True",,
+"layout-final","webkit","en","1280x720","login",,,"False",,"0","True","True",
+"layout-final","webkit","en","1280x720","register",,,"False",,"0","True","True",
+"layout-final","webkit","en","1280x720","forgot",,,"False",,"0","True","True",
+"layout-final","webkit","en","1280x720","reset-missing-token",,,"False",,"0","True","True",
+"layout-final","webkit","en","1280x720","reset",,,"False",,"0","True","True",
+"layout-final","webkit","fr","1280x720","home",,,"False",,"0","True",,
+"layout-final","webkit","fr","1280x720","tools",,,"False",,"0","True",,
+"layout-final","webkit","fr","1280x720","landing-compass",,,"False",,"0","True",,
+"layout-final","webkit","fr","1280x720","landing-meeting",,,"False",,"0","True",,
+"layout-final","webkit","fr","1280x720","cta",,,"False",,"0","True",,
+"layout-final","webkit","fr","1280x720","faq",,,"False",,"0","True",,
+"layout-final","webkit","fr","1280x720","footer",,,"False",,"0","True",,
+"layout-final","webkit","fr","1280x720","faq-expanded",,,"False",,"0","True",,
+"layout-final","webkit","fr","1280x720","groups",,,"False",,"0","True","True",
+"layout-final","webkit","fr","1280x720","create",,,"False",,"0","True","True",
+"layout-final","webkit","fr","1280x720","create-options",,,"False",,"0","True","True",
+"layout-final","webkit","fr","1280x720","join",,,"False",,"0","True","True",
+"layout-final","webkit","fr","1280x720","menu",,,"False",,"0","True",,
+"layout-final","webkit","fr","1280x720","group-owner",,,"False",,"0","True","True",
+"layout-final","webkit","fr","1280x720","group-long-content",,,"False",,"0","True","True",
+"layout-final","webkit","fr","1280x720","confirmation",,,"False",,"0","True",,
+"layout-final","webkit","fr","1280x720","map-permission",,,"False",,"0","True",,
+"layout-final","webkit","fr","1280x720","map",,,"False",,"0","True","True",
+"layout-final","webkit","fr","1280x720","map-gps",,,"False",,"0","True","True",
+"layout-final","webkit","fr","1280x720","walking-route",,,"False",,"0","True","True",
+"layout-final","webkit","fr","1280x720","ai-reunion",,,"False",,"0","True","True",
+"layout-final","webkit","fr","1280x720","ai-reunion-details",,,"False",,"0","True","True",
+"layout-final","webkit","fr","1280x720","compass-permission",,,"False",,"0","True",,
+"layout-final","webkit","fr","1280x720","compass",,,"False",,"0","True","True",
+"layout-final","webkit","fr","1280x720","compass-nearest",,,"False",,"0","True","True",
+"layout-final","webkit","fr","1280x720","compass-meeting",,,"False",,"0","True","True",
+"layout-final","webkit","fr","1280x720","meeting",,,"False",,"0","True","True",
+"layout-final","webkit","fr","1280x720","meeting-draft",,,"False",,"0","True","True",
+"layout-final","webkit","fr","1280x720","ai-meeting",,,"False",,"0","True","True",
+"layout-final","webkit","fr","1280x720","ai-meeting-details",,,"False",,"0","True","True",
+"layout-final","webkit","fr","1280x720","meeting-delete-confirmation",,,"False",,"0","True",,
+"layout-final","webkit","fr","1280x720","chat-group",,,"False",,"0","True","True",
+"layout-final","webkit","fr","1280x720","chat-composer",,,,,,,,
+"layout-final","webkit","fr","1280x720","chat-focused",,,"False",,"0","True","True",
+"layout-final","webkit","fr","1280x720","chat-keyboard-resized",,,"False",,"0","True","True",
+"layout-final","webkit","fr","1280x720","chat-private",,,"False",,"0","True","True",
+"layout-final","webkit","fr","1280x720","chat-no-member",,,"False",,"0","True","True",
+"layout-final","webkit","fr","1280x720","chat-empty",,,"False",,"0","True","True",
+"layout-final","webkit","fr","1280x720","chat-error",,,"False",,"0","True","True",
+"layout-final","webkit","fr","1280x720","chat-loading",,,"False",,"0","True","True",
+"layout-final","webkit","fr","1280x720","settings",,,"False",,"0","True","True",
+"layout-final","webkit","fr","1280x720","sharing-confirmation",,,"False",,"0","True",,
+"layout-final","webkit","fr","1280x720","notifications",,,"False",,"0","True","True",
+"layout-final","webkit","fr","1280x720","notifications-empty",,,"False",,"0","True","True",
+"layout-final","webkit","fr","1280x720","notifications-error",,,"False",,"0","True","True",
+"layout-final","webkit","fr","1280x720","notifications-loading",,,"False",,"0","True","True",
+"layout-final","webkit","fr","1280x720","groups-empty",,,"False",,"0","True","True",
+"layout-final","webkit","fr","1280x720","groups-error",,,"False",,"0","True","True",
+"layout-final","webkit","fr","1280x720","groups-loading",,,"False",,"0","True","True",
+"layout-final","webkit","fr","1280x720","group-admin",,,"False",,"0","True","True",
+"layout-final","webkit","fr","1280x720","group-member",,,"False",,"0","True","True",
+"layout-final","webkit","fr","1280x720","home-guest",,,"False",,"0","True",,
+"layout-final","webkit","fr","1280x720","login",,,"False",,"0","True","True",
+"layout-final","webkit","fr","1280x720","register",,,"False",,"0","True","True",
+"layout-final","webkit","fr","1280x720","forgot",,,"False",,"0","True","True",
+"layout-final","webkit","fr","1280x720","reset-missing-token",,,"False",,"0","True","True",
+"layout-final","webkit","fr","1280x720","reset",,,"False",,"0","True","True",
+"feedback-final","chromium","ar","390x844","confirmation","dialog","rtl","False","False",,,,"تأكيد الإجراءإغلاق المجموعة وإيقاف الانضمام ومشاركة المواقع؟تأكيدإلغاء"
+"feedback-final","chromium","ar","390x844","unsupported-permission","dialog","rtl","False","False",,,,"تفعيل الملاحةالموقعيستخدم دال موقعك لحساب المسافات والاتجاهات ومشاركته مع أعضاء مجموعتك المسموح لهم وفق إعداداتك الحالية أثناء فتح الصفحة. التفعيل يحتاج موافقتك.تفعيل الموقعحساس البوصلةيستخدم دال حساس الاتجاه لتحديث سهم البوصلة عند تدوير الجوال. تفعيل الحساس وحده لا يفعّل مشاركة الموقع.قراءات الاتجاه غير مدعومة في هذا المتصفح أو السياق. يمكنك استخدام الخريطة.الاتجاه المعروض بالنسبة للشمال؛ السهم لا يتبع دوران جوالك.ليس الآنARENFR"
+"feedback-final","chromium","ar","390x844","unsupported-compass","status","rtl","False","False",,,,"قراءات الاتجاه غير مدعومة في هذا المتصفح أو السياق. يمكنك استخدام الخريطة. الاتجاه المعروض بالنسبة للشمال؛ السهم لا يتبع دوران جوالك."
+"feedback-final","chromium","ar","390x844","sensor-denied","dialog","rtl","False","False",,,,"تفعيل الملاحةالموقعيستخدم دال موقعك لحساب المسافات والاتجاهات ومشاركته مع أعضاء مجموعتك المسموح لهم وفق إعداداتك الحالية أثناء فتح الصفحة. التفعيل يحتاج موافقتك.تفعيل الموقعحساس البوصلةيستخدم دال حساس الاتجاه لتحديث سهم البوصلة عند تدوير الجوال. تفعيل الحساس وحده لا يفعّل مشاركة الموقع.إذن الحساس مرفوض. اسمح بالحركة والاتجاه من إعدادات المتصفح أو الجهاز، ثم أعد دخول الصفحة أو استخدم التفعيل اليدوي.الاتجاه المعروض بالنسبة للشمال؛ السهم لا يتبع دوران جوالك.تفعيل حساس البوصلةليس الآنARENFR"
+"feedback-final","chromium","ar","390x844","sensor-pending","status","rtl","False","False",,,,"بانتظار قرار إذن الحساس… الاتجاه المعروض بالنسبة للشمال؛ السهم لا يتبع دوران جوالك."
+"feedback-final","chromium","ar","390x844","sensor-no-reading","status","rtl","False","False",,,,"لم تصل قراءة اتجاه صالحة. قد تكون القراءات غير متاحة على جهازك أو متصفحك؛ جرّب الخريطة أو أعد التفعيل يدويًا. الاتجاه المعروض بالنسبة للشمال؛ السهم لا يتبع دوران جوالك."
+"feedback-final","chromium","ar","390x844","sensor-ready-gps-missing",,"rtl","False","False",,,,"متجه إلىQA Memberوجّهني لأقرب عضووجّهني إلى نقطة الالتقاءشقجغ—— مالموقع غير متاح. فعّل موقعك واختر وجهة لها موقع مسموح.موقع حديث · آخر تحديث: 15‏/10‏/2026، 6:04 ص · آخر موقع معروف، قد تكون الوجهة تحركتامسك الجوال مستويًا وبعيدًا عن المعادن. تأكيد اللقاء يدويًا بسبب حدود دقة GPS.نبّه QA Memberوصلت"
+"feedback-final","chromium","ar","390x844","walking-ready","status","rtl","False","False",,,,"المسار محدّثآخر حساب للمسار: 15‏/10‏/2026، 6:04:55 ص"
+"feedback-final","chromium","ar","390x844","unsupported-with-gps","status","rtl","False","False",,,,"قراءات الاتجاه غير مدعومة في هذا المتصفح أو السياق. يمكنك استخدام الخريطة. الاتجاه المعروض بالنسبة للشمال؛ السهم لا يتبع دوران جوالك."
+"feedback-final","chromium","ar","390x844","gps-denied-with-heading","alert","rtl","False","False",,,,"إذن الموقع مرفوض. اسمح بالموقع من إعدادات المتصفح ثم أعد المحاولة."
+"feedback-final","chromium","ar","390x844","offline-walking","status","rtl","False","False",,,,"آخر مسار محسوبالاتصال منقطع. هذا آخر مسار محسوب وقد لا يعكس موقعك الحالي.آخر حساب للمسار: 15‏/10‏/2026، 6:05:06 صالمسافة والمدة تخصان آخر حساب، وليستا تقدير وصول مباشرًا."
+"feedback-final","chromium","ar","390x844","nearest-success","status","rtl","False","False",,,,"تم اختيار QA Member. المسافة المباشرة الحالية نحو 33 م، وليست مسافة طريق مشي."
+"feedback-final","chromium","ar","390x844","success","status","rtl","False","False",,,,"تم تحديث حسابك"
+"feedback-final","chromium","ar","390x844","privacy-confirmation","dialog","rtl","False","False",,,,"تأكيد الإجراءسيوقف هذا مشاركة موقعك في جميع مجموعاتك ويخفي موقعك عن الأعضاء. متابعة؟تأكيدإلغاء"
+"feedback-final","chromium","ar","390x844","sharing-paused",,"rtl","False","False",,,,"المشاركة متوقفة"
+"feedback-final","chromium","ar","390x844","sharing-outside-schedule",,"rtl","False","False",,,,"المشاركة متوقفة"
+"feedback-final","chromium","ar","390x844","sharing-allowed-not-transmitting",,"rtl","False","False",,,,"المشاركة مسموحة وفق إعداداتك؛ إرسال الموقع يتطلب GPS واتصالًا."
+"feedback-final","chromium","ar","390x844","loading","status","rtl","False","False",,,,"جارٍ تحميل مجموعاتك…"
+"feedback-final","chromium","ar","390x844","error","alert","rtl","False","False",,,,"تعذر إكمال الطلب"
+"feedback-final","chromium","ar","390x844","empty",,"rtl","False","False",,,,"ما عندك مجموعات حتى الآنابدأ مجموعتك"
+"feedback-final","chromium","ar","390x844","network-recovered",,"rtl","False","False",,,,"حيّاك QA Userمجموعاتكمجموعة جديدةQA FriendsQA1233 أعضاء · المالكالمجموعة نشطةQA FamilyQA1233 أعضاء · المالكمشاركة مواقع المجموعة متوقفةعندي كود مجموعةطلباتك المعلّقةQA Pending Groupإلغاء الطلب"
+"feedback-final","chromium","en","390x844","confirmation","dialog","ltr","False","False",,,,"Confirm actionClose the group and stop joining and location sharing?ConfirmCancel"
+"feedback-final","chromium","en","390x844","unsupported-permission","dialog","ltr","False","False",,,,"Enable navigationLocationDAL uses your location for distances and directions and shares it with authorized group members under your current settings while this page is open. Activation requires your consent.Enable locationCompass sensorDAL uses device orientation to update the compass arrow when you rotate your phone. Enabling the sensor alone does not activate location sharing.Orientation readings are not supported in this browser or context. You can use the map.The displayed direction is relative to north; the arrow does not follow your phone’s rotation.Not nowARENFR"
+"feedback-final","chromium","en","390x844","unsupported-compass","status","ltr","False","False",,,,"Orientation readings are not supported in this browser or context. You can use the map. The displayed direction is relative to north; the arrow does not follow your phone’s rotation."
+"feedback-final","chromium","en","390x844","sensor-denied","dialog","ltr","False","False",,,,"Enable navigationLocationDAL uses your location for distances and directions and shares it with authorized group members under your current settings while this page is open. Activation requires your consent.Enable locationCompass sensorDAL uses device orientation to update the compass arrow when you rotate your phone. Enabling the sensor alone does not activate location sharing.Sensor permission denied. Allow motion and orientation in your browser or device settings, then re-enter this page or use manual activation.The displayed direction is relative to north; the arrow does not follow your phone’s rotation.Enable compass sensorNot nowARENFR"
+"feedback-final","chromium","en","390x844","sensor-pending","status","ltr","False","False",,,,"Waiting for sensor permission… The displayed direction is relative to north; the arrow does not follow your phone’s rotation."
+"feedback-final","chromium","en","390x844","sensor-no-reading","status","ltr","False","False",,,,"No usable orientation reading has arrived. Readings may be unavailable on your device or browser; try the map or enable the sensor again manually. The displayed direction is relative to north; the arrow does not follow your phone’s rotation."
+"feedback-final","chromium","en","390x844","sensor-ready-gps-missing",,"ltr","False","False",,,,"Heading toQA MemberGuide me to the nearest memberGuide me to the meeting pointNESW—— mLocation unavailable. Enable your location and choose an authorized destination.Recent location · Last updated: Oct 15, 2026, 6:05 AM · last known location; the destination may have movedHold your phone level and away from metal. Confirm the meeting manually due to GPS accuracy limits.Nudge QA MemberArrived"
+"feedback-final","chromium","en","390x844","walking-ready","status","ltr","False","False",,,,"Route updatedRoute last calculated: Oct 15, 2026, 6:05:16 AM"
+"feedback-final","chromium","en","390x844","unsupported-with-gps","status","ltr","False","False",,,,"Orientation readings are not supported in this browser or context. You can use the map. The displayed direction is relative to north; the arrow does not follow your phone’s rotation."
+"feedback-final","chromium","en","390x844","gps-denied-with-heading","alert","ltr","False","False",,,,"Location permission denied. Allow location in your browser settings, then try again."
+"feedback-final","chromium","en","390x844","offline-walking","status","ltr","False","False",,,,"Last calculated routeConnection lost. This is the last calculated route and may not reflect your current position.Route last calculated: Oct 15, 2026, 6:05:27 AMDistance and duration belong to the last calculation, not a live arrival estimate."
+"feedback-final","chromium","en","390x844","nearest-success","status","ltr","False","False",,,,"Selected QA Member. The current straight-line distance is approximately 33 m, not a walking-route distance."
+"feedback-final","chromium","en","390x844","success","status","ltr","False","False",,,,"Account updated"
+"feedback-final","chromium","en","390x844","privacy-confirmation","dialog","ltr","False","False",,,,"Confirm actionThis stops sharing your location in all groups and hides it from members. Continue?ConfirmCancel"
+"feedback-final","chromium","en","390x844","sharing-paused",,"ltr","False","False",,,,"Sharing stopped"
+"feedback-final","chromium","en","390x844","sharing-outside-schedule",,"ltr","False","False",,,,"Sharing stopped"
+"feedback-final","chromium","en","390x844","sharing-allowed-not-transmitting",,"ltr","False","False",,,,"Sharing is allowed by your settings; sending your location requires GPS and a connection."
+"feedback-final","chromium","en","390x844","loading","status","ltr","False","False",,,,"Loading your groups…"
+"feedback-final","chromium","en","390x844","error","alert","ltr","False","False",,,,"Unable to complete the request"
+"feedback-final","chromium","en","390x844","empty",,"ltr","False","False",,,,"You have no groups yetStart your group"
+"feedback-final","chromium","en","390x844","network-recovered",,"ltr","False","False",,,,"Welcome QA UserYour groupsNew groupQA FriendsQA1233 members · OwnerGroup activeQA FamilyQA1233 members · OwnerGroup location sharing stoppedI have a group codeYour pending requestsQA Pending GroupCancel request"
+"feedback-final","chromium","fr","390x844","confirmation","dialog","ltr","False","False",,,,"Confirmer l’actionFermer le groupe et arrêter les adhésions et le partage des positions ?ConfirmerAnnuler"
+"feedback-final","chromium","fr","390x844","unsupported-permission","dialog","ltr","False","False",,,,"Activer la navigationPositionDAL utilise votre position pour les distances et les directions et la partage avec les membres autorisés selon vos paramètres actuels lorsque cette page est ouverte. Votre consentement est nécessaire.Activer la localisationCapteur de la boussoleDAL utilise l’orientation de l’appareil pour actualiser la flèche lorsque vous tournez le téléphone. Activer uniquement le capteur n’active pas le partage de position.Les lectures d’orientation ne sont pas prises en charge dans ce navigateur ou ce contexte. Vous pouvez utiliser la carte.La direction affichée est relative au nord ; la flèche ne suit pas la rotation du téléphone.Pas maintenantARENFR"
+"feedback-final","chromium","fr","390x844","unsupported-compass","status","ltr","False","False",,,,"Les lectures d’orientation ne sont pas prises en charge dans ce navigateur ou ce contexte. Vous pouvez utiliser la carte. La direction affichée est relative au nord ; la flèche ne suit pas la rotation du téléphone."
+"feedback-final","chromium","fr","390x844","sensor-denied","dialog","ltr","False","False",,,,"Activer la navigationPositionDAL utilise votre position pour les distances et les directions et la partage avec les membres autorisés selon vos paramètres actuels lorsque cette page est ouverte. Votre consentement est nécessaire.Activer la localisationCapteur de la boussoleDAL utilise l’orientation de l’appareil pour actualiser la flèche lorsque vous tournez le téléphone. Activer uniquement le capteur n’active pas le partage de position.Autorisation du capteur refusée. Autorisez les mouvements et l’orientation dans les paramètres du navigateur ou de l’appareil, puis rouvrez cette page ou utilisez l’activation manuelle.La direction affichée est relative au nord ; la flèche ne suit pas la rotation du téléphone.Activer le capteur de la boussolePas maintenantARENFR"
+"feedback-final","chromium","fr","390x844","sensor-pending","status","ltr","False","False",,,,"En attente de l’autorisation du capteur… La direction affichée est relative au nord ; la flèche ne suit pas la rotation du téléphone."
+"feedback-final","chromium","fr","390x844","sensor-no-reading","status","ltr","False","False",,,,"Aucune lecture d’orientation exploitable n’a été reçue. Les lectures peuvent être indisponibles sur votre appareil ou navigateur ; essayez la carte ou réactivez le capteur manuellement. La direction affichée est relative au nord ; la flèche ne suit pas la rotation du téléphone."
+"feedback-final","chromium","fr","390x844","sensor-ready-gps-missing",,"ltr","False","False",,,,"DirectionQA MemberGuidez-moi vers le membre le plus procheGuidez-moi vers le point de rendez-vousNESO—— mPosition indisponible. Activez la localisation et choisissez une destination autorisée.Position récente · Dernière mise à jour : 15 oct. 2026, 06:05 · dernière position connue ; la destination a pu changerTenez le téléphone à plat, loin des métaux. Confirmez la rencontre manuellement en raison des limites de précision GPS.Alerter QA MemberArrivé"
+"feedback-final","chromium","fr","390x844","walking-ready","status","ltr","False","False",,,,"Itinéraire à jourDernier calcul de l’itinéraire : 15 oct. 2026, 06:05:37"
+"feedback-final","chromium","fr","390x844","unsupported-with-gps","status","ltr","False","False",,,,"Les lectures d’orientation ne sont pas prises en charge dans ce navigateur ou ce contexte. Vous pouvez utiliser la carte. La direction affichée est relative au nord ; la flèche ne suit pas la rotation du téléphone."
+"feedback-final","chromium","fr","390x844","gps-denied-with-heading","alert","ltr","False","False",,,,"Autorisation de localisation refusée. Autorisez-la dans les paramètres du navigateur, puis réessayez."
+"feedback-final","chromium","fr","390x844","offline-walking","status","ltr","False","False",,,,"Dernier itinéraire calculéConnexion perdue. Il s'agit du dernier itinéraire calculé, qui peut ne plus correspondre à votre position actuelle.Dernier calcul de l’itinéraire : 15 oct. 2026, 06:05:48La distance et la durée correspondent au dernier calcul, pas à une estimation d’arrivée en direct."
+"feedback-final","chromium","fr","390x844","nearest-success","status","ltr","False","False",,,,"QA Member a été sélectionné. La distance actuelle à vol d’oiseau est d’environ 33 m ; ce n’est pas la distance d’un itinéraire piéton."
+"feedback-final","chromium","fr","390x844","success","status","ltr","False","False",,,,"Compte mis à jour"
+"feedback-final","chromium","fr","390x844","privacy-confirmation","dialog","ltr","False","False",,,,"Confirmer l’actionCette action arrête le partage de votre position dans tous les groupes et la masque aux membres. Continuer ?ConfirmerAnnuler"
+"feedback-final","chromium","fr","390x844","sharing-paused",,"ltr","False","False",,,,"Partage arrêté"
+"feedback-final","chromium","fr","390x844","sharing-outside-schedule",,"ltr","False","False",,,,"Partage arrêté"
+"feedback-final","chromium","fr","390x844","sharing-allowed-not-transmitting",,"ltr","False","False",,,,"Vos réglages autorisent le partage ; l’envoi de votre position nécessite le GPS et une connexion."
+"feedback-final","chromium","fr","390x844","loading","status","ltr","False","False",,,,"Chargement de vos groupes…"
+"feedback-final","chromium","fr","390x844","error","alert","ltr","False","False",,,,"Impossible de terminer la demande"
+"feedback-final","chromium","fr","390x844","empty",,"ltr","False","False",,,,"Vous n’avez pas encore de groupeCréer votre groupe"
+"feedback-final","chromium","fr","390x844","network-recovered",,"ltr","False","False",,,,"Bienvenue QA UserVos groupesNouveau groupeQA FriendsQA1233 membres · PropriétaireGroupe actifQA FamilyQA1233 membres · PropriétairePartage des positions du groupe arrêtéJ’ai un code de groupeVos demandes en attenteQA Pending GroupAnnuler la demande"
+"feedback-final","chromium","ar","820x1180","confirmation","dialog","rtl","False","False",,,,"تأكيد الإجراءإغلاق المجموعة وإيقاف الانضمام ومشاركة المواقع؟تأكيدإلغاء"
+"feedback-final","chromium","ar","820x1180","unsupported-permission","dialog","rtl","False","False",,,,"تفعيل الملاحةالموقعيستخدم دال موقعك لحساب المسافات والاتجاهات ومشاركته مع أعضاء مجموعتك المسموح لهم وفق إعداداتك الحالية أثناء فتح الصفحة. التفعيل يحتاج موافقتك.تفعيل الموقعحساس البوصلةيستخدم دال حساس الاتجاه لتحديث سهم البوصلة عند تدوير الجوال. تفعيل الحساس وحده لا يفعّل مشاركة الموقع.قراءات الاتجاه غير مدعومة في هذا المتصفح أو السياق. يمكنك استخدام الخريطة.الاتجاه المعروض بالنسبة للشمال؛ السهم لا يتبع دوران جوالك.ليس الآنARENFR"
+"feedback-final","chromium","ar","820x1180","unsupported-compass","status","rtl","False","False",,,,"قراءات الاتجاه غير مدعومة في هذا المتصفح أو السياق. يمكنك استخدام الخريطة. الاتجاه المعروض بالنسبة للشمال؛ السهم لا يتبع دوران جوالك."
+"feedback-final","chromium","ar","820x1180","sensor-denied","dialog","rtl","False","False",,,,"تفعيل الملاحةالموقعيستخدم دال موقعك لحساب المسافات والاتجاهات ومشاركته مع أعضاء مجموعتك المسموح لهم وفق إعداداتك الحالية أثناء فتح الصفحة. التفعيل يحتاج موافقتك.تفعيل الموقعحساس البوصلةيستخدم دال حساس الاتجاه لتحديث سهم البوصلة عند تدوير الجوال. تفعيل الحساس وحده لا يفعّل مشاركة الموقع.إذن الحساس مرفوض. اسمح بالحركة والاتجاه من إعدادات المتصفح أو الجهاز، ثم أعد دخول الصفحة أو استخدم التفعيل اليدوي.الاتجاه المعروض بالنسبة للشمال؛ السهم لا يتبع دوران جوالك.تفعيل حساس البوصلةليس الآنARENFR"
+"feedback-final","chromium","ar","820x1180","sensor-pending","status","rtl","False","False",,,,"بانتظار قرار إذن الحساس… الاتجاه المعروض بالنسبة للشمال؛ السهم لا يتبع دوران جوالك."
+"feedback-final","chromium","ar","820x1180","sensor-no-reading","status","rtl","False","False",,,,"لم تصل قراءة اتجاه صالحة. قد تكون القراءات غير متاحة على جهازك أو متصفحك؛ جرّب الخريطة أو أعد التفعيل يدويًا. الاتجاه المعروض بالنسبة للشمال؛ السهم لا يتبع دوران جوالك."
+"feedback-final","chromium","ar","820x1180","sensor-ready-gps-missing",,"rtl","False","False",,,,"متجه إلىQA Memberوجّهني لأقرب عضووجّهني إلى نقطة الالتقاءشقجغ—— مالموقع غير متاح. فعّل موقعك واختر وجهة لها موقع مسموح.موقع حديث · آخر تحديث: 15‏/10‏/2026، 6:05 ص · آخر موقع معروف، قد تكون الوجهة تحركتامسك الجوال مستويًا وبعيدًا عن المعادن. تأكيد اللقاء يدويًا بسبب حدود دقة GPS.نبّه QA Memberوصلت"
+"feedback-final","chromium","ar","820x1180","walking-ready","status","rtl","False","False",,,,"المسار محدّثآخر حساب للمسار: 15‏/10‏/2026، 6:05:58 ص"
+"feedback-final","chromium","ar","820x1180","unsupported-with-gps","status","rtl","False","False",,,,"قراءات الاتجاه غير مدعومة في هذا المتصفح أو السياق. يمكنك استخدام الخريطة. الاتجاه المعروض بالنسبة للشمال؛ السهم لا يتبع دوران جوالك."
+"feedback-final","chromium","ar","820x1180","gps-denied-with-heading","alert","rtl","False","False",,,,"إذن الموقع مرفوض. اسمح بالموقع من إعدادات المتصفح ثم أعد المحاولة."
+"feedback-final","chromium","ar","820x1180","offline-walking","status","rtl","False","False",,,,"آخر مسار محسوبالاتصال منقطع. هذا آخر مسار محسوب وقد لا يعكس موقعك الحالي.آخر حساب للمسار: 15‏/10‏/2026، 6:06:09 صالمسافة والمدة تخصان آخر حساب، وليستا تقدير وصول مباشرًا."
+"feedback-final","chromium","ar","820x1180","nearest-success","status","rtl","False","False",,,,"تم اختيار QA Member. المسافة المباشرة الحالية نحو 33 م، وليست مسافة طريق مشي."
+"feedback-final","chromium","ar","820x1180","success","status","rtl","False","False",,,,"تم تحديث حسابك"
+"feedback-final","chromium","ar","820x1180","privacy-confirmation","dialog","rtl","False","False",,,,"تأكيد الإجراءسيوقف هذا مشاركة موقعك في جميع مجموعاتك ويخفي موقعك عن الأعضاء. متابعة؟تأكيدإلغاء"
+"feedback-final","chromium","ar","820x1180","sharing-paused",,"rtl","False","False",,,,"المشاركة متوقفة"
+"feedback-final","chromium","ar","820x1180","sharing-outside-schedule",,"rtl","False","False",,,,"المشاركة متوقفة"
+"feedback-final","chromium","ar","820x1180","sharing-allowed-not-transmitting",,"rtl","False","False",,,,"المشاركة مسموحة وفق إعداداتك؛ إرسال الموقع يتطلب GPS واتصالًا."
+"feedback-final","chromium","ar","820x1180","loading","status","rtl","False","False",,,,"جارٍ تحميل مجموعاتك…"
+"feedback-final","chromium","ar","820x1180","error","alert","rtl","False","False",,,,"تعذر إكمال الطلب"
+"feedback-final","chromium","ar","820x1180","empty",,"rtl","False","False",,,,"ما عندك مجموعات حتى الآنابدأ مجموعتك"
+"feedback-final","chromium","ar","820x1180","network-recovered",,"rtl","False","False",,,,"حيّاك QA Userمجموعاتكمجموعة جديدةQA FriendsQA1233 أعضاء · المالكالمجموعة نشطةQA FamilyQA1233 أعضاء · المالكمشاركة مواقع المجموعة متوقفةعندي كود مجموعةطلباتك المعلّقةQA Pending Groupإلغاء الطلب"
+"feedback-final","chromium","en","820x1180","confirmation","dialog","ltr","False","False",,,,"Confirm actionClose the group and stop joining and location sharing?ConfirmCancel"
+"feedback-final","chromium","en","820x1180","unsupported-permission","dialog","ltr","False","False",,,,"Enable navigationLocationDAL uses your location for distances and directions and shares it with authorized group members under your current settings while this page is open. Activation requires your consent.Enable locationCompass sensorDAL uses device orientation to update the compass arrow when you rotate your phone. Enabling the sensor alone does not activate location sharing.Orientation readings are not supported in this browser or context. You can use the map.The displayed direction is relative to north; the arrow does not follow your phone’s rotation.Not nowARENFR"
+"feedback-final","chromium","en","820x1180","unsupported-compass","status","ltr","False","False",,,,"Orientation readings are not supported in this browser or context. You can use the map. The displayed direction is relative to north; the arrow does not follow your phone’s rotation."
+"feedback-final","chromium","en","820x1180","sensor-denied","dialog","ltr","False","False",,,,"Enable navigationLocationDAL uses your location for distances and directions and shares it with authorized group members under your current settings while this page is open. Activation requires your consent.Enable locationCompass sensorDAL uses device orientation to update the compass arrow when you rotate your phone. Enabling the sensor alone does not activate location sharing.Sensor permission denied. Allow motion and orientation in your browser or device settings, then re-enter this page or use manual activation.The displayed direction is relative to north; the arrow does not follow your phone’s rotation.Enable compass sensorNot nowARENFR"
+"feedback-final","chromium","en","820x1180","sensor-pending","status","ltr","False","False",,,,"Waiting for sensor permission… The displayed direction is relative to north; the arrow does not follow your phone’s rotation."
+"feedback-final","chromium","en","820x1180","sensor-no-reading","status","ltr","False","False",,,,"No usable orientation reading has arrived. Readings may be unavailable on your device or browser; try the map or enable the sensor again manually. The displayed direction is relative to north; the arrow does not follow your phone’s rotation."
+"feedback-final","chromium","en","820x1180","sensor-ready-gps-missing",,"ltr","False","False",,,,"Heading toQA MemberGuide me to the nearest memberGuide me to the meeting pointNESW—— mLocation unavailable. Enable your location and choose an authorized destination.Recent location · Last updated: Oct 15, 2026, 6:06 AM · last known location; the destination may have movedHold your phone level and away from metal. Confirm the meeting manually due to GPS accuracy limits.Nudge QA MemberArrived"
+"feedback-final","chromium","en","820x1180","walking-ready","status","ltr","False","False",,,,"Route updatedRoute last calculated: Oct 15, 2026, 6:06:19 AM"
+"feedback-final","chromium","en","820x1180","unsupported-with-gps","status","ltr","False","False",,,,"Orientation readings are not supported in this browser or context. You can use the map. The displayed direction is relative to north; the arrow does not follow your phone’s rotation."
+"feedback-final","chromium","en","820x1180","gps-denied-with-heading","alert","ltr","False","False",,,,"Location permission denied. Allow location in your browser settings, then try again."
+"feedback-final","chromium","en","820x1180","offline-walking","status","ltr","False","False",,,,"Last calculated routeConnection lost. This is the last calculated route and may not reflect your current position.Route last calculated: Oct 15, 2026, 6:06:30 AMDistance and duration belong to the last calculation, not a live arrival estimate."
+"feedback-final","chromium","en","820x1180","nearest-success","status","ltr","False","False",,,,"Selected QA Member. The current straight-line distance is approximately 33 m, not a walking-route distance."
+"feedback-final","chromium","en","820x1180","success","status","ltr","False","False",,,,"Account updated"
+"feedback-final","chromium","en","820x1180","privacy-confirmation","dialog","ltr","False","False",,,,"Confirm actionThis stops sharing your location in all groups and hides it from members. Continue?ConfirmCancel"
+"feedback-final","chromium","en","820x1180","sharing-paused",,"ltr","False","False",,,,"Sharing stopped"
+"feedback-final","chromium","en","820x1180","sharing-outside-schedule",,"ltr","False","False",,,,"Sharing stopped"
+"feedback-final","chromium","en","820x1180","sharing-allowed-not-transmitting",,"ltr","False","False",,,,"Sharing is allowed by your settings; sending your location requires GPS and a connection."
+"feedback-final","chromium","en","820x1180","loading","status","ltr","False","False",,,,"Loading your groups…"
+"feedback-final","chromium","en","820x1180","error","alert","ltr","False","False",,,,"Unable to complete the request"
+"feedback-final","chromium","en","820x1180","empty",,"ltr","False","False",,,,"You have no groups yetStart your group"
+"feedback-final","chromium","en","820x1180","network-recovered",,"ltr","False","False",,,,"Welcome QA UserYour groupsNew groupQA FriendsQA1233 members · OwnerGroup activeQA FamilyQA1233 members · OwnerGroup location sharing stoppedI have a group codeYour pending requestsQA Pending GroupCancel request"
+"feedback-final","chromium","fr","820x1180","confirmation","dialog","ltr","False","False",,,,"Confirmer l’actionFermer le groupe et arrêter les adhésions et le partage des positions ?ConfirmerAnnuler"
+"feedback-final","chromium","fr","820x1180","unsupported-permission","dialog","ltr","False","False",,,,"Activer la navigationPositionDAL utilise votre position pour les distances et les directions et la partage avec les membres autorisés selon vos paramètres actuels lorsque cette page est ouverte. Votre consentement est nécessaire.Activer la localisationCapteur de la boussoleDAL utilise l’orientation de l’appareil pour actualiser la flèche lorsque vous tournez le téléphone. Activer uniquement le capteur n’active pas le partage de position.Les lectures d’orientation ne sont pas prises en charge dans ce navigateur ou ce contexte. Vous pouvez utiliser la carte.La direction affichée est relative au nord ; la flèche ne suit pas la rotation du téléphone.Pas maintenantARENFR"
+"feedback-final","chromium","fr","820x1180","unsupported-compass","status","ltr","False","False",,,,"Les lectures d’orientation ne sont pas prises en charge dans ce navigateur ou ce contexte. Vous pouvez utiliser la carte. La direction affichée est relative au nord ; la flèche ne suit pas la rotation du téléphone."
+"feedback-final","chromium","fr","820x1180","sensor-denied","dialog","ltr","False","False",,,,"Activer la navigationPositionDAL utilise votre position pour les distances et les directions et la partage avec les membres autorisés selon vos paramètres actuels lorsque cette page est ouverte. Votre consentement est nécessaire.Activer la localisationCapteur de la boussoleDAL utilise l’orientation de l’appareil pour actualiser la flèche lorsque vous tournez le téléphone. Activer uniquement le capteur n’active pas le partage de position.Autorisation du capteur refusée. Autorisez les mouvements et l’orientation dans les paramètres du navigateur ou de l’appareil, puis rouvrez cette page ou utilisez l’activation manuelle.La direction affichée est relative au nord ; la flèche ne suit pas la rotation du téléphone.Activer le capteur de la boussolePas maintenantARENFR"
+"feedback-final","chromium","fr","820x1180","sensor-pending","status","ltr","False","False",,,,"En attente de l’autorisation du capteur… La direction affichée est relative au nord ; la flèche ne suit pas la rotation du téléphone."
+"feedback-final","chromium","fr","820x1180","sensor-no-reading","status","ltr","False","False",,,,"Aucune lecture d’orientation exploitable n’a été reçue. Les lectures peuvent être indisponibles sur votre appareil ou navigateur ; essayez la carte ou réactivez le capteur manuellement. La direction affichée est relative au nord ; la flèche ne suit pas la rotation du téléphone."
+"feedback-final","chromium","fr","820x1180","sensor-ready-gps-missing",,"ltr","False","False",,,,"DirectionQA MemberGuidez-moi vers le membre le plus procheGuidez-moi vers le point de rendez-vousNESO—— mPosition indisponible. Activez la localisation et choisissez une destination autorisée.Position récente · Dernière mise à jour : 15 oct. 2026, 06:06 · dernière position connue ; la destination a pu changerTenez le téléphone à plat, loin des métaux. Confirmez la rencontre manuellement en raison des limites de précision GPS.Alerter QA MemberArrivé"
+"feedback-final","chromium","fr","820x1180","walking-ready","status","ltr","False","False",,,,"Itinéraire à jourDernier calcul de l’itinéraire : 15 oct. 2026, 06:06:40"
+"feedback-final","chromium","fr","820x1180","unsupported-with-gps","status","ltr","False","False",,,,"Les lectures d’orientation ne sont pas prises en charge dans ce navigateur ou ce contexte. Vous pouvez utiliser la carte. La direction affichée est relative au nord ; la flèche ne suit pas la rotation du téléphone."
+"feedback-final","chromium","fr","820x1180","gps-denied-with-heading","alert","ltr","False","False",,,,"Autorisation de localisation refusée. Autorisez-la dans les paramètres du navigateur, puis réessayez."
+"feedback-final","chromium","fr","820x1180","offline-walking","status","ltr","False","False",,,,"Dernier itinéraire calculéConnexion perdue. Il s'agit du dernier itinéraire calculé, qui peut ne plus correspondre à votre position actuelle.Dernier calcul de l’itinéraire : 15 oct. 2026, 06:06:51La distance et la durée correspondent au dernier calcul, pas à une estimation d’arrivée en direct."
+"feedback-final","chromium","fr","820x1180","nearest-success","status","ltr","False","False",,,,"QA Member a été sélectionné. La distance actuelle à vol d’oiseau est d’environ 33 m ; ce n’est pas la distance d’un itinéraire piéton."
+"feedback-final","chromium","fr","820x1180","success","status","ltr","False","False",,,,"Compte mis à jour"
+"feedback-final","chromium","fr","820x1180","privacy-confirmation","dialog","ltr","False","False",,,,"Confirmer l’actionCette action arrête le partage de votre position dans tous les groupes et la masque aux membres. Continuer ?ConfirmerAnnuler"
+"feedback-final","chromium","fr","820x1180","sharing-paused",,"ltr","False","False",,,,"Partage arrêté"
+"feedback-final","chromium","fr","820x1180","sharing-outside-schedule",,"ltr","False","False",,,,"Partage arrêté"
+"feedback-final","chromium","fr","820x1180","sharing-allowed-not-transmitting",,"ltr","False","False",,,,"Vos réglages autorisent le partage ; l’envoi de votre position nécessite le GPS et une connexion."
+"feedback-final","chromium","fr","820x1180","loading","status","ltr","False","False",,,,"Chargement de vos groupes…"
+"feedback-final","chromium","fr","820x1180","error","alert","ltr","False","False",,,,"Impossible de terminer la demande"
+"feedback-final","chromium","fr","820x1180","empty",,"ltr","False","False",,,,"Vous n’avez pas encore de groupeCréer votre groupe"
+"feedback-final","chromium","fr","820x1180","network-recovered",,"ltr","False","False",,,,"Bienvenue QA UserVos groupesNouveau groupeQA FriendsQA1233 membres · PropriétaireGroupe actifQA FamilyQA1233 membres · PropriétairePartage des positions du groupe arrêtéJ’ai un code de groupeVos demandes en attenteQA Pending GroupAnnuler la demande"
+"feedback-final","chromium","ar","1280x720","confirmation","dialog","rtl","False","False",,,,"تأكيد الإجراءإغلاق المجموعة وإيقاف الانضمام ومشاركة المواقع؟تأكيدإلغاء"
+"feedback-final","chromium","ar","1280x720","unsupported-permission","dialog","rtl","False","False",,,,"تفعيل الملاحةالموقعيستخدم دال موقعك لحساب المسافات والاتجاهات ومشاركته مع أعضاء مجموعتك المسموح لهم وفق إعداداتك الحالية أثناء فتح الصفحة. التفعيل يحتاج موافقتك.تفعيل الموقعحساس البوصلةيستخدم دال حساس الاتجاه لتحديث سهم البوصلة عند تدوير الجوال. تفعيل الحساس وحده لا يفعّل مشاركة الموقع.قراءات الاتجاه غير مدعومة في هذا المتصفح أو السياق. يمكنك استخدام الخريطة.الاتجاه المعروض بالنسبة للشمال؛ السهم لا يتبع دوران جوالك.ليس الآنARENFR"
+"feedback-final","chromium","ar","1280x720","unsupported-compass","status","rtl","False","False",,,,"قراءات الاتجاه غير مدعومة في هذا المتصفح أو السياق. يمكنك استخدام الخريطة. الاتجاه المعروض بالنسبة للشمال؛ السهم لا يتبع دوران جوالك."
+"feedback-final","chromium","ar","1280x720","sensor-denied","dialog","rtl","False","False",,,,"تفعيل الملاحةالموقعيستخدم دال موقعك لحساب المسافات والاتجاهات ومشاركته مع أعضاء مجموعتك المسموح لهم وفق إعداداتك الحالية أثناء فتح الصفحة. التفعيل يحتاج موافقتك.تفعيل الموقعحساس البوصلةيستخدم دال حساس الاتجاه لتحديث سهم البوصلة عند تدوير الجوال. تفعيل الحساس وحده لا يفعّل مشاركة الموقع.إذن الحساس مرفوض. اسمح بالحركة والاتجاه من إعدادات المتصفح أو الجهاز، ثم أعد دخول الصفحة أو استخدم التفعيل اليدوي.الاتجاه المعروض بالنسبة للشمال؛ السهم لا يتبع دوران جوالك.تفعيل حساس البوصلةليس الآنARENFR"
+"feedback-final","chromium","ar","1280x720","sensor-pending","status","rtl","False","False",,,,"بانتظار قرار إذن الحساس… الاتجاه المعروض بالنسبة للشمال؛ السهم لا يتبع دوران جوالك."
+"feedback-final","chromium","ar","1280x720","sensor-no-reading","status","rtl","False","False",,,,"لم تصل قراءة اتجاه صالحة. قد تكون القراءات غير متاحة على جهازك أو متصفحك؛ جرّب الخريطة أو أعد التفعيل يدويًا. الاتجاه المعروض بالنسبة للشمال؛ السهم لا يتبع دوران جوالك."
+"feedback-final","chromium","ar","1280x720","sensor-ready-gps-missing",,"rtl","False","False",,,,"متجه إلىQA Memberوجّهني لأقرب عضووجّهني إلى نقطة الالتقاءشقجغ—— مالموقع غير متاح. فعّل موقعك واختر وجهة لها موقع مسموح.موقع حديث · آخر تحديث: 15‏/10‏/2026، 6:06 ص · آخر موقع معروف، قد تكون الوجهة تحركتامسك الجوال مستويًا وبعيدًا عن المعادن. تأكيد اللقاء يدويًا بسبب حدود دقة GPS.نبّه QA Memberوصلت"
+"feedback-final","chromium","ar","1280x720","walking-ready","status","rtl","False","False",,,,"المسار محدّثآخر حساب للمسار: 15‏/10‏/2026، 6:07:00 ص"
+"feedback-final","chromium","ar","1280x720","unsupported-with-gps","status","rtl","False","False",,,,"قراءات الاتجاه غير مدعومة في هذا المتصفح أو السياق. يمكنك استخدام الخريطة. الاتجاه المعروض بالنسبة للشمال؛ السهم لا يتبع دوران جوالك."
+"feedback-final","chromium","ar","1280x720","gps-denied-with-heading","alert","rtl","False","False",,,,"إذن الموقع مرفوض. اسمح بالموقع من إعدادات المتصفح ثم أعد المحاولة."
+"feedback-final","chromium","ar","1280x720","offline-walking","status","rtl","False","False",,,,"آخر مسار محسوبالاتصال منقطع. هذا آخر مسار محسوب وقد لا يعكس موقعك الحالي.آخر حساب للمسار: 15‏/10‏/2026، 6:07:11 صالمسافة والمدة تخصان آخر حساب، وليستا تقدير وصول مباشرًا."
+"feedback-final","chromium","ar","1280x720","nearest-success","status","rtl","False","False",,,,"تم اختيار QA Member. المسافة المباشرة الحالية نحو 33 م، وليست مسافة طريق مشي."
+"feedback-final","chromium","ar","1280x720","success","status","rtl","False","False",,,,"تم تحديث حسابك"
+"feedback-final","chromium","ar","1280x720","privacy-confirmation","dialog","rtl","False","False",,,,"تأكيد الإجراءسيوقف هذا مشاركة موقعك في جميع مجموعاتك ويخفي موقعك عن الأعضاء. متابعة؟تأكيدإلغاء"
+"feedback-final","chromium","ar","1280x720","sharing-paused",,"rtl","False","False",,,,"المشاركة متوقفة"
+"feedback-final","chromium","ar","1280x720","sharing-outside-schedule",,"rtl","False","False",,,,"المشاركة متوقفة"
+"feedback-final","chromium","ar","1280x720","sharing-allowed-not-transmitting",,"rtl","False","False",,,,"المشاركة مسموحة وفق إعداداتك؛ إرسال الموقع يتطلب GPS واتصالًا."
+"feedback-final","chromium","ar","1280x720","loading","status","rtl","False","False",,,,"جارٍ تحميل مجموعاتك…"
+"feedback-final","chromium","ar","1280x720","error","alert","rtl","False","False",,,,"تعذر إكمال الطلب"
+"feedback-final","chromium","ar","1280x720","empty",,"rtl","False","False",,,,"ما عندك مجموعات حتى الآنابدأ مجموعتك"
+"feedback-final","chromium","ar","1280x720","network-recovered",,"rtl","False","False",,,,"حيّاك QA Userمجموعاتكمجموعة جديدةQA FriendsQA1233 أعضاء · المالكالمجموعة نشطةQA FamilyQA1233 أعضاء · المالكمشاركة مواقع المجموعة متوقفةعندي كود مجموعةطلباتك المعلّقةQA Pending Groupإلغاء الطلب"
+"feedback-final","chromium","en","1280x720","confirmation","dialog","ltr","False","False",,,,"Confirm actionClose the group and stop joining and location sharing?ConfirmCancel"
+"feedback-final","chromium","en","1280x720","unsupported-permission","dialog","ltr","False","False",,,,"Enable navigationLocationDAL uses your location for distances and directions and shares it with authorized group members under your current settings while this page is open. Activation requires your consent.Enable locationCompass sensorDAL uses device orientation to update the compass arrow when you rotate your phone. Enabling the sensor alone does not activate location sharing.Orientation readings are not supported in this browser or context. You can use the map.The displayed direction is relative to north; the arrow does not follow your phone’s rotation.Not nowARENFR"
+"feedback-final","chromium","en","1280x720","unsupported-compass","status","ltr","False","False",,,,"Orientation readings are not supported in this browser or context. You can use the map. The displayed direction is relative to north; the arrow does not follow your phone’s rotation."
+"feedback-final","chromium","en","1280x720","sensor-denied","dialog","ltr","False","False",,,,"Enable navigationLocationDAL uses your location for distances and directions and shares it with authorized group members under your current settings while this page is open. Activation requires your consent.Enable locationCompass sensorDAL uses device orientation to update the compass arrow when you rotate your phone. Enabling the sensor alone does not activate location sharing.Sensor permission denied. Allow motion and orientation in your browser or device settings, then re-enter this page or use manual activation.The displayed direction is relative to north; the arrow does not follow your phone’s rotation.Enable compass sensorNot nowARENFR"
+"feedback-final","chromium","en","1280x720","sensor-pending","status","ltr","False","False",,,,"Waiting for sensor permission… The displayed direction is relative to north; the arrow does not follow your phone’s rotation."
+"feedback-final","chromium","en","1280x720","sensor-no-reading","status","ltr","False","False",,,,"No usable orientation reading has arrived. Readings may be unavailable on your device or browser; try the map or enable the sensor again manually. The displayed direction is relative to north; the arrow does not follow your phone’s rotation."
+"feedback-final","chromium","en","1280x720","sensor-ready-gps-missing",,"ltr","False","False",,,,"Heading toQA MemberGuide me to the nearest memberGuide me to the meeting pointNESW—— mLocation unavailable. Enable your location and choose an authorized destination.Recent location · Last updated: Oct 15, 2026, 6:07 AM · last known location; the destination may have movedHold your phone level and away from metal. Confirm the meeting manually due to GPS accuracy limits.Nudge QA MemberArrived"
+"feedback-final","chromium","en","1280x720","walking-ready","status","ltr","False","False",,,,"Route updatedRoute last calculated: Oct 15, 2026, 6:07:21 AM"
+"feedback-final","chromium","en","1280x720","unsupported-with-gps","status","ltr","False","False",,,,"Orientation readings are not supported in this browser or context. You can use the map. The displayed direction is relative to north; the arrow does not follow your phone’s rotation."
+"feedback-final","chromium","en","1280x720","gps-denied-with-heading","alert","ltr","False","False",,,,"Location permission denied. Allow location in your browser settings, then try again."
+"feedback-final","chromium","en","1280x720","offline-walking","status","ltr","False","False",,,,"Last calculated routeConnection lost. This is the last calculated route and may not reflect your current position.Route last calculated: Oct 15, 2026, 6:07:31 AMDistance and duration belong to the last calculation, not a live arrival estimate."
+"feedback-final","chromium","en","1280x720","nearest-success","status","ltr","False","False",,,,"Selected QA Member. The current straight-line distance is approximately 33 m, not a walking-route distance."
+"feedback-final","chromium","en","1280x720","success","status","ltr","False","False",,,,"Account updated"
+"feedback-final","chromium","en","1280x720","privacy-confirmation","dialog","ltr","False","False",,,,"Confirm actionThis stops sharing your location in all groups and hides it from members. Continue?ConfirmCancel"
+"feedback-final","chromium","en","1280x720","sharing-paused",,"ltr","False","False",,,,"Sharing stopped"
+"feedback-final","chromium","en","1280x720","sharing-outside-schedule",,"ltr","False","False",,,,"Sharing stopped"
+"feedback-final","chromium","en","1280x720","sharing-allowed-not-transmitting",,"ltr","False","False",,,,"Sharing is allowed by your settings; sending your location requires GPS and a connection."
+"feedback-final","chromium","en","1280x720","loading","status","ltr","False","False",,,,"Loading your groups…"
+"feedback-final","chromium","en","1280x720","error","alert","ltr","False","False",,,,"Unable to complete the request"
+"feedback-final","chromium","en","1280x720","empty",,"ltr","False","False",,,,"You have no groups yetStart your group"
+"feedback-final","chromium","en","1280x720","network-recovered",,"ltr","False","False",,,,"Welcome QA UserYour groupsNew groupQA FriendsQA1233 members · OwnerGroup activeQA FamilyQA1233 members · OwnerGroup location sharing stoppedI have a group codeYour pending requestsQA Pending GroupCancel request"
+"feedback-final","chromium","fr","1280x720","confirmation","dialog","ltr","False","False",,,,"Confirmer l’actionFermer le groupe et arrêter les adhésions et le partage des positions ?ConfirmerAnnuler"
+"feedback-final","chromium","fr","1280x720","unsupported-permission","dialog","ltr","False","False",,,,"Activer la navigationPositionDAL utilise votre position pour les distances et les directions et la partage avec les membres autorisés selon vos paramètres actuels lorsque cette page est ouverte. Votre consentement est nécessaire.Activer la localisationCapteur de la boussoleDAL utilise l’orientation de l’appareil pour actualiser la flèche lorsque vous tournez le téléphone. Activer uniquement le capteur n’active pas le partage de position.Les lectures d’orientation ne sont pas prises en charge dans ce navigateur ou ce contexte. Vous pouvez utiliser la carte.La direction affichée est relative au nord ; la flèche ne suit pas la rotation du téléphone.Pas maintenantARENFR"
+"feedback-final","chromium","fr","1280x720","unsupported-compass","status","ltr","False","False",,,,"Les lectures d’orientation ne sont pas prises en charge dans ce navigateur ou ce contexte. Vous pouvez utiliser la carte. La direction affichée est relative au nord ; la flèche ne suit pas la rotation du téléphone."
+"feedback-final","chromium","fr","1280x720","sensor-denied","dialog","ltr","False","False",,,,"Activer la navigationPositionDAL utilise votre position pour les distances et les directions et la partage avec les membres autorisés selon vos paramètres actuels lorsque cette page est ouverte. Votre consentement est nécessaire.Activer la localisationCapteur de la boussoleDAL utilise l’orientation de l’appareil pour actualiser la flèche lorsque vous tournez le téléphone. Activer uniquement le capteur n’active pas le partage de position.Autorisation du capteur refusée. Autorisez les mouvements et l’orientation dans les paramètres du navigateur ou de l’appareil, puis rouvrez cette page ou utilisez l’activation manuelle.La direction affichée est relative au nord ; la flèche ne suit pas la rotation du téléphone.Activer le capteur de la boussolePas maintenantARENFR"
+"feedback-final","chromium","fr","1280x720","sensor-pending","status","ltr","False","False",,,,"En attente de l’autorisation du capteur… La direction affichée est relative au nord ; la flèche ne suit pas la rotation du téléphone."
+"feedback-final","chromium","fr","1280x720","sensor-no-reading","status","ltr","False","False",,,,"Aucune lecture d’orientation exploitable n’a été reçue. Les lectures peuvent être indisponibles sur votre appareil ou navigateur ; essayez la carte ou réactivez le capteur manuellement. La direction affichée est relative au nord ; la flèche ne suit pas la rotation du téléphone."
+"feedback-final","chromium","fr","1280x720","sensor-ready-gps-missing",,"ltr","False","False",,,,"DirectionQA MemberGuidez-moi vers le membre le plus procheGuidez-moi vers le point de rendez-vousNESO—— mPosition indisponible. Activez la localisation et choisissez une destination autorisée.Position récente · Dernière mise à jour : 15 oct. 2026, 06:07 · dernière position connue ; la destination a pu changerTenez le téléphone à plat, loin des métaux. Confirmez la rencontre manuellement en raison des limites de précision GPS.Alerter QA MemberArrivé"
+"feedback-final","chromium","fr","1280x720","walking-ready","status","ltr","False","False",,,,"Itinéraire à jourDernier calcul de l’itinéraire : 15 oct. 2026, 06:07:41"
+"feedback-final","chromium","fr","1280x720","unsupported-with-gps","status","ltr","False","False",,,,"Les lectures d’orientation ne sont pas prises en charge dans ce navigateur ou ce contexte. Vous pouvez utiliser la carte. La direction affichée est relative au nord ; la flèche ne suit pas la rotation du téléphone."
+"feedback-final","chromium","fr","1280x720","gps-denied-with-heading","alert","ltr","False","False",,,,"Autorisation de localisation refusée. Autorisez-la dans les paramètres du navigateur, puis réessayez."
+"feedback-final","chromium","fr","1280x720","offline-walking","status","ltr","False","False",,,,"Dernier itinéraire calculéConnexion perdue. Il s'agit du dernier itinéraire calculé, qui peut ne plus correspondre à votre position actuelle.Dernier calcul de l’itinéraire : 15 oct. 2026, 06:07:52La distance et la durée correspondent au dernier calcul, pas à une estimation d’arrivée en direct."
+"feedback-final","chromium","fr","1280x720","nearest-success","status","ltr","False","False",,,,"QA Member a été sélectionné. La distance actuelle à vol d’oiseau est d’environ 33 m ; ce n’est pas la distance d’un itinéraire piéton."
+"feedback-final","chromium","fr","1280x720","success","status","ltr","False","False",,,,"Compte mis à jour"
+"feedback-final","chromium","fr","1280x720","privacy-confirmation","dialog","ltr","False","False",,,,"Confirmer l’actionCette action arrête le partage de votre position dans tous les groupes et la masque aux membres. Continuer ?ConfirmerAnnuler"
+"feedback-final","chromium","fr","1280x720","sharing-paused",,"ltr","False","False",,,,"Partage arrêté"
+"feedback-final","chromium","fr","1280x720","sharing-outside-schedule",,"ltr","False","False",,,,"Partage arrêté"
+"feedback-final","chromium","fr","1280x720","sharing-allowed-not-transmitting",,"ltr","False","False",,,,"Vos réglages autorisent le partage ; l’envoi de votre position nécessite le GPS et une connexion."
+"feedback-final","chromium","fr","1280x720","loading","status","ltr","False","False",,,,"Chargement de vos groupes…"
+"feedback-final","chromium","fr","1280x720","error","alert","ltr","False","False",,,,"Impossible de terminer la demande"
+"feedback-final","chromium","fr","1280x720","empty",,"ltr","False","False",,,,"Vous n’avez pas encore de groupeCréer votre groupe"
+"feedback-final","chromium","fr","1280x720","network-recovered",,"ltr","False","False",,,,"Bienvenue QA UserVos groupesNouveau groupeQA FriendsQA1233 membres · PropriétaireGroupe actifQA FamilyQA1233 membres · PropriétairePartage des positions du groupe arrêtéJ’ai un code de groupeVos demandes en attenteQA Pending GroupAnnuler la demande"
+"feedback-final","webkit","ar","390x844","confirmation","dialog","rtl","False","False",,,,"تأكيد الإجراءإغلاق المجموعة وإيقاف الانضمام ومشاركة المواقع؟تأكيدإلغاء"
+"feedback-final","webkit","ar","390x844","unsupported-permission","dialog","rtl","False","False",,,,"تفعيل الملاحةالموقعيستخدم دال موقعك لحساب المسافات والاتجاهات ومشاركته مع أعضاء مجموعتك المسموح لهم وفق إعداداتك الحالية أثناء فتح الصفحة. التفعيل يحتاج موافقتك.تفعيل الموقعحساس البوصلةيستخدم دال حساس الاتجاه لتحديث سهم البوصلة عند تدوير الجوال. تفعيل الحساس وحده لا يفعّل مشاركة الموقع.قراءات الاتجاه غير مدعومة في هذا المتصفح أو السياق. يمكنك استخدام الخريطة.الاتجاه المعروض بالنسبة للشمال؛ السهم لا يتبع دوران جوالك.ليس الآنARENFR"
+"feedback-final","webkit","ar","390x844","unsupported-compass","status","rtl","False","False",,,,"قراءات الاتجاه غير مدعومة في هذا المتصفح أو السياق. يمكنك استخدام الخريطة. الاتجاه المعروض بالنسبة للشمال؛ السهم لا يتبع دوران جوالك."
+"feedback-final","webkit","ar","390x844","sensor-denied","dialog","rtl","False","False",,,,"تفعيل الملاحةالموقعيستخدم دال موقعك لحساب المسافات والاتجاهات ومشاركته مع أعضاء مجموعتك المسموح لهم وفق إعداداتك الحالية أثناء فتح الصفحة. التفعيل يحتاج موافقتك.تفعيل الموقعحساس البوصلةيستخدم دال حساس الاتجاه لتحديث سهم البوصلة عند تدوير الجوال. تفعيل الحساس وحده لا يفعّل مشاركة الموقع.إذن الحساس مرفوض. اسمح بالحركة والاتجاه من إعدادات المتصفح أو الجهاز، ثم أعد دخول الصفحة أو استخدم التفعيل اليدوي.الاتجاه المعروض بالنسبة للشمال؛ السهم لا يتبع دوران جوالك.تفعيل حساس البوصلةليس الآنARENFR"
+"feedback-final","webkit","ar","390x844","sensor-pending","status","rtl","False","False",,,,"بانتظار قرار إذن الحساس… الاتجاه المعروض بالنسبة للشمال؛ السهم لا يتبع دوران جوالك."
+"feedback-final","webkit","ar","390x844","sensor-no-reading","status","rtl","False","False",,,,"لم تصل قراءة اتجاه صالحة. قد تكون القراءات غير متاحة على جهازك أو متصفحك؛ جرّب الخريطة أو أعد التفعيل يدويًا. الاتجاه المعروض بالنسبة للشمال؛ السهم لا يتبع دوران جوالك."
+"feedback-final","webkit","ar","390x844","sensor-ready-gps-missing",,"rtl","False","False",,,,"متجه إلىQA Memberوجّهني لأقرب عضووجّهني إلى نقطة الالتقاءشقجغ—— مالموقع غير متاح. فعّل موقعك واختر وجهة لها موقع مسموح.موقع حديث · آخر تحديث: 15‏/10‏/2026، 6:04 ص · آخر موقع معروف، قد تكون الوجهة تحركتامسك الجوال مستويًا وبعيدًا عن المعادن. تأكيد اللقاء يدويًا بسبب حدود دقة GPS.نبّه QA Memberوصلت"
+"feedback-final","webkit","ar","390x844","walking-ready","status","rtl","False","False",,,,"المسار محدّثآخر حساب للمسار: 15‏/10‏/2026، 6:05:02 ص"
+"feedback-final","webkit","ar","390x844","unsupported-with-gps","status","rtl","False","False",,,,"قراءات الاتجاه غير مدعومة في هذا المتصفح أو السياق. يمكنك استخدام الخريطة. الاتجاه المعروض بالنسبة للشمال؛ السهم لا يتبع دوران جوالك."
+"feedback-final","webkit","ar","390x844","gps-denied-with-heading","alert","rtl","False","False",,,,"إذن الموقع مرفوض. اسمح بالموقع من إعدادات المتصفح ثم أعد المحاولة."
+"feedback-final","webkit","ar","390x844","offline-walking","status","rtl","False","False",,,,"آخر مسار محسوبالاتصال منقطع. هذا آخر مسار محسوب وقد لا يعكس موقعك الحالي.آخر حساب للمسار: 15‏/10‏/2026، 6:05:12 صالمسافة والمدة تخصان آخر حساب، وليستا تقدير وصول مباشرًا."
+"feedback-final","webkit","ar","390x844","nearest-success","status","rtl","False","False",,,,"تم اختيار QA Member. المسافة المباشرة الحالية نحو 33 م، وليست مسافة طريق مشي."
+"feedback-final","webkit","ar","390x844","success","status","rtl","False","False",,,,"تم تحديث حسابك"
+"feedback-final","webkit","ar","390x844","privacy-confirmation","dialog","rtl","False","False",,,,"تأكيد الإجراءسيوقف هذا مشاركة موقعك في جميع مجموعاتك ويخفي موقعك عن الأعضاء. متابعة؟تأكيدإلغاء"
+"feedback-final","webkit","ar","390x844","sharing-paused",,"rtl","False","False",,,,"المشاركة متوقفة"
+"feedback-final","webkit","ar","390x844","sharing-outside-schedule",,"rtl","False","False",,,,"المشاركة متوقفة"
+"feedback-final","webkit","ar","390x844","sharing-allowed-not-transmitting",,"rtl","False","False",,,,"المشاركة مسموحة وفق إعداداتك؛ إرسال الموقع يتطلب GPS واتصالًا."
+"feedback-final","webkit","ar","390x844","loading","status","rtl","False","False",,,,"جارٍ تحميل مجموعاتك…"
+"feedback-final","webkit","ar","390x844","error","alert","rtl","False","False",,,,"تعذر إكمال الطلب"
+"feedback-final","webkit","ar","390x844","empty",,"rtl","False","False",,,,"ما عندك مجموعات حتى الآنابدأ مجموعتك"
+"feedback-final","webkit","ar","390x844","network-recovered",,"rtl","False","False",,,,"حيّاك QA Userمجموعاتكمجموعة جديدةQA FriendsQA1233 أعضاء · المالكالمجموعة نشطةQA FamilyQA1233 أعضاء · المالكمشاركة مواقع المجموعة متوقفةعندي كود مجموعةطلباتك المعلّقةQA Pending Groupإلغاء الطلب"
+"feedback-final","webkit","en","390x844","confirmation","dialog","ltr","False","False",,,,"Confirm actionClose the group and stop joining and location sharing?ConfirmCancel"
+"feedback-final","webkit","en","390x844","unsupported-permission","dialog","ltr","False","False",,,,"Enable navigationLocationDAL uses your location for distances and directions and shares it with authorized group members under your current settings while this page is open. Activation requires your consent.Enable locationCompass sensorDAL uses device orientation to update the compass arrow when you rotate your phone. Enabling the sensor alone does not activate location sharing.Orientation readings are not supported in this browser or context. You can use the map.The displayed direction is relative to north; the arrow does not follow your phone’s rotation.Not nowARENFR"
+"feedback-final","webkit","en","390x844","unsupported-compass","status","ltr","False","False",,,,"Orientation readings are not supported in this browser or context. You can use the map. The displayed direction is relative to north; the arrow does not follow your phone’s rotation."
+"feedback-final","webkit","en","390x844","sensor-denied","dialog","ltr","False","False",,,,"Enable navigationLocationDAL uses your location for distances and directions and shares it with authorized group members under your current settings while this page is open. Activation requires your consent.Enable locationCompass sensorDAL uses device orientation to update the compass arrow when you rotate your phone. Enabling the sensor alone does not activate location sharing.Sensor permission denied. Allow motion and orientation in your browser or device settings, then re-enter this page or use manual activation.The displayed direction is relative to north; the arrow does not follow your phone’s rotation.Enable compass sensorNot nowARENFR"
+"feedback-final","webkit","en","390x844","sensor-pending","status","ltr","False","False",,,,"Waiting for sensor permission… The displayed direction is relative to north; the arrow does not follow your phone’s rotation."
+"feedback-final","webkit","en","390x844","sensor-no-reading","status","ltr","False","False",,,,"No usable orientation reading has arrived. Readings may be unavailable on your device or browser; try the map or enable the sensor again manually. The displayed direction is relative to north; the arrow does not follow your phone’s rotation."
+"feedback-final","webkit","en","390x844","sensor-ready-gps-missing",,"ltr","False","False",,,,"Heading toQA MemberGuide me to the nearest memberGuide me to the meeting pointNESW—— mLocation unavailable. Enable your location and choose an authorized destination.Recent location · Last updated: Oct 15, 2026, 6:05 AM · last known location; the destination may have movedHold your phone level and away from metal. Confirm the meeting manually due to GPS accuracy limits.Nudge QA MemberArrived"
+"feedback-final","webkit","en","390x844","walking-ready","status","ltr","False","False",,,,"Route updatedRoute last calculated: Oct 15, 2026, 6:05:30 AM"
+"feedback-final","webkit","en","390x844","unsupported-with-gps","status","ltr","False","False",,,,"Orientation readings are not supported in this browser or context. You can use the map. The displayed direction is relative to north; the arrow does not follow your phone’s rotation."
+"feedback-final","webkit","en","390x844","gps-denied-with-heading","alert","ltr","False","False",,,,"Location permission denied. Allow location in your browser settings, then try again."
+"feedback-final","webkit","en","390x844","offline-walking","status","ltr","False","False",,,,"Last calculated routeConnection lost. This is the last calculated route and may not reflect your current position.Route last calculated: Oct 15, 2026, 6:05:40 AMDistance and duration belong to the last calculation, not a live arrival estimate."
+"feedback-final","webkit","en","390x844","nearest-success","status","ltr","False","False",,,,"Selected QA Member. The current straight-line distance is approximately 33 m, not a walking-route distance."
+"feedback-final","webkit","en","390x844","success","status","ltr","False","False",,,,"Account updated"
+"feedback-final","webkit","en","390x844","privacy-confirmation","dialog","ltr","False","False",,,,"Confirm actionThis stops sharing your location in all groups and hides it from members. Continue?ConfirmCancel"
+"feedback-final","webkit","en","390x844","sharing-paused",,"ltr","False","False",,,,"Sharing stopped"
+"feedback-final","webkit","en","390x844","sharing-outside-schedule",,"ltr","False","False",,,,"Sharing stopped"
+"feedback-final","webkit","en","390x844","sharing-allowed-not-transmitting",,"ltr","False","False",,,,"Sharing is allowed by your settings; sending your location requires GPS and a connection."
+"feedback-final","webkit","en","390x844","loading","status","ltr","False","False",,,,"Loading your groups…"
+"feedback-final","webkit","en","390x844","error","alert","ltr","False","False",,,,"Unable to complete the request"
+"feedback-final","webkit","en","390x844","empty",,"ltr","False","False",,,,"You have no groups yetStart your group"
+"feedback-final","webkit","en","390x844","network-recovered",,"ltr","False","False",,,,"Welcome QA UserYour groupsNew groupQA FriendsQA1233 members · OwnerGroup activeQA FamilyQA1233 members · OwnerGroup location sharing stoppedI have a group codeYour pending requestsQA Pending GroupCancel request"
+"feedback-final","webkit","fr","390x844","confirmation","dialog","ltr","False","False",,,,"Confirmer l’actionFermer le groupe et arrêter les adhésions et le partage des positions ?ConfirmerAnnuler"
+"feedback-final","webkit","fr","390x844","unsupported-permission","dialog","ltr","False","False",,,,"Activer la navigationPositionDAL utilise votre position pour les distances et les directions et la partage avec les membres autorisés selon vos paramètres actuels lorsque cette page est ouverte. Votre consentement est nécessaire.Activer la localisationCapteur de la boussoleDAL utilise l’orientation de l’appareil pour actualiser la flèche lorsque vous tournez le téléphone. Activer uniquement le capteur n’active pas le partage de position.Les lectures d’orientation ne sont pas prises en charge dans ce navigateur ou ce contexte. Vous pouvez utiliser la carte.La direction affichée est relative au nord ; la flèche ne suit pas la rotation du téléphone.Pas maintenantARENFR"
+"feedback-final","webkit","fr","390x844","unsupported-compass","status","ltr","False","False",,,,"Les lectures d’orientation ne sont pas prises en charge dans ce navigateur ou ce contexte. Vous pouvez utiliser la carte. La direction affichée est relative au nord ; la flèche ne suit pas la rotation du téléphone."
+"feedback-final","webkit","fr","390x844","sensor-denied","dialog","ltr","False","False",,,,"Activer la navigationPositionDAL utilise votre position pour les distances et les directions et la partage avec les membres autorisés selon vos paramètres actuels lorsque cette page est ouverte. Votre consentement est nécessaire.Activer la localisationCapteur de la boussoleDAL utilise l’orientation de l’appareil pour actualiser la flèche lorsque vous tournez le téléphone. Activer uniquement le capteur n’active pas le partage de position.Autorisation du capteur refusée. Autorisez les mouvements et l’orientation dans les paramètres du navigateur ou de l’appareil, puis rouvrez cette page ou utilisez l’activation manuelle.La direction affichée est relative au nord ; la flèche ne suit pas la rotation du téléphone.Activer le capteur de la boussolePas maintenantARENFR"
+"feedback-final","webkit","fr","390x844","sensor-pending","status","ltr","False","False",,,,"En attente de l’autorisation du capteur… La direction affichée est relative au nord ; la flèche ne suit pas la rotation du téléphone."
+"feedback-final","webkit","fr","390x844","sensor-no-reading","status","ltr","False","False",,,,"Aucune lecture d’orientation exploitable n’a été reçue. Les lectures peuvent être indisponibles sur votre appareil ou navigateur ; essayez la carte ou réactivez le capteur manuellement. La direction affichée est relative au nord ; la flèche ne suit pas la rotation du téléphone."
+"feedback-final","webkit","fr","390x844","sensor-ready-gps-missing",,"ltr","False","False",,,,"DirectionQA MemberGuidez-moi vers le membre le plus procheGuidez-moi vers le point de rendez-vousNESO—— mPosition indisponible. Activez la localisation et choisissez une destination autorisée.Position récente · Dernière mise à jour : 15 oct. 2026, 06:05 · dernière position connue ; la destination a pu changerTenez le téléphone à plat, loin des métaux. Confirmez la rencontre manuellement en raison des limites de précision GPS.Alerter QA MemberArrivé"
+"feedback-final","webkit","fr","390x844","walking-ready","status","ltr","False","False",,,,"Itinéraire à jourDernier calcul de l’itinéraire : 15 oct. 2026, 06:05:57"
+"feedback-final","webkit","fr","390x844","unsupported-with-gps","status","ltr","False","False",,,,"Les lectures d’orientation ne sont pas prises en charge dans ce navigateur ou ce contexte. Vous pouvez utiliser la carte. La direction affichée est relative au nord ; la flèche ne suit pas la rotation du téléphone."
+"feedback-final","webkit","fr","390x844","gps-denied-with-heading","alert","ltr","False","False",,,,"Autorisation de localisation refusée. Autorisez-la dans les paramètres du navigateur, puis réessayez."
+"feedback-final","webkit","fr","390x844","offline-walking","status","ltr","False","False",,,,"Dernier itinéraire calculéConnexion perdue. Il s'agit du dernier itinéraire calculé, qui peut ne plus correspondre à votre position actuelle.Dernier calcul de l’itinéraire : 15 oct. 2026, 06:06:08La distance et la durée correspondent au dernier calcul, pas à une estimation d’arrivée en direct."
+"feedback-final","webkit","fr","390x844","nearest-success","status","ltr","False","False",,,,"QA Member a été sélectionné. La distance actuelle à vol d’oiseau est d’environ 33 m ; ce n’est pas la distance d’un itinéraire piéton."
+"feedback-final","webkit","fr","390x844","success","status","ltr","False","False",,,,"Compte mis à jour"
+"feedback-final","webkit","fr","390x844","privacy-confirmation","dialog","ltr","False","False",,,,"Confirmer l’actionCette action arrête le partage de votre position dans tous les groupes et la masque aux membres. Continuer ?ConfirmerAnnuler"
+"feedback-final","webkit","fr","390x844","sharing-paused",,"ltr","False","False",,,,"Partage arrêté"
+"feedback-final","webkit","fr","390x844","sharing-outside-schedule",,"ltr","False","False",,,,"Partage arrêté"
+"feedback-final","webkit","fr","390x844","sharing-allowed-not-transmitting",,"ltr","False","False",,,,"Vos réglages autorisent le partage ; l’envoi de votre position nécessite le GPS et une connexion."
+"feedback-final","webkit","fr","390x844","loading","status","ltr","False","False",,,,"Chargement de vos groupes…"
+"feedback-final","webkit","fr","390x844","error","alert","ltr","False","False",,,,"Impossible de terminer la demande"
+"feedback-final","webkit","fr","390x844","empty",,"ltr","False","False",,,,"Vous n’avez pas encore de groupeCréer votre groupe"
+"feedback-final","webkit","fr","390x844","network-recovered",,"ltr","False","False",,,,"Bienvenue QA UserVos groupesNouveau groupeQA FriendsQA1233 membres · PropriétaireGroupe actifQA FamilyQA1233 membres · PropriétairePartage des positions du groupe arrêtéJ’ai un code de groupeVos demandes en attenteQA Pending GroupAnnuler la demande"
+"feedback-final","webkit","ar","820x1180","confirmation","dialog","rtl","False","False",,,,"تأكيد الإجراءإغلاق المجموعة وإيقاف الانضمام ومشاركة المواقع؟تأكيدإلغاء"
+"feedback-final","webkit","ar","820x1180","unsupported-permission","dialog","rtl","False","False",,,,"تفعيل الملاحةالموقعيستخدم دال موقعك لحساب المسافات والاتجاهات ومشاركته مع أعضاء مجموعتك المسموح لهم وفق إعداداتك الحالية أثناء فتح الصفحة. التفعيل يحتاج موافقتك.تفعيل الموقعحساس البوصلةيستخدم دال حساس الاتجاه لتحديث سهم البوصلة عند تدوير الجوال. تفعيل الحساس وحده لا يفعّل مشاركة الموقع.قراءات الاتجاه غير مدعومة في هذا المتصفح أو السياق. يمكنك استخدام الخريطة.الاتجاه المعروض بالنسبة للشمال؛ السهم لا يتبع دوران جوالك.ليس الآنARENFR"
+"feedback-final","webkit","ar","820x1180","unsupported-compass","status","rtl","False","False",,,,"قراءات الاتجاه غير مدعومة في هذا المتصفح أو السياق. يمكنك استخدام الخريطة. الاتجاه المعروض بالنسبة للشمال؛ السهم لا يتبع دوران جوالك."
+"feedback-final","webkit","ar","820x1180","sensor-denied","dialog","rtl","False","False",,,,"تفعيل الملاحةالموقعيستخدم دال موقعك لحساب المسافات والاتجاهات ومشاركته مع أعضاء مجموعتك المسموح لهم وفق إعداداتك الحالية أثناء فتح الصفحة. التفعيل يحتاج موافقتك.تفعيل الموقعحساس البوصلةيستخدم دال حساس الاتجاه لتحديث سهم البوصلة عند تدوير الجوال. تفعيل الحساس وحده لا يفعّل مشاركة الموقع.إذن الحساس مرفوض. اسمح بالحركة والاتجاه من إعدادات المتصفح أو الجهاز، ثم أعد دخول الصفحة أو استخدم التفعيل اليدوي.الاتجاه المعروض بالنسبة للشمال؛ السهم لا يتبع دوران جوالك.تفعيل حساس البوصلةليس الآنARENFR"
+"feedback-final","webkit","ar","820x1180","sensor-pending","status","rtl","False","False",,,,"بانتظار قرار إذن الحساس… الاتجاه المعروض بالنسبة للشمال؛ السهم لا يتبع دوران جوالك."
+"feedback-final","webkit","ar","820x1180","sensor-no-reading","status","rtl","False","False",,,,"لم تصل قراءة اتجاه صالحة. قد تكون القراءات غير متاحة على جهازك أو متصفحك؛ جرّب الخريطة أو أعد التفعيل يدويًا. الاتجاه المعروض بالنسبة للشمال؛ السهم لا يتبع دوران جوالك."
+"feedback-final","webkit","ar","820x1180","sensor-ready-gps-missing",,"rtl","False","False",,,,"متجه إلىQA Memberوجّهني لأقرب عضووجّهني إلى نقطة الالتقاءشقجغ—— مالموقع غير متاح. فعّل موقعك واختر وجهة لها موقع مسموح.موقع حديث · آخر تحديث: 15‏/10‏/2026، 6:06 ص · آخر موقع معروف، قد تكون الوجهة تحركتامسك الجوال مستويًا وبعيدًا عن المعادن. تأكيد اللقاء يدويًا بسبب حدود دقة GPS.نبّه QA Memberوصلت"
+"feedback-final","webkit","ar","820x1180","walking-ready","status","rtl","False","False",,,,"المسار محدّثآخر حساب للمسار: 15‏/10‏/2026، 6:06:23 ص"
+"feedback-final","webkit","ar","820x1180","unsupported-with-gps","status","rtl","False","False",,,,"قراءات الاتجاه غير مدعومة في هذا المتصفح أو السياق. يمكنك استخدام الخريطة. الاتجاه المعروض بالنسبة للشمال؛ السهم لا يتبع دوران جوالك."
+"feedback-final","webkit","ar","820x1180","gps-denied-with-heading","alert","rtl","False","False",,,,"إذن الموقع مرفوض. اسمح بالموقع من إعدادات المتصفح ثم أعد المحاولة."
+"feedback-final","webkit","ar","820x1180","offline-walking","status","rtl","False","False",,,,"آخر مسار محسوبالاتصال منقطع. هذا آخر مسار محسوب وقد لا يعكس موقعك الحالي.آخر حساب للمسار: 15‏/10‏/2026، 6:06:33 صالمسافة والمدة تخصان آخر حساب، وليستا تقدير وصول مباشرًا."
+"feedback-final","webkit","ar","820x1180","nearest-success","status","rtl","False","False",,,,"تم اختيار QA Member. المسافة المباشرة الحالية نحو 33 م، وليست مسافة طريق مشي."
+"feedback-final","webkit","ar","820x1180","success","status","rtl","False","False",,,,"تم تحديث حسابك"
+"feedback-final","webkit","ar","820x1180","privacy-confirmation","dialog","rtl","False","False",,,,"تأكيد الإجراءسيوقف هذا مشاركة موقعك في جميع مجموعاتك ويخفي موقعك عن الأعضاء. متابعة؟تأكيدإلغاء"
+"feedback-final","webkit","ar","820x1180","sharing-paused",,"rtl","False","False",,,,"المشاركة متوقفة"
+"feedback-final","webkit","ar","820x1180","sharing-outside-schedule",,"rtl","False","False",,,,"المشاركة متوقفة"
+"feedback-final","webkit","ar","820x1180","sharing-allowed-not-transmitting",,"rtl","False","False",,,,"المشاركة مسموحة وفق إعداداتك؛ إرسال الموقع يتطلب GPS واتصالًا."
+"feedback-final","webkit","ar","820x1180","loading","status","rtl","False","False",,,,"جارٍ تحميل مجموعاتك…"
+"feedback-final","webkit","ar","820x1180","error","alert","rtl","False","False",,,,"تعذر إكمال الطلب"
+"feedback-final","webkit","ar","820x1180","empty",,"rtl","False","False",,,,"ما عندك مجموعات حتى الآنابدأ مجموعتك"
+"feedback-final","webkit","ar","820x1180","network-recovered",,"rtl","False","False",,,,"حيّاك QA Userمجموعاتكمجموعة جديدةQA FriendsQA1233 أعضاء · المالكالمجموعة نشطةQA FamilyQA1233 أعضاء · المالكمشاركة مواقع المجموعة متوقفةعندي كود مجموعةطلباتك المعلّقةQA Pending Groupإلغاء الطلب"
+"feedback-final","webkit","en","820x1180","confirmation","dialog","ltr","False","False",,,,"Confirm actionClose the group and stop joining and location sharing?ConfirmCancel"
+"feedback-final","webkit","en","820x1180","unsupported-permission","dialog","ltr","False","False",,,,"Enable navigationLocationDAL uses your location for distances and directions and shares it with authorized group members under your current settings while this page is open. Activation requires your consent.Enable locationCompass sensorDAL uses device orientation to update the compass arrow when you rotate your phone. Enabling the sensor alone does not activate location sharing.Orientation readings are not supported in this browser or context. You can use the map.The displayed direction is relative to north; the arrow does not follow your phone’s rotation.Not nowARENFR"
+"feedback-final","webkit","en","820x1180","unsupported-compass","status","ltr","False","False",,,,"Orientation readings are not supported in this browser or context. You can use the map. The displayed direction is relative to north; the arrow does not follow your phone’s rotation."
+"feedback-final","webkit","en","820x1180","sensor-denied","dialog","ltr","False","False",,,,"Enable navigationLocationDAL uses your location for distances and directions and shares it with authorized group members under your current settings while this page is open. Activation requires your consent.Enable locationCompass sensorDAL uses device orientation to update the compass arrow when you rotate your phone. Enabling the sensor alone does not activate location sharing.Sensor permission denied. Allow motion and orientation in your browser or device settings, then re-enter this page or use manual activation.The displayed direction is relative to north; the arrow does not follow your phone’s rotation.Enable compass sensorNot nowARENFR"
+"feedback-final","webkit","en","820x1180","sensor-pending","status","ltr","False","False",,,,"Waiting for sensor permission… The displayed direction is relative to north; the arrow does not follow your phone’s rotation."
+"feedback-final","webkit","en","820x1180","sensor-no-reading","status","ltr","False","False",,,,"No usable orientation reading has arrived. Readings may be unavailable on your device or browser; try the map or enable the sensor again manually. The displayed direction is relative to north; the arrow does not follow your phone’s rotation."
+"feedback-final","webkit","en","820x1180","sensor-ready-gps-missing",,"ltr","False","False",,,,"Heading toQA MemberGuide me to the nearest memberGuide me to the meeting pointNESW—— mLocation unavailable. Enable your location and choose an authorized destination.Recent location · Last updated: Oct 15, 2026, 6:06 AM · last known location; the destination may have movedHold your phone level and away from metal. Confirm the meeting manually due to GPS accuracy limits.Nudge QA MemberArrived"
+"feedback-final","webkit","en","820x1180","walking-ready","status","ltr","False","False",,,,"Route updatedRoute last calculated: Oct 15, 2026, 6:06:51 AM"
+"feedback-final","webkit","en","820x1180","unsupported-with-gps","status","ltr","False","False",,,,"Orientation readings are not supported in this browser or context. You can use the map. The displayed direction is relative to north; the arrow does not follow your phone’s rotation."
+"feedback-final","webkit","en","820x1180","gps-denied-with-heading","alert","ltr","False","False",,,,"Location permission denied. Allow location in your browser settings, then try again."
+"feedback-final","webkit","en","820x1180","offline-walking","status","ltr","False","False",,,,"Last calculated routeConnection lost. This is the last calculated route and may not reflect your current position.Route last calculated: Oct 15, 2026, 6:07:01 AMDistance and duration belong to the last calculation, not a live arrival estimate."
+"feedback-final","webkit","en","820x1180","nearest-success","status","ltr","False","False",,,,"Selected QA Member. The current straight-line distance is approximately 33 m, not a walking-route distance."
+"feedback-final","webkit","en","820x1180","success","status","ltr","False","False",,,,"Account updated"
+"feedback-final","webkit","en","820x1180","privacy-confirmation","dialog","ltr","False","False",,,,"Confirm actionThis stops sharing your location in all groups and hides it from members. Continue?ConfirmCancel"
+"feedback-final","webkit","en","820x1180","sharing-paused",,"ltr","False","False",,,,"Sharing stopped"
+"feedback-final","webkit","en","820x1180","sharing-outside-schedule",,"ltr","False","False",,,,"Sharing stopped"
+"feedback-final","webkit","en","820x1180","sharing-allowed-not-transmitting",,"ltr","False","False",,,,"Sharing is allowed by your settings; sending your location requires GPS and a connection."
+"feedback-final","webkit","en","820x1180","loading","status","ltr","False","False",,,,"Loading your groups…"
+"feedback-final","webkit","en","820x1180","error","alert","ltr","False","False",,,,"Unable to complete the request"
+"feedback-final","webkit","en","820x1180","empty",,"ltr","False","False",,,,"You have no groups yetStart your group"
+"feedback-final","webkit","en","820x1180","network-recovered",,"ltr","False","False",,,,"Welcome QA UserYour groupsNew groupQA FriendsQA1233 members · OwnerGroup activeQA FamilyQA1233 members · OwnerGroup location sharing stoppedI have a group codeYour pending requestsQA Pending GroupCancel request"
+"feedback-final","webkit","fr","820x1180","confirmation","dialog","ltr","False","False",,,,"Confirmer l’actionFermer le groupe et arrêter les adhésions et le partage des positions ?ConfirmerAnnuler"
+"feedback-final","webkit","fr","820x1180","unsupported-permission","dialog","ltr","False","False",,,,"Activer la navigationPositionDAL utilise votre position pour les distances et les directions et la partage avec les membres autorisés selon vos paramètres actuels lorsque cette page est ouverte. Votre consentement est nécessaire.Activer la localisationCapteur de la boussoleDAL utilise l’orientation de l’appareil pour actualiser la flèche lorsque vous tournez le téléphone. Activer uniquement le capteur n’active pas le partage de position.Les lectures d’orientation ne sont pas prises en charge dans ce navigateur ou ce contexte. Vous pouvez utiliser la carte.La direction affichée est relative au nord ; la flèche ne suit pas la rotation du téléphone.Pas maintenantARENFR"
+"feedback-final","webkit","fr","820x1180","unsupported-compass","status","ltr","False","False",,,,"Les lectures d’orientation ne sont pas prises en charge dans ce navigateur ou ce contexte. Vous pouvez utiliser la carte. La direction affichée est relative au nord ; la flèche ne suit pas la rotation du téléphone."
+"feedback-final","webkit","fr","820x1180","sensor-denied","dialog","ltr","False","False",,,,"Activer la navigationPositionDAL utilise votre position pour les distances et les directions et la partage avec les membres autorisés selon vos paramètres actuels lorsque cette page est ouverte. Votre consentement est nécessaire.Activer la localisationCapteur de la boussoleDAL utilise l’orientation de l’appareil pour actualiser la flèche lorsque vous tournez le téléphone. Activer uniquement le capteur n’active pas le partage de position.Autorisation du capteur refusée. Autorisez les mouvements et l’orientation dans les paramètres du navigateur ou de l’appareil, puis rouvrez cette page ou utilisez l’activation manuelle.La direction affichée est relative au nord ; la flèche ne suit pas la rotation du téléphone.Activer le capteur de la boussolePas maintenantARENFR"
+"feedback-final","webkit","fr","820x1180","sensor-pending","status","ltr","False","False",,,,"En attente de l’autorisation du capteur… La direction affichée est relative au nord ; la flèche ne suit pas la rotation du téléphone."
+"feedback-final","webkit","fr","820x1180","sensor-no-reading","status","ltr","False","False",,,,"Aucune lecture d’orientation exploitable n’a été reçue. Les lectures peuvent être indisponibles sur votre appareil ou navigateur ; essayez la carte ou réactivez le capteur manuellement. La direction affichée est relative au nord ; la flèche ne suit pas la rotation du téléphone."
+"feedback-final","webkit","fr","820x1180","sensor-ready-gps-missing",,"ltr","False","False",,,,"DirectionQA MemberGuidez-moi vers le membre le plus procheGuidez-moi vers le point de rendez-vousNESO—— mPosition indisponible. Activez la localisation et choisissez une destination autorisée.Position récente · Dernière mise à jour : 15 oct. 2026, 06:07 · dernière position connue ; la destination a pu changerTenez le téléphone à plat, loin des métaux. Confirmez la rencontre manuellement en raison des limites de précision GPS.Alerter QA MemberArrivé"
+"feedback-final","webkit","fr","820x1180","walking-ready","status","ltr","False","False",,,,"Itinéraire à jourDernier calcul de l’itinéraire : 15 oct. 2026, 06:07:18"
+"feedback-final","webkit","fr","820x1180","unsupported-with-gps","status","ltr","False","False",,,,"Les lectures d’orientation ne sont pas prises en charge dans ce navigateur ou ce contexte. Vous pouvez utiliser la carte. La direction affichée est relative au nord ; la flèche ne suit pas la rotation du téléphone."
+"feedback-final","webkit","fr","820x1180","gps-denied-with-heading","alert","ltr","False","False",,,,"Autorisation de localisation refusée. Autorisez-la dans les paramètres du navigateur, puis réessayez."
+"feedback-final","webkit","fr","820x1180","offline-walking","status","ltr","False","False",,,,"Dernier itinéraire calculéConnexion perdue. Il s'agit du dernier itinéraire calculé, qui peut ne plus correspondre à votre position actuelle.Dernier calcul de l’itinéraire : 15 oct. 2026, 06:07:28La distance et la durée correspondent au dernier calcul, pas à une estimation d’arrivée en direct."
+"feedback-final","webkit","fr","820x1180","nearest-success","status","ltr","False","False",,,,"QA Member a été sélectionné. La distance actuelle à vol d’oiseau est d’environ 33 m ; ce n’est pas la distance d’un itinéraire piéton."
+"feedback-final","webkit","fr","820x1180","success","status","ltr","False","False",,,,"Compte mis à jour"
+"feedback-final","webkit","fr","820x1180","privacy-confirmation","dialog","ltr","False","False",,,,"Confirmer l’actionCette action arrête le partage de votre position dans tous les groupes et la masque aux membres. Continuer ?ConfirmerAnnuler"
+"feedback-final","webkit","fr","820x1180","sharing-paused",,"ltr","False","False",,,,"Partage arrêté"
+"feedback-final","webkit","fr","820x1180","sharing-outside-schedule",,"ltr","False","False",,,,"Partage arrêté"
+"feedback-final","webkit","fr","820x1180","sharing-allowed-not-transmitting",,"ltr","False","False",,,,"Vos réglages autorisent le partage ; l’envoi de votre position nécessite le GPS et une connexion."
+"feedback-final","webkit","fr","820x1180","loading","status","ltr","False","False",,,,"Chargement de vos groupes…"
+"feedback-final","webkit","fr","820x1180","error","alert","ltr","False","False",,,,"Impossible de terminer la demande"
+"feedback-final","webkit","fr","820x1180","empty",,"ltr","False","False",,,,"Vous n’avez pas encore de groupeCréer votre groupe"
+"feedback-final","webkit","fr","820x1180","network-recovered",,"ltr","False","False",,,,"Bienvenue QA UserVos groupesNouveau groupeQA FriendsQA1233 membres · PropriétaireGroupe actifQA FamilyQA1233 membres · PropriétairePartage des positions du groupe arrêtéJ’ai un code de groupeVos demandes en attenteQA Pending GroupAnnuler la demande"
+"feedback-final","webkit","ar","1280x720","confirmation","dialog","rtl","False","False",,,,"تأكيد الإجراءإغلاق المجموعة وإيقاف الانضمام ومشاركة المواقع؟تأكيدإلغاء"
+"feedback-final","webkit","ar","1280x720","unsupported-permission","dialog","rtl","False","False",,,,"تفعيل الملاحةالموقعيستخدم دال موقعك لحساب المسافات والاتجاهات ومشاركته مع أعضاء مجموعتك المسموح لهم وفق إعداداتك الحالية أثناء فتح الصفحة. التفعيل يحتاج موافقتك.تفعيل الموقعحساس البوصلةيستخدم دال حساس الاتجاه لتحديث سهم البوصلة عند تدوير الجوال. تفعيل الحساس وحده لا يفعّل مشاركة الموقع.قراءات الاتجاه غير مدعومة في هذا المتصفح أو السياق. يمكنك استخدام الخريطة.الاتجاه المعروض بالنسبة للشمال؛ السهم لا يتبع دوران جوالك.ليس الآنARENFR"
+"feedback-final","webkit","ar","1280x720","unsupported-compass","status","rtl","False","False",,,,"قراءات الاتجاه غير مدعومة في هذا المتصفح أو السياق. يمكنك استخدام الخريطة. الاتجاه المعروض بالنسبة للشمال؛ السهم لا يتبع دوران جوالك."
+"feedback-final","webkit","ar","1280x720","sensor-denied","dialog","rtl","False","False",,,,"تفعيل الملاحةالموقعيستخدم دال موقعك لحساب المسافات والاتجاهات ومشاركته مع أعضاء مجموعتك المسموح لهم وفق إعداداتك الحالية أثناء فتح الصفحة. التفعيل يحتاج موافقتك.تفعيل الموقعحساس البوصلةيستخدم دال حساس الاتجاه لتحديث سهم البوصلة عند تدوير الجوال. تفعيل الحساس وحده لا يفعّل مشاركة الموقع.إذن الحساس مرفوض. اسمح بالحركة والاتجاه من إعدادات المتصفح أو الجهاز، ثم أعد دخول الصفحة أو استخدم التفعيل اليدوي.الاتجاه المعروض بالنسبة للشمال؛ السهم لا يتبع دوران جوالك.تفعيل حساس البوصلةليس الآنARENFR"
+"feedback-final","webkit","ar","1280x720","sensor-pending","status","rtl","False","False",,,,"بانتظار قرار إذن الحساس… الاتجاه المعروض بالنسبة للشمال؛ السهم لا يتبع دوران جوالك."
+"feedback-final","webkit","ar","1280x720","sensor-no-reading","status","rtl","False","False",,,,"لم تصل قراءة اتجاه صالحة. قد تكون القراءات غير متاحة على جهازك أو متصفحك؛ جرّب الخريطة أو أعد التفعيل يدويًا. الاتجاه المعروض بالنسبة للشمال؛ السهم لا يتبع دوران جوالك."
+"feedback-final","webkit","ar","1280x720","sensor-ready-gps-missing",,"rtl","False","False",,,,"متجه إلىQA Memberوجّهني لأقرب عضووجّهني إلى نقطة الالتقاءشقجغ—— مالموقع غير متاح. فعّل موقعك واختر وجهة لها موقع مسموح.موقع حديث · آخر تحديث: 15‏/10‏/2026، 6:07 ص · آخر موقع معروف، قد تكون الوجهة تحركتامسك الجوال مستويًا وبعيدًا عن المعادن. تأكيد اللقاء يدويًا بسبب حدود دقة GPS.نبّه QA Memberوصلت"
+"feedback-final","webkit","ar","1280x720","walking-ready","status","rtl","False","False",,,,"المسار محدّثآخر حساب للمسار: 15‏/10‏/2026، 6:07:46 ص"
+"feedback-final","webkit","ar","1280x720","unsupported-with-gps","status","rtl","False","False",,,,"قراءات الاتجاه غير مدعومة في هذا المتصفح أو السياق. يمكنك استخدام الخريطة. الاتجاه المعروض بالنسبة للشمال؛ السهم لا يتبع دوران جوالك."
+"feedback-final","webkit","ar","1280x720","gps-denied-with-heading","alert","rtl","False","False",,,,"إذن الموقع مرفوض. اسمح بالموقع من إعدادات المتصفح ثم أعد المحاولة."
+"feedback-final","webkit","ar","1280x720","offline-walking","status","rtl","False","False",,,,"آخر مسار محسوبالاتصال منقطع. هذا آخر مسار محسوب وقد لا يعكس موقعك الحالي.آخر حساب للمسار: 15‏/10‏/2026، 6:07:56 صالمسافة والمدة تخصان آخر حساب، وليستا تقدير وصول مباشرًا."
+"feedback-final","webkit","ar","1280x720","nearest-success","status","rtl","False","False",,,,"تم اختيار QA Member. المسافة المباشرة الحالية نحو 33 م، وليست مسافة طريق مشي."
+"feedback-final","webkit","ar","1280x720","success","status","rtl","False","False",,,,"تم تحديث حسابك"
+"feedback-final","webkit","ar","1280x720","privacy-confirmation","dialog","rtl","False","False",,,,"تأكيد الإجراءسيوقف هذا مشاركة موقعك في جميع مجموعاتك ويخفي موقعك عن الأعضاء. متابعة؟تأكيدإلغاء"
+"feedback-final","webkit","ar","1280x720","sharing-paused",,"rtl","False","False",,,,"المشاركة متوقفة"
+"feedback-final","webkit","ar","1280x720","sharing-outside-schedule",,"rtl","False","False",,,,"المشاركة متوقفة"
+"feedback-final","webkit","ar","1280x720","sharing-allowed-not-transmitting",,"rtl","False","False",,,,"المشاركة مسموحة وفق إعداداتك؛ إرسال الموقع يتطلب GPS واتصالًا."
+"feedback-final","webkit","ar","1280x720","loading","status","rtl","False","False",,,,"جارٍ تحميل مجموعاتك…"
+"feedback-final","webkit","ar","1280x720","error","alert","rtl","False","False",,,,"تعذر إكمال الطلب"
+"feedback-final","webkit","ar","1280x720","empty",,"rtl","False","False",,,,"ما عندك مجموعات حتى الآنابدأ مجموعتك"
+"feedback-final","webkit","ar","1280x720","network-recovered",,"rtl","False","False",,,,"حيّاك QA Userمجموعاتكمجموعة جديدةQA FriendsQA1233 أعضاء · المالكالمجموعة نشطةQA FamilyQA1233 أعضاء · المالكمشاركة مواقع المجموعة متوقفةعندي كود مجموعةطلباتك المعلّقةQA Pending Groupإلغاء الطلب"
+"feedback-final","webkit","en","1280x720","confirmation","dialog","ltr","False","False",,,,"Confirm actionClose the group and stop joining and location sharing?ConfirmCancel"
+"feedback-final","webkit","en","1280x720","unsupported-permission","dialog","ltr","False","False",,,,"Enable navigationLocationDAL uses your location for distances and directions and shares it with authorized group members under your current settings while this page is open. Activation requires your consent.Enable locationCompass sensorDAL uses device orientation to update the compass arrow when you rotate your phone. Enabling the sensor alone does not activate location sharing.Orientation readings are not supported in this browser or context. You can use the map.The displayed direction is relative to north; the arrow does not follow your phone’s rotation.Not nowARENFR"
+"feedback-final","webkit","en","1280x720","unsupported-compass","status","ltr","False","False",,,,"Orientation readings are not supported in this browser or context. You can use the map. The displayed direction is relative to north; the arrow does not follow your phone’s rotation."
+"feedback-final","webkit","en","1280x720","sensor-denied","dialog","ltr","False","False",,,,"Enable navigationLocationDAL uses your location for distances and directions and shares it with authorized group members under your current settings while this page is open. Activation requires your consent.Enable locationCompass sensorDAL uses device orientation to update the compass arrow when you rotate your phone. Enabling the sensor alone does not activate location sharing.Sensor permission denied. Allow motion and orientation in your browser or device settings, then re-enter this page or use manual activation.The displayed direction is relative to north; the arrow does not follow your phone’s rotation.Enable compass sensorNot nowARENFR"
+"feedback-final","webkit","en","1280x720","sensor-pending","status","ltr","False","False",,,,"Waiting for sensor permission… The displayed direction is relative to north; the arrow does not follow your phone’s rotation."
+"feedback-final","webkit","en","1280x720","sensor-no-reading","status","ltr","False","False",,,,"No usable orientation reading has arrived. Readings may be unavailable on your device or browser; try the map or enable the sensor again manually. The displayed direction is relative to north; the arrow does not follow your phone’s rotation."
+"feedback-final","webkit","en","1280x720","sensor-ready-gps-missing",,"ltr","False","False",,,,"Heading toQA MemberGuide me to the nearest memberGuide me to the meeting pointNESW—— mLocation unavailable. Enable your location and choose an authorized destination.Recent location · Last updated: Oct 15, 2026, 6:08 AM · last known location; the destination may have movedHold your phone level and away from metal. Confirm the meeting manually due to GPS accuracy limits.Nudge QA MemberArrived"
+"feedback-final","webkit","en","1280x720","walking-ready","status","ltr","False","False",,,,"Route updatedRoute last calculated: Oct 15, 2026, 6:08:13 AM"
+"feedback-final","webkit","en","1280x720","unsupported-with-gps","status","ltr","False","False",,,,"Orientation readings are not supported in this browser or context. You can use the map. The displayed direction is relative to north; the arrow does not follow your phone’s rotation."
+"feedback-final","webkit","en","1280x720","gps-denied-with-heading","alert","ltr","False","False",,,,"Location permission denied. Allow location in your browser settings, then try again."
+"feedback-final","webkit","en","1280x720","offline-walking","status","ltr","False","False",,,,"Last calculated routeConnection lost. This is the last calculated route and may not reflect your current position.Route last calculated: Oct 15, 2026, 6:08:24 AMDistance and duration belong to the last calculation, not a live arrival estimate."
+"feedback-final","webkit","en","1280x720","nearest-success","status","ltr","False","False",,,,"Selected QA Member. The current straight-line distance is approximately 33 m, not a walking-route distance."
+"feedback-final","webkit","en","1280x720","success","status","ltr","False","False",,,,"Account updated"
+"feedback-final","webkit","en","1280x720","privacy-confirmation","dialog","ltr","False","False",,,,"Confirm actionThis stops sharing your location in all groups and hides it from members. Continue?ConfirmCancel"
+"feedback-final","webkit","en","1280x720","sharing-paused",,"ltr","False","False",,,,"Sharing stopped"
+"feedback-final","webkit","en","1280x720","sharing-outside-schedule",,"ltr","False","False",,,,"Sharing stopped"
+"feedback-final","webkit","en","1280x720","sharing-allowed-not-transmitting",,"ltr","False","False",,,,"Sharing is allowed by your settings; sending your location requires GPS and a connection."
+"feedback-final","webkit","en","1280x720","loading","status","ltr","False","False",,,,"Loading your groups…"
+"feedback-final","webkit","en","1280x720","error","alert","ltr","False","False",,,,"Unable to complete the request"
+"feedback-final","webkit","en","1280x720","empty",,"ltr","False","False",,,,"You have no groups yetStart your group"
+"feedback-final","webkit","en","1280x720","network-recovered",,"ltr","False","False",,,,"Welcome QA UserYour groupsNew groupQA FriendsQA1233 members · OwnerGroup activeQA FamilyQA1233 members · OwnerGroup location sharing stoppedI have a group codeYour pending requestsQA Pending GroupCancel request"
+"feedback-final","webkit","fr","1280x720","confirmation","dialog","ltr","False","False",,,,"Confirmer l’actionFermer le groupe et arrêter les adhésions et le partage des positions ?ConfirmerAnnuler"
+"feedback-final","webkit","fr","1280x720","unsupported-permission","dialog","ltr","False","False",,,,"Activer la navigationPositionDAL utilise votre position pour les distances et les directions et la partage avec les membres autorisés selon vos paramètres actuels lorsque cette page est ouverte. Votre consentement est nécessaire.Activer la localisationCapteur de la boussoleDAL utilise l’orientation de l’appareil pour actualiser la flèche lorsque vous tournez le téléphone. Activer uniquement le capteur n’active pas le partage de position.Les lectures d’orientation ne sont pas prises en charge dans ce navigateur ou ce contexte. Vous pouvez utiliser la carte.La direction affichée est relative au nord ; la flèche ne suit pas la rotation du téléphone.Pas maintenantARENFR"
+"feedback-final","webkit","fr","1280x720","unsupported-compass","status","ltr","False","False",,,,"Les lectures d’orientation ne sont pas prises en charge dans ce navigateur ou ce contexte. Vous pouvez utiliser la carte. La direction affichée est relative au nord ; la flèche ne suit pas la rotation du téléphone."
+"feedback-final","webkit","fr","1280x720","sensor-denied","dialog","ltr","False","False",,,,"Activer la navigationPositionDAL utilise votre position pour les distances et les directions et la partage avec les membres autorisés selon vos paramètres actuels lorsque cette page est ouverte. Votre consentement est nécessaire.Activer la localisationCapteur de la boussoleDAL utilise l’orientation de l’appareil pour actualiser la flèche lorsque vous tournez le téléphone. Activer uniquement le capteur n’active pas le partage de position.Autorisation du capteur refusée. Autorisez les mouvements et l’orientation dans les paramètres du navigateur ou de l’appareil, puis rouvrez cette page ou utilisez l’activation manuelle.La direction affichée est relative au nord ; la flèche ne suit pas la rotation du téléphone.Activer le capteur de la boussolePas maintenantARENFR"
+"feedback-final","webkit","fr","1280x720","sensor-pending","status","ltr","False","False",,,,"En attente de l’autorisation du capteur… La direction affichée est relative au nord ; la flèche ne suit pas la rotation du téléphone."
+"feedback-final","webkit","fr","1280x720","sensor-no-reading","status","ltr","False","False",,,,"Aucune lecture d’orientation exploitable n’a été reçue. Les lectures peuvent être indisponibles sur votre appareil ou navigateur ; essayez la carte ou réactivez le capteur manuellement. La direction affichée est relative au nord ; la flèche ne suit pas la rotation du téléphone."
+"feedback-final","webkit","fr","1280x720","sensor-ready-gps-missing",,"ltr","False","False",,,,"DirectionQA MemberGuidez-moi vers le membre le plus procheGuidez-moi vers le point de rendez-vousNESO—— mPosition indisponible. Activez la localisation et choisissez une destination autorisée.Position récente · Dernière mise à jour : 15 oct. 2026, 06:08 · dernière position connue ; la destination a pu changerTenez le téléphone à plat, loin des métaux. Confirmez la rencontre manuellement en raison des limites de précision GPS.Alerter QA MemberArrivé"
+"feedback-final","webkit","fr","1280x720","walking-ready","status","ltr","False","False",,,,"Itinéraire à jourDernier calcul de l’itinéraire : 15 oct. 2026, 06:08:42"
+"feedback-final","webkit","fr","1280x720","unsupported-with-gps","status","ltr","False","False",,,,"Les lectures d’orientation ne sont pas prises en charge dans ce navigateur ou ce contexte. Vous pouvez utiliser la carte. La direction affichée est relative au nord ; la flèche ne suit pas la rotation du téléphone."
+"feedback-final","webkit","fr","1280x720","gps-denied-with-heading","alert","ltr","False","False",,,,"Autorisation de localisation refusée. Autorisez-la dans les paramètres du navigateur, puis réessayez."
+"feedback-final","webkit","fr","1280x720","offline-walking","status","ltr","False","False",,,,"Dernier itinéraire calculéConnexion perdue. Il s'agit du dernier itinéraire calculé, qui peut ne plus correspondre à votre position actuelle.Dernier calcul de l’itinéraire : 15 oct. 2026, 06:08:52La distance et la durée correspondent au dernier calcul, pas à une estimation d’arrivée en direct."
+"feedback-final","webkit","fr","1280x720","nearest-success","status","ltr","False","False",,,,"QA Member a été sélectionné. La distance actuelle à vol d’oiseau est d’environ 33 m ; ce n’est pas la distance d’un itinéraire piéton."
+"feedback-final","webkit","fr","1280x720","success","status","ltr","False","False",,,,"Compte mis à jour"
+"feedback-final","webkit","fr","1280x720","privacy-confirmation","dialog","ltr","False","False",,,,"Confirmer l’actionCette action arrête le partage de votre position dans tous les groupes et la masque aux membres. Continuer ?ConfirmerAnnuler"
+"feedback-final","webkit","fr","1280x720","sharing-paused",,"ltr","False","False",,,,"Partage arrêté"
+"feedback-final","webkit","fr","1280x720","sharing-outside-schedule",,"ltr","False","False",,,,"Partage arrêté"
+"feedback-final","webkit","fr","1280x720","sharing-allowed-not-transmitting",,"ltr","False","False",,,,"Vos réglages autorisent le partage ; l’envoi de votre position nécessite le GPS et une connexion."
+"feedback-final","webkit","fr","1280x720","loading","status","ltr","False","False",,,,"Chargement de vos groupes…"
+"feedback-final","webkit","fr","1280x720","error","alert","ltr","False","False",,,,"Impossible de terminer la demande"
+"feedback-final","webkit","fr","1280x720","empty",,"ltr","False","False",,,,"Vous n’avez pas encore de groupeCréer votre groupe"
+"feedback-final","webkit","fr","1280x720","network-recovered",,"ltr","False","False",,,,"Bienvenue QA UserVos groupesNouveau groupeQA FriendsQA1233 membres · PropriétaireGroupe actifQA FamilyQA1233 membres · PropriétairePartage des positions du groupe arrêtéJ’ai un code de groupeVos demandes en attenteQA Pending GroupAnnuler la demande"

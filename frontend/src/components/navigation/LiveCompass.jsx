@@ -1,20 +1,22 @@
 import { useLanguage } from '../../LanguageContext.jsx';
 import React from 'react';
 import { bearingBetween, distanceBetween, locationAge, locationLabel, locationStatus, normalizeAngle } from '../../utils/navigationCalculations.js';
+import { orientationFeedback, orientationSupported } from '../../utils/navigationPermissions.js';
 export default function LiveCompass({ own, target, online, now, onNudge, onArrived, busy, sensor, onNearest, nearestFeedback, onMeeting, meetingFeedback }) {
   const { tr, lang, direction } = useLanguage();
   const distance = distanceBetween(own, target), bearing = bearingBetween(own, target);
   const angle = bearing === null ? null : normalizeAngle(bearing - (sensor.heading ?? 0));
   const stale = !online || (target?.userId && locationAge(target, now) > 30000) || locationAge(own, now) > 30000;
   const lowAccuracy = (own?.accuracy || 0) > 50 || (target?.accuracy || 0) > 50;
+  const sensorFeedback = orientationFeedback(sensor);
   return <div className={`dal-live-compass${sensor.heading !== null ? ' has-heading' : ''}`}>
     <p>{tr("متجه إلى")}</p><h2>{target?.name || tr("اختر عضوًا أو نقطة اللقاء")}</h2>
     {onNearest && <button className="filled nearest-member" onClick={onNearest}>{tr("وجّهني لأقرب عضو")}</button>}
     {onMeeting && <button className="outline nearest-member" onClick={onMeeting}>{tr("وجّهني إلى نقطة الالتقاء")}</button>}
     {meetingFeedback && <p className="nearest-member-feedback" role="status">{tr(meetingFeedback)}</p>}
     {nearestFeedback && <p className="nearest-member-feedback" role="status">{nearestFeedback.message ? tr(nearestFeedback.message) : tr("تم اختيار {0}. المسافة المباشرة الحالية نحو {1} م، وليست مسافة طريق مشي.", target?.name, distance === null ? '—' : Math.round(distance))}{!nearestFeedback.message && lowAccuracy ? ` ${tr("دقة الموقع منخفضة؛ المسافة والاتجاه تقريبيان.")}` : ''}</p>}
-    {(!sensor.enabled || ['denied', 'unavailable'].includes(sensor.status)) && <button className="outline compass-permission" disabled={sensor.status === 'requesting'} onClick={sensor.enable}>{tr("إعادة تفعيل حساس البوصلة")}</button>}
-    {sensor.heading === null && <p className="compass-sensor-status" role="status">{sensor.status === 'denied' ? tr("إذن الحساس مرفوض. ") : sensor.status === 'waiting' ? tr("بانتظار قراءة الحساس. ") : ''}{tr("الاتجاه المعروض بالنسبة للشمال؛ السهم لا يتبع دوران جوالك.")}</p>}
+    {sensor.heading === null && (sensor.supported ?? orientationSupported()) && <button className="outline compass-permission" disabled={!sensorFeedback.canActivate} onClick={sensor.enable}>{tr("إعادة تفعيل حساس البوصلة")}</button>}
+    {sensor.heading === null && <p className="compass-sensor-status" role="status">{tr(sensorFeedback.message)} {tr("الاتجاه المعروض بالنسبة للشمال؛ السهم لا يتبع دوران جوالك.")}</p>}
     <div className="dal-compass-dial" aria-label={angle === null ? tr("الاتجاه غير متاح") : tr("الاتجاه {0} درجة من الشمال", Math.round(bearing))}>
       <svg className="dal-compass-graduations" viewBox="0 0 300 300" aria-hidden="true" style={{ transform: `rotate(${-(sensor.heading ?? 0)}deg)` }}>{Array.from({length:72},(_,i)=><line key={i} x1="150" y1="9" x2="150" y2={i%6===0?'20':'15'} transform={`rotate(${i*5} 150 150)`}/>)}</svg>
       <div className="dal-cardinals" style={{ transform: `rotate(${-(sensor.heading ?? 0)}deg)` }}><span className="north">{tr("ش")}</span><span className="east">{tr("ق")}</span><span className="south">{tr("ج")}</span><span className="west">{tr("غ")}</span></div>

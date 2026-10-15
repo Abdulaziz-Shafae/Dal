@@ -45,6 +45,14 @@ test('separate feature buttons make at most one attempt per page visit', () => {
   assert.equal(locationCalls, 1); assert.equal(sensorCalls, 1);
   assert.ok(button('Enable location').props.disabled); assert.ok(button('Enable compass sensor').props.disabled);
 });
+
+test('Escape dismisses even when a pending permission button has lost focus', () => {
+  mount(); act(() => button('Enable compass sensor').props.onClick());
+  assert.ok(button('Enable compass sensor').props.disabled);
+  const escape = new Event('keydown'); Object.defineProperty(escape, 'key', { value: 'Escape' });
+  act(() => document.dispatchEvent(escape)); assert.equal(dialogCount(), 0);
+  assert.equal(sensorCalls, 1); assert.equal(locationCalls, 0);
+});
 test('disabled sharing routes to existing settings without changing or activating anything', () => {
   mount({ navigation: { ...gps(false), sharingAllowed: false } });
   assert.ok(button('Enable location').props.disabled); act(() => button('Enable location').props.onClick()); assert.equal(locationCalls, 0);
@@ -65,7 +73,7 @@ test('loading, waiting, denied and unsupported states explain missing requiremen
   act(() => tree.update(render({ navigation: { ...gps(false), gps: { status: 'denied', point: null, error: 'إذن الموقع مرفوض. اسمح بالموقع من إعدادات المتصفح ثم أعد المحاولة.' } }, sensor: { ...orientation(false), status: 'denied' } })));
   assert.ok(text(tree.toJSON()).includes('Location permission denied')); assert.ok(text(tree.toJSON()).includes('Sensor permission denied'));
   window.DeviceOrientationEvent = undefined;
-  act(() => tree.update(render())); assert.ok(button('Enable compass sensor').props.disabled); assert.ok(text(tree.toJSON()).includes('sensor is unavailable'));
+  act(() => tree.update(render())); assert.equal(button('Enable compass sensor'), undefined); assert.ok(text(tree.toJSON()).includes('not supported in this browser'));
 });
 test('popup copy and direction update immediately through the existing language provider', () => {
   mount(); assert.equal(tree.root.findByProps({ className: 'modal-backdrop' }).props.dir, 'ltr');

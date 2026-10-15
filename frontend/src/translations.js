@@ -1995,7 +1995,25 @@ export const messages = {
   "أعد تفعيل الملاحة للتحقق من إذن الموقع بعد استعادة الاتصال.": {
     "en": "Enable navigation again to check location permission after reconnecting.",
     "fr": "Réactivez la navigation pour vérifier l’autorisation de localisation après la reconnexion."
-  }
+  },
+  'قراءات الاتجاه غير مدعومة في هذا المتصفح أو السياق. يمكنك استخدام الخريطة.': {
+    en: 'Orientation readings are not supported in this browser or context. You can use the map.',
+    fr: 'Les lectures d’orientation ne sont pas prises en charge dans ce navigateur ou ce contexte. Vous pouvez utiliser la carte.'
+  },
+  'لم تصل قراءة اتجاه صالحة. قد تكون القراءات غير متاحة على جهازك أو متصفحك؛ جرّب الخريطة أو أعد التفعيل يدويًا.': {
+    en: 'No usable orientation reading has arrived. Readings may be unavailable on your device or browser; try the map or enable the sensor again manually.',
+    fr: 'Aucune lecture d’orientation exploitable n’a été reçue. Les lectures peuvent être indisponibles sur votre appareil ou navigateur ; essayez la carte ou réactivez le capteur manuellement.'
+  },
+  'فعّل حساس البوصلة لتحديث السهم عند تدوير الجهاز.': {
+    en: 'Enable the compass sensor to update the arrow when you rotate the device.',
+    fr: 'Activez le capteur de la boussole pour actualiser la flèche lorsque vous tournez l’appareil.'
+  },
+  'المشاركة مسموحة وفق إعداداتك؛ إرسال الموقع يتطلب GPS واتصالًا.': {
+    en: 'Sharing is allowed by your settings; sending your location requires GPS and a connection.',
+    fr: 'Vos réglages autorisent le partage ; l’envoi de votre position nécessite le GPS et une connexion.'
+  },
+  'تفاصيل المجموعة': { en: 'Group details', fr: 'Détails du groupe' },
+  'إغلاق الرسالة': { en: 'Dismiss message', fr: 'Fermer le message' }
 };
 
 export const texts = {

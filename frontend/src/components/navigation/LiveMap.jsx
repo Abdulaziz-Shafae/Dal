@@ -37,7 +37,7 @@ export default function LiveMap({ rows, own, userId, meeting, selected, onSelect
   return <div className={`dal-live-map${fallback ? ' has-map-fallback' : ''}`}>
     {!own && <p className="field-help">{tr("الرياض مركز عرض افتراضي فقط، وليست موقعك.")}</p>}
     <div className="nav-map-toolbar"><button className="outline" disabled={!own} onClick={() => setFocus({ point: own })}>{tr("تمركز على موقعي")}</button>{selected && <button className="outline" disabled={!validCoordinates(selected)} onClick={() => setFocus({ point: selected })}>{tr("ركّز على")} {selected.name}</button>}</div>
-    {fallback && <div className="nav-connection offline">{tr("الخريطة غير متاحة حاليًا. استخدم المعلومات والإحداثيات أدناه.")} {navigator.onLine && <button className="outline" onClick={() => setTileError(false)}>{tr("إعادة المحاولة")}</button>}</div>}
+    {fallback && <div className="nav-connection offline" role="status">{tr("الخريطة غير متاحة حاليًا. استخدم المعلومات والإحداثيات أدناه.")} {navigator.onLine && <button className="outline" onClick={() => setTileError(false)}>{tr("إعادة المحاولة")}</button>}</div>}
     {!online && route?.status === 'READY' && <p className="nav-connection offline" role="status">{tr('الاتصال منقطع. هذا آخر مسار محسوب وقد لا يعكس موقعك الحالي.')}</p>}
     <div hidden={fallback}><MapContainer center={[24.7136, 46.6753]} zoom={12} className="dal-map-canvas" scrollWheelZoom aria-label={tr("خريطة المجموعة")}>
       <TileLayer url="https://tile.openstreetmap.org/{z}/{x}/{y}.png" attribution={'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'} maxZoom={19} updateWhenIdle keepBuffer={1} eventHandlers={{ tileerror: () => setTileError(true) }}/>
