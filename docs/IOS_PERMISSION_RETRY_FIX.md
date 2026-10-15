@@ -4,7 +4,7 @@ Date: 2026-10-15. Repository: `Abdulaziz-Shafae/Dal`.
 
 Base: `fix/system-messages-feedback-audit`, **`998407dce1bab22887ffd5e10578af184ba9619e`**.
 Branch: [fix/ios-geolocation-permission-retry](https://github.com/Abdulaziz-Shafae/Dal/tree/fix/ios-geolocation-permission-retry).
-Implementation commit: recorded after verification.
+Implementation commit: [ca1e8172db8fd3f7e07ae65878db615e8a8369fd](https://github.com/Abdulaziz-Shafae/Dal/commit/ca1e8172db8fd3f7e07ae65878db615e8a8369fd).
 
 The single requested branch is isolated in `Dal-ios-retry`. Issues #1–#10 are inherited. No Backend, database, authentication/CSRF, routing endpoint, sharing setting, Railway configuration, deployment or merge into main was changed. Other worktrees and private QA files are untouched.
 
