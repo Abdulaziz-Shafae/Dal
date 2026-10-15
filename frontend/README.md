@@ -1,52 +1,67 @@
-# Dal Web | دال
+# دال | DAL — Frontend
 
-React + Vite frontend based on the uploaded DAL.pdf and Dal brand identity. The original Thmanyah Sans font family, logo, photos and decorative design illustrations are included. Desktop and mobile layouts follow the reference.
+واجهة مشروع دال المبنية باستخدام **React 18 + Vite 6** لمساعدة زوار إكسبو 2030 الرياض على العثور على مجموعاتهم. هذه الوثيقة تصف نسخة Frontend الحديثة في فرع `main`، بعد تحديثات الترجمة والملاحة والأذونات ومشاركة الموقع والتوافق مع الشاشات.
 
-## Run locally
+🔗 [تجربة دال مباشرة](https://dal.up.railway.app) · [README الرئيسي والمخرجات](../README.md) · [تصميم Figma](https://www.figma.com/design/N942ctUotKxc4dgpj42rbU/DAL?node-id=18-11988&t=yR8RMq6wb8b8tEud-1)
 
-```bash
-npm ci
-npm run dev
+## الوظائف الحالية
+
+- صفحات الحساب والمجموعات وإنشائها والانضمام إليها وإدارتها، والاشتراك برمز أو رابط/QR.
+- خريطة تفاعلية بـ Leaflet/OpenStreetMap لعرض موقع المستخدم والأعضاء المسموح بمشاركتهم ونقطة اللقاء.
+- بوصلة تقرأ اتجاه الجهاز عند توفر بيانات صالحة، وتعرض الاتجاه والمسافة المباشرة عندما يتوفر GPS والوجهة.
+- اختيار أقرب عضو مؤهّل يشارك موقعًا حديثًا، أو اختيار نقطة اللقاء من البوصلة مباشرة؛ دون تفعيل خدمة مسار المشي تلقائيًا.
+- مسار مشي باستخدام OpenRouteService عند توفر الخدمة. إعادة الحساب تحافظ على المسار المعروض إلى حين نتيجة أحدث؛ وعند ضعف الاتصال يظهر آخر مسار بوسم واضح لا يوحي بتوجيه حي.
+- نافذة إرشادية لتفعيل GPS وحساس البوصلة بإجراء صريح من المستخدم، وحالات واضحة للرفض وانتهاء المهلة وإعادة المحاولة. أذونات GPS والبوصلة مستقلة.
+- احترام إعدادات مشاركة الموقع: `WHILE_USING` و`SCHEDULED` و`ALWAYS` وإيقاف المشاركة وصلاحيات المجموعة. آخر المواقع المسموح بها تبقى مؤقتًا في الذاكرة مع حدود صلاحية ومراجعة عند إعادة الاتصال.
+- محادثات خاصة وجماعية وإشعارات وعداد غير المقروء وتأكيد الوصول ونقطة اللقاء، إضافة إلى توصيات الالتقاء بالـ AI عند توفر Backend وخدماته.
+- واجهات ورسائل النظام بالعربية والإنجليزية والفرنسية، مع RTL/LTR تلقائي ورسومات توضيحية متوافقة مع اللغة. رسائل المستخدمين الأصلية لا تُترجم تلقائيًا.
+- تحسين التوافق مع الجوال والتابلت والكمبيوتر وحالات التحميل والخطأ والنجاح والتمرير والتنقل السفلي.
+
+## بنية Frontend
+
+```text
+frontend/
+├── src/
+│   ├── main.jsx                     # الصفحات والتنقل والمجموعات
+│   ├── LanguageContext.jsx          # لغة الواجهة واتجاهها
+│   ├── i18n.js / translations.js     # قواميس AR / EN / FR
+│   ├── components/navigation/       # الخريطة، البوصلة، الأذونات، اللقاء والمشي
+│   ├── hooks/                       # GPS، الحساس، المواقع والمسارات
+│   └── api.js                       # REST API + HttpSession + CSRF
+├── public/assets/                   # الصور والرسومات المترجمة
+├── tests/                           # الاختبارات
+├── server.mjs                       # خادم الملفات وReverse Proxy
+└── Dockerfile
 ```
 
-Run the Spring Boot backend at localhost:8080. Vite proxies `/api` to that backend. Override `API_PROXY_TARGET` to change its address.
+## الاتصال بالـ Backend
 
-## Railway
+تستخدم الواجهة مسارات `/api/v1` من نفس الأصل عبر Reverse Proxy. تضبط خدمة Frontend المتغير `BACKEND_URL` إلى عنوان Backend عند النشر، من دون إضافة `/api/v1` إلى نهايته. اترك `VITE_API_BASE_URL` غير محدد لتمرير الطلبات عبر نفس النطاق. يظل إنشاء جلسات `HttpSession` والتحقق من CSRF والصلاحيات مسؤولية Backend، ولا توضع مفاتيح ORS أو OpenAI أو Brevo في React أو متغيرات `VITE_`.
 
-Create a frontend service from this directory. The included Dockerfile builds the app and runs `server.mjs` on Railway's `PORT`.
+تتطلب دورة مشاركة الموقع الجديدة أن يُعيد Backend حقل `visibleUntil` في بيانات المواقع وفق سياسة الإذن؛ وعند غيابه أو عدم صلاحيته لا تعرض الواجهة مواقع الأعضاء على نحو متساهل. مزامنة المواقع وإرسال الرسائل تتطلب اتصالًا بالخادم.
 
-Set the frontend service variable:
-
-```env
-BACKEND_URL=https://YOUR-DAL-BACKEND.up.railway.app
-```
-
-Keep `VITE_API_BASE_URL` unset. API calls use the same-origin `/api/v1` reverse proxy, including HttpSession cookies and the CSRF header. Set the backend `FRONTEND_ORIGINS` to the real frontend HTTPS origin, `SESSION_COOKIE_SECURE=true`, and `PASSWORD_RESET_URL=https://YOUR-FRONTEND/reset-password`. If the backend uses a cookie Domain attribute, remove it so its session cookie can be set through the frontend origin. No API secret belongs in frontend build variables.
-
-## Implemented integration
-
-Account creation/login/logout/profile and password-reset forms; group creation/joining and approval; QR/link/code sharing; member and owner management; pause/resume for the user, membership and group; meeting-point management; direct messages with pagination and read status; nudges, arrival notifications and notification reads. The frontend uses the approved backend DTOs and its CSRF endpoint. Dates support 12/24-hour preference in Riyadh time.
-
-## Current limits
-
-- The production build and same-origin proxy were tested locally against `https://dal-backend.up.railway.app`, using only the two authorized test accounts and group `TFZJ4`. The frontend changes have not been deployed to Railway in this review. Keep `BACKEND_URL` as a runtime variable; do not bake the backend address or credentials into the client.
-- Maps, sensor-based compass and camera guidance are deliberately deferred. Their screens are labelled as design previews. No sample person location or fabricated distance is presented as live tracking.
-- Brevo email delivery depends on provider activation and backend configuration.
-- Accounts and management forms needed by the approved backend extend the Figma flows; they use the same visual system. Arabic is complete; the landing page supports Arabic, English and French, while operational screens are Arabic.
-- Build and 14 automated checks passed. Browser review covered 360, 390, 430, 768 and 1440 CSS-pixel widths, RTL forms, dialogs and loading/error/empty states. Review evidence and the remaining differences from the PDF are in [the review report](review/FRONTEND_REVIEW_AR.md). Exact pixel parity and physical-device keyboard/sensor behavior are not claimed.
-- Messages require connectivity; no offline outgoing-message queue or background tracking is implemented.
-
-## Checks
+## التحقق
 
 ```bash
 npm test
 npm run build
 ```
 
-Do not publish the raw source Figma/PDFs as public assets. Only the images, logo, fonts and decorative crops used by the frontend are included.
+وفق [تقرير التحقق بتاريخ 15 أكتوبر 2026](../docs/IOS_PERMISSION_RETRY_FIX.md)، نجح **172 اختبار Frontend** دون فشل، ونجح البناء. شملت الاختبارات محاكاة أذونات ومواقع وحالات اتصال عبر Chrome وWebKit وباللغات الثلاث. **هذه ليست اختبارات على حساسات iPhone فعلية**، وما زال التحقق من سلوك Safari وأذونات الجهاز والتمرير الحقيقي مطلوبًا.
 
-## Connection troubleshooting
+## القيود الحالية
 
-The verified backend origin is `https://dal-backend.up.railway.app`. The older `dal-backend-production.up.railway.app` address returned HTML 404s for the repository endpoints. `/api/v1/security/csrf` exists in the backend and is forwarded unchanged by both proxies.
+- لا تتوفر مشاركة مواقع أو رسائل جديدة دون اتصال، ولا يوجد تتبع خلفي مستقل عن المتصفح.
+- المسار المحفوظ أو الموقع القديم ليس موقعًا حيًا أو مدة وصول محدثة.
+- توفر حساس الاتجاه وGPS يعتمد على المتصفح والأذونات ودقة الجهاز؛ الرفض الدائم يحتاج تغييره من إعدادات النظام.
+- الشروح الحرة من AI وعناوين خرائط OpenStreetMap قد تبقى بلغتها الأصلية.
+- نطاق التوجيه هو Prototype؛ خرائط المشي الخارجية لا تثبت إمكانية الوصول أو سلامة الحركة داخل موقع إكسبو.
 
-For local browser QA, include the exact local origin in the backend service's `FRONTEND_ORIGINS`, alongside the deployed frontend origin. This review used `http://127.0.0.1:5176`; a normal Vite run uses a different origin and must be allowed separately. Preserve CSRF, session cookies and origin checks. The local fixture in `tests/manual-api-fixture.mjs` is for controlled UI failures only and is never imported by the production app.
+## تقارير مرتبطة
+
+- [الترجمات والرسومات متعددة اللغات](../docs/ISSUE_03B_LOCALIZED_ILLUSTRATIONS.md)
+- [دورة حياة مشاركة المواقع](../docs/ISSUE_07_LOCATION_SHARING_LIFECYCLE.md)
+- [الملاحة المستمرة عند تحديث المسار](../docs/ISSUE_08_CONTINUOUS_WALKING_NAVIGATION.md)
+- [التوافق مع الشاشات](../docs/ISSUE_09_RESPONSIVE_LAYOUT_AUDIT.md)
+- [رسائل النظام وحالات الواجهة](../docs/ISSUE_10_SYSTEM_MESSAGES_FEEDBACK_AUDIT.md)
+- [تحسين إعادة طلب أذونات iPhone](../docs/IOS_PERMISSION_RETRY_FIX.md)
