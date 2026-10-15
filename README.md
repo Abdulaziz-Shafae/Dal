@@ -6,6 +6,12 @@
 
 🔗 [تجربة دال مباشرة](https://dal.up.railway.app) · [تصميم دال على Figma](https://www.figma.com/design/N942ctUotKxc4dgpj42rbU/DAL?node-id=18-11988&t=yR8RMq6wb8b8tEud-1)
 
+## ملفات التسليم النهائية
+
+- [عرض المشروع — Hackathon Presentation (PDF)](docs/submission/Dal-Hackathon-presentation.pdf)
+- [دراسة الحالة — UX/UI Case Study (PDF)](docs/submission/dal-case_study.pdf)
+- [ملف التصميم الأصلي — DAL-final.fig](docs/submission/DAL-final.fig)
+
 ![واجهة دال](docs/qa/landing-after-1440.jpg)
 
 ## التحدي الذي نعالجه
