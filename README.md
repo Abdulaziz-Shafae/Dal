@@ -12,7 +12,7 @@
 - [دراسة الحالة — UX/UI Case Study (PDF)](docs/submission/dal-case_study.pdf)
 - [ملف التصميم الأصلي — DAL-final.fig](docs/submission/DAL-final.fig)
 
-![واجهة دال](docs/qa/landing-after-1440.jpg)
+![واجهة دال بعد تصحيح إطار الجوال العلوي](docs/screenshots/phone-frame-after-chrome-desktop.png)
 
 ## التحدي الذي نعالجه
 
