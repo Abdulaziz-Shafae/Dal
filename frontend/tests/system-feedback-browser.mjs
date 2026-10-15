@@ -134,7 +134,7 @@ try {for(const [width,height]of sizes)for(const lang of(process.env.DAL_QA_LANGU
     assert.equal(await page.evaluate(()=>window.__sensorCalls),2); // Grant reused; no additional native prompt.
     await page.evaluate(()=>window.__gpsFail({code:1}));await page.locator('.nav-gps-controls [role=alert]').waitFor();
     await check('gps-denied-with-heading','.nav-gps-controls [role=alert]');assert.equal(await page.locator('.has-heading').count(),1);
-    await page.locator('.nav-gps-controls').getByRole('button',{name:tr('تفعيل الملاحة'),exact:true}).click();
+    await page.locator('.nav-gps-controls').getByRole('button',{name:tr('إعادة المحاولة'),exact:true}).click();
     await page.locator('.has-location-consent').waitFor();await go('map');await closeDialog();
     await page.locator('.member-row button').first().click();await page.locator('.walking-route-status').waitFor();
   }

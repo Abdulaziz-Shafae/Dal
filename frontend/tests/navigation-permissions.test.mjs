@@ -39,15 +39,17 @@ test('opening and dismissing never activate features; dismissal persists until n
   act(() => tree.update(render({ sensor: { ...orientation(false), status: 'unavailable' } }))); assert.equal(dialogCount(), 0);
   act(() => tree.update(render({ view: 'map' }))); assert.equal(dialogCount(), 1); assert.equal(locationCalls + sensorCalls, 0);
 });
-test('separate feature buttons make at most one attempt per page visit', () => {
+test('separate feature buttons prevent overlapping attempts', () => {
   mount(); const location = button('Enable location'), sensor = button('Enable compass sensor');
   act(() => { location.props.onClick(); location.props.onClick(); sensor.props.onClick(); sensor.props.onClick(); });
   assert.equal(locationCalls, 1); assert.equal(sensorCalls, 1);
-  assert.ok(button('Enable location').props.disabled); assert.ok(button('Enable compass sensor').props.disabled);
+  act(() => tree.update(render({ navigation: { ...gps(false), consent: true, gps: { status: 'loading', point: null } }, sensor: { ...orientation(false), status: 'requesting' } })));
+  assert.ok(button('Finding your location…').props.disabled); assert.ok(button('Enable compass sensor').props.disabled);
 });
 
 test('Escape dismisses even when a pending permission button has lost focus', () => {
   mount(); act(() => button('Enable compass sensor').props.onClick());
+  act(() => tree.update(render({ sensor: { ...orientation(false), status: 'waiting' } })));
   assert.ok(button('Enable compass sensor').props.disabled);
   const escape = new Event('keydown'); Object.defineProperty(escape, 'key', { value: 'Escape' });
   act(() => document.dispatchEvent(escape)); assert.equal(dialogCount(), 0);
@@ -69,7 +71,7 @@ test('Map does not flash a popup while previously consented GPS resumes', () => 
 });
 test('loading, waiting, denied and unsupported states explain missing requirements', () => {
   mount({ navigation: { ...gps(false), consent: true, gps: { status: 'loading', point: null } }, sensor: { ...orientation(false), status: 'waiting' } });
-  assert.ok(text(tree.toJSON()).includes('Finding your location')); assert.ok(button('Enable location').props.disabled); assert.ok(button('Enable compass sensor').props.disabled);
+  assert.ok(text(tree.toJSON()).includes('Finding your location')); assert.ok(button('Finding your location…').props.disabled); assert.ok(button('Enable compass sensor').props.disabled);
   act(() => tree.update(render({ navigation: { ...gps(false), gps: { status: 'denied', point: null, error: 'إذن الموقع مرفوض. اسمح بالموقع من إعدادات المتصفح ثم أعد المحاولة.' } }, sensor: { ...orientation(false), status: 'denied' } })));
   assert.ok(text(tree.toJSON()).includes('Location permission denied')); assert.ok(text(tree.toJSON()).includes('Sensor permission denied'));
   window.DeviceOrientationEvent = undefined;

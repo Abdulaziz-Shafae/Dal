@@ -2013,7 +2013,19 @@ export const messages = {
     fr: 'Vos réglages autorisent le partage ; l’envoi de votre position nécessite le GPS et une connexion.'
   },
   'تفاصيل المجموعة': { en: 'Group details', fr: 'Détails du groupe' },
-  'إغلاق الرسالة': { en: 'Dismiss message', fr: 'Fermer le message' }
+  'إغلاق الرسالة': { en: 'Dismiss message', fr: 'Fermer le message' },
+  'تعذر التحقق من إذن الموقع. فعّله يدويًا للمتابعة؛ لم يُسجّل رفض للإذن.': {
+    en: 'Location permission could not be checked. Enable location manually to continue; no permission denial was detected.',
+    fr: 'L’autorisation de localisation n’a pas pu être vérifiée. Activez la localisation manuellement pour continuer ; aucun refus n’a été détecté.'
+  },
+  'إذا كان الإذن محظورًا، اسمح بالموقع من إعدادات Safari أو الجهاز أولًا، ثم اضغط إعادة المحاولة. لا يستطيع دال تجاوز إذن النظام.': {
+    en: 'If location is blocked, allow it in Safari or device settings first, then retry. DAL cannot override system permissions.',
+    fr: 'Si la localisation est bloquée, autorisez-la d’abord dans les réglages de Safari ou de l’appareil, puis réessayez. DAL ne peut pas contourner les autorisations du système.'
+  },
+  'تعذر تفعيل الحساس. اضغط إعادة التفعيل يدويًا؛ لن يُفعّل الموقع.': {
+    en: 'The sensor could not be enabled. Try enabling it again manually; this will not enable location.',
+    fr: 'Le capteur n’a pas pu être activé. Réessayez manuellement ; cela n’activera pas la localisation.'
+  }
 };
 
 export const texts = {

@@ -22,8 +22,13 @@ export default function useGroupLocations({ user, group, active, sharing, groupS
   const scoped = data.scope === scope ? data : { rows: [], meeting: null, state: 'loading', permissions: null, checkedAt: 0, expired: false };
   const enabled = Boolean(active && visible && consent === scope && globalSharingAllowed(sharing, now) && groupSharing?.sharingEnabled === true && scoped.permissions?.global && scoped.permissions?.group && now - scoped.checkedAt < 30000);
   current.current = { scope, enabled, onSessionExpired, onSnapshot };
-  const gps = useGeolocation(enabled, attempt);
-  useEffect(() => { if (gps.status === 'denied') setConsent(null); }, [gps.status]);
+  const gps = useGeolocation(enabled, attempt, scope);
+  const starting = useRef(false);
+  useEffect(() => {
+    if (gps.status !== 'loading') starting.current = false;
+    // Unknown permission pauses consent, but is not a fabricated denial.
+    if ((gps.status === 'denied' || (gps.status === 'idle' && gps.error)) && gps.attempt === attempt) setConsent(null);
+  }, [gps.status, gps.error, gps.attempt, attempt]);
   useEffect(() => {
     const timer = setInterval(() => setNow(Date.now()), 1000);
     const change = () => setVisible(!document.hidden);
@@ -107,7 +112,10 @@ export default function useGroupLocations({ user, group, active, sharing, groupS
     routeAuthorized: Boolean(user && group && active && globalSharingAllowed(sharing, now) && groupSharing?.sharingEnabled === true && !['PAUSED', 'CLOSED'].includes(group.status) && scoped.state !== 'error'),
     settingsReady: sharing != null && groupSharing != null,
     sharingAllowed: globalSharingAllowed(sharing, now) && groupSharing?.sharingEnabled === true,
-    start: () => { setConsent(scope); setAttempt(value => value + 1); }, stop: () => { setConsent(null); setData(old => ({ ...old, rows: old.rows.filter(row => row.userId !== user?.id) })); },
+    start: () => {
+      if (starting.current || gps.status === 'loading' || (enabled && gps.status === 'ready') || !active || !visible || !globalSharingAllowed(sharing, now) || groupSharing?.sharingEnabled !== true || ['PAUSED', 'CLOSED'].includes(group?.status) || scoped.state !== 'connected' || !scoped.permissions?.global || !scoped.permissions?.group || now - scoped.checkedAt >= 30000) return false;
+      starting.current = true; setConsent(scope); setAttempt(value => value + 1); return true;
+    }, stop: () => { starting.current = false; setConsent(null); setData(old => ({ ...old, rows: old.rows.filter(row => row.userId !== user?.id) })); },
     setMeeting: meeting => setData(old => ({ ...old, meeting })),
     clear: () => { setConsent(null); setData(old => ({ ...old, rows: [], meeting: null, permissions: null })); }
   };

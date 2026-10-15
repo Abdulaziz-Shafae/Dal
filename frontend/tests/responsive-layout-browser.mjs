@@ -172,7 +172,9 @@ try {for(const [width,height]of sizes)for(const lang of(process.env.DAL_QA_LANGU
     if(await page.getByRole('button',{name:tr('إغلاق الخطأ'),exact:true}).count())await page.getByRole('button',{name:tr('إغلاق الخطأ'),exact:true}).click();
   }
   for(const nextRole of ['ADMIN','MEMBER']){role=nextRole;await groupPage();await audit(`group-${nextRole.toLowerCase()}`,'.group-detail');}
-  await page.waitForLoadState('networkidle');authenticated=false;await page.goto(base);await page.locator('.site-nav').waitFor();await audit('home-guest','.hero-inner');
+  // Settle and pause old-document polls before synthetic full-document account
+  // transitions; otherwise WebKit can report a navigation-cancelled fetch as CORS.
+  await page.waitForLoadState('networkidle');await page.clock.pauseAt(new Date(Date.now()+1000));await page.waitForLoadState('networkidle');authenticated=false;await page.goto(base);await page.locator('.site-nav').waitFor();await page.clock.resume();await audit('home-guest','.hero-inner');
   await page.locator('.hero-actions .filled').first().click();await audit('login','.form-page',{shot:true});await page.locator('.segmented').getByRole('button',{name:tr('حساب جديد'),exact:true}).click();await audit('register','.form-page');
   await page.getByRole('button',{name:tr('نسيت الباسوورد؟'),exact:true}).click();await audit('forgot','.panel.narrow');
   await page.waitForLoadState('networkidle');await page.goto(base+'/reset-password');await audit('reset-missing-token','.panel.narrow');await page.waitForLoadState('networkidle');await page.goto(base+'/reset-password?token=synthetic');await audit('reset','.panel.narrow');

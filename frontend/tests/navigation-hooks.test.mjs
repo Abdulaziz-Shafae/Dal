@@ -19,17 +19,17 @@ beforeEach(() => {
 });
 afterEach(() => { if (tree) act(() => tree.unmount()); tree = null; });
 test('GPS watch reads actual supplied browser coordinates and cleans up on stop', () => {
-  const update = mount(input => hooks.useGeolocation(input.enabled), { enabled: true });
+  const update = mount(input => hooks.useGeolocation(input.enabled, 1), { enabled: true });
   assert.equal(value.status, 'loading');
   act(() => successes({ coords: { latitude: 24, longitude: 46, accuracy: 8 }, timestamp: Date.now() }));
   assert.equal(value.point.latitude, 24); assert.equal(value.point.accuracy, 8);
   update({ enabled: false }); assert.equal(value.point, null); assert.deepEqual(cleared, [7]);
 });
 test('GPS permission denied and unsupported context show explicit states', () => {
-  mount(input => hooks.useGeolocation(input.enabled), { enabled: true });
+  mount(input => hooks.useGeolocation(input.enabled, 1), { enabled: true });
   act(() => failures({ code: 1 })); assert.equal(value.status, 'denied'); assert.equal(value.point, null); assert.deepEqual(cleared, [7]);
   act(() => tree.unmount()); tree = null; window.isSecureContext = false;
-  mount(input => hooks.useGeolocation(input.enabled), { enabled: true }); assert.equal(value.status, 'unavailable');
+  mount(input => hooks.useGeolocation(input.enabled, 1), { enabled: true }); assert.equal(value.status, 'unavailable');
 });
 test('orientation requests iOS permission, reads heading and removes listeners', async () => {
   let calls = 0; window.DeviceOrientationEvent.requestPermission = async () => { calls++; return 'granted'; };
