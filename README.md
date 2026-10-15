@@ -4,7 +4,7 @@
 
 دال هو نموذج أولي (Prototype) لمنصة ويب تساعد زوار إكسبو 2030 الرياض على العثور على أفراد مجموعاتهم والالتقاء بهم في المساحات المزدحمة، مع مراعاة ضعف التغطية الخلوية. يجمع بين مشاركة الموقع بإذن المستخدم، والخريطة التفاعلية، والبوصلة، ونقطة لقاء مشتركة.
 
-🔗 [تجربة دال مباشرة](https://dal.up.railway.app) · [إعداد Railway](RAILWAY_SETUP.md) · [تفاصيل التحسينات والاختبارات](FINAL_IMPROVEMENTS_AR.md)
+🔗 [تجربة دال مباشرة](https://dal.up.railway.app)
 
 ![واجهة دال](docs/qa/landing-after-1440.jpg)
 
@@ -87,54 +87,6 @@ Dal/
 
 الواجهة تطلب `/api/v1` عبر Reverse Proxy من نفس نطاق الموقع. يحتفظ Backend بالجلسة ويتحقق من CSRF والصلاحيات؛ لا توضع مفاتيح خدمات الطرف الثالث في React.
 
-## تشغيل المشروع محليًا
-
-### المتطلبات
-
-- Java 17 أو إصدار متوافق معه.
-- Node.js 22 وnpm (وفق Dockerfile الخاص بالواجهة).
-- MySQL وقاعدة بيانات تجريبية باسم `dal`، أو اسم آخر تضبطه في `DB_URL`.
-
-### 1. تشغيل Backend
-
-أنشئ قاعدة بيانات MySQL محلية، ثم عيّن متغيرات البيئة الخاصة بها. مثال على PowerShell في Windows:
-
-```powershell
-cd backend
-$env:DB_URL = "jdbc:mysql://localhost:3306/dal"
-$env:DB_USERNAME = "root"
-$env:DB_PASSWORD = "YOUR_LOCAL_PASSWORD"
-.\mvnw.cmd spring-boot:run
-```
-
-يعمل Backend افتراضيًا على `http://localhost:8080`. استخدم متغيرات بيئة فعلية بدل حفظ كلمات المرور في المستودع.
-
-### 2. تشغيل Frontend
-
-في Terminal آخر من جذر المستودع:
-
-```bash
-cd frontend
-npm ci
-npm run dev
-```
-
-افتح `http://localhost:5173`. يحوّل Vite طلبات `/api` إلى `http://localhost:8080` افتراضيًا. يمكن تغيير الوجهة عبر `API_PROXY_TARGET`، وتوجد أمثلة متغيرات في [`frontend/.env.example`](frontend/.env.example).
-
-### خدمات اختيارية
-
-إذا أردت تفعيل الخدمات الإضافية، عيّن المتغيرات التالية في بيئة Backend فقط:
-
-| المتغير | الغرض |
-| --- | --- |
-| `OPENROUTESERVICE_API_KEY` | تفعيل طرق المشي |
-| `OPENAI_API_KEY` | تفعيل الشرح بالذكاء الاصطناعي |
-| `OPENAI_MODEL` | اختيار نموذج متوافق (اختياري) |
-| `BREVO_API_KEY` و`BREVO_SENDER_EMAIL` و`BREVO_SENDER_NAME` | رسائل استعادة كلمة المرور |
-| `PASSWORD_RESET_URL` | رابط صفحة إعادة تعيين كلمة المرور |
-
-عند غياب ORS أو OpenAI يظهر مسار بديل أو توصية حسابية موضّحة في الواجهة؛ لا تُعرض نتائج غير موجودة على أنها مسار أو استجابة AI حقيقية. لمزيد من تفاصيل النشر وإعداد MySQL، راجع [RAILWAY_SETUP.md](RAILWAY_SETUP.md).
-
 ## أمثلة من API
 
 كل المسارات التالية تحت `/api/v1` وتتطلب الجلسة/الصلاحيات المناسبة، وعمليات التعديل تستخدم CSRF:
@@ -184,8 +136,6 @@ npm run build
 
 ## ملفات توثيق إضافية
 
-- [إعداد النشر على Railway](RAILWAY_SETUP.md)
-- [تفاصيل التحسينات وحدود الملاحة وAI](FINAL_IMPROVEMENTS_AR.md)
 - [توثيق قاعدة بيانات محادثة المجموعة](backend/migrations/README.md)
 - [نتائج التحقق الآلي](docs/final-validation.json)
 
