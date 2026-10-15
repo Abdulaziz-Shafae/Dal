@@ -51,4 +51,8 @@ public class UserLocation {
     @NotNull(message = "Recorded time is required")
     @Column(name = "recorded_at", nullable = false)
     private LocalDateTime recordedAt;
+
+    // Server-controlled authenticated activity; never a client measurement time.
+    @Column(name = "activity_at")
+    private LocalDateTime activityAt;
 }

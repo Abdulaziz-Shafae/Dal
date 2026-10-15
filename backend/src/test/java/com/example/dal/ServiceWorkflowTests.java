@@ -13,16 +13,27 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.transaction.annotation.Transactional;
 import java.time.OffsetDateTime;
+import java.time.Clock;
+import java.time.Instant;
 import java.time.ZoneOffset;
 import java.util.List;
 import java.util.UUID;
 import org.mockito.ArgumentCaptor;
+import org.junit.jupiter.api.BeforeEach;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 @IsolatedDalContext
 @Transactional
 class ServiceWorkflowTests {
+
+    @MockitoBean Clock clock;
+    private Instant testTime;
+    @BeforeEach void useOrderedTestClock() {
+        testTime=null;
+        when(clock.getZone()).thenReturn(ZoneOffset.UTC);
+        when(clock.instant()).thenAnswer(call -> testTime == null ? Instant.now() : testTime);
+    }
 
     @Autowired UserService users;
     @Autowired PasswordPolicyService passwords;
@@ -60,6 +71,9 @@ class ServiceWorkflowTests {
         var storedUser = userRepository.findUserById(user.getId());
         entityManager.refresh(storedUser);
         OffsetDateTime recordedAt = storedUser.getCreatedAt().plusSeconds(1).atOffset(ZoneOffset.UTC);
+        OffsetDateTime afterGroupCreation = OffsetDateTime.now(ZoneOffset.UTC).plusNanos(1_000_000);
+        if (afterGroupCreation.isAfter(recordedAt)) recordedAt = afterGroupCreation;
+        testTime = recordedAt.toInstant();
         locations.updateUserLocation(user.getId(), new LocationDtoIn(24.7136, 46.6753, 5.0, recordedAt));
     }
 

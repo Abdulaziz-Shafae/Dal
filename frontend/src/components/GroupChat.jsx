@@ -1,8 +1,10 @@
+import { useLanguage } from '../LanguageContext.jsx';
 import React, { useEffect, useRef, useState } from 'react';
 import { api } from '../api.js';
 import { pageItems, mergeConversationPage } from '../utils.js';
 
 export default function GroupChat({ group, user, online, labelDate, onError, tabs }) {
+  const { tr } = useLanguage();
   const [messages, setMessages] = useState([]), [draft, setDraft] = useState(''), [busy, setBusy] = useState(false), [status, setStatus] = useState('loading'), [page, setPage] = useState(0), [more, setMore] = useState(false), [unread, setUnread] = useState(0);
   const pending = useRef(false), retry = useRef(null), mounted = useRef(true), loadedPage = useRef(0);
   async function refresh(older = false) {
@@ -29,5 +31,5 @@ export default function GroupChat({ group, user, online, labelDate, onError, tab
     catch (error) { if (mounted.current) onError(error); }
     finally { if (mounted.current) setBusy(false); }
   }
-  return <section className="chat-page">{tabs}<div className="chat-heading"><h2>محادثة المجموعة · {group.name}</h2><small>{unread ? `${unread} غير مقروءة` : 'رسائل المجموعة'}</small></div><div className="messages" aria-live="polite">{more && <button className="text-link" disabled={busy} onClick={() => refresh(true)}>تحميل الرسائل السابقة</button>}{status === 'loading' && <p>جارٍ تحميل المحادثة…</p>}{status === 'error' && <p role="alert">تعذر تحديث المحادثة؛ سنحاول مجددًا عند توفر الاتصال.</p>}{status === 'ready' && !messages.length && <p>ابدأ محادثة المجموعة</p>}{messages.map(m => <article key={m.id} className={`message ${m.senderId === user.id ? 'mine' : ''}`}><b>{m.senderName}</b><p dir="auto">{m.content}</p><small dir="ltr">{labelDate(m.createdAt)}</small></article>)}</div><form className="chat-input" onSubmit={send}><input aria-label="رسالتك للمجموعة" maxLength={1000} required value={draft} onChange={e => setDraft(e.target.value)} placeholder="اكتب للمجموعة…"/><button onPointerDown={event => event.preventDefault()} disabled={busy || !online}>إرسال</button></form></section>;
+  return <section className="chat-page">{tabs}<div className="chat-heading"><h2>{tr("محادثة المجموعة ·")} {group.name}</h2><small>{unread ? tr("{0} غير مقروءة", unread) : tr("رسائل المجموعة")}</small></div><div className="messages" aria-live="polite">{more && <button className="text-link" disabled={busy} onClick={() => refresh(true)}>{tr("تحميل الرسائل السابقة")}</button>}{status === 'loading' && <p role="status">{tr("جارٍ تحميل المحادثة…")}</p>}{status === 'error' && <p role="alert">{tr("تعذر تحديث المحادثة؛ سنحاول مجددًا عند توفر الاتصال.")}</p>}{status === 'ready' && !messages.length && <p role="status">{tr("ابدأ محادثة المجموعة")}</p>}{messages.map(m => <article key={m.id} className={`message ${m.senderId === user.id ? 'mine' : ''}`}><b>{m.senderName}</b><p dir="auto">{m.content}</p><small dir="ltr">{labelDate(m.createdAt)}</small></article>)}</div><form className="chat-input" onSubmit={send}><input dir="auto" aria-label={tr("رسالتك للمجموعة")} maxLength={1000} required value={draft} onChange={e => setDraft(e.target.value)} placeholder={tr("اكتب للمجموعة…")}/><button onPointerDown={event => event.preventDefault()} disabled={busy || !online}>{tr("إرسال")}</button></form></section>;
 }

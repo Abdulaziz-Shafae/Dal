@@ -1,5 +1,5 @@
 import { api } from '../api.js';
-import { shouldPublish } from '../utils/navigationCalculations.js';
+import { shouldPublish, validCoordinates } from '../utils/navigationCalculations.js';
 
 // A single uploader survives watch restarts: no overlapping writes or delayed GPS queue.
 export function createLocationPublisher(save, clock = Date.now) {
@@ -7,7 +7,8 @@ export function createLocationPublisher(save, clock = Date.now) {
   return {
     async publish(point, interval) {
       const now = clock();
-      if (pending || now - attemptedAt < interval || !shouldPublish(point, last, now - sentAt, interval)) return false;
+      const activityDue = validCoordinates(point) && now - sentAt >= 30000;
+      if (pending || now - attemptedAt < Math.min(interval, 30000) || (!activityDue && !shouldPublish(point, last, now - sentAt, interval))) return false;
       pending = true; attemptedAt = now;
       try { await save(point); last = point; sentAt = now; return true; }
       finally { pending = false; }

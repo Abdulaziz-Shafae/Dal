@@ -1,7 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
-import { allowedLocations, bearingBetween, distanceBetween, headingFromEvent, shouldPublish, validCoordinates, globalSharingAllowed, locationAge, CACHE_TTL } from '../src/utils/navigationCalculations.js';
+import { allowedLocations, bearingBetween, distanceBetween, headingFromEvent, shouldPublish, validCoordinates, globalSharingAllowed, locationAge } from '../src/utils/navigationCalculations.js';
 const a = { latitude: 0, longitude: 0, accuracy: 5 };
 test('Haversine measures zero, known equatorial kilometre and antimeridian safely', () => {
   assert.equal(distanceBetween(a, a), 0);
@@ -41,9 +41,9 @@ test('scheduled sharing stops precisely at its end, with backend pause taking pr
   assert.equal(globalSharingAllowed(settings, Date.parse(settings.endTime)), false);
   assert.equal(globalSharingAllowed({ ...settings, isPaused: true }, Date.parse(settings.startTime)), false);
 });
-test('timestamps remain explicit and stale data has a five-minute limit', () => {
+test('timestamps remain explicit without deciding visibility', () => {
   assert.equal(locationAge({}), Infinity);
-  assert.equal(locationAge({ recordedAt: '2026-10-13T12:00:00Z' }, Date.parse('2026-10-13T12:05:00Z')), CACHE_TTL);
+  assert.equal(locationAge({ recordedAt: '2026-10-13T12:00:00Z' }, Date.parse('2026-10-13T12:05:00Z')), 300000);
 });
 // Load the production uploader with only its unused API import removed.
 const service = (await readFile(new URL('../src/services/locationService.js', import.meta.url), 'utf8')).replace("import { api } from '../api.js';", '').replace("'../utils/navigationCalculations.js'", JSON.stringify(new URL('../src/utils/navigationCalculations.js', import.meta.url).href));

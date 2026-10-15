@@ -43,7 +43,7 @@
 .group-detail .share-code>.code{margin:0;flex:1;min-width:0;text-align:start;font-size:24px;letter-spacing:3px}
 .group-detail .share-code>.pair{flex:0 1 auto;gap:6px}
 .group-detail .share-code .pair button{min-width:80px;min-height:44px;font-size:12px;padding:8px 10px;gap:6px;white-space:nowrap;overflow-wrap:normal;background:#e3f4ee;border:0}
-.dal-navigation{padding:16px;background:#f2faf7}
+.dal-navigation{padding:16px;background:#f2faf7;overflow:visible}
 .dal-navigation .page-heading{margin-bottom:10px;align-items:center}
 .dal-navigation .page-heading h1{font-size:18px}
 .dal-navigation .page-heading>span{font-size:12px;color:#3f6e60;white-space:nowrap}
@@ -55,12 +55,12 @@
 .nav-gps-controls>.filled{width:100%;min-height:48px;font-size:14px}
 .nav-gps-controls>.field-help{font-size:12px;margin-top:8px}
 .nav-gps-controls>.text-link{padding:6px 0;font-size:13px}
-.dal-navigation .segmented{margin:12px 0;padding:4px;border-radius:30px}
+.dal-navigation .segmented{margin:12px 0;padding:4px;border-radius:30px;position:sticky;top:78px;z-index:5}
 .dal-navigation .segmented button{font-size:14px;min-height:44px;padding:9px 4px}
 .dal-navigation .nav-map-toolbar{gap:8px;margin:8px 0}
 .dal-navigation .nav-map-toolbar button{font-size:12px;min-height:44px;padding:9px 12px;background:#fff;border-radius:12px}
 .dal-navigation--map.has-location-consent{display:flex;flex-direction:column;position:relative}
-.dal-navigation--map.has-location-consent>.page-heading{position:absolute;inset-inline:24px;top:24px;z-index:4;background:white;border:1px solid #dcece5;border-radius:18px;padding:12px;margin:0;box-shadow:0 8px 20px #00443218}
+.dal-navigation--map.has-location-consent>.page-heading{position:absolute;inset-inline:24px;top:100px;z-index:4;background:white;border:1px solid #dcece5;border-radius:18px;padding:12px;margin:0;box-shadow:0 8px 20px #00443218}
 .dal-navigation--map.has-location-consent>.dal-live-map{order:0;position:relative}
 .dal-navigation--map.has-location-consent .nav-map-toolbar{position:absolute;top:78px;inset-inline-end:auto;inset-inline-start:12px;z-index:3;display:flex;flex-direction:column}
 .dal-navigation--map.has-location-consent .leaflet-top.leaflet-left{top:78px}
@@ -68,7 +68,7 @@
 .dal-navigation--map.has-location-consent>.member-picker{order:2}
 .dal-navigation--map.has-location-consent>.nav-connection{order:3}
 .dal-navigation--map.has-location-consent>.nav-gps-controls{order:4}
-.dal-navigation--map.has-location-consent>.segmented{order:5}
+.dal-navigation--map.has-location-consent>.segmented{order:-1}
 .dal-map-canvas{border-radius:20px}
 .dal-map-canvas .leaflet-tooltip{min-width:36px;max-width:none;white-space:nowrap;padding:5px 10px;border-radius:20px;color:#004432;border:1px solid #2bba95;font-size:14px;font-weight:700;box-shadow:0 3px 8px #00443215}
 .dal-navigation .member-picker{margin-top:12px;padding:16px;border-radius:24px 24px 16px 16px}
@@ -100,18 +100,21 @@
 .workspace:has(.dal-navigation--compass) .workspace-nav .brand img{filter:brightness(0) invert(1)}
 .workspace:has(.dal-navigation--compass) .workspace-nav .round{background:#ffffff15;color:white}
 .app:has(.dal-navigation--compass) .bottom-nav{background:#004432f5;border-color:#ffffff25}
-.app:has(.dal-navigation--compass) .bottom-nav button{color:#c2dfd3}
+.app:has(.dal-navigation--compass) .bottom-nav button:not(.active){color:#c2dfd3}
 .dal-navigation--compass .page-heading>span{color:#b6d7ca}
 .dal-navigation--compass .nav-connection.connected{background:#ffffff0c;color:#b6d7ca;border-color:#ffffff25}
 .dal-navigation--compass .nav-gps-controls{background:#ffffff0c;color:#e3f4ee;border-color:#ffffff35}
 .dal-navigation--compass .nav-gps-controls .field-help,.dal-navigation--compass .text-link{color:#b6d7ca}
-.dal-navigation--compass .segmented{background:#ffffff18}
+.dal-navigation--compass .segmented{background:#185645}
 .dal-navigation--compass .segmented button{color:#b6d7ca}
 .dal-navigation--compass .segmented button.active{background:white;color:#004432}
 .dal-live-compass{padding:0 0 8px;display:flex;flex-direction:column;align-items:center}
 .dal-live-compass>p:first-child{font-size:13px;color:#b6d7ca}
 .dal-live-compass h2{font-size:26px;line-height:1.4;margin:6px 0 0}
 .dal-live-compass .compass-permission{font-size:12px;min-height:40px;padding:8px 14px;color:#e3f4ee;border-color:#ffffff50;border-radius:12px}
+.dal-live-compass .nearest-member{max-width:100%;min-height:44px;padding:10px 16px;margin:12px 0 0;font-size:14px;white-space:normal;border-radius:12px}
+.dal-live-compass .nearest-member.outline{color:#e3f4ee;border-color:#ffffff50}
+.dal-live-compass .nearest-member-feedback{max-width:340px;margin:10px 0 0;line-height:1.6;overflow-wrap:anywhere}
 .dal-live-compass .compass-sensor-status{font-size:12px;color:#b6d7ca;max-width:340px;margin-top:8px}
 .dal-compass-dial{width:min(300px,100%);border:2px solid #80c9b366;background:#0b5945;position:relative;margin:24px auto;color:#a5cabc}
 .dal-compass-dial:before{content:'';position:absolute;width:56%;aspect-ratio:1;border-radius:50%;background:#004432}
@@ -168,6 +171,7 @@
  .group-detail .share-code{max-width:350px;padding:10px 12px}
  .group-detail h1{font-size:30px;line-height:1.2;margin-bottom:0}
  .dal-navigation{padding:12px}
+ .dal-navigation .segmented{top:64px}
  .dal-map-canvas{height:clamp(300px,calc(100svh - 390px),440px)}
  .dal-navigation .member-row{grid-template-columns:repeat(3,minmax(0,1fr))}
  .dal-navigation .distance-placeholder{font-size:64px}
@@ -183,6 +187,11 @@
 @media(prefers-reduced-motion:reduce){.faq-item button>svg{transition:none}}
 
 /* Scoped additions for walking, AI explanations and group conversation. */
+.walking-route-status{padding:8px 12px;border-inline-start:3px solid var(--green);background:#edf8f3;border-radius:8px}
+.walking-route-status.outdated{background:#fff8e8;border-inline-start-color:#a56700}
+.walking-route-status small{font-size:11px;line-height:1.7}
+.dal-navigation--map.has-location-consent>.dal-live-map.has-map-fallback{padding-block-start:70px}
+.dal-navigation--map.has-location-consent .has-map-fallback .nav-map-toolbar{position:static}
 .workspace-actions .round{position:relative}
 .notification-badge{position:absolute;top:-4px;inset-inline-end:-5px;min-width:20px;height:20px;padding:2px 4px;border-radius:20px;background:#a6372e;color:white;font-size:10px;line-height:16px;font-weight:700}
 .walking-card,.nav-assistant{order:2;margin:12px 0;padding:16px;border:1px solid #cde7dd;border-radius:20px;background:#fff;color:#004432;overflow-wrap:anywhere}
@@ -194,7 +203,10 @@
 .chat-tabs{max-width:700px;margin:12px auto}
 .chat-page .message>b{font-size:12px;display:block;margin-bottom:4px}
 .hero-phone{height:auto;aspect-ratio:820/1360;object-fit:contain;filter:drop-shadow(0 24px 24px #001b1940)}
-.hero-phone-wrap{width:min(410px,100%);justify-self:center;filter:drop-shadow(0 16px 22px #001b1938)} .hero-phone-wrap .hero-phone{display:block;width:100%;height:auto;filter:none;transform:rotate(-1deg);transform-origin:50% 55%} @media(max-width:760px){.hero-phone-wrap{display:none}}
+.hero-phone-wrap{position:relative;width:min(410px,100%);justify-self:center;filter:drop-shadow(0 16px 22px #001b1938)} .hero-phone-wrap .hero-phone{display:block;width:100%;height:auto;filter:none;transform:rotate(-1deg);transform-origin:50% 55%} @media(max-width:760px){.hero-phone-wrap{display:none}}
+/* Restore the raster's cropped top bezel, matching the mask's 96px outer
+   radius and the existing 20px side bezel in the 820 × 1360 artwork. */
+.hero-phone-wrap::after{content:"";position:absolute;inset:0;pointer-events:none;transform:rotate(-1deg);transform-origin:50% 55%;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 820 1360'%3E%3Cpath fill='%230f1513' d='M80 112V96a96 96 0 0 1 96-96h456a96 96 0 0 1 96 96v16h-20V96a76 76 0 0 0-76-76H176a76 76 0 0 0-76 76v16Z'/%3E%3C/svg%3E") center/100% 100% no-repeat}
 .chat-tabs{width:100%;flex-shrink:0}
 
 /* Compact content and keep navigation/composers within the visible viewport. */
@@ -202,7 +214,12 @@
 .signed-in>footer{padding-bottom:var(--bottom-nav-height)}
 .signed-in .workspace-main{padding-bottom:calc(var(--bottom-nav-height) + 24px)}
 .signed-in .bottom-nav{height:var(--bottom-nav-height);gap:clamp(4px,4vw,48px);padding:8px 8px calc(8px + env(safe-area-inset-bottom))}
-.signed-in .bottom-nav button{min-width:0;min-height:44px;padding:6px 8px}
+/* Anchor fixed navigation to the dynamic viewport, avoiding Safari's stale
+   bottom reference while browser toolbars collapse/expand. No scroll handler. */
+@supports(height:100dvh){
+ .signed-in .bottom-nav{top:calc(100dvh - var(--bottom-nav-height));bottom:auto}
+}
+.signed-in .bottom-nav button{min-width:0;min-height:44px;padding:6px 8px;color:var(--green)}
 .signed-in .home-sharing{bottom:calc(var(--bottom-nav-height) + 12px)}
 .group-grid{grid-template-columns:repeat(3,minmax(0,1fr));align-items:start;gap:14px}
 .group-card{height:auto;min-height:0;display:grid;grid-template-columns:44px minmax(0,1fr) 18px;gap:8px 12px;padding:16px;align-items:center}
@@ -247,4 +264,47 @@
  .app:has(.chat-page) .toast{top:calc(76px + env(safe-area-inset-top))}
  .walking-card,.nav-assistant{padding:12px}
  .walking-attribution{column-gap:10px}
+}
+
+/* Keep translated navigation and map labels aligned with the active language. */
+:root[dir="ltr"] .languages,:root[dir="ltr"] .footer-bottom{direction:ltr}
+:root[dir="ltr"] .leaflet-tooltip,:root[dir="ltr"] .leaflet-popup-content{direction:ltr}
+:root[dir="ltr"] .lucide-chevron-left,:root[dir="ltr"] .workspace-nav .lucide-arrow-right{transform:scaleX(-1)}
+.signed-in .home-sharing{max-width:calc(100% - 40px);text-align:start}
+.bottom-nav small{overflow-wrap:anywhere;text-align:center}
+.dal-compass-dial{overflow:clip}
+.chat-input button:not(:has(svg)){width:auto;min-width:50px;padding-inline:10px;border-radius:25px}
+
+.permission-panel{width:min(100%,460px);max-height:calc(100dvh - 48px - env(safe-area-inset-top) - env(safe-area-inset-bottom));overflow:auto;padding:24px;background:white;color:var(--green);border-radius:28px;box-shadow:0 24px 80px #001b1930;text-align:start;overscroll-behavior:contain}
+.permission-panel h2{font-size:24px;margin-bottom:16px}
+.permission-panel .permission-requirement{padding-block:12px;border-top:1px solid var(--line)}
+.permission-panel h3{display:flex;align-items:center;gap:8px;font-size:18px;margin-bottom:8px}
+.permission-panel p{font-size:14px;line-height:1.7;margin-block:8px;overflow-wrap:anywhere}
+.permission-panel .filled,.permission-panel .outline{width:100%;min-height:44px;font-size:14px;padding:10px 14px}
+.permission-panel .permission-settings{display:flex;flex-wrap:wrap;gap:8px 16px}
+.permission-panel .languages{justify-content:center;margin-top:12px}
+.permission-panel .languages button.active{background:var(--pale)}
+.workspace-main:has(.permission-panel){position:relative;z-index:100}
+
+/* Responsive layout audit: keep shared center lines and intrinsic controls. */
+.workspace-nav{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr)}
+.workspace-nav>.round{justify-self:start}
+.workspace-nav>.brand{justify-self:center}
+.workspace-nav>.workspace-actions{justify-self:end}
+.footer-grid .languages{flex-wrap:wrap}
+.toast>svg{flex-shrink:0}
+.toast button{display:grid;place-items:center;flex-shrink:0;min-width:44px;min-height:44px;border:0;border-radius:12px;background:transparent;color:inherit}
+.permission-requirement [role=alert]{padding:10px 12px;border-inline-start:3px solid #a63f28;border-radius:8px;background:#fff2ec;color:#91341f}
+.compass-sensor-status{line-height:1.8;overflow-wrap:anywhere}
+@media(max-width:760px){
+ .dal-live-compass .dal-compass-dial{width:min(260px,100%);margin:16px auto}
+ .dal-live-compass .distance-placeholder{font-size:56px}
+}
+@media(max-width:960px) and (max-height:500px){
+ .dal-live-compass .dal-compass-dial{width:min(220px,100%);margin:12px auto}
+ .dal-live-compass .distance-placeholder{font-size:48px}
+}
+.chat-page .chat-input button:not(:has(svg)){width:auto;min-width:48px;padding-inline:16px;border-radius:24px}
+@media(min-width:761px){
+ .workspace .dal-navigation--map,.workspace .dal-navigation--meeting{width:min(1040px,calc(100% - 48px))}
 }

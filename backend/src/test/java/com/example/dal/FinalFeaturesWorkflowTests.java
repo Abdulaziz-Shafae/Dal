@@ -6,14 +6,24 @@ import com.example.dal.DtoIn.NavigationRequest.*;
 import com.example.dal.DtoOut.*;
 import com.example.dal.Service.*;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.BeforeEach;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import java.time.*;
 import java.util.*;
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.*;
 
 @IsolatedDalContext @Transactional
 class FinalFeaturesWorkflowTests {
+    @MockitoBean Clock clock;
+    private Instant testTime;
+    @BeforeEach void clockStartsAtCurrentTime() {
+        testTime=Instant.now();
+        when(clock.getZone()).thenReturn(ZoneOffset.UTC);
+        when(clock.instant()).thenAnswer(call -> testTime);
+    }
     @Autowired UserService users;
     @Autowired GroupService groups;
     @Autowired GroupMessageService chats;
@@ -27,7 +37,12 @@ class FinalFeaturesWorkflowTests {
     @Autowired com.example.dal.Repository.UserRepository userRepository;
     private UserDtoOut user(String name) {return users.registerUser(new RegisterUserDtoIn(name,UUID.randomUUID()+"@example.invalid","ValidPass1!"));}
     private GroupDtoOut group(UserDtoOut owner,UserDtoOut... members) {GroupDtoOut g=groups.createGroup(owner.getId(),new GroupDtoIn("Test group","DIRECT"));for(UserDtoOut m:members)groups.joinGroup(m.getId(),new JoinGroupDtoIn(g.getJoinCode()));return g;}
-    private void location(UserDtoOut u,double lat) {locations.updateUserLocation(u.getId(),new LocationDtoIn(lat,46.6753,8.0,OffsetDateTime.now(ZoneOffset.UTC)));}
+    private void location(UserDtoOut u,double lat) {
+        // Give creation, authorization and measurement distinct clock ticks.
+        if (Instant.now().isAfter(testTime)) testTime=Instant.now();
+        testTime=testTime.plusMillis(1);
+        locations.updateUserLocation(u.getId(),new LocationDtoIn(lat,46.6753,8.0,clock.instant().atOffset(ZoneOffset.UTC)));
+    }
     @Test void groupMessagesReachThreeMembersDeduplicateAndIsolatePrivateRead() {
         var a=user("A");var b=user("B");var c=user("C");var outsider=user("Outsider");var g=group(a,b,c);
         var input=new SendMessageDtoIn("Group hello",UUID.randomUUID().toString());
@@ -58,6 +73,7 @@ class FinalFeaturesWorkflowTests {
     @Test void navigationRespectsMembershipAndRevocationAndMissingConfiguration() {
         var a=user("A");var b=user("B");var outsider=user("Outside");var g=group(a,b);location(a,24.7136);location(b,24.7142);
         var target=new Destination(b.getId(),false);
+        for (var row : locations.getGroupLocations(a.getId(),g.getId())) assertTrue(row.getSharingEnabled(), "Fresh fixture must belong to its authorized group period");
         assertThrows(ApiException.class,()->navigation.walking(outsider.getId(),g.getId(),target));
         var route=navigation.walking(a.getId(),g.getId(),target);assertEquals("UNAVAILABLE",route.status());assertNull(route.distanceMeters());assertNull(route.durationSeconds());assertTrue(route.coordinates().isEmpty());
         var advice=navigation.reunion(a.getId(),g.getId(),target);assertEquals("RULES",advice.source());assertEquals("RECENT",advice.locationStatus());assertTrue(advice.directDistanceMeters()>0);
@@ -68,12 +84,16 @@ class FinalFeaturesWorkflowTests {
         assertThrows(ApiException.class,()->navigation.walking(a.getId(),g.getId(),new Destination(outsider.getId(),false)));
     }
     @Test void oldLocationsWarnAndMeetingSuggestionsOnlyRankExplicitCandidates() {
-        var a=user("A");var b=user("B");var g=group(a,b);location(a,24.7136);location(b,24.7156);
+        var a=user("A");var b=user("B");var g=group(a,b);
+        sharing.updateSharingSettings(b.getId(),new SharingSettingsDtoIn("ALWAYS",null,null,15));
+        location(a,24.7136);location(b,24.7156);
         var candidates=new Candidates(List.of(new Candidate("Near",24.7146,46.6753),new Candidate("Far",24.8,46.6753)));
         var result=navigation.suggest(a.getId(),g.getId(),candidates);assertEquals("RULES",result.source());assertEquals("Near",result.ranking().get(0).name());
         assertThrows(ApiException.class,()->meeting.getGroupMeetingPoint(a.getId(),g.getId()));
         assertThrows(ApiException.class,()->navigation.suggest(b.getId(),g.getId(),candidates));
-        var saved=locationRepository.findFirstByUser_IdOrderByRecordedAtDescIdDesc(b.getId());saved.setRecordedAt(LocalDateTime.now(ZoneOffset.UTC).minusMinutes(4));locationRepository.saveAndFlush(saved);
+        // Age an authorized measurement without backdating it before account/group creation.
+        testTime=testTime.plusSeconds(240);
+        location(a,24.7136);
         var old=navigation.reunion(a.getId(),g.getId(),new Destination(b.getId(),false));assertEquals("STALE",old.locationStatus());assertTrue(old.ageSeconds()>=240);assertEquals("CONTACT_MEMBER",old.action());
         assertTrue(navigation.suggest(a.getId(),g.getId(),candidates).ranking().isEmpty());
         meeting.setMeetingPoint(a.getId(),g.getId(),new MeetingPointDtoIn("Confirmed",24.7146,46.6753));

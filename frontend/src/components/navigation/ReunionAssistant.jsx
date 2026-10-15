@@ -1,7 +1,9 @@
+import { useLanguage } from '../../LanguageContext.jsx';
 import React, { useEffect, useRef, useState } from 'react';
 import { api } from '../../api.js';
 
 export default function ReunionAssistant({ groupId, target, online, onError, onMeeting, onNudge }) {
+  const { tr } = useLanguage();
   const [result, setResult] = useState(null), [busy, setBusy] = useState(false);
   const version = useRef(0);
   useEffect(() => { version.current++; setResult(null); setBusy(false); return () => { version.current++; }; }, [groupId, target?.userId, target?.id, target?.sharingEnabled, target?.recordedAt, target?.latitude, target?.longitude]);
@@ -13,8 +15,8 @@ export default function ReunionAssistant({ groupId, target, online, onError, onM
     } catch (error) { if (request === version.current) onError(error); }
     finally { if (request === version.current) setBusy(false); }
   }
-  return <div className="nav-assistant"><button className="outline" disabled={busy || !online || !target} onClick={help}>{busy ? 'جارٍ تقييم البيانات…' : 'ساعدني أوصل'}</button>
-    {result && <div role="status" className="ai-result"><b>الموقع: {({ RECENT: 'حديث', STALE: 'قديم', UNAVAILABLE: 'غير متاح' })[result.locationStatus]}</b><p className="ai-recommendation">{result.recommendation}</p>{result.warning && <p className="ai-warning">{result.warning}</p>}{result.walkingDistanceMeters != null && <p>طريق المشي: {Math.round(result.walkingDistanceMeters)} م</p>}{result.action === 'CONTACT_MEMBER' && target?.userId && <button className="outline" onClick={onNudge}>نبّه العضو</button>}<button className="outline" onClick={onMeeting}>عرض نقطة اللقاء</button></div>}
-    <details className="ai-details" key={result ? 'result' : 'intro'}><summary>عرض التفاصيل</summary>{result && <><p>{result.source === 'OPENAI' ? 'شرح من AI للبيانات المحسوبة' : 'نصيحة حسابية · خدمة AI غير متاحة'}</p><p>{result.reason}</p></>}<p className="field-help">يرسل المساعد مسافات وأعمار تحديث ودقة فقط إلى OpenAI؛ لا يرسل الأسماء أو الإحداثيات.</p></details>
+  return <div className="nav-assistant"><button className="outline" disabled={busy || !online || !target} onClick={help}>{busy ? tr("جارٍ تقييم البيانات…") : tr("ساعدني أوصل")}</button>
+    {result && <div role="status" className="ai-result"><b>{tr("الموقع:")} {({ RECENT: tr("حديث"), STALE: tr("قديم"), UNAVAILABLE: tr("غير متاح") })[result.locationStatus]}</b><p className="ai-recommendation">{tr(result.recommendation)}</p>{result.warning && <p className="ai-warning">{tr(result.warning)}</p>}{result.walkingDistanceMeters != null && <p>{tr("طريق المشي:")} {Math.round(result.walkingDistanceMeters)} {tr("م")}</p>}{result.action === 'CONTACT_MEMBER' && target?.userId && <button className="outline" onClick={onNudge}>{tr("نبّه العضو")}</button>}<button className="outline" onClick={onMeeting}>{tr("عرض نقطة اللقاء")}</button></div>}
+    <details className="ai-details" key={result ? 'result' : 'intro'}><summary>{tr("عرض التفاصيل")}</summary>{result && <><p>{result.source === 'OPENAI' ? tr("شرح من AI للبيانات المحسوبة") : tr("نصيحة حسابية · خدمة AI غير متاحة")}</p><p dir="auto">{tr(result.reason)}</p></>}<p className="field-help">{tr("يرسل المساعد مسافات وأعمار تحديث ودقة فقط إلى OpenAI؛ لا يرسل الأسماء أو الإحداثيات.")}</p></details>
   </div>;
 }
