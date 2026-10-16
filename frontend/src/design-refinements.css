@@ -207,6 +207,9 @@
 /* Restore the raster's cropped top bezel, matching the mask's 96px outer
    radius and the existing 20px side bezel in the 820 × 1360 artwork. */
 .hero-phone-wrap::after{content:"";position:absolute;inset:0;pointer-events:none;transform:rotate(-1deg);transform-origin:50% 55%;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 820 1360'%3E%3Cpath fill='%230f1513' d='M80 112V96a96 96 0 0 1 96-96h456a96 96 0 0 1 96 96v16h-20V96a76 76 0 0 0-76-76H176a76 76 0 0 0-76 76v16Z'/%3E%3C/svg%3E") center/100% 100% no-repeat}
+.dal-live-compass .compass-modes{display:flex;width:100%;max-width:460px;margin:16px auto;gap:4px}
+.dal-live-compass .compass-modes button{flex:1;min-width:0;min-height:44px;padding:10px 12px;font-size:14px;white-space:normal;overflow-wrap:anywhere}
+.dal-live-compass .compass-route-feedback,.dal-live-compass .compass-distance-label{max-width:460px;margin:10px auto;font-size:13px;line-height:1.6;overflow-wrap:anywhere}
 .chat-tabs{width:100%;flex-shrink:0}
 
 /* Compact content and keep navigation/composers within the visible viewport. */

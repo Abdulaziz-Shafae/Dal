@@ -54,7 +54,7 @@ function update(patch = {}) { props = { ...props, ...patch }; act(() => tree.upd
 function mount(patch = {}) {
   const fresh = new Date().toISOString();
   props = { view: 'compass', lang: 'en', user: { id: 1 }, group: { id: 10, myRole: 'MEMBER', status: 'ACTIVE' }, members,
-    navigation: { rows: rows.map(row => ({ ...row, recordedAt: fresh })), meeting: { ...point, name: 'Meeting point' }, state: 'connected', now: Date.now(), consent: true, enabled: true, settingsReady: true, sharingAllowed: true, gps: { status: 'ready', point: { ...point, recordedAt: fresh } }, start() { nativeCalls++; }, stop() {} },
+    navigation: { rows: rows.map(row => ({ ...row, recordedAt: fresh })), meeting: { ...point, name: 'Meeting point' }, state: 'connected', routeAuthorized: true, routeAuthorizationKey: 'test-auth', now: Date.now(), consent: true, enabled: true, settingsReady: true, sharingAllowed: true, gps: { status: 'ready', point: { ...point, recordedAt: fresh } }, start() { nativeCalls++; }, stop() {} },
     sensor: { enabled: true, status: 'ready', heading: 0, enable() { nativeCalls++; } }, navigate() {}, nudge() {}, arrived() {}, onError() {}, ...patch };
   act(() => { tree = Renderer.create(React.createElement(Probe, props), { createNodeMock: () => Object.assign(new EventTarget(), { focus() {}, querySelectorAll: () => [] }) }); });
 }
@@ -79,7 +79,7 @@ test('action reuses selected member and Compass bearing/distance, stays stable a
   assert.equal(selected.userId, 2); assert.equal(compass().findAllByProps({ className: 'nearest-member-feedback' }).length, 0);
 });
 test('nearest cancels existing walking preview and never calls ORS or activates native permissions', async () => {
-  mount(); const manual = tree.root.findAllByType('button').find(node => node.props['aria-pressed'] === true);
+  mount(); const manual = tree.root.findByProps({ className: 'member-row' }).findAllByType('button').find(node => node.props['aria-pressed'] === true);
   act(() => manual.props.onClick()); act(() => nearestButton().props.onClick());
   await act(async () => new Promise(done => setTimeout(done, 950)));
   assert.equal(selected.userId, 3); assert.deepEqual(apiCalls, []); assert.equal(nativeCalls, 0);
@@ -88,7 +88,7 @@ test('walking waits for live GPS after revalidation even when cached account coo
   mock.timers.enable({ apis: ['setTimeout', 'Date'], now: Date.now() });
   mount(); update({ navigation: { ...props.navigation, gps: { status: 'loading', point: null } } });
   assert.equal(button('Start navigation').props.disabled, true);
-  act(() => tree.root.findAllByType('button').find(node => node.props['aria-pressed'] === true).props.onClick());
+  act(() => tree.root.findByProps({ className: 'member-row' }).findAllByType('button').find(node => node.props['aria-pressed'] === true).props.onClick());
   await act(async () => { mock.timers.tick(2000); for(let i=0;i<30;i++)await Promise.resolve(); });
   assert.deepEqual(apiCalls, []);
   update({ navigation: { ...props.navigation, gps: { status: 'ready', point: { ...point, recordedAt: new Date().toISOString() } }, now: Date.now() } });
@@ -119,7 +119,7 @@ test('revoked target location removes confirmation without exposing inaccessible
   assert.equal(compass().findAllByProps({ className: 'dal-direction-arrow' }).length, 0);
 });
 test('meeting guidance selects a fixed destination without a member timestamp and updates existing bearing/distance', async () => {
-  mount(); const manual = tree.root.findAllByType('button').find(node => node.props['aria-pressed'] === true);
+  mount(); const manual = tree.root.findByProps({ className: 'member-row' }).findAllByType('button').find(node => node.props['aria-pressed'] === true);
   act(() => manual.props.onClick()); act(() => nearestButton().props.onClick());
   update({ navigation: { ...props.navigation, meeting: { name: 'Fixed gate', latitude: 0, longitude: .001 } } });
   act(() => button('Guide me to the meeting point').props.onClick());

@@ -1,0 +1,386 @@
+{
+  "baselineCommit": "d3f637b6df53828e9012366fded2f7208ebf82d7",
+  "node": "v24.21.0",
+  "synthetic": true,
+  "physicalIPhoneTested": false,
+  "productionRequests": 0,
+  "frontendTests": {
+    "passed": 201,
+    "failed": 0,
+    "skipped": 0,
+    "baselinePassed": 172,
+    "added": 29
+  },
+  "build": {
+    "passed": true,
+    "modules": 1699,
+    "cssKB": 74.72,
+    "jsKB": 539.07,
+    "existingChunkSizeAdvisory": true
+  },
+  "targetedCompass": {
+    "contexts": 18,
+    "checks": 756,
+    "failed": 0,
+    "results": [
+      {
+        "engine": "chromium",
+        "phase": "after",
+        "language": "ar",
+        "viewport": "390x844",
+        "checks": 42,
+        "walkingRequests": 6,
+        "browserNotices": [],
+        "passed": true,
+        "synthetic": true
+      },
+      {
+        "engine": "chromium",
+        "phase": "after",
+        "language": "en",
+        "viewport": "390x844",
+        "checks": 42,
+        "walkingRequests": 6,
+        "browserNotices": [],
+        "passed": true,
+        "synthetic": true
+      },
+      {
+        "engine": "chromium",
+        "phase": "after",
+        "language": "fr",
+        "viewport": "390x844",
+        "checks": 42,
+        "walkingRequests": 6,
+        "browserNotices": [],
+        "passed": true,
+        "synthetic": true
+      },
+      {
+        "engine": "chromium",
+        "phase": "after",
+        "language": "ar",
+        "viewport": "768x1024",
+        "checks": 42,
+        "walkingRequests": 6,
+        "browserNotices": [],
+        "passed": true,
+        "synthetic": true
+      },
+      {
+        "engine": "chromium",
+        "phase": "after",
+        "language": "en",
+        "viewport": "768x1024",
+        "checks": 42,
+        "walkingRequests": 6,
+        "browserNotices": [],
+        "passed": true,
+        "synthetic": true
+      },
+      {
+        "engine": "chromium",
+        "phase": "after",
+        "language": "fr",
+        "viewport": "768x1024",
+        "checks": 42,
+        "walkingRequests": 6,
+        "browserNotices": [],
+        "passed": true,
+        "synthetic": true
+      },
+      {
+        "engine": "chromium",
+        "phase": "after",
+        "language": "ar",
+        "viewport": "1280x720",
+        "checks": 42,
+        "walkingRequests": 6,
+        "browserNotices": [],
+        "passed": true,
+        "synthetic": true
+      },
+      {
+        "engine": "chromium",
+        "phase": "after",
+        "language": "en",
+        "viewport": "1280x720",
+        "checks": 42,
+        "walkingRequests": 6,
+        "browserNotices": [],
+        "passed": true,
+        "synthetic": true
+      },
+      {
+        "engine": "chromium",
+        "phase": "after",
+        "language": "fr",
+        "viewport": "1280x720",
+        "checks": 42,
+        "walkingRequests": 6,
+        "browserNotices": [],
+        "passed": true,
+        "synthetic": true
+      },
+      {
+        "engine": "webkit",
+        "phase": "after",
+        "language": "ar",
+        "viewport": "390x844",
+        "checks": 42,
+        "walkingRequests": 6,
+        "browserNotices": [
+          "Viewport argument key \"interactive-widget\" not recognized and ignored."
+        ],
+        "passed": true,
+        "synthetic": true
+      },
+      {
+        "engine": "webkit",
+        "phase": "after",
+        "language": "en",
+        "viewport": "390x844",
+        "checks": 42,
+        "walkingRequests": 6,
+        "browserNotices": [
+          "Viewport argument key \"interactive-widget\" not recognized and ignored."
+        ],
+        "passed": true,
+        "synthetic": true
+      },
+      {
+        "engine": "webkit",
+        "phase": "after",
+        "language": "fr",
+        "viewport": "390x844",
+        "checks": 42,
+        "walkingRequests": 6,
+        "browserNotices": [
+          "Viewport argument key \"interactive-widget\" not recognized and ignored."
+        ],
+        "passed": true,
+        "synthetic": true
+      },
+      {
+        "engine": "webkit",
+        "phase": "after",
+        "language": "ar",
+        "viewport": "768x1024",
+        "checks": 42,
+        "walkingRequests": 6,
+        "browserNotices": [
+          "Viewport argument key \"interactive-widget\" not recognized and ignored."
+        ],
+        "passed": true,
+        "synthetic": true
+      },
+      {
+        "engine": "webkit",
+        "phase": "after",
+        "language": "en",
+        "viewport": "768x1024",
+        "checks": 42,
+        "walkingRequests": 6,
+        "browserNotices": [
+          "Viewport argument key \"interactive-widget\" not recognized and ignored."
+        ],
+        "passed": true,
+        "synthetic": true
+      },
+      {
+        "engine": "webkit",
+        "phase": "after",
+        "language": "fr",
+        "viewport": "768x1024",
+        "checks": 42,
+        "walkingRequests": 6,
+        "browserNotices": [
+          "Viewport argument key \"interactive-widget\" not recognized and ignored."
+        ],
+        "passed": true,
+        "synthetic": true
+      },
+      {
+        "engine": "webkit",
+        "phase": "after",
+        "language": "ar",
+        "viewport": "1280x720",
+        "checks": 42,
+        "walkingRequests": 6,
+        "browserNotices": [
+          "Viewport argument key \"interactive-widget\" not recognized and ignored."
+        ],
+        "passed": true,
+        "synthetic": true
+      },
+      {
+        "engine": "webkit",
+        "phase": "after",
+        "language": "en",
+        "viewport": "1280x720",
+        "checks": 42,
+        "walkingRequests": 6,
+        "browserNotices": [
+          "Viewport argument key \"interactive-widget\" not recognized and ignored."
+        ],
+        "passed": true,
+        "synthetic": true
+      },
+      {
+        "engine": "webkit",
+        "phase": "after",
+        "language": "fr",
+        "viewport": "1280x720",
+        "checks": 42,
+        "walkingRequests": 6,
+        "browserNotices": [
+          "Viewport argument key \"interactive-widget\" not recognized and ignored."
+        ],
+        "passed": true,
+        "synthetic": true
+      }
+    ]
+  },
+  "mainComparison": {
+    "contexts": 6,
+    "checks": 96,
+    "failed": 0,
+    "results": [
+      {
+        "engine": "chromium",
+        "phase": "before",
+        "language": "en",
+        "viewport": "390x844",
+        "checks": 16,
+        "walkingRequests": 1,
+        "passed": true,
+        "synthetic": true
+      },
+      {
+        "engine": "chromium",
+        "phase": "before",
+        "language": "en",
+        "viewport": "768x1024",
+        "checks": 16,
+        "walkingRequests": 1,
+        "passed": true,
+        "synthetic": true
+      },
+      {
+        "engine": "chromium",
+        "phase": "before",
+        "language": "en",
+        "viewport": "1280x720",
+        "checks": 16,
+        "walkingRequests": 1,
+        "passed": true,
+        "synthetic": true
+      },
+      {
+        "engine": "webkit",
+        "phase": "before",
+        "language": "en",
+        "viewport": "390x844",
+        "checks": 16,
+        "walkingRequests": 1,
+        "browserNotices": [
+          "Viewport argument key \"interactive-widget\" not recognized and ignored."
+        ],
+        "passed": true,
+        "synthetic": true
+      },
+      {
+        "engine": "webkit",
+        "phase": "before",
+        "language": "en",
+        "viewport": "768x1024",
+        "checks": 16,
+        "walkingRequests": 1,
+        "browserNotices": [
+          "Viewport argument key \"interactive-widget\" not recognized and ignored."
+        ],
+        "passed": true,
+        "synthetic": true
+      },
+      {
+        "engine": "webkit",
+        "phase": "before",
+        "language": "en",
+        "viewport": "1280x720",
+        "checks": 16,
+        "walkingRequests": 1,
+        "browserNotices": [
+          "Viewport argument key \"interactive-widget\" not recognized and ignored."
+        ],
+        "passed": true,
+        "synthetic": true
+      }
+    ]
+  },
+  "existingBroadRegression": [
+    {
+      "engine": "chromium",
+      "auditRows": 513,
+      "failed": 0,
+      "contexts": [
+        "ar 390x844",
+        "en 390x844",
+        "fr 390x844",
+        "ar 768x1024",
+        "en 768x1024",
+        "fr 768x1024",
+        "ar 1280x720",
+        "en 1280x720",
+        "fr 1280x720"
+      ]
+    },
+    {
+      "engine": "webkit",
+      "auditRows": 513,
+      "failed": 0,
+      "contexts": [
+        "ar 390x844",
+        "en 390x844",
+        "fr 390x844",
+        "ar 768x1024",
+        "en 768x1024",
+        "fr 768x1024",
+        "ar 1280x720",
+        "en 1280x720",
+        "fr 1280x720"
+      ]
+    }
+  ],
+  "implementationCommit": "d6986394f7f5ecb8df80f102d85d2babc462dbd8",
+  "finalHarnessSmoke": {
+    "contexts": 2,
+    "checks": 84,
+    "failed": 0,
+    "results": [
+      {
+        "engine": "chromium",
+        "phase": "after",
+        "language": "en",
+        "viewport": "390x844",
+        "checks": 42,
+        "walkingRequests": 6,
+        "browserNotices": [],
+        "passed": true,
+        "synthetic": true
+      },
+      {
+        "engine": "webkit",
+        "phase": "after",
+        "language": "en",
+        "viewport": "390x844",
+        "checks": 42,
+        "walkingRequests": 6,
+        "browserNotices": [
+          "Viewport argument key \"interactive-widget\" not recognized and ignored."
+        ],
+        "passed": true,
+        "synthetic": true
+      }
+    ]
+  }
+}
