@@ -250,8 +250,6 @@
 .chat-page .chat-heading{gap:10px;flex-wrap:wrap;padding:12px 16px}
 .chat-page .chat-heading h2{font-size:18px;line-height:1.5}
 .chat-page .chat-heading>div{min-width:0;flex:1}
-.app:has(.chat-input:focus-within) .bottom-nav{display:none}
-.workspace:has(.chat-input:focus-within){--bottom-nav-height:0px}
 .app:has(.chat-page) .toast{top:calc(90px + env(safe-area-inset-top));bottom:auto}
 @media(max-width:900px){.group-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:760px){
@@ -259,6 +257,8 @@
  .signed-in .bottom-nav{gap:0;padding-inline:4px}
  .signed-in .bottom-nav button{flex:1;padding-inline:2px}
  .signed-in .bottom-nav small{font-size:10px}
+ .app:has(.chat-input:focus-within) .bottom-nav{display:none}
+ .workspace:has(.chat-input:focus-within){--bottom-nav-height:0px}
  .workspace:has(.chat-page){--workspace-header-height:64px}
  .workspace .chat-page{border-radius:0}
  .app:has(.chat-page) .toast{top:calc(76px + env(safe-area-inset-top))}
@@ -308,3 +308,10 @@
 @media(min-width:761px){
  .workspace .dal-navigation--map,.workspace .dal-navigation--meeting{width:min(1040px,calc(100% - 48px))}
 }
+
+/* Give laptop conversations room while keeping controls inside the viewport. */
+@media(min-width:761px){
+ .workspace .chat-page{width:calc(100% - 48px);max-width:960px}
+}
+.chat-page .chat-heading h2{min-width:0;overflow-wrap:anywhere}
+.chat-page .messages{overflow-anchor:none}

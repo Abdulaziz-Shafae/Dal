@@ -1,5 +1,7 @@
 // Arabic message keys preserve the existing copy; all supported locales are explicit.
 export const messages = {
+  "اختر مجموعة": { en: "Choose a group", fr: "Choisir un groupe" },
+  "اختر المجموعة للمتابعة إلى {0}": { en: "Choose a group to continue to {0}", fr: "Choisissez un groupe pour accéder à {0}" },
   "جارٍ تحديث المسار...": {"en":"Updating route...","fr":"Mise à jour de l’itinéraire..."},
   "المسار محدّث": {"en":"Route updated","fr":"Itinéraire à jour"},
   "آخر مسار محسوب": {"en":"Last calculated route","fr":"Dernier itinéraire calculé"},
