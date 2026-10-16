@@ -15,6 +15,8 @@ export const messages = {
   "مسافة مشي متبقية تقريبية على المسار المحسوب": {"en":"Approximate walking distance remaining on the calculated route","fr":"Distance de marche restante approximative sur l’itinéraire calculé"},
   "مسافة مباشرة": {"en":"Straight-line distance","fr":"Distance à vol d’oiseau"},
   "{0}° من الشمال · نحو النقطة التالية على الطريق": {"en":"{0}° from north · toward the next point on the route","fr":"{0}° depuis le nord · vers le prochain point de l’itinéraire"},
+  "اختر مجموعة": { en: "Choose a group", fr: "Choisir un groupe" },
+  "اختر المجموعة للمتابعة إلى {0}": { en: "Choose a group to continue to {0}", fr: "Choisissez un groupe pour accéder à {0}" },
   "جارٍ تحديث المسار...": {"en":"Updating route...","fr":"Mise à jour de l’itinéraire..."},
   "المسار محدّث": {"en":"Route updated","fr":"Itinéraire à jour"},
   "آخر مسار محسوب": {"en":"Last calculated route","fr":"Dernier itinéraire calculé"},
