@@ -28,7 +28,7 @@ function Point({ point, own, meeting, onSelect, origin, now, online }) {
     <Popup><b>{own ? tr("أنت") : point.name}</b><p>{distance === null ? tr("المسافة المباشرة غير متاحة") : tr("المسافة المباشرة: {0} م", Math.round(distance))}</p><p>{locationLabel(point, Date.now(), lang)}</p>{Number.isFinite(point.accuracy) && <p>{tr("الدقة ±")}{Math.round(point.accuracy)} {tr("م")}</p>}</Popup>
   </CircleMarker>;
 }
-export default function LiveMap({ rows, own, userId, meeting, selected, onSelect, picking = false, onPick, draft, route, candidates = [], suggestion, now = Date.now(), online = navigator.onLine, expired = false }) {
+export default function LiveMap({ rows, own, userId, meeting, selected, onSelect, picking = false, onPick, draft, route, now = Date.now(), online = navigator.onLine, expired = false }) {
  const { tr, lang, direction } = useLanguage();
   const [focus, setFocus] = useState(null), [tileError, setTileError] = useState(false);
   useEffect(() => { if (validCoordinates(selected)) setFocus({ point: selected }); }, [selected?.userId]);
@@ -46,8 +46,6 @@ export default function LiveMap({ rows, own, userId, meeting, selected, onSelect
       <Controls focus={focus} picking={picking} onPick={onPick} visible={!fallback}/>
       {route?.status === 'READY' && <Polyline positions={route.coordinates} pathOptions={{ color: '#2bba95', weight: 6, opacity: route.outdated ? .6 : .95, dashArray: route.outdated && !route.updating ? '8 10' : undefined }}/>}
       {route?.status === 'UNAVAILABLE' && validCoordinates(own) && validCoordinates(selected) && <Polyline positions={[[own.latitude, own.longitude], [selected.latitude, selected.longitude]]} pathOptions={{ color: '#004432', weight: 4, dashArray: '8 10' }}><Tooltip>{tr("اتجاه مباشر، وليس طريق مشي")}</Tooltip></Polyline>}
-      {candidates.filter(validCoordinates).map((point, i) => <CircleMarker key={`candidate-${i}`} center={[point.latitude, point.longitude]} radius={10} pathOptions={{ color: '#8064a2', dashArray: '4 4' }}><Tooltip>{point.name} {tr("· مرشح")}</Tooltip></CircleMarker>)}
-      {validCoordinates(suggestion) && <CircleMarker center={[suggestion.latitude, suggestion.longitude]} radius={15} pathOptions={{ color: '#a56700', fillColor: '#ffd77a', fillOpacity: .8 }}><Tooltip permanent>{suggestion.name} {tr("· مقترحة ولم تحفظ")}</Tooltip></CircleMarker>}
       {own && <Point point={own} own origin={own}/>}
       {rows.filter(row => row.userId !== userId).map(row => <Point key={row.userId} point={row} origin={own} onSelect={onSelect} now={now} online={online}/>)}
       {validCoordinates(meeting) && <Marker position={[meeting.latitude, meeting.longitude]} icon={meetingPinIcon} eventHandlers={{ click: () => onSelect?.(meeting) }}><Tooltip direction="top">{tr("نقطة اللقاء")}: {meeting.name}</Tooltip><Popup><b>{tr("نقطة اللقاء")}: {meeting.name}</b><p>{distanceBetween(own, meeting) === null ? tr("المسافة المباشرة غير متاحة") : tr("المسافة المباشرة: {0} م", Math.round(distanceBetween(own, meeting)))}</p></Popup></Marker>}}
