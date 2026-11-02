@@ -21,7 +21,7 @@ test('App language switching is immediate, persists across views and remounts, a
   let read = false, lists = 0, groupLoads = 0, releaseList, tree;
   const notification = { ...privateMessage, senderName: 'Referenced member', createdAt: '2026-10-14T09:00:00Z' };
   const storage = new Map();
-  const globals = { window, document, history, location: new URL('http://localhost/'), navigator: { onLine: true }, localStorage: { getItem: key => storage.get(key) ?? null, setItem(key, value) { storage.set(key, value); } }, fetch: async url => {
+  const globals = { window, document, history, location: new URL('http://localhost/'), navigator: { onLine: true, userAgent: 'Test Browser' }, localStorage: { getItem: key => storage.get(key) ?? null, setItem(key, value) { storage.set(key, value); } }, fetch: async url => {
     const path = new URL(url, 'http://localhost').pathname.replace('/api/v1', ''); let data;
     if (path === '/user/profile') data = { id: 1, name: 'Test user' };
     else if (path === '/group/my' || path === '/join-request/my') data = [];
