@@ -318,3 +318,16 @@
 }
 .chat-page .chat-heading h2{min-width:0;overflow-wrap:anywhere}
 .chat-page .messages{overflow-anchor:none}
+
+
+/* DAL team on the landing page */
+.dal-team-section { padding: 72px 0; background: #e3f4ee; color: #004432; }
+.dal-team-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; margin-top: 30px; }
+.dal-team-card { display: flex; flex-direction: column; align-items: flex-start; gap: 12px; min-width: 0; padding: 24px; border: 1px solid #b9dfd2; border-radius: 20px; background: #fff; color: #004432; text-decoration: none; transition: transform .2s, box-shadow .2s; }
+.dal-team-card:hover, .dal-team-card:focus-visible { transform: translateY(-3px); box-shadow: 0 10px 24px #00443217; }
+.dal-team-avatar { display: grid; place-items: center; width: 55px; height: 55px; border-radius: 50%; background: #2bba95; color: #004432; font-size: 26px; font-weight: 800; }
+.dal-team-card strong { font-size: 19px; }
+.dal-team-card small { font-size: 13px; line-height: 1.5; color: #336b5d; overflow-wrap: anywhere; }
+.dal-team-link { margin-top: auto; font-size: 14px; font-weight: 700; color: #1b9151; }
+@media (max-width: 920px) { .dal-team-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 520px) { .dal-team-section { padding: 48px 0; } .dal-team-grid { grid-template-columns: 1fr; gap: 12px; } .dal-team-card { padding: 18px; } }
