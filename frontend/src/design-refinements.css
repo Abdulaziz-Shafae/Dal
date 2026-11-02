@@ -343,3 +343,16 @@
 @media (max-width: 760px) {
   .tools-section .tool-card:not(.map-card) { min-height: 136px; height: auto; }
 }
+
+/* Group event details: readable controls on desktop and mobile */
+.dal-event-fields{border:1px solid #cde7dd;border-radius:18px;padding:18px;margin:20px 0;min-width:0}
+.dal-event-fields legend{padding:0 10px;font-weight:700}
+.dal-date-range{display:flex;align-items:center;gap:12px;width:100%;margin-top:10px}
+.dal-date-range input{flex:1;min-width:0;width:100%}
+.dal-date-range>span{white-space:nowrap;font-size:14px}
+.group-detail .inline-form{margin-block:22px;padding-block:18px}
+.group-detail .inline-form>h3{margin:12px 0}
+.group-detail .inline-form>.field-help{margin:12px 0 18px;line-height:1.8}
+.group-detail .inline-form+label,.group-detail .inline-form+.pair{margin-top:24px}
+.dal-event-warning{margin:12px 0;padding:12px 16px;border:1px solid #d7b98b;border-radius:12px;background:#fff9ee;color:#634a20;line-height:1.8}
+@media(max-width:760px){.dal-date-range{gap:8px;flex-wrap:wrap}.dal-date-range input{min-width:125px}.dal-event-fields{padding:14px}.group-detail .inline-form{margin-block:18px}}
