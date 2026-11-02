@@ -12,6 +12,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.Check;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.time.LocalDateTime;
 import java.time.ZoneOffset;
 import java.util.HashSet;
@@ -58,6 +60,22 @@ public class Group {
     @Check(constraints = "join_mode IN ('DIRECT', 'APPROVAL')")
     @Column(name = "join_mode", nullable = false, length = 8)
     private String joinMode = "DIRECT";
+
+    // Riyadh-local event schedule; null dates in OPEN mode preserve existing groups.
+    @Column(name = "schedule_mode", nullable = false, length = 8)
+    private String scheduleMode = "OPEN";
+
+    @Column(name = "event_start_date")
+    private LocalDate eventStartDate;
+
+    @Column(name = "event_end_date")
+    private LocalDate eventEndDate;
+
+    @Column(name = "daily_start_time")
+    private LocalTime dailyStartTime;
+
+    @Column(name = "daily_end_time")
+    private LocalTime dailyEndTime;
 
     @Column(name = "paused_until")
     private LocalDateTime pausedUntil;
