@@ -24,6 +24,7 @@ public class UserLocationService {
     private final LocationSharingSettingsRepository settingsRepository;
     private final LocationSharingSettingsService sharingService;
     private final GroupAccessService accessService;
+    private final GroupScheduleService scheduleService;
     private final InputValidationService validationService;
 
     @Transactional
@@ -121,7 +122,7 @@ public class UserLocationService {
         if (member != null && (member.getJoinedAt() == null || !afterAuthorization(location, member.getLocationsValidFrom()) || !afterAuthorization(location, member.getJoinedAt()))) return false;
         if ("SCHEDULED".equals(settings.getSharingMode()) && (settings.getEndTime() == null || !location.getRecordedAt().isBefore(settings.getEndTime()))) return false;
         LocalDateTime from = boundary(settings, member);
-        return from == null || (!location.getRecordedAt().isBefore(from) && !location.getActivityAt().isBefore(from));
+        return (member == null || scheduleService.freshWithinWindow(member.getGroup(), location.getRecordedAt(), validationService.getCurrentTime())) && (from == null || (!location.getRecordedAt().isBefore(from) && !location.getActivityAt().isBefore(from)));
     }
 
     private boolean afterAuthorization(UserLocation location, LocalDateTime boundary) {
