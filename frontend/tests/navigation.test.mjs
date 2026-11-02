@@ -54,7 +54,9 @@ test('uploader prevents overlaps, suppresses jitter and releases failed requests
   const first = uploader.publish(a, 1000);
   now = 2000; assert.equal(await uploader.publish({ ...a, latitude: .001 }, 1000), false); assert.equal(calls, 1);
   release(); await first;
-  assert.equal(await uploader.publish(a, 1000), false);
+  const heartbeat = uploader.publish(a, 1000);
+  assert.equal(calls, 2);
+  release(); assert.equal(await heartbeat, true);
   const failed = createLocationPublisher(async () => { throw new Error('offline'); }, () => now);
   await assert.rejects(failed.publish(a, 1000), /offline/);
   assert.equal(await failed.publish(a, 1000), false);

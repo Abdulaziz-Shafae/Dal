@@ -318,3 +318,41 @@
 }
 .chat-page .chat-heading h2{min-width:0;overflow-wrap:anywhere}
 .chat-page .messages{overflow-anchor:none}
+
+
+/* DAL team on the landing page */
+.dal-team-section { padding: 72px 0; background: #e3f4ee; color: #004432; }
+.dal-team-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; margin-top: 30px; }
+.dal-team-card { display: flex; flex-direction: column; align-items: flex-start; gap: 12px; min-width: 0; padding: 24px; border: 1px solid #b9dfd2; border-radius: 20px; background: #fff; color: #004432; text-decoration: none; transition: transform .2s, box-shadow .2s; }
+.dal-team-card:hover, .dal-team-card:focus-visible { transform: translateY(-3px); box-shadow: 0 10px 24px #00443217; }
+.dal-team-avatar { display: grid; place-items: center; width: 55px; height: 55px; border-radius: 50%; background: #2bba95; color: #004432; font-size: 26px; font-weight: 800; }
+.dal-team-card strong { font-size: 19px; }
+.dal-team-card small { font-size: 13px; line-height: 1.5; color: #336b5d; overflow-wrap: anywhere; }
+.dal-team-link { margin-top: auto; font-size: 14px; font-weight: 700; color: #1b9151; }
+@media (max-width: 920px) { .dal-team-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 520px) { .dal-team-section { padding: 48px 0; } .dal-team-grid { grid-template-columns: 1fr; gap: 12px; } .dal-team-card { padding: 18px; } }
+
+
+/* Compact home feature cards: prevent large empty areas on tablet/desktop. */
+@media (min-width: 761px) {
+  .tools-section .tool-card:not(.map-card) { min-height: 270px; height: auto; justify-content: flex-start; gap: 24px; }
+  .tools-section .tool-card:not(.map-card) > div { display: flex; flex: 1; flex-direction: column; width: 100%; }
+  .tools-section .tool-card:not(.map-card) h3 { margin-bottom: 8px; }
+  .tools-section .tool-card:not(.map-card) small { margin-top: auto; padding-top: 22px; }
+}
+@media (max-width: 760px) {
+  .tools-section .tool-card:not(.map-card) { min-height: 136px; height: auto; }
+}
+
+/* Group event details: readable controls on desktop and mobile */
+.dal-event-fields{border:1px solid #cde7dd;border-radius:18px;padding:18px;margin:20px 0;min-width:0}
+.dal-event-fields legend{padding:0 10px;font-weight:700}
+.dal-date-range{display:flex;align-items:center;gap:12px;width:100%;margin-top:10px}
+.dal-date-range input{flex:1;min-width:0;width:100%}
+.dal-date-range>span{white-space:nowrap;font-size:14px}
+.group-detail .inline-form{margin-block:22px;padding-block:18px}
+.group-detail .inline-form>h3{margin:12px 0}
+.group-detail .inline-form>.field-help{margin:12px 0 18px;line-height:1.8}
+.group-detail .inline-form+label,.group-detail .inline-form+.pair{margin-top:24px}
+.dal-event-warning{margin:12px 0;padding:12px 16px;border:1px solid #d7b98b;border-radius:12px;background:#fff9ee;color:#634a20;line-height:1.8}
+@media(max-width:760px){.dal-date-range{gap:8px;flex-wrap:wrap}.dal-date-range input{min-width:125px}.dal-event-fields{padding:14px}.group-detail .inline-form{margin-block:18px}}

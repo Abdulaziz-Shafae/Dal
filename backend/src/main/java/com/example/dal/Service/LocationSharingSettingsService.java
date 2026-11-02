@@ -18,6 +18,7 @@ public class LocationSharingSettingsService {
     private final LocationSharingSettingsRepository settingsRepository;
     private final GroupMemberRepository memberRepository;
     private final GroupAccessService accessService;
+    private final GroupScheduleService scheduleService;
     private final InputValidationService validationService;
 
     @Transactional(readOnly = true)
@@ -42,7 +43,7 @@ public class LocationSharingSettingsService {
         settings.setSharingMode(input.getSharingMode());
         settings.setStartTime("SCHEDULED".equals(input.getSharingMode()) ? start : null);
         settings.setEndTime("SCHEDULED".equals(input.getSharingMode()) ? end : null);
-        settings.setUpdateIntervalSeconds(input.getUpdateIntervalSeconds());
+        settings.setUpdateIntervalSeconds(20);
         settingsRepository.saveAndFlush(settings);
         return createSettingsResponse(settings);
     }
@@ -120,7 +121,7 @@ public class LocationSharingSettingsService {
         if ("CLOSED".equals(group.getStatus()) || isPauseActive("PAUSED".equals(group.getStatus()), group.getPausedUntil(), now)) {
             return false;
         }
-        return isGlobalSharingEnabled(settings) && !isPauseActive(member.getLocationSharingPaused(), member.getLocationSharingPausedUntil(), now);
+        return isGlobalSharingEnabled(settings) && scheduleService.active(group, now) && !isPauseActive(member.getLocationSharingPaused(), member.getLocationSharingPausedUntil(), now);
     }
 
     private boolean isPauseActive(Boolean paused, LocalDateTime until, LocalDateTime now) {
@@ -137,7 +138,7 @@ public class LocationSharingSettingsService {
 
     private SharingSettingsDtoOut createSettingsResponse(LocationSharingSettings settings) {
         boolean paused = isPauseActive(settings.getIsPaused(), settings.getPausedUntil(), validationService.getCurrentTime());
-        return new SharingSettingsDtoOut(settings.getSharingMode(), validationService.convertForResponse(settings.getStartTime()), validationService.convertForResponse(settings.getEndTime()), paused, validationService.convertForResponse(paused ? settings.getPausedUntil() : null), settings.getUpdateIntervalSeconds(), isGlobalSharingEnabled(settings), validationService.convertForResponse(settings.getUpdatedAt()));
+        return new SharingSettingsDtoOut(settings.getSharingMode(), validationService.convertForResponse(settings.getStartTime()), validationService.convertForResponse(settings.getEndTime()), paused, validationService.convertForResponse(paused ? settings.getPausedUntil() : null), 20, isGlobalSharingEnabled(settings), validationService.convertForResponse(settings.getUpdatedAt()));
     }
 
     private MemberSharingDtoOut createMemberSharingResponse(GroupMember member) {

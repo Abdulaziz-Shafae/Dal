@@ -3,6 +3,8 @@ package com.example.dal.DtoOut;
 import jakarta.validation.constraints.*;
 import lombok.*;
 import java.time.OffsetDateTime;
+import java.time.LocalDate;
+import java.time.LocalTime;
 
 @Getter
 @Setter
@@ -29,4 +31,11 @@ public class GroupDtoOut {
     private OffsetDateTime pausedUntil;
 
     private OffsetDateTime createdAt;
+
+    private String scheduleMode;
+    private LocalDate eventStartDate;
+    private LocalDate eventEndDate;
+    private LocalTime dailyStartTime;
+    private LocalTime dailyEndTime;
+    private Boolean scheduleActive;
 }

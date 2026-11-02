@@ -46,11 +46,12 @@ class LocationLifecycleTests {
         when(access.requireMember(1,10)).thenReturn(member); when(access.requireManager(1,10)).thenReturn(member); when(access.requireGroupForUpdate(10)).thenReturn(group);
         var settingsRepository = mock(LocationSharingSettingsRepository.class); when(settingsRepository.findByUser_Id(1)).thenReturn(settings);
         var members = mock(GroupMemberRepository.class); when(members.findAllByGroup_Id(10)).thenReturn(List.of(member));
-        sharing = new LocationSharingSettingsService(settingsRepository,members,access,validation);
+        var schedule = new GroupScheduleService();
+        sharing = new LocationSharingSettingsService(settingsRepository,members,access,schedule,validation);
         repository = mock(UserLocationRepository.class); when(repository.findFirstByUser_IdOrderByRecordedAtDescIdDesc(1)).thenAnswer(call -> latest);
         when(repository.save(any(UserLocation.class))).thenAnswer(call -> { latest=call.getArgument(0);return latest; });
-        locations = new UserLocationService(repository,members,settingsRepository,sharing,access,validation);
-        groups = new GroupService(mock(GroupRepository.class),members,mock(GroupJoinRequestRepository.class),access,validation);
+        locations = new UserLocationService(repository,members,settingsRepository,sharing,access,schedule,validation);
+        groups = new GroupService(mock(GroupRepository.class),members,mock(GroupJoinRequestRepository.class),access,schedule,validation);
     }
     @Test void scheduledLastKnownSurvivesDisconnectUntilExactAbsoluteEndWithOffsets() {
         mode("SCHEDULED"); sample(); assertNotNull(read().getLatitude()); var recorded=read().getRecordedAt();

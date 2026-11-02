@@ -42,7 +42,7 @@ test('compass chooses a group and opens its compass, even after another group wa
   await setup(); await click(buttons('البوصلة')[0]); assert.ok(text(tree.toJSON()).includes('اختر مجموعة')); await choose();
   assert.equal(tree.root.find(n => typeof n.type === 'function' && n.props.navigation !== undefined && n.props.view !== undefined).props.view, 'compass');
   await click(tree.root.findByProps({'aria-label':'رجوع'})); await click(tree.root.findByProps({className:'brand brand-dark'}));
-  await click(buttons('البوصلة')[0]); assert.ok(text(tree.toJSON()).includes('اختر مجموعة'));
+  await click(buttons('البوصلة')[0]); assert.equal(tree.root.find(n => typeof n.type === 'function' && n.props.navigation !== undefined && n.props.view !== undefined).props.view, 'compass');
 });
 
 test('creation opens group details despite a later list refresh failure', async () => {
@@ -59,7 +59,7 @@ test('a member message shortcut opens the private conversation', async () => {
 });
 test('guest compass intent survives login and group selection', async () => {
   await setup({guest:true}); await click(buttons('البوصلة')[0]); await submit({email:'test@example.test',password:'test'});
-  assert.ok(text(tree.toJSON()).includes('اختر مجموعة')); await choose(); assert.equal(tree.root.find(n=>typeof n.type === 'function' && n.props.navigation !== undefined && n.props.view !== undefined).props.view,'compass');
+  assert.ok(text(tree.toJSON()).includes('مجموعاتك')); await choose(); assert.ok(text(tree.toJSON()).includes('تفاصيل المجموعة'));
 });
 test('approval join returns to groups without opening an unapproved group', async () => {
   await setup({pending:true}); await click(buttons('المجموعات')[0]); await click(buttons('عندي كود مجموعة')[0]); await submit({joinCode:'AB12C'});

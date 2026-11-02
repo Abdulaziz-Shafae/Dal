@@ -7,7 +7,7 @@ export function createLocationPublisher(save, clock = Date.now) {
   return {
     async publish(point, interval) {
       const now = clock();
-      const activityDue = validCoordinates(point) && now - sentAt >= 30000;
+      const activityDue = validCoordinates(point) && now - sentAt >= interval;
       if (pending || now - attemptedAt < Math.min(interval, 30000) || (!activityDue && !shouldPublish(point, last, now - sentAt, interval))) return false;
       pending = true; attemptedAt = now;
       try { await save(point); last = point; sentAt = now; return true; }

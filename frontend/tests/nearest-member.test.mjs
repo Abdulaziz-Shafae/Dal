@@ -37,7 +37,7 @@ const require = createRequire(import.meta.url);
 const code = await build({ stdin: { contents: "export {default as Navigation} from './src/components/navigation/GroupNavigation.jsx'; export {LanguageProvider} from './src/LanguageContext.jsx';", resolveDir: fileURLToPath(new URL('../', import.meta.url)) }, bundle: true, write: false, format: 'esm', loader: { '.css': 'empty' }, define: { 'import.meta.env.VITE_API_BASE_URL': "''" }, plugins: [{ name: 'fixture', setup(b) {
   b.onResolve({ filter: /^react$/ }, () => ({ path: pathToFileURL(require.resolve('react')).href, external: true }));
   b.onResolve({ filter: /^react-leaflet$/ }, () => ({ path: 'map', namespace: 'fixture' }));
-  b.onLoad({ filter: /.*/, namespace: 'fixture' }, () => ({ contents: 'export const MapContainer=()=>null,TileLayer=()=>null,CircleMarker=()=>null,Popup=()=>null,Tooltip=()=>null,Polyline=()=>null,useMap=()=>({}),useMapEvents=()=>({});' }));
+  b.onLoad({ filter: /.*/, namespace: 'fixture' }, () => ({ contents: 'export const MapContainer=()=>null,TileLayer=()=>null,CircleMarker=()=>null,Marker=()=>null,Popup=()=>null,Tooltip=()=>null,Polyline=()=>null,useMap=()=>({}),useMapEvents=()=>({});' }));
 } }] });
 const { Navigation, LanguageProvider } = await import('data:text/javascript;base64,' + Buffer.from(code.outputFiles[0].text).toString('base64'));
 let tree, selected, selectedCalls, nativeCalls, apiCalls, props;

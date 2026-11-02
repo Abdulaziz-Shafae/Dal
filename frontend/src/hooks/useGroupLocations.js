@@ -37,7 +37,7 @@ export default function useGroupLocations({ user, group, active, sharing, groupS
   }, []);
   useEffect(() => { publisher.current = createLocationPublisher(api.saveLocation); setConsent(null); setUploadError(''); setData({ scope, rows: [], meeting: null, state: 'loading', permissions: null, checkedAt: 0, expired: false }); }, [scope]);
   useEffect(() => {
-    if (!sharing?.sharingEnabled || !groupSharing?.sharingEnabled || ['PAUSED', 'CLOSED'].includes(group?.status)) {
+    if (!sharing?.sharingEnabled || (!groupSharing?.sharingEnabled && group?.scheduleActive !== false) || ['PAUSED', 'CLOSED'].includes(group?.status)) {
       publisher.current = createLocationPublisher(api.saveLocation);
       setConsent(null); setData(old => ({ ...old, rows: ['PAUSED', 'CLOSED'].includes(group?.status) ? [] : old.rows.filter(row => row.userId !== user?.id), permissions: null }));
     }
@@ -71,7 +71,7 @@ export default function useGroupLocations({ user, group, active, sharing, groupS
         const permittedRows = visibleLocations(rows);
         setData({ scope, rows: permittedRows, meeting, state: 'connected', checkedAt: Date.now(), expired: false, period: JSON.stringify([settings.sharingMode, settings.startTime, settings.endTime]), permissions: { global: globalSharingAllowed(settings), group: membership.sharingEnabled, interval: settings.updateIntervalSeconds } });
         current.current.onSnapshot?.({ settings, membership, members, group: freshGroup, meeting });
-        if (!globalSharingAllowed(settings) || !membership.sharingEnabled) setConsent(null);
+        if (!globalSharingAllowed(settings) || (!membership.sharingEnabled && freshGroup?.scheduleActive !== false)) setConsent(null);
       } catch (error) {
         if (!live || current.current.scope !== scope || authorization.current.revision !== revision) return;
         const network = error.status === 0 || error.status >= 500;

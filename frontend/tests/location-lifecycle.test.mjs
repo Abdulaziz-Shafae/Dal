@@ -112,9 +112,9 @@ test('local stop or a new schedule clears only the owner period, retaining other
   settings={...settings,sharingEnabled:false,isPaused:true}; update(props()); assert.deepEqual(value.rows.map(row=>row.userId),[2]);
   settings={...settings,sharingEnabled:true,isPaused:false,sharingMode:'SCHEDULED',startTime:new Date(base+3600000).toISOString(),endTime:new Date(base+7200000).toISOString()}; update(props()); assert.deepEqual(value.rows.map(row=>row.userId),[2]); assert.equal(value.consent,false);
 });
-test('stationary activity heartbeat posts the unchanged GPS measurement every 30 seconds and bounds retries', async () => {
+test('stationary activity heartbeat respects the fixed publish interval and bounds retries', async () => {
   const sample = point(), posted = []; const publisher = hooks.createLocationPublisher(async input => posted.push(input), () => now);
-  assert.equal(await publisher.publish(sample, 120000), true); now += 29999; assert.equal(await publisher.publish(sample, 120000), false); now++;
+  assert.equal(await publisher.publish(sample, 120000), true); now += 119999; assert.equal(await publisher.publish(sample, 120000), false); now++;
   assert.equal(await publisher.publish(sample, 120000), true); assert.equal(posted[1].recordedAt, posted[0].recordedAt); assert.equal(posted[1], sample);
 });
 test('GPS reconnect resumes only a previously granted permission and does not auto prompt when a grant is absent', async () => {

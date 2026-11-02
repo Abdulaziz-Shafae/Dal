@@ -21,6 +21,7 @@ public class GroupService {
     private final GroupMemberRepository memberRepository;
     private final GroupJoinRequestRepository requestRepository;
     private final GroupAccessService accessService;
+    private final GroupScheduleService scheduleService;
     private final InputValidationService validationService;
     private final SecureRandom secureRandom = new SecureRandom();
     private static final String CODE_CHARACTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
@@ -34,6 +35,7 @@ public class GroupService {
         group.setJoinMode(input.getJoinMode());
         group.setJoinCode(generateUniqueJoinCode());
         group.setCreatedBy(user);
+        if (input.getScheduleMode() != null) scheduleService.configure(group, input.getScheduleMode(), input.getEventStartDate(), input.getEventEndDate(), input.getDailyStartTime(), input.getDailyEndTime());
         groupRepository.saveAndFlush(group);
         GroupMember owner = new GroupMember();
         owner.setUser(user);
@@ -67,6 +69,11 @@ public class GroupService {
         accessService.requireOpenGroup(group);
         group.setName(input.getName().trim());
         group.setJoinMode(input.getJoinMode());
+        if (input.getScheduleMode() != null) {
+            accessService.requireOwner(userId, groupId);
+            scheduleService.configure(group, input.getScheduleMode(), input.getEventStartDate(), input.getEventEndDate(), input.getDailyStartTime(), input.getDailyEndTime());
+            invalidateLocations(group, validationService.getCurrentTime());
+        }
         groupRepository.save(group);
         return createGroupResponse(group, manager.getRole());
     }
@@ -199,6 +206,6 @@ public class GroupService {
         if ("PAUSED".equals(status) && group.getPausedUntil() != null && !group.getPausedUntil().isAfter(validationService.getCurrentTime())) {
             status = "ACTIVE";
         }
-        return new GroupDtoOut(group.getId(), group.getName(), group.getJoinCode(), status, group.getJoinMode(), group.getCreatedBy().getId(), role, memberRepository.countByGroup_Id(group.getId()), validationService.convertForResponse("PAUSED".equals(status) ? group.getPausedUntil() : null), validationService.convertForResponse(group.getCreatedAt()));
+        return new GroupDtoOut(group.getId(), group.getName(), group.getJoinCode(), status, group.getJoinMode(), group.getCreatedBy().getId(), role, memberRepository.countByGroup_Id(group.getId()), validationService.convertForResponse("PAUSED".equals(status) ? group.getPausedUntil() : null), validationService.convertForResponse(group.getCreatedAt()), group.getScheduleMode(), group.getEventStartDate(), group.getEventEndDate(), group.getDailyStartTime(), group.getDailyEndTime(), scheduleService.active(group, validationService.getCurrentTime()));
     }
 }
