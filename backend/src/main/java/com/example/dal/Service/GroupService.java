@@ -70,6 +70,7 @@ public class GroupService {
         group.setName(input.getName().trim());
         group.setJoinMode(input.getJoinMode());
         if (input.getScheduleMode() != null) {
+            accessService.requireOwner(userId, groupId);
             scheduleService.configure(group, input.getScheduleMode(), input.getEventStartDate(), input.getEventEndDate(), input.getDailyStartTime(), input.getDailyEndTime());
             invalidateLocations(group, validationService.getCurrentTime());
         }
