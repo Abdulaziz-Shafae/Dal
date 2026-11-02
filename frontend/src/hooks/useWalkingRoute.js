@@ -71,7 +71,7 @@ export default function useWalkingRoute({ groupId, own, target, online, consent,
   const updating = Boolean(geometry && online && (request?.status === 'LOADING' || routeNeedsUpdate(last.current, own, target, key, now)) && request?.status !== 'UNAVAILABLE');
   const outdated = Boolean(geometry && (!online || !available || updating || attempted.current?.reconnect || request?.status === 'UNAVAILABLE'));
   const result = geometry ? { ...geometry, updating, outdated, offline: !online, failed: request?.status === 'UNAVAILABLE' } : !invalid && preview && request?.key === key ? request : null;
-  return { result, updating, outdated, blocked: request?.key === key && request.status === 'LOCATION_UNAVAILABLE', guiding: guiding && available && preview && online && !outdated, preview, available,
+  return { result, updating, outdated, blocked: request?.key === key && request.status === 'LOCATION_UNAVAILABLE', guiding: guiding && Boolean(geometry) && available && preview && online && !outdated, preview, available,
     select: () => { generation.current++; last.current = null; attempted.current = null; setSuccessful(null); setRequest(null); setPreview(true); setGuiding(false); },
     start: () => { if (request?.status === 'UNAVAILABLE') { attempted.current = { reconnect: true }; setRequest(null); } setPreview(true); setGuiding(true); },
     stop: () => { generation.current++; setPreview(false); setGuiding(false); setSuccessful(null); setRequest(null); last.current = null; attempted.current = null; }
