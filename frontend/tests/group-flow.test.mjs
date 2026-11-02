@@ -42,7 +42,7 @@ test('compass chooses a group and opens its compass, even after another group wa
   await setup(); await click(buttons('البوصلة')[0]); assert.ok(text(tree.toJSON()).includes('اختر مجموعة')); await choose();
   assert.equal(tree.root.find(n => typeof n.type === 'function' && n.props.navigation !== undefined && n.props.view !== undefined).props.view, 'compass');
   await click(tree.root.findByProps({'aria-label':'رجوع'})); await click(tree.root.findByProps({className:'brand brand-dark'}));
-  await click(buttons('البوصلة')[0]); assert.ok(text(tree.toJSON()).includes('اختر مجموعة'));
+  await click(buttons('البوصلة')[0]); assert.equal(tree.root.find(n => typeof n.type === 'function' && n.props.navigation !== undefined && n.props.view !== undefined).props.view, 'compass');
 });
 
 test('creation opens group details despite a later list refresh failure', async () => {
