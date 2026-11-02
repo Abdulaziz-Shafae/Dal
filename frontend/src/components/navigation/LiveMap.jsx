@@ -1,6 +1,7 @@
 import { useLanguage } from '../../LanguageContext.jsx';
 import React, { useEffect, useState } from 'react';
-import { MapContainer, TileLayer, CircleMarker, Popup, Tooltip, Polyline, useMap, useMapEvents } from 'react-leaflet';
+import { MapContainer, TileLayer, CircleMarker, Marker, Popup, Tooltip, Polyline, useMap, useMapEvents } from 'react-leaflet';
+import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import { distanceBetween, locationLabel, locationStatus, validCoordinates } from '../../utils/navigationCalculations.js';
 function Controls({ focus, onPick, picking, visible }) {
@@ -18,6 +19,7 @@ function Controls({ focus, onPick, picking, visible }) {
   useMapEvents({ click: event => { if (picking) onPick({ latitude: event.latlng.lat, longitude: event.latlng.lng }); } });
   return null;
 }
+const meetingPinIcon = L.divIcon({ className: 'dal-meeting-pin', html: '<svg width="38" height="48" viewBox="0 0 38 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M19 2C9.6 2 2 9.6 2 19c0 13.2 17 26.5 17 26.5S36 32.2 36 19C36 9.6 28.4 2 19 2Z" fill="#004432" stroke="#ffffff" stroke-width="3"/><circle cx="19" cy="19" r="9" fill="#2bba95"/><path d="M14 19h10M19 14v10" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round"/></svg>', iconSize: [38, 48], iconAnchor: [19, 46], popupAnchor: [0, -40] });
 function Point({ point, own, meeting, onSelect, origin, now, online }) {
   const { tr, lang, direction } = useLanguage();
   const distance = distanceBetween(origin, point);
@@ -48,7 +50,7 @@ export default function LiveMap({ rows, own, userId, meeting, selected, onSelect
       {validCoordinates(suggestion) && <CircleMarker center={[suggestion.latitude, suggestion.longitude]} radius={15} pathOptions={{ color: '#a56700', fillColor: '#ffd77a', fillOpacity: .8 }}><Tooltip permanent>{suggestion.name} {tr("· مقترحة ولم تحفظ")}</Tooltip></CircleMarker>}
       {own && <Point point={own} own origin={own}/>}
       {rows.filter(row => row.userId !== userId).map(row => <Point key={row.userId} point={row} origin={own} onSelect={onSelect} now={now} online={online}/>)}
-      {validCoordinates(meeting) && <Point point={meeting} meeting origin={own} onSelect={onSelect}/>}
+      {validCoordinates(meeting) && <Marker position={[meeting.latitude, meeting.longitude]} icon={meetingPinIcon} eventHandlers={{ click: () => onSelect?.(meeting) }}><Tooltip direction="top">{tr("نقطة اللقاء")}: {meeting.name}</Tooltip><Popup><b>{tr("نقطة اللقاء")}: {meeting.name}</b><p>{distanceBetween(own, meeting) === null ? tr("المسافة المباشرة غير متاحة") : tr("المسافة المباشرة: {0} م", Math.round(distanceBetween(own, meeting)))}</p></Popup></Marker>}}
       {validCoordinates(draft) && <CircleMarker center={[draft.latitude, draft.longitude]} radius={14} pathOptions={{ color: '#004432', dashArray: '5 5' }}><Tooltip permanent>{tr("النقطة المختارة · لم تحفظ بعد")}</Tooltip></CircleMarker>}
     </MapContainer></div>
     {fallback && <div className="nav-offline-list">{expired && <p role="status">{tr("انتهت مدة مشاركة الموقع.")}</p>}{[...(validCoordinates(meeting) ? [{ ...meeting, name: tr("نقطة اللقاء: {0}", meeting.name) }] : []), ...rows].map((p, i) => <p key={i}><b>{p.name}</b><br/><span dir="ltr">{p.latitude.toFixed(6)}, {p.longitude.toFixed(6)}</span><br/>{p.userId ? `${locationStatus(p, now, online, lang)} · ${locationLabel(p, now, lang)}` : tr("نقطة لقاء ثابتة")}</p>)}{!meeting && !rows.length && <p>{tr("لا توجد معلومات محفوظة متاحة.")}</p>}</div>}
