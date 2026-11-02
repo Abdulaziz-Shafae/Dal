@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import useWalkingRoute from '../../hooks/useWalkingRoute.js';
 import useWalkingCompass from '../../hooks/useWalkingCompass.js';
 import ReunionAssistant from './ReunionAssistant.jsx';
+import MeetingSuggestions from './MeetingSuggestions.jsx';
 
 import LiveMap from './LiveMap.jsx';
 import LiveCompass from './LiveCompass.jsx';
@@ -106,6 +107,7 @@ export default function GroupNavigation({ view, user, group, members, navigation
       <footer className="walking-attribution" aria-label={tr("مصادر الطريق والترخيص")}><a href="https://openrouteservice.org/" target="_blank" rel="noreferrer">© openrouteservice by HeiGIT</a><a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noreferrer">© {tr("OpenStreetMap contributors")}</a><a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noreferrer">{tr("نتائج المسار: CC BY-SA 4.0")}</a></footer>
     </div>}
     {['map', 'compass'].includes(view) && <ReunionAssistant groupId={group.id} target={target || (selected?.userId ? { userId: selected.userId, name: selected.name, sharingEnabled: false } : null)} online={online} onError={onError} onNudge={() => nudge(target || selected)} onMeeting={() => { setMeetingSelected(true); walking.select(); navigate('map'); }}/>}
+    {view === 'meeting' && manager && <MeetingSuggestions groupId={group.id} locations={nav.rows} online={online} busy={busy} save={saveMeeting} onError={onError}/>}
     {view === 'meeting' && <MeetingPointPicker meeting={nav.meeting} draft={draft} onDraft={setDraft} canManage={manager} online={online} busy={busy} save={async point => { if (await saveMeeting(point)) setDraft(null); }} remove={removeMeeting}/>}
     <div className="member-picker"><h2>{tr("وين مجموعتك؟")}</h2><div className="member-row">{members.filter(m => m.userId !== user.id).map(member => {
       const point = nav.rows.find(row => row.userId === member.userId), distance = distanceBetween(own, point);
