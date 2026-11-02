@@ -25,4 +25,6 @@ public class GroupDtoIn {
     private LocalDate eventEndDate;
     private LocalTime dailyStartTime;
     private LocalTime dailyEndTime;
+
+    public GroupDtoIn(String name, String joinMode) { this.name = name; this.joinMode = joinMode; }
 }
