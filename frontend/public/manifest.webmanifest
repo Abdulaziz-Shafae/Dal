@@ -1,0 +1,19 @@
+{
+  "name": "دال | Dal",
+  "short_name": "دال | Dal",
+  "description": "دال يدلّك على مجموعتك في إكسبو 2030 الرياض.",
+  "lang": "ar",
+  "dir": "rtl",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#004432",
+  "theme_color": "#004432",
+  "icons": [
+    {
+      "src": "/assets/logo-white.png",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
