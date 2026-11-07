@@ -7,6 +7,11 @@ const backend = process.env.BACKEND_URL ? new URL(process.env.BACKEND_URL) : nul
 if (backend && !['http:', 'https:'].includes(backend.protocol)) throw new Error('BACKEND_URL must be HTTP or HTTPS');
 const types = { '.html': 'text/html; charset=utf-8', '.js': 'application/javascript', '.css': 'text/css', '.svg': 'image/svg+xml', '.png': 'image/png', '.webp': 'image/webp', '.woff2': 'font/woff2', '.pdf': 'application/pdf' };
 http.createServer(async (req, res) => {
+ if ((req.method === 'GET' || req.method === 'HEAD') && req.url === '/healthz') {
+  res.writeHead(200, { 'Content-Type': 'text/plain; charset=utf-8', 'Cache-Control': 'no-store' });
+  res.end(req.method === 'HEAD' ? undefined : 'ok\n');
+  return;
+ }
  if (req.url.startsWith('/api/')) {
    if (!backend) { res.writeHead(503, { 'Content-Type': 'application/json' }); res.end(JSON.stringify({ message: 'الخدمة غير متصلة حاليًا. يرجى المحاولة لاحقًا.' })); return; }
    const target = new URL(req.url, backend.origin);
